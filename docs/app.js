@@ -1,5 +1,6 @@
 // Football Universe Copilot — live replay + force-directed graph. No dependencies.
 let D, minute = 0, playing = false, lastTs = null, shown = 0, mode = 'casual_fan';
+let focusPlayer = 'Erling Haaland', focusClub = 'Arsenal', dockClosed = false;
 const $ = id => document.getElementById(id);
 function xtModel(x, y) { const d = Math.hypot(105 - x, 34 - y); return Math.round(0.38 * Math.exp(-d / 24) * (1 - 0.45 * Math.abs(y - 34) / 34) * 1000) / 1000; }
 const FORMATION = [[4,34],[18,10],[18,26],[18,42],[18,58],[34,16],[34,34],[34,52],[52,22],[52,46],[66,34]];
@@ -23,15 +24,88 @@ function render() {
   const ov = [...D.overlay.feed].reverse().find(o => o.at_minute <= minute);
   if (ov) { $('overlayCard').hidden = false; $('overlayText').textContent = `${ov.at_minute}' — ${ov.title}: ${ov.body}`; }
   const pp = $('payloadPre'); if (pp) pp.textContent = JSON.stringify({ schema: 'football-universe-overlay/v1', at_minute: Math.floor(minute), fixture: D.fixture, score: s, overlay: ov || null, persona: mode, narration_source: D.narrative.narration_source || 'deterministic-template' }, null, 2);
+  const fxk = D.fixture.home + '|' + D.fixture.away; if (window._fxk !== fxk) { window._fxk = fxk; populateFocus(); }
+  refreshPersona(); updateDock();
   const w = Math.min(5, Math.floor(minute / 15));
   const mkey = D.fixture.home + '|' + w; if (window._momKey !== mkey) { window._momKey = mkey; $('momentum').innerHTML = momentumChart(w); }
 }
 function setMode(m) {
   mode = m;
   document.querySelectorAll('.mode').forEach(b => b.classList.toggle('active', b.dataset.mode === m));
+  refreshPersona(true);
+}
+function refreshPersona(force) {
   if (!D) return;
-  $('modeTitle').textContent = D.personalized[m].headline;
-  $('modeBody').textContent = D.personalized[m].body;
+  let h, b;
+  if (mode === 'player_focus') { const r = playerFocusText(focusPlayer); h = r[0]; b = r[1]; }
+  else if (mode === 'club_focus') { const r = clubFocusText(focusClub); h = r[0]; b = r[1]; }
+  else { h = D.personalized[mode].headline; b = D.personalized[mode].body; }
+  const key = h + '|' + b;
+  if (force || window._pzKey !== key) { window._pzKey = key; $('modeTitle').textContent = h; $('modeBody').textContent = b; }
+}
+function playerFocusText(p) {
+  const nm = x => (x && x.id) || x;
+  const evs = D.events.filter(e => e.player === p);
+  const soFar = evs.filter(e => (e.clock ?? e.minute) <= minute);
+  const team = (evs[0] && evs[0].team) || '';
+  const gn = (typeof nodes !== 'undefined') && nodes.find(n => n.id === p);
+  let graph = '';
+  if (gn) { const nb = new Set(); links.forEach(l => { if (nm(l.source) === p) nb.add(nm(l.target)); if (nm(l.target) === p) nb.add(nm(l.source)); }); graph = ` In the universe graph, ${p} carries a Kevin Bacon Score of ${gn.kevin_bacon_score ?? 'n/a'}/10 with ${gn.degree} connections (${[...nb].slice(0, 3).join(', ')}).`; }
+  else if (p) graph = ` ${p} is not a node in the seed universe graph, so this focus stays on their match events.`;
+  if (!soFar.length) return [`Player focus: ${p}`, `${p}${team ? ` (${team})` : ''} is yet to feature at ${Math.floor(minute)}'.${graph} Press Play — this focus updates with every involvement.`];
+  const g = soFar.filter(e => e.goal).length, sh = soFar.filter(e => e.type === 'shot'), ot = sh.filter(e => e.on_target).length, pa = soFar.filter(e => e.type === 'pass').length, pr = soFar.filter(e => e.type === 'pressure').length;
+  const best = sh.reduce((m, e) => Math.max(m, e.shot_speed_kmh || 0), 0);
+  const al = [...new Set(soFar.flatMap(e => e.threshold_alerts || []))];
+  let b = `${p} so far at ${Math.floor(minute)}': ${soFar.length} involvements — ${g} goal${g === 1 ? '' : 's'}, ${sh.length} shots (${ot} on target), ${pa} passes, ${pr} pressure actions.`;
+  if (best) b += ` Fastest shot ${best} km/h.`;
+  if (al.length) b += ` Threshold alerts: ${al.join(', ')}.`;
+  const gl = soFar.find(e => e.goal); if (gl) b += ` Scored at ${Math.floor(gl.clock ?? gl.minute)}'.`;
+  return [`Player focus: ${p}`, b + graph];
+}
+function clubFocusText(c) {
+  const opp = c === D.fixture.home ? D.fixture.away : D.fixture.home;
+  const upto = D.events.filter(e => (e.clock ?? e.minute) <= minute);
+  const mine = upto.filter(e => e.team === c), theirs = upto.filter(e => e.team === opp);
+  const goals = a => a.filter(e => e.goal).length, shots = a => a.filter(e => e.type === 'shot').length;
+  const share = upto.length ? Math.round(100 * mine.length / upto.length) : 50;
+  const wCount = D.stats.momentum.slice(0, Math.floor(minute / 15)).filter(m => m.dominant === c).length;
+  const alerts = mine.flatMap(e => e.threshold_alerts || []).length;
+  let b = `${c} at ${Math.floor(minute)}': ${goals(mine)}–${goals(theirs)} vs ${opp} · ${shots(mine)} shots to ${shots(theirs)} · ${share}% of all recorded events.`;
+  if (wCount) b += ` Dominant in ${wCount} completed 15-minute momentum window${wCount === 1 ? '' : 's'}.`;
+  if (alerts) b += ` ${alerts} threshold alert${alerts === 1 ? '' : 's'} from ${c} players.`;
+  if (minute >= 90) b += ` Full time — the recap below has the complete story.`;
+  return [`My club: ${c}`, b];
+}
+function syncModeLabels() {
+  const ln = x => (x || '').split(' ').slice(-1)[0];
+  const pb = document.querySelector('[data-mode="player_focus"]'); if (pb) pb.textContent = 'Player Focus: ' + ln(focusPlayer);
+  const cb = document.querySelector('[data-mode="club_focus"]'); if (cb) cb.textContent = 'My Club: ' + (focusClub || '');
+}
+function populateFocus() {
+  const counts = {}; D.events.forEach(e => { if (e.player) counts[e.player] = (counts[e.player] || 0) + 1; });
+  const players = Object.keys(counts).sort((x, y) => counts[y] - counts[x]).slice(0, 16);
+  if (!players.includes(focusPlayer)) { const sc = D.events.find(e => e.goal); focusPlayer = (sc && players.includes(sc.player)) ? sc.player : players[0]; }
+  const fp = $('focusPlayer'); if (fp) fp.innerHTML = players.map(p => `<option ${p === focusPlayer ? 'selected' : ''}>${p}</option>`).join('');
+  const clubs = [D.fixture.home, D.fixture.away];
+  if (!clubs.includes(focusClub)) { const yt = $('pickTeam') && $('pickTeam').value; focusClub = (yt && clubs.includes(yt)) ? yt : clubs[0]; }
+  const fc = $('focusClub'); if (fc) fc.innerHTML = clubs.map(c => `<option ${c === focusClub ? 'selected' : ''}>${c}</option>`).join('');
+  syncModeLabels();
+}
+function updateDock() {
+  const dk = $('dock'); if (!dk || !D) return;
+  const show = (playing || minute > 0) && !dockClosed;
+  dk.hidden = !show; document.body.classList.toggle('dock-on', show);
+  if (!show) return;
+  const sc = {}; D.events.forEach(e => { if (e.goal && (e.clock ?? e.minute) <= minute) sc[e.team] = (sc[e.team] || 0) + 1; });
+  const title = `Copilot live · ${Math.floor(minute)}' · ${D.fixture.home} ${sc[D.fixture.home] || 0}–${sc[D.fixture.away] || 0} ${D.fixture.away}`;
+  const ovs = ((D.overlay && D.overlay.feed) || []).filter(o => o.at_minute <= minute);
+  const fe = D.events.filter(e => (e.clock ?? e.minute) <= minute);
+  let body;
+  if (ovs.length) { const o = ovs[ovs.length - 1]; body = `${o.at_minute}' ${o.title} — ${o.body}`; }
+  else if (fe.length) { const e = fe[fe.length - 1]; body = `${Math.floor(e.clock ?? e.minute)}' ${e.type} — ${e.player} (${e.team})${e.goal ? ' — GOAL' : ''}. The Copilot overlay commentary lands at the key moments.`; }
+  else body = 'Kick-off — commentary anchors here as the events roll in.';
+  const key = title + '|' + body + '|' + playing;
+  if (window._dockKey !== key) { window._dockKey = key; $('dockTitle').textContent = title; $('dockBody').textContent = body; $('dockPlay').textContent = playing ? '⏸' : '▶'; }
 }
 function tick(ts) {
   if (!playing) return;
@@ -238,8 +312,13 @@ async function load() {
   setMode('casual_fan'); render(); updateAgents(); updateModelUI(); initGraph();
   try { const season = await (await fetch('season.json')).json(); initPicker(season); } catch (e) { /* picker optional */ }
 }
-$('playBtn').addEventListener('click', () => { playing = !playing; lastTs = null; $('playBtn').textContent = playing ? '⏸ Pause' : '▶ Play replay'; if (playing) requestAnimationFrame(tick); });
+$('playBtn').addEventListener('click', () => { playing = !playing; if (playing) dockClosed = false; lastTs = null; $('playBtn').textContent = playing ? '⏸ Pause' : '▶ Play replay'; if (playing) requestAnimationFrame(tick); });
 $('resetBtn').addEventListener('click', () => { minute = 0; playing = false; $('playBtn').textContent = '▶ Play replay'; render(); });
+const fps = $('focusPlayer'); if (fps) fps.addEventListener('change', () => { focusPlayer = fps.value; syncModeLabels(); if (mode !== 'player_focus') setMode('player_focus'); else refreshPersona(true); });
+const fcs = $('focusClub'); if (fcs) fcs.addEventListener('change', () => { focusClub = fcs.value; syncModeLabels(); if (mode !== 'club_focus') setMode('club_focus'); else refreshPersona(true); });
+const dkc = $('dockClose'); if (dkc) dkc.addEventListener('click', () => { dockClosed = true; updateDock(); });
+const dkp = $('dockPlay'); if (dkp) dkp.addEventListener('click', () => $('playBtn').click());
+const dkEl = $('dock'); if (dkEl) dkEl.addEventListener('click', e => { if (e.target.closest('button')) return; $('storyCard').scrollIntoView({ behavior: 'smooth', block: 'center' }); });
 $('scrub').addEventListener('input', e => { minute = parseFloat(e.target.value); render(); drawPitch(true); });
 document.querySelectorAll('.mode').forEach(b => b.addEventListener('click', () => setMode(b.dataset.mode)));
 const cp = $('copyPayloadBtn'); if (cp) cp.addEventListener('click', () => { navigator.clipboard && navigator.clipboard.writeText($('payloadPre').textContent); cp.textContent = 'Copied ✓'; setTimeout(() => cp.textContent = 'Copy JSON', 1500); });

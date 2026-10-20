@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Season Hub + Graph - Football Universe</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary": "#005396",
+            "on-tertiary-fixed-variant": "#6023a0",
+            "surface-container-lowest": "#ffffff",
+            "secondary": "#1560a5",
+            "secondary-fixed-dim": "#a3c9ff",
+            "on-surface-variant": "#414751",
+            "tertiary": "#6c32ad",
+            "surface-container-highest": "#e4e2e1",
+            "on-primary-container": "#e3ecff",
+            "error": "#ba1a1a",
+            "inverse-surface": "#303030",
+            "on-primary-fixed-variant": "#004883",
+            "inverse-primary": "#a3c9ff",
+            "primary-fixed": "#d3e3ff",
+            "brand-classic": "#0078D4",
+            "surface-variant": "#e4e2e1",
+            "tertiary-container": "#864dc7",
+            "on-primary-fixed": "#001c39",
+            "surface-tint": "#0060ab",
+            "brand-tint": "#EBF3FC",
+            "copilot-purple": "#7B42BC",
+            "status-info": "#0F6CBD",
+            "secondary-fixed": "#d3e4ff",
+            "primary-container": "#0f6cbd",
+            "on-secondary": "#ffffff",
+            "surface-bright": "#fcf9f8",
+            "status-success": "#107C10",
+            "on-surface": "#1b1c1c",
+            "brand-pressed": "#0C3B5E",
+            "surface-container-low": "#f6f3f2",
+            "surface-canvas": "#FAFAFA",
+            "copilot-blue": "#115EA3",
+            "outline": "#717783",
+            "surface-dim": "#dcd9d9",
+            "surface": "#fcf9f8",
+            "on-primary": "#ffffff",
+            "secondary-container": "#79b3fe",
+            "on-secondary-fixed": "#001c38",
+            "status-success-bg": "#F1FAF1",
+            "on-secondary-container": "#00457c",
+            "on-tertiary-container": "#f5e7ff",
+            "status-danger-bg": "#FDF3F4",
+            "surface-container-high": "#eae7e7",
+            "status-danger": "#C50F1F",
+            "primary-fixed-dim": "#a3c9ff",
+            "on-error-container": "#93000a",
+            "on-secondary-fixed-variant": "#004882",
+            "outline-variant": "#c1c7d3",
+            "brand-secondary": "#2886DE",
+            "on-tertiary-fixed": "#2a0053",
+            "surface-card-alt": "#F5F5F5",
+            "status-warning-bg": "#FFF9F5",
+            "on-error": "#ffffff",
+            "background": "#FAFAFA",
+            "surface-card": "#FFFFFF",
+            "inverse-on-surface": "#f3f0ef",
+            "error-container": "#ffdad6",
+            "status-info-bg": "#EBF3FC",
+            "tertiary-fixed-dim": "#dab9ff",
+            "surface-container": "#f0eded",
+            "tertiary-fixed": "#efdbff",
+            "on-background": "#1b1c1c",
+            "on-tertiary": "#ffffff",
+            "status-warning": "#D83B01"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.5rem",
+            "xl": "0.5rem",
+            "full": "9999px"
+          },
+          "fontFamily": {
+            "display": ["Segoe UI", "-apple-system", "BlinkMacSystemFont", "Roboto", "sans-serif"],
+            "subtitle-1": ["Segoe UI", "-apple-system", "BlinkMacSystemFont", "Roboto", "sans-serif"],
+            "caption-1": ["Segoe UI", "-apple-system", "BlinkMacSystemFont", "Roboto", "sans-serif"],
+            "title-1": ["Segoe UI", "-apple-system", "BlinkMacSystemFont", "Roboto", "sans-serif"],
+            "body-strong": ["Segoe UI", "-apple-system", "BlinkMacSystemFont", "Roboto", "sans-serif"],
+            "body-large": ["Segoe UI", "-apple-system", "BlinkMacSystemFont", "Roboto", "sans-serif"],
+            "body-default": ["Segoe UI", "-apple-system", "BlinkMacSystemFont", "Roboto", "sans-serif"],
+            "title-3": ["Segoe UI", "-apple-system", "BlinkMacSystemFont", "Roboto", "sans-serif"],
+            "subtitle-2": ["Segoe UI", "-apple-system", "BlinkMacSystemFont", "Roboto", "sans-serif"],
+            "caption-1-strong": ["Segoe UI", "-apple-system", "BlinkMacSystemFont", "Roboto", "sans-serif"],
+            "caption-2": ["Segoe UI", "-apple-system", "BlinkMacSystemFont", "Roboto", "sans-serif"],
+            "title-2": ["Segoe UI", "-apple-system", "BlinkMacSystemFont", "Roboto", "sans-serif"]
+          },
+          "fontSize": {
+            "display": ["40px", {"lineHeight": "52px", "letterSpacing": "-0.025em", "fontWeight": "600"}],
+            "subtitle-1": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "caption-1": ["12px", {"lineHeight": "16px", "letterSpacing": "0", "fontWeight": "400"}],
+            "title-1": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+            "body-strong": ["14px", {"lineHeight": "20px", "letterSpacing": "0", "fontWeight": "600"}],
+            "body-large": ["16px", {"lineHeight": "22px", "letterSpacing": "0", "fontWeight": "400"}],
+            "body-default": ["14px", {"lineHeight": "20px", "letterSpacing": "0", "fontWeight": "400"}],
+            "title-3": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+            "subtitle-2": ["16px", {"lineHeight": "22px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "caption-1-strong": ["12px", {"lineHeight": "16px", "letterSpacing": "0", "fontWeight": "600"}],
+            "caption-2": ["10px", {"lineHeight": "14px", "letterSpacing": "0", "fontWeight": "400"}],
+            "title-2": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "600"}]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    .fluent-shadow-1 {
+      box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.08);
+    }
+    .fluent-shadow-2 {
+      box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.12);
+    }
+
+    @keyframes goldPulse {
+      0%, 100% { stroke-dashoffset: 0; opacity: 1; }
+      50% { stroke-dashoffset: 14; opacity: 0.85; }
+    }
+    .animate-gold-path {
+      stroke-dasharray: 6 4;
+      animation: goldPulse 2.8s linear infinite;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#FAFAFA] text-[#242424] antialiased flex justify-center selection:bg-brand-tint min-h-screen">
+<!-- Mobile Screen Container: 390px fixed width -->
+<div class="w-[390px] min-h-screen bg-[#FAFAFA] flex flex-col relative pb-20 shadow-xl border-x border-[#E0E0E0]">
+<!-- 1. Slim Top App Bar (Shared Anchor: TopAppBar) -->
+<header class="bg-surface-card/90 backdrop-blur-md text-primary font-subtitle-2 text-subtitle-2 docked full-width top-0 sticky z-40 shadow-sm flex justify-between items-center w-full px-4 h-12 max-w-[390px] mx-auto border-b border-[#D1D1D1]">
+<div class="flex items-center gap-2.5">
+<div class="w-7 h-7 rounded bg-[#0F6CBD] flex items-center justify-center text-white shadow-xs">
+<span class="material-symbols-outlined text-[18px]" data-icon="sports_soccer">sports_soccer</span>
+</div>
+<span class="font-subtitle-2 text-subtitle-2 text-[#242424] tracking-tight">Season Hub</span>
+</div>
+<!-- Copilot Pill Badge -->
+<div class="flex items-center gap-1 px-2.5 py-0.5 rounded-full text-white shadow-xs cursor-pointer active:scale-95 transition-transform" style="background: linear-gradient(135deg, #7B42BC 0%, #115EA3 100%); height: 22px;">
+<span class="text-[10px] leading-none">✦</span>
+<span class="font-caption-1-strong text-[11px] font-semibold tracking-wide uppercase">Copilot</span>
+</div>
+</header>
+<!-- Main Content Canvas (Single column, 16px page margins) -->
+<main class="flex-1 px-4 pt-3.5 space-y-3.5">
+<!-- 2. Season Card ("Full synthetic season") -->
+<section class="bg-surface-card rounded-lg border border-[#D1D1D1] p-3.5 fluent-shadow-1">
+<div class="flex items-baseline justify-between mb-2.5">
+<h2 class="font-subtitle-2 text-subtitle-2 text-[#242424]">Full synthetic season</h2>
+<span class="font-caption-2 text-caption-2 text-[#616161]">Seeded Model</span>
+</div>
+<!-- Segmented Toggle Control (min 44px touch target) -->
+<div class="bg-[#F5F5F5] p-1 rounded border border-[#E0E0E0] flex items-center h-11 mb-3">
+<button class="flex-1 h-full bg-white rounded shadow-xs font-caption-1-strong text-[11.5px] text-[#0F6CBD] font-semibold flex items-center justify-center transition-all px-1.5 text-center leading-tight" type="button">
+            Premier League (380 matches)
+          </button>
+<button class="flex-1 h-full rounded text-[#616161] hover:text-[#242424] font-caption-1 text-[11px] flex items-center justify-center transition-all px-1.5 text-center leading-tight" type="button">
+            Women's Super League (132 matches)
+          </button>
+</div>
+<!-- Season Story lines -->
+<div class="space-y-1.5 mb-3 bg-[#FAFAFA] p-2.5 rounded border border-[#EDEDED]">
+<div class="flex items-start gap-1.5 font-caption-1 text-[12px] text-[#242424] leading-snug">
+<span class="text-[13px] leading-none select-none">📌</span>
+<span><strong class="font-semibold text-[#0F6CBD]">Chelsea</strong> win the synthetic Premier League with 83 points.</span>
+</div>
+<div class="flex items-start gap-1.5 font-caption-1 text-[12px] text-[#424242] leading-snug">
+<span class="text-[13px] leading-none select-none">📌</span>
+<span>Full 38-matchweek seeded Poisson model completed.</span>
+</div>
+</div>
+<!-- 3. Condensed Standings Table -->
+<div class="border border-[#E0E0E0] rounded overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-[#F5F5F5] border-b border-[#E0E0E0] text-[11px] font-caption-1-strong text-[#616161]">
+<th class="py-1.5 px-2 w-7 text-center">Pos</th>
+<th class="py-1.5 px-2">Club</th>
+<th class="py-1.5 px-1.5 text-right w-6">P</th>
+<th class="py-1.5 px-2 text-right w-12">W-D-L</th>
+<th class="py-1.5 px-2 text-right w-8">Pts</th>
+<th class="py-1.5 px-2 text-center w-16">Form</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#EFEFEF] font-caption-1 text-[12px]">
+<!-- 1 Chelsea: Champion Highlighted Row -->
+<tr class="bg-[#EBF3FC] font-semibold text-[#0F6CBD]">
+<td class="py-1.5 px-2 text-center text-[11px] font-bold">1</td>
+<td class="py-1.5 px-2 flex items-center gap-1.5 text-[#0F6CBD]">
+<span class="w-1.5 h-1.5 rounded-full bg-[#0F6CBD] inline-block"></span>
+<span>Chelsea</span>
+</td>
+<td class="py-1.5 px-1.5 text-right font-normal text-[#242424]">38</td>
+<td class="py-1.5 px-2 text-right font-normal text-[#424242] text-[11px]">26-5-7</td>
+<td class="py-1.5 px-2 text-right font-bold text-[#0F6CBD]">83</td>
+<td class="py-1.5 px-2">
+<div class="flex items-center justify-center gap-0.5">
+<span class="w-2.5 h-2.5 rounded-[2px] bg-[#107C10]" title="W"></span>
+<span class="w-2.5 h-2.5 rounded-[2px] bg-[#107C10]" title="W"></span>
+<span class="w-2.5 h-2.5 rounded-[2px] bg-[#107C10]" title="W"></span>
+<span class="w-2.5 h-2.5 rounded-[2px] bg-[#8A8886]" title="D"></span>
+<span class="w-2.5 h-2.5 rounded-[2px] bg-[#107C10]" title="W"></span>
+</div>
+</td>
+</tr>
+<!-- 2 Arsenal -->
+<tr class="text-[#242424] hover:bg-[#F9F9F9] transition-colors">
+<td class="py-1.5 px-2 text-center text-[#616161] text-[11px]">2</td>
+<td class="py-1.5 px-2">Arsenal</td>
+<td class="py-1.5 px-1.5 text-right text-[#424242]">38</td>
+<td class="py-1.5 px-2 text-right text-[#616161]">-</td>
+<td class="py-1.5 px-2 text-right text-[#616161]">-</td>
+<td class="py-1.5 px-2">
+<div class="flex items-center justify-center gap-0.5">
+<span class="w-2.5 h-2.5 rounded-[2px] bg-[#107C10]"></span>
+<span class="w-2.5 h-2.5 rounded-[2px] bg-[#107C10]"></span>
+<span class="w-2.5 h-2.5 rounded-[2px] bg-[#C50F1F]"></span>
+<span class="w-2.5 h-2.5 rounded-[2px] bg-[#107C10]"></span>
+<span class="w-2.5 h-2.5 rounded-[2px] bg-[#8A8886]"></span>
+</div>
+</td>
+</tr>
+<!-- 3 Manchester City -->
+<tr class="text-[#242424] hover:bg-[#F9F9F9] transition-colors">
+<td class="py-1.5 px-2 text-center text-[#616161] text-[11px]">3</td>
+<td class="py-1.5 px-2">Manchester City</td>
+<td class="py-1.5 px-1.5 text-right text-[#424242]">38</td>
+<td class="py-1.5 px-2 text-right text-[#616161]">-</td>
+<td class="py-1.5 px-2 text-right text-[#616161]">-</td>
+<td class="py-1.5 px-2">
+<div class="flex items-center justify-center gap-0.5">
+<span class="w-2.5 h-2.5 rounded-[2px] bg-[#107C10]"></span>
+<span class="w-2.5 h-2.5 rounded-[2px] bg-[#8A8886]"></span>
+<span class="w-2.5 h-2.5 rounded-[2px] bg-[#107C10]"></span>
+<span class="w-2.5 h-2.5 rounded-[2px] bg-[#107C10]"></span>
+<span class="w-2.5 h-2.5 rounded-[2px] bg-[#C50F1F]"></span>
+</div>
+</td>
+</tr>
+<!-- 4 Liverpool -->
+<tr class="text-[#242424] hover:bg-[#F9F9F9] transition-colors">
+<td class="py-1.5 px-2 text-center text-[#616161] text-[11px]">4</td>
+<td class="py-1.5 px-2">Liverpool</td>
+<td class="py-1.5 px-1.5 text-right text-[#424242]">38</td>
+<td class="py-1.5 px-2 text-right text-[#616161]">-</td>
+<td class="py-1.5 px-2 text-right text-[#616161]">-</td>
+<td class="py-1.5 px-2">
+<div class="flex items-center justify-center gap-0.5">
+<span class="w-2.5 h-2.5 rounded-[2px] bg-[#C50F1F]"></span>
+<span class="w-2.5 h-2.5 rounded-[2px] bg-[#107C10]"></span>
+<span class="w-2.5 h-2.5 rounded-[2px] bg-[#107C10]"></span>
+<span class="w-2.5 h-2.5 rounded-[2px] bg-[#8A8886]"></span>
+<span class="w-2.5 h-2.5 rounded-[2px] bg-[#107C10]"></span>
+</div>
+</td>
+</tr>
+<!-- 5 Tottenham Hotspur -->
+<tr class="text-[#242424] hover:bg-[#F9F9F9] transition-colors">
+<td class="py-1.5 px-2 text-center text-[#616161] text-[11px]">5</td>
+<td class="py-1.5 px-2 truncate max-w-[95px]">Tottenham Hotspur</td>
+<td class="py-1.5 px-1.5 text-right text-[#424242]">38</td>
+<td class="py-1.5 px-2 text-right text-[#616161]">-</td>
+<td class="py-1.5 px-2 text-right text-[#616161]">-</td>
+<td class="py-1.5 px-2">
+<div class="flex items-center justify-center gap-0.5">
+<span class="w-2.5 h-2.5 rounded-[2px] bg-[#107C10]"></span>
+<span class="w-2.5 h-2.5 rounded-[2px] bg-[#C50F1F]"></span>
+<span class="w-2.5 h-2.5 rounded-[2px] bg-[#8A8886]"></span>
+<span class="w-2.5 h-2.5 rounded-[2px] bg-[#107C10]"></span>
+<span class="w-2.5 h-2.5 rounded-[2px] bg-[#C50F1F]"></span>
+</div>
+</td>
+</tr>
+<!-- 6 Manchester United -->
+<tr class="text-[#242424] hover:bg-[#F9F9F9] transition-colors">
+<td class="py-1.5 px-2 text-center text-[#616161] text-[11px]">6</td>
+<td class="py-1.5 px-2 truncate max-w-[95px]">Manchester United</td>
+<td class="py-1.5 px-1.5 text-right text-[#424242]">38</td>
+<td class="py-1.5 px-2 text-right text-[#616161]">-</td>
+<td class="py-1.5 px-2 text-right text-[#616161]">-</td>
+<td class="py-1.5 px-2">
+<div class="flex items-center justify-center gap-0.5">
+<span class="w-2.5 h-2.5 rounded-[2px] bg-[#8A8886]"></span>
+<span class="w-2.5 h-2.5 rounded-[2px] bg-[#107C10]"></span>
+<span class="w-2.5 h-2.5 rounded-[2px] bg-[#C50F1F]"></span>
+<span class="w-2.5 h-2.5 rounded-[2px] bg-[#107C10]"></span>
+<span class="w-2.5 h-2.5 rounded-[2px] bg-[#8A8886]"></span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- 4. Club Detail Card -->
+<section class="bg-surface-card rounded-lg border border-[#D1D1D1] p-3.5 fluent-shadow-1">
+<div class="flex items-center justify-between mb-2">
+<h2 class="font-subtitle-2 text-[14.5px] font-semibold text-[#242424] leading-tight">
+            Chelsea — finished 1st with 83 points
+          </h2>
+</div>
+<p class="font-caption-2 text-caption-2 text-[#616161] mb-2.5">
+          Points progression across all 38 matchweeks
+        </p>
+<!-- Mini Bar Chart: 19 thin blue bars of gradually increasing heights -->
+<div class="bg-[#F5F5F5] p-2.5 rounded border border-[#E0E0E0] mb-3">
+<div class="h-16 flex items-end justify-between gap-[3px] px-1 pt-2">
+<!-- 19 bars with proportional graduated heights -->
+<div class="w-2 bg-[#0F6CBD] rounded-t-sm" style="height: 12%;"></div>
+<div class="w-2 bg-[#0F6CBD] rounded-t-sm" style="height: 16%;"></div>
+<div class="w-2 bg-[#0F6CBD] rounded-t-sm" style="height: 20%;"></div>
+<div class="w-2 bg-[#0F6CBD] rounded-t-sm" style="height: 24%;"></div>
+<div class="w-2 bg-[#0F6CBD] rounded-t-sm" style="height: 28%;"></div>
+<div class="w-2 bg-[#0F6CBD] rounded-t-sm" style="height: 33%;"></div>
+<div class="w-2 bg-[#0F6CBD] rounded-t-sm" style="height: 38%;"></div>
+<div class="w-2 bg-[#0F6CBD] rounded-t-sm" style="height: 42%;"></div>
+<div class="w-2 bg-[#0F6CBD] rounded-t-sm" style="height: 47%;"></div>
+<div class="w-2 bg-[#0F6CBD] rounded-t-sm" style="height: 52%;"></div>
+<div class="w-2 bg-[#0F6CBD] rounded-t-sm" style="height: 56%;"></div>
+<div class="w-2 bg-[#0F6CBD] rounded-t-sm" style="height: 61%;"></div>
+<div class="w-2 bg-[#0F6CBD] rounded-t-sm" style="height: 67%;"></div>
+<div class="w-2 bg-[#0F6CBD] rounded-t-sm" style="height: 72%;"></div>
+<div class="w-2 bg-[#0F6CBD] rounded-t-sm" style="height: 78%;"></div>
+<div class="w-2 bg-[#0F6CBD] rounded-t-sm" style="height: 82%;"></div>
+<div class="w-2 bg-[#0F6CBD] rounded-t-sm" style="height: 88%;"></div>
+<div class="w-2 bg-[#0F6CBD] rounded-t-sm" style="height: 94%;"></div>
+<div class="w-2 bg-[#0F6CBD] rounded-t-sm" style="height: 100%;"></div>
+</div>
+<div class="flex justify-between text-[10px] text-[#616161] font-caption-2 mt-1.5 px-0.5 border-t border-[#E0E0E0] pt-1">
+<span>GW 1</span>
+<span>GW 19</span>
+<span>GW 38 (83 pts)</span>
+</div>
+</div>
+<!-- Stat summary line below: Home points · Away points -->
+<div class="grid grid-cols-2 gap-2">
+<div class="p-2 bg-[#FAFAFA] rounded border border-[#E0E0E0] flex items-center justify-between">
+<span class="font-caption-1 text-[#616161]">Home points</span>
+<span class="font-body-strong text-[13px] text-[#242424] font-semibold">46</span>
+</div>
+<div class="p-2 bg-[#FAFAFA] rounded border border-[#E0E0E0] flex items-center justify-between">
+<span class="font-caption-1 text-[#616161]">Away points</span>
+<span class="font-body-strong text-[13px] text-[#242424] font-semibold">37</span>
+</div>
+</div>
+</section>
+<!-- 5. Knowledge Graph Card ("Football Universe graph") -->
+<section class="bg-surface-card rounded-lg border border-[#D1D1D1] p-3.5 fluent-shadow-1">
+<div class="flex items-center justify-between mb-2">
+<h2 class="font-subtitle-2 text-subtitle-2 text-[#242424]">Football Universe graph</h2>
+<span class="font-caption-2 text-[10.5px] px-1.5 py-0.5 rounded bg-[#F5F5F5] text-[#616161] border border-[#E0E0E0]">
+            45 nodes · 63 edges
+          </span>
+</div>
+<!-- Node-Link SVG Diagram on light gray canvas (#F5F5F5) -->
+<div class="bg-[#F5F5F5] border border-[#E0E0E0] rounded-lg p-2.5 relative">
+<!-- Legend -->
+<div class="flex items-center justify-center gap-3.5 mb-1.5 pb-1 border-b border-[#EAEAEA] text-[10.5px] text-[#424242]">
+<span class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-[#0F6CBD]"></span> Player
+            </span>
+<span class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-[#C50F1F]"></span> Club
+            </span>
+<span class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-[#107C10]"></span> Manager
+            </span>
+</div>
+<svg class="w-full h-40" viewbox="0 0 320 160">
+<!-- Background Neutral Edges -->
+<line stroke="#D1D1D1" stroke-width="1.2" x1="45" x2="160" y1="40" y2="28"></line>
+<line stroke="#D1D1D1" stroke-width="1.2" x1="45" x2="90" y1="40" y2="120"></line>
+<line stroke="#D1D1D1" stroke-width="1.2" x1="160" x2="275" y1="28" y2="40"></line>
+<line stroke="#D1D1D1" stroke-width="1.2" x1="230" x2="275" y1="125" y2="40"></line>
+<line stroke="#D1D1D1" stroke-width="1.2" x1="160" x2="230" y1="80" y2="125"></line>
+<line stroke="#D1D1D1" stroke-width="1.2" x1="160" x2="90" y1="80" y2="120"></line>
+<!-- GOLD Highlighted Shortest Path: Anelka (blue) -> Man City (red) -> Haaland (blue) -->
+<!-- Edge 1: Anelka (60, 80) -> Man City (160, 80) -->
+<line class="animate-gold-path" stroke="#D89B00" stroke-linecap="round" stroke-width="3" x1="65" x2="160" y1="80" y2="80"></line>
+<!-- Edge 2: Man City (160, 80) -> Haaland (255, 80) -->
+<line class="animate-gold-path" stroke="#D89B00" stroke-linecap="round" stroke-width="3" x1="160" x2="255" y1="80" y2="80"></line>
+<!-- Ambient Non-path Nodes -->
+<!-- Manager (Green) -->
+<circle cx="160" cy="28" fill="#107C10" r="7"></circle>
+<text fill="#616161" font-family="Segoe UI" font-size="8" text-anchor="middle" x="160" y="20">Guardiola</text>
+<!-- Club (Red) -->
+<circle cx="45" cy="40" fill="#C50F1F" r="7"></circle>
+<text fill="#616161" font-family="Segoe UI" font-size="8" text-anchor="middle" x="45" y="30">Arsenal</text>
+<circle cx="275" cy="40" fill="#C50F1F" r="7"></circle>
+<text fill="#616161" font-family="Segoe UI" font-size="8" text-anchor="middle" x="275" y="30">Dortmund</text>
+<!-- Players (Blue) -->
+<circle cx="90" cy="122" fill="#0F6CBD" r="7"></circle>
+<text fill="#616161" font-family="Segoe UI" font-size="8" text-anchor="middle" x="90" y="137">Milner</text>
+<circle cx="230" cy="125" fill="#0F6CBD" r="7"></circle>
+<text fill="#616161" font-family="Segoe UI" font-size="8" text-anchor="middle" x="230" y="140">De Bruyne</text>
+<!-- TARGET PATH NODES WITH GOLD GLOW RINGS -->
+<!-- 1. Nicolas Anelka (Player: Blue) -->
+<circle cx="65" cy="80" fill="none" r="14" stroke="#D89B00" stroke-dasharray="2 2" stroke-width="2"></circle>
+<circle cx="65" cy="80" fill="#0F6CBD" r="9"></circle>
+<text fill="#242424" font-family="Segoe UI" font-size="9" font-weight="600" text-anchor="middle" x="65" y="103">N. Anelka</text>
+<!-- 2. Manchester City (Club: Red) -->
+<circle cx="160" cy="80" fill="none" r="15" stroke="#D89B00" stroke-width="2.5"></circle>
+<circle cx="160" cy="80" fill="#C50F1F" r="10"></circle>
+<text fill="#242424" font-family="Segoe UI" font-size="9" font-weight="600" text-anchor="middle" x="160" y="103">Man City</text>
+<!-- 3. Erling Haaland (Player: Blue) -->
+<circle cx="255" cy="80" fill="none" r="14" stroke="#D89B00" stroke-dasharray="2 2" stroke-width="2"></circle>
+<circle cx="255" cy="80" fill="#0F6CBD" r="9"></circle>
+<text fill="#242424" font-family="Segoe UI" font-size="9" font-weight="600" text-anchor="middle" x="255" y="103">E. Haaland</text>
+</svg>
+<!-- Path Label Badge under diagram -->
+<div class="mt-1 text-center bg-white/90 border border-[#D1D1D1] rounded py-1 px-2">
+<p class="font-caption-1 text-[11px] text-[#242424]">
+<span class="text-[#D89B00] font-bold">●</span> Verified shortest path: <strong>Nicolas Anelka</strong> → <strong>Manchester City</strong> → <strong>Erling Haaland</strong> (2 degrees)
+            </p>
+</div>
+</div>
+<!-- Connection selector dropdown (44px min touch height) -->
+<div class="mt-3">
+<label class="block font-caption-2 text-caption-2 text-[#616161] mb-1">Pick a connection</label>
+<div class="relative">
+<select class="w-full h-11 pl-3 pr-9 bg-white border border-[#D1D1D1] rounded text-[#242424] font-body-default text-[13.5px] appearance-none focus:outline-none focus:border-[#0F6CBD] focus:ring-1 focus:ring-[#0F6CBD]">
+<option selected="">Erling Haaland</option>
+<option>Kevin De Bruyne</option>
+<option>Thierry Henry</option>
+<option>James Milner</option>
+<option>Zlatan Ibrahimović</option>
+</select>
+<div class="absolute inset-y-0 right-0 flex items-center pr-2.5 pointer-events-none text-[#616161]">
+<span class="material-symbols-outlined text-[18px]" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Primary Copilot Action Button (44px min height) -->
+<button class="w-full h-11 mt-3 rounded text-white font-body-strong text-[13.5px] font-semibold flex items-center justify-center gap-1.5 shadow-sm active:scale-[0.98] transition-all cursor-pointer" style="background: linear-gradient(135deg, #7B42BC 0%, #115EA3 100%);" type="button">
+<span class="text-sm">✦</span>
+<span>Animate Anelka → Haaland path</span>
+</button>
+</section>
+<!-- 6. Kevin Bacon Leaderboard Card -->
+<section class="bg-surface-card rounded-lg border border-[#D1D1D1] p-3.5 fluent-shadow-1">
+<div class="flex items-center justify-between mb-2">
+<h2 class="font-subtitle-2 text-subtitle-2 text-[#242424]">Kevin Bacon Leaderboard</h2>
+<span class="material-symbols-outlined text-[#616161] text-[18px]" data-icon="hub">hub</span>
+</div>
+<!-- Numbered List of 5 rows -->
+<div class="divide-y divide-[#EFEFEF] border border-[#E0E0E0] rounded overflow-hidden">
+<!-- 1. Nicolas Anelka -->
+<div class="flex items-center justify-between p-2.5 bg-[#FAFAFA] hover:bg-white transition-colors">
+<div class="flex items-center gap-2.5">
+<span class="w-5 h-5 rounded-full bg-[#0F6CBD] text-white text-[11px] font-bold flex items-center justify-center">1</span>
+<div>
+<p class="font-body-strong text-[13px] text-[#242424]">Nicolas Anelka</p>
+<p class="font-caption-2 text-[10.5px] text-[#616161]">Forward · Multi-club Hub</p>
+</div>
+</div>
+<div class="text-right">
+<span class="font-caption-1-strong text-[12px] text-[#0F6CBD] bg-[#EBF3FC] px-2 py-0.5 rounded">1.82</span>
+<p class="font-caption-2 text-[9.5px] text-[#616161] mt-0.5">Avg deg</p>
+</div>
+</div>
+<!-- 2. Zlatan Ibrahimović -->
+<div class="flex items-center justify-between p-2.5 bg-white hover:bg-[#FAFAFA] transition-colors">
+<div class="flex items-center gap-2.5">
+<span class="w-5 h-5 rounded-full bg-[#F0EDED] text-[#424242] text-[11px] font-semibold flex items-center justify-center">2</span>
+<div>
+<p class="font-body-strong text-[13px] text-[#242424]">Zlatan Ibrahimović</p>
+<p class="font-caption-2 text-[10.5px] text-[#616161]">Forward · European Tour</p>
+</div>
+</div>
+<div class="text-right">
+<span class="font-caption-1-strong text-[12px] text-[#242424] bg-[#F5F5F5] px-2 py-0.5 rounded">1.94</span>
+<p class="font-caption-2 text-[9.5px] text-[#616161] mt-0.5">Avg deg</p>
+</div>
+</div>
+<!-- 3. James Milner -->
+<div class="flex items-center justify-between p-2.5 bg-white hover:bg-[#FAFAFA] transition-colors">
+<div class="flex items-center gap-2.5">
+<span class="w-5 h-5 rounded-full bg-[#F0EDED] text-[#424242] text-[11px] font-semibold flex items-center justify-center">3</span>
+<div>
+<p class="font-body-strong text-[13px] text-[#242424]">James Milner</p>
+<p class="font-caption-2 text-[10.5px] text-[#616161]">Midfielder · Premier Era</p>
+</div>
+</div>
+<div class="text-right">
+<span class="font-caption-1-strong text-[12px] text-[#242424] bg-[#F5F5F5] px-2 py-0.5 rounded">2.05</span>
+<p class="font-caption-2 text-[9.5px] text-[#616161] mt-0.5">Avg deg</p>
+</div>
+</div>
+<!-- 4. Thierry Henry -->
+<div class="flex items-center justify-between p-2.5 bg-white hover:bg-[#FAFAFA] transition-colors">
+<div class="flex items-center gap-2.5">
+<span class="w-5 h-5 rounded-full bg-[#F0EDED] text-[#424242] text-[11px] font-semibold flex items-center justify-center">4</span>
+<div>
+<p class="font-body-strong text-[13px] text-[#242424]">Thierry Henry</p>
+<p class="font-caption-2 text-[10.5px] text-[#616161]">Forward · Invincible</p>
+</div>
+</div>
+<div class="text-right">
+<span class="font-caption-1-strong text-[12px] text-[#242424] bg-[#F5F5F5] px-2 py-0.5 rounded">2.18</span>
+<p class="font-caption-2 text-[9.5px] text-[#616161] mt-0.5">Avg deg</p>
+</div>
+</div>
+<!-- 5. Kevin De Bruyne -->
+<div class="flex items-center justify-between p-2.5 bg-white hover:bg-[#FAFAFA] transition-colors">
+<div class="flex items-center gap-2.5">
+<span class="w-5 h-5 rounded-full bg-[#F0EDED] text-[#424242] text-[11px] font-semibold flex items-center justify-center">5</span>
+<div>
+<p class="font-body-strong text-[13px] text-[#242424]">Kevin De Bruyne</p>
+<p class="font-caption-2 text-[10.5px] text-[#616161]">Playmaker · Modern Core</p>
+</div>
+</div>
+<div class="text-right">
+<span class="font-caption-1-strong text-[12px] text-[#242424] bg-[#F5F5F5] px-2 py-0.5 rounded">2.24</span>
+<p class="font-caption-2 text-[9.5px] text-[#616161] mt-0.5">Avg deg</p>
+</div>
+</div>
+</div>
+<!-- Caption text -->
+<p class="font-caption-2 text-[10px] text-[#616161] mt-2.5 text-center">
+          Kevin Bacon Score = betweenness centrality of the seed graph (45 nodes · 63 edges)
+        </p>
+</section>
+<!-- 7. Footer -->
+<footer class="pt-1 pb-4 text-center">
+<p class="text-[11px] text-[#616161] leading-tight">
+          Entirely simulated — seeded Poisson model. Not real fixtures or results.
+        </p>
+</footer>
+</main>
+<!-- 8. Bottom Navigation Bar (Shared Anchor: BottomNavBar) -->
+<!-- Destination Rule: 4 items (Studio, Timeline, Insights, Tactics) with Studio / Hub active state -->
+<nav class="fixed bottom-0 left-0 right-0 z-50 flex justify-around items-center px-2 py-1 max-w-[390px] mx-auto bg-surface-card border-t border-[#D1D1D1] shadow-md h-14">
+<!-- Studio (Active) -->
+<button class="flex-1 min-h-[44px] flex flex-col items-center justify-center text-[#0F6CBD] font-semibold py-1 active:scale-95 transition-transform" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="query_stats" data-weight="fill" style="font-variation-settings: 'FILL' 1;">query_stats</span>
+<span class="font-caption-2 text-[10px] mt-0.5">Studio</span>
+</button>
+<!-- Timeline -->
+<button class="flex-1 min-h-[44px] flex flex-col items-center justify-center text-[#414751] hover:text-[#0F6CBD] py-1 active:scale-95 transition-transform" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="timer">timer</span>
+<span class="font-caption-2 text-[10px] mt-0.5">Timeline</span>
+</button>
+<!-- Insights -->
+<button class="flex-1 min-h-[44px] flex flex-col items-center justify-center text-[#414751] hover:text-[#0F6CBD] py-1 active:scale-95 transition-transform" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="auto_awesome">auto_awesome</span>
+<span class="font-caption-2 text-[10px] mt-0.5">Insights</span>
+</button>
+<!-- Tactics -->
+<button class="flex-1 min-h-[44px] flex flex-col items-center justify-center text-[#414751] hover:text-[#0F6CBD] py-1 active:scale-95 transition-transform" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="strategy">strategy</span>
+<span class="font-caption-2 text-[10px] mt-0.5">Tactics</span>
+</button>
+</nav>
+</div>
+</body></html>

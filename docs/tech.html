@@ -36,6 +36,14 @@
 <p>The full breakdown is in <a href="https://github.com/Mike-Demo/football-universe-copilot/blob/main/infra/COSTS.md">infra/COSTS.md</a>: every Azure service is pay-per-use with a $0 floor, the deployment sits under its own billing profile with a $10 budget alert, and the realistic total through judging is $0–2.</p></section>
 
 <section class="card">
+
+<h2>Data standard — FIFA Connect Data (FCD) v3.3</h2>
+<div class="card">
+<p>The hackathon mandates no data format, so we aligned our match data to the <strong>FIFA Connect Data standard v3.3</strong> (the "FIFA Data Standard" package) as an interoperability layer: fixtures, phases, scores, teams and goal events are exported in the FCD model (namespace <code>http://fifa.com/fc</code>) and <strong>validated against the genuine FCD XSDs — all three exports are valid</strong>.</p>
+<p>Exports: <a href="fds/featured-match.xml">featured match</a> · <a href="fds/premier-league-season.xml">Premier League season (380)</a> · <a href="fds/wsl-season.xml">WSL season (132)</a> · full mapping in the repo at <code>src/fds/README.md</code>.</p>
+<p>Honest scope: FCD is a registration &amp; competition-administration standard. Scores live in <code>Phase</code> elements (the only place its model carries them); season matches therefore carry a single 2H phase with the cumulative full-time score — no half-time split is invented. <code>MatchEvent</code> is emitted only for goals, the one FCD event nature our stream contains; lineup <code>Player</code> elements are omitted rather than fabricated (FCD requires shirt number / captain / goalkeeper flags we don't generate). Our telemetry events (passes, pressure, coordinates, xT) have no FCD equivalent and remain our documented JSON extension. Identifiers are synthetic 7-character IDs with an <code>SYN</code> prefix — not real FIFA IDs — and match status is <code>Played</code>, never <code>Officialised</code>. This is an alignment to the published model, not a FIFA-certified integration.</p>
+</div>
+
 <h2>The models (exactly what runs, no black boxes)</h2>
 <div class="card">
 <p><strong>Poisson goals model.</strong> Every fixture's expected goals come from club attack/defence ratings: λ<sub>home</sub> = 1.42 × attack<sub>home</sub> ÷ defence<sub>away</sub>, λ<sub>away</sub> = 1.12 × attack<sub>away</sub> ÷ defence<sub>home</sub> (1.42/1.12 are the league-average home/away baselines). Season results are Poisson draws on those λ values; the demo's what-if panel recomputes win/draw/win probabilities live from any λ pair using two independent Poisson distributions.</p>

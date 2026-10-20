@@ -25,13 +25,14 @@ def azure_narrate(match, stats, ctx):
                                  data=json.dumps(body).encode(), method="POST",
                                  headers={"Content-Type": "application/json", "api-key": key})
     provider = "microsoft-foundry" if "phi" in deployment.lower() else "azure-openai"
-    # Serverless Phi cold start measured at ~61s (Oct 2026) - a 30s timeout silently forced
-    # template fallback on the first call after idle. 120s + one retry instead.
-    for attempt in range(2):
-        try:
-            with urllib.request.urlopen(req, timeout=120) as r:
-                data = json.loads(r.read())
-            return {"recap": data["choices"][0]["message"]["content"], "source": f"{provider}:{deployment}"}
-        except Exception:
-            if attempt == 1:
-                return None
+    # Serverless Phi cold start measured at ~61s (Oct 2026). A 120s timeout WITH a retry could
+    # stack to 240s+ and the platform front-end cut the request off (HTTP 504, observed
+    # 2026-10-20). Single attempt instead: default 90s, overridable via NARRATOR_TIMEOUT_S.
+    # On timeout/failure the caller falls back to the labelled deterministic template.
+    timeout_s = int(os.environ.get("NARRATOR_TIMEOUT_S", "90"))
+    try:
+        with urllib.request.urlopen(req, timeout=timeout_s) as r:
+            data = json.loads(r.read())
+        return {"recap": data["choices"][0]["message"]["content"], "source": f"{provider}:{deployment}"}
+    except Exception:
+        return None

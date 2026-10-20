@@ -175,3 +175,13 @@ main .card:nth-of-type(2){animation-delay:40ms} main .card:nth-of-type(3){animat
 }
 
 table th{height:40px}
+
+/* Microsoft Fluent Emoji assets (official Color SVGs, bundled locally) */
+.fe{width:1.18em;height:1.18em;display:inline-block;vertical-align:-.24em;object-fit:contain}
+.fe-logo{width:30px;height:30px;vertical-align:middle}
+.logo{background:transparent}
+.pill-copilot{display:inline-flex;align-items:center;gap:5px}
+.rail a .fe{margin-right:2px}
+#tabbar a .fe-tab{width:22px;height:22px;vertical-align:middle}
+#tabbar a span{margin-top:1px}
+h1 .fe{width:1em;height:1em;vertical-align:-.12em}

@@ -17,6 +17,10 @@ from src.season.simulator import PL, BASE_HOME, BASE_AWAY
 _lh = BASE_HOME * PL["Arsenal"][0] / PL["Manchester City"][1]   # Poisson lambda, same formula as the season simulator
 _la = BASE_AWAY * PL["Manchester City"][0] / PL["Arsenal"][1]
 data = {
+  "fds": {"standard": "FIFA Connect Data (FCD) v3.3 — aligned export (not a FIFA-certified integration)",
+          "featured_match_id": "SYN3001", "competition_ids": {"premier_league": "SYN0001", "wsl": "SYN0002"},
+          "xml": {"featured": "fds/featured-match.xml", "premier_league": "fds/premier-league-season.xml", "wsl": "fds/wsl-season.xml"},
+          "note": "Match/Phase/GoalEvent/Team expressed in the FCD model and validated against its XSDs; telemetry events remain our JSON extension — FCD has no event-stream model. Mapping: src/fds/README.md"},
   "model": {"xg_home": round(_lh, 2), "xg_away": round(_la, 2),
             "note": "Poisson expected goals from the season simulator ratings (attack/defence) — the same lambda values the season draw uses."},
   "fixture": out["match"]["fixture"], "final_score": out["match"]["final_score"],

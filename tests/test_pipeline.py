@@ -10,6 +10,9 @@ class T(unittest.TestCase):
     def test_pipeline_agents_and_modes(self):
         o=run(); assert o["agents"]==["Interpreter","GraphContext","Narrator","Personalizer"]
         assert set(o["personalized"])>={"analyst","casual_fan","player_focus","es"} and o["overlay"]["timed"] and o["overlay"]["feed"]
+    def test_threshold_alerts_and_club_mode(self):
+        o=run(); assert "club_focus" in o["personalized"] and o["stats"]["threshold_alerts"]
+        assert any(e.get("player_speed_kmh") is not None for e in o["match"]["events"])
     def test_leaderboard(self):
         lb=Universe().kevin_bacon_scores(); assert lb and all(0<=x["kevin_bacon_score"]<=10 for x in lb)
 if __name__=="__main__": unittest.main()

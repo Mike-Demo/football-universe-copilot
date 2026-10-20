@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MatchData xmlns="http://fifa.com/fc" ExportDate="2026-10-20T00:00:00" Synthetic="true" Standard="FCD 3.3-aligned export — synthetic data, not an official FIFA record">
+  <Match MatchFIFAId="SYN3001" Status="Played" CompetitionFIFAId="SYN0001">
+    <Phase Phase="1H" RegularTime="45" HomeScore="0" AwayScore="1"/>
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="1"/>
+    <MatchEvent MatchPhase="1H" Minute="36" StoppageTime="0" EventType="Goal" PlayerFIFAId="SYN2000"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1000"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1014"/>
+  </Match>
+</MatchData>

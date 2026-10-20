@@ -190,7 +190,9 @@ h1 .fe{width:1em;height:1em;vertical-align:-.12em}
 .focusrow{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:10px}
 .focusrow label{font-size:13px;color:var(--text-2);display:flex;align-items:center;gap:6px}
 .focusrow select{max-width:210px}
-#dock{position:fixed;left:50%;transform:translateX(-50%);bottom:14px;width:min(980px,calc(100% - 20px));z-index:40;display:flex;gap:10px;align-items:center;background:rgba(255,255,255,.92);backdrop-filter:blur(20px);border:1px solid var(--divider);border-left:3px solid var(--brand);border-radius:var(--r-card);box-shadow:var(--shadow3);padding:10px 12px;animation:cardIn var(--durNormal) var(--curveDecelerateMax) both}
+#dock{position:fixed;left:10px;right:10px;margin-inline:auto;max-width:980px;bottom:14px;z-index:40;display:flex;gap:10px;align-items:center;background:rgba(255,255,255,.92);backdrop-filter:blur(20px);border:1px solid var(--divider);border-left:3px solid var(--brand);border-radius:var(--r-card);box-shadow:var(--shadow3);padding:10px 12px;animation:dockIn var(--durNormal) var(--curveDecelerateMax) both}
+@keyframes dockIn{from{opacity:0}to{opacity:1}}
+.dock-main strong{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 #dock[hidden]{display:none}
 #dock .fe{width:22px;height:22px;flex:0 0 auto}
 .dock-main{flex:1;min-width:0}
@@ -211,7 +213,7 @@ h1 .fe{width:1em;height:1em;vertical-align:-.12em}
   .banner .x{position:absolute;top:8px;right:8px;margin:0}
   .modes{scroll-snap-type:x proximity;-webkit-mask-image:linear-gradient(90deg,#000 93%,transparent);mask-image:linear-gradient(90deg,#000 93%,transparent)}
   .modes .mode{scroll-snap-align:start}
-  .focusrow label{flex:1 1 44%}
+  .focusrow label{flex:1 1 100%}
   .focusrow select{flex:1;max-width:none;width:100%}
 }
 

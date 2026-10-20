@@ -6,7 +6,7 @@ const FORMATION = [[4,34],[18,10],[18,26],[18,42],[18,58],[34,16],[34,34],[34,52
 function positionsFor(rng, bx, by) { const out = []; for (let ti = 0; ti < 2; ti++) for (const [fx, fy] of FORMATION) { let x = ti ? 105 - fx : fx, y = ti ? 68 - fy : fy; x += (bx - 52.5) * 0.35; y += (by - 34) * 0.3; out.push([Math.round(Math.max(1, Math.min(104, x + rng() * 14 - 7)) * 10) / 10, Math.round(Math.max(1, Math.min(67, y + rng() * 12 - 6)) * 10) / 10, ti]); } return out; }
 function poiPmf(lam, k) { let p = Math.exp(-lam); for (let i = 1; i <= k; i++) p *= lam / i; return p; }
 function poiOutcomes(lh, la) { let hw = 0, dr = 0, aw = 0, best = [0, -1, -1]; for (let i = 0; i <= 10; i++) for (let j = 0; j <= 10; j++) { const p = poiPmf(lh, i) * poiPmf(la, j); if (i > j) hw += p; else if (i === j) dr += p; else aw += p; if (p > best[0]) best = [p, i, j]; } return { hw, dr, aw, best }; }
-function updatePoisson() { const lh = parseFloat($('lamH').value), la = parseFloat($('lamA').value); $('lamHV').textContent = lh.toFixed(2); $('lamAV').textContent = la.toFixed(2); const o = poiOutcomes(lh, la); const bar = (lbl, v, c) => `<div class="mbar"><span style="width:130px">${lbl}</span><span class="bar" style="width:${Math.round(v * 260)}px;background:${c}"></span> ${(v * 100).toFixed(1)}%</div>`; $('poiOut').innerHTML = bar($('lamHName').textContent + ' win', o.hw, 'var(--brand)') + bar('Draw', o.dr, '#616161') + bar($('lamAName').textContent + ' win', o.aw, '#C50F1F') + `<p class="small">Most likely score: ${o.best[1]}–${o.best[2]} (${(o.best[0] * 100).toFixed(1)}%). Computed live in your browser from the two λ values.</p>`; }
+function updatePoisson() { const lh = parseFloat($('lamH').value), la = parseFloat($('lamA').value); $('lamHV').textContent = lh.toFixed(2); $('lamAV').textContent = la.toFixed(2); const o = poiOutcomes(lh, la); const bar = (lbl, v, c) => `<div class="hbar"><span class="hl">${lbl}</span><span class="ht"><span class="hf" style="width:${(v * 100).toFixed(1)}%;background:${c}"></span></span><strong>${(v * 100).toFixed(1)}%</strong></div>`; $('poiOut').innerHTML = bar($('lamHName').textContent + ' win', o.hw, 'var(--brand)') + bar('Draw', o.dr, '#616161') + bar($('lamAName').textContent + ' win', o.aw, '#C50F1F') + `<p class="small">Most likely score: ${o.best[1]}–${o.best[2]} (${(o.best[0] * 100).toFixed(1)}%). Computed live in your browser from the two λ values.</p>`; }
 let perf = { steps: 0, ms: 0, last: 0 };
 const scoreAt = m => { const s = { [D.fixture.home]: 0, [D.fixture.away]: 0 }; for (const e of D.events) { if (e.minute <= m && e.goal) s[e.team]++; } return s; };
 function render() {
@@ -24,7 +24,7 @@ function render() {
   if (ov) { $('overlayCard').hidden = false; $('overlayText').textContent = `${ov.at_minute}' — ${ov.title}: ${ov.body}`; }
   const pp = $('payloadPre'); if (pp) pp.textContent = JSON.stringify({ schema: 'football-universe-overlay/v1', at_minute: Math.floor(minute), fixture: D.fixture, score: s, overlay: ov || null, persona: mode, narration_source: D.narrative.narration_source || 'deterministic-template' }, null, 2);
   const w = Math.min(5, Math.floor(minute / 15));
-  $('momentum').innerHTML = D.stats.momentum.map((m, i) => `<div class="mbar"><span>${m.window}'</span><div class="bar" style="width:${Math.min(100, m.events * 2)}%;${i === w ? 'background:#cc7a00' : ''}"></div><span>${m.dominant || ''} · ${m.events}</span></div>`).join('');
+  const mkey = D.fixture.home + '|' + w; if (window._momKey !== mkey) { window._momKey = mkey; $('momentum').innerHTML = momentumChart(w); }
 }
 function setMode(m) {
   mode = m;
@@ -121,7 +121,7 @@ function genMatchData(m, lg) {
   const alerts = [];
   for (const e of events) { const a = []; if (e.type === 'shot' && e.shot_speed_kmh >= 110) a.push('SPEED_ALERT'); if (e.type === 'pass' && e.distance_m >= 35) a.push('LONG_RANGE_ALERT'); if (a.length) { e.threshold_alerts = a; alerts.push({ minute: e.minute, player: e.player + ' (' + e.team + ')', alerts: a }); } }
   const momentum = [];
-  for (let w = 0; w < 6; w++) { const evs = events.filter(e => e.minute >= w * 15 && e.minute < (w + 1) * 15); const h = evs.filter(e => e.team === m.home).length; momentum.push({ window: `${w * 15}-${(w + 1) * 15}`, events: evs.length, dominant: h * 2 > evs.length ? m.home : (h * 2 < evs.length ? m.away : 'Even') }); }
+  for (let w = 0; w < 6; w++) { const evs = events.filter(e => e.minute >= w * 15 && e.minute < (w + 1) * 15); const h = evs.filter(e => e.team === m.home).length; momentum.push({ window: `${w * 15}-${(w + 1) * 15}`, events: evs.length, dominant: h * 2 > evs.length ? m.home : (h * 2 < evs.length ? m.away : 'Even'), split: { [m.home]: h, [m.away]: evs.length - h } }); }
   const goals = events.filter(e => e.goal); let lead = 0, changes = 0, run = { [m.home]: 0, [m.away]: 0 };
   for (const g of goals) { run[g.team]++; const nl = Math.sign(run[m.home] - run[m.away]); if (lead !== 0 && nl !== 0 && nl !== lead) changes++; if (nl !== 0) lead = nl; }
   const chaos = +Math.min(1, (goals.length * 0.09 + changes * 0.16 + events.filter(e => e.type === 'shot').length / 300)).toFixed(3);
@@ -138,6 +138,22 @@ function genMatchData(m, lg) {
   return { fixture: { home: m.home, away: m.away }, events, stats: { chaos_index: chaos, momentum, threshold_alerts: alerts }, overlay: { feed: overlay },
     narrative: { why_it_matters: why, recap, narration_source: 'browser-generated-timeline (deterministic; the Azure API narrates with Phi-4-mini-instruct)' }, personalized: { casual_fan: pers(), analyst: { headline: 'Analyst view', body: `${events.length} generated events · xThreat proxy from shot volume ${m.home_shots}–${m.away_shots} · chaos ${chaos} · possession ${m.home_possession}%–${100 - m.home_possession}%.` }, player_focus: pers(), club_focus: pers(), es: { headline: 'Resumen', body: `${m.home} ${m.home_goals}–${m.away_goals} ${m.away} (sintético, jornada ${m.matchweek}). ${m.home_shots + m.away_shots} tiros en total.` } },
     graph: D.graph, graph_context: D.graph_context };
+}
+function momentumChart(curW) {
+  const H = D.fixture.home, A = D.fixture.away, W = 560, HT = 176, base = 148, maxV = Math.max(...D.stats.momentum.map(m => Math.max(m.split[H] || 0, m.split[A] || 0)), 10);
+  const bw = 21, gap = 5, gw = (W - 40) / 6;
+  let g = '';
+  for (let i = 0; i <= 3; i++) { const y = base - (base - 14) * i / 3; g += `<line x1="24" x2="${W - 8}" y1="${y}" y2="${y}" stroke="#E0E0E0" stroke-width="1"/><text x="20" y="${y + 3}" font-size="9" fill="#616161" text-anchor="end">${Math.round(maxV * i / 3)}</text>`; }
+  let bars = '';
+  D.stats.momentum.forEach((m, i) => {
+    const gx = 34 + i * gw, op = i < curW ? 0.85 : (i === curW ? 1 : 0.32);
+    [[H, '#0F6CBD', 0], [A, '#C50F1F', bw + gap]].forEach(([team, col, off]) => {
+      const v = m.split[team] || 0, h = Math.max(2, (base - 14) * v / maxV), x = gx + off, y = base - h;
+      bars += `<path d="M${x},${base} L${x},${y + 3} Q${x},${y} ${x + 3},${y} L${x + bw - 3},${y} Q${x + bw},${y} ${x + bw},${y + 3} L${x + bw},${base} Z" fill="${col}" opacity="${op}" style="transform-origin:${x + bw / 2}px ${base}px;animation:bargrow var(--durSlow) var(--curveDecelerateMax) both;animation-delay:${i * 45}ms"><title>${team} · ${m.window}' · ${v} events</title></path><text x="${x + bw / 2}" y="${y - 3}" font-size="9.5" fill="#424242" text-anchor="middle" opacity="${op}">${v}</text>`;
+    });
+    bars += `<text x="${gx + bw + 1}" y="${base + 14}" font-size="9.5" fill="#616161" text-anchor="middle">${m.window}'</text>`;
+  });
+  return `<div style="display:flex;gap:14px;font-size:12px;color:var(--text-2);margin-bottom:4px"><span><span style="display:inline-block;width:9px;height:9px;background:#0F6CBD;border-radius:2px"></span> ${H}</span><span><span style="display:inline-block;width:9px;height:9px;background:#C50F1F;border-radius:2px"></span> ${A}</span><span style="margin-left:auto">events per 15'</span></div><svg viewBox="0 0 ${W} ${HT}" style="width:100%;height:auto" role="img" aria-label="Grouped bar chart of events per 15 minute window by team">${g}${bars}</svg>`;
 }
 function updateAgents() {
   const gc = $('agGraph'); if (!gc) return;
@@ -168,7 +184,7 @@ function drawPitch(force) {
   let prev = null, next = null; for (const e of D.events) { if (e.clock <= minute) prev = e; else { next = e; break; } }
   if (prev) { let bx = prev.x, by = prev.y; if (next && next.clock > prev.clock) { const f = Math.min(1, Math.max(0, (minute - prev.clock) / (next.clock - prev.clock))); bx = prev.x + (next.x - prev.x) * f; by = prev.y + (next.y - prev.y) * f; }
     const trail = D.events.filter(e => e.clock <= minute).slice(-8); trail.forEach((e, i) => { ctx.beginPath(); ctx.arc(e.x * S, e.y * S, 3, 0, 7); ctx.fillStyle = `rgba(15,108,189,${0.08 + 0.05 * i})`; ctx.fill(); });
-    const pulse = 7 + Math.sin(performance.now() / 280) * 1.6; ctx.beginPath(); ctx.arc(bx * S, by * S, pulse + 5, 0, 7); ctx.strokeStyle = 'rgba(15,108,189,.35)'; ctx.lineWidth = 2; ctx.stroke();
+    const pulse = 7 + (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : Math.sin(performance.now() / 280) * 1.6); ctx.beginPath(); ctx.arc(bx * S, by * S, pulse + 5, 0, 7); ctx.strokeStyle = 'rgba(15,108,189,.35)'; ctx.lineWidth = 2; ctx.stroke();
     ctx.beginPath(); ctx.arc(bx * S, by * S, pulse, 0, 7); ctx.fillStyle = '#0F6CBD'; ctx.fill(); ctx.strokeStyle = '#fff'; ctx.lineWidth = 2; ctx.stroke(); }
   for (const m of pitchMarkers) { ctx.beginPath(); ctx.arc(m.x * S, m.y * S, 4, 0, 7); ctx.strokeStyle = m.ev.goal ? '#B7860B' : 'rgba(36,36,36,.4)'; ctx.lineWidth = m.ev.goal ? 2.5 : 1.2; ctx.stroke(); }
   ctx.font = '600 15px "Segoe UI", system-ui'; ctx.fillStyle = '#242424'; ctx.fillText(snap.player, Math.min(W - 150, snap.x * S + 10), Math.max(18, snap.y * S - 10));

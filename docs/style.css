@@ -118,3 +118,21 @@ header{padding:18px 20px 0;max-width:1560px;margin:0 auto}
   input[type=range]{min-width:0}
   canvas#graph,canvas#pitch{touch-action:manipulation}
 }
+
+/* ---------- Stitch mobile patterns (from design/mobile, Fluent 2) ---------- */
+#tabbar{display:none}
+@media (max-width: 640px) {
+  #tabbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:30;background:rgba(255,255,255,.94);backdrop-filter:blur(20px);border-top:1px solid var(--divider)}
+  #tabbar a{flex:1;text-align:center;padding:7px 0 9px;color:var(--text-2);text-decoration:none;font-size:17px;line-height:1.1}
+  #tabbar a span{display:block;font-size:11px;margin-top:2px}
+  #tabbar a:active,#tabbar a:focus{color:var(--brand)}
+  body{padding-bottom:58px}
+  .chips{flex-wrap:nowrap !important;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
+  .chips::-webkit-scrollbar{display:none}
+  .chips .chip{flex:0 0 auto}
+  .modes{flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
+  .modes::-webkit-scrollbar{display:none}
+  .modes .mode{flex:0 0 auto;min-height:38px}
+  #scrub{flex:1 1 100%;order:5}
+  #seasonTable th:nth-child(8),#seasonTable td:nth-child(8),#seasonTable th:nth-child(9),#seasonTable td:nth-child(9){display:none}
+}

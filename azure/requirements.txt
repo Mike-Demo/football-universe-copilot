@@ -1,0 +1,4 @@
+azure-functions>=1.20
+# Pipeline core is zero-dependency. Optional, for the Agent Framework runtime path:
+# agent-framework (Microsoft Agent Framework, preview) — agents in src/agents map 1:1;
+# the local orchestrator remains the deterministic fallback if the preview SDK is absent.

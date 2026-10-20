@@ -1,2 +1,34 @@
-# football-universe-copilot
-Football Universe Copilot — Live Match Intelligence for Microsoft Inside the Game Hackathon: synthetic match events into explainable, personalized intelligence via a 4-agent graph system
+# Football Universe Copilot — Live Match Intelligence
+
+**Inside the Game: Microsoft Premier League Hackathon** · Categories targeted: **Best Multi-Agent System** (primary), **Best Use of Microsoft Foundry**, Grand Prize
+
+> Synthetic football events in. Explainable match intelligence out — rendered as a timed broadcast overlay, personalized for every fan.
+
+## The problem
+Match data tells fans *what* happened. It rarely explains *why it matters*, and the same feed serves an analyst and a first-time fan identically.
+
+## What we built — the required 5-stage pipeline
+1. **Ingest** — a synthetic, football-realistic event engine (`src/synthetic/`) generates passes (distance / accuracy / difficulty), shots (speed, on-target), tackles, pressure and possession changes for a synthetic Arsenal vs Manchester City fixture. **No real match data or footage is used.**
+2. **Interpret** — the **Interpreter agent** aggregates momentum by 15-min windows, control-vs-chaos index, pass difficulty and pressure.
+3. **Explain** — the **GraphContext agent** grounds each key moment in the Football Universe graph (players / clubs / managers, PLAYED_FOR + COACHED_BY + RIVAL_OF): shortest paths, degree, and the **Kevin Bacon Score** (Brandes betweenness, computed — not invented). The **Narrator agent** only narrates verified events and graph paths; it never invents a connection.
+4. **Render** — a timed, machine-readable overlay feed (`football-universe-overlay/v1`, `src/overlay/`) plus a broadcast-style web UI (`frontend/`).
+5. **Personalize** — the **Personalizer agent** delivers the same intelligence as Analyst, Casual Fan, Player-Focus (Haaland), and Spanish modes, plus an auto-generated full-time recap.
+
+Verified demo fact: the true shortest path is **Nicolas Anelka → Manchester City → Erling Haaland (2 degrees)** — Anelka played for City (2002–2005). Earlier draft material claimed a 3-degree path via Wenger; the graph corrects it.
+
+## Run it (zero dependencies)
+```bash
+python3 -m unittest discover -s tests -v   # 4 tests
+python3 -m src.pipeline                    # full multi-agent run, JSON out
+python3 -m http.server 8000                # then open /frontend/ (reads outputs/sample_match_intelligence.json)
+```
+Optional API: `pip install fastapi uvicorn` then `uvicorn src.api.app:app` — `/health`, `/match/intelligence`, `/graph/path?a=Nicolas Anelka&b=Erling Haaland`, `/graph/leaderboard`.
+
+## Microsoft stack
+Microsoft Foundry / Azure OpenAI (optional narration layer, offline fallback default) · Microsoft Agent Framework orchestration pattern (4 agents, shared state, explicit handoffs, failure fallback) · Azure Cosmos DB Gremlin API (production graph target, schema in `graph/schema/`; local in-memory graph with identical schema for judge-friendly runs) · Microsoft Fabric (roadmap ingestion) · Azure Functions / Static Web Apps (hosting path, `infra/`).
+
+## Repo map
+`src/synthetic` event engine · `src/graph` universe + centrality · `src/agents` 4 agents · `src/overlay` timed overlay · `src/pipeline.py` orchestrator · `data/seed` 20 players / 20 clubs / 10 managers (from the master build plan §7.3) · `outputs/` a real generated run + recap · `docs/` architecture + 2-minute demo script · `SUBMISSION.md` checklist
+
+## Honest limits
+Seed graph is 20 players, so Kevin Bacon Scores are computed on that graph (top: Anelka 3.09/10, Milner 3.06/10) — not the inflated predictions in early draft material. Live LLM narration, Cosmos loading, and Fabric ingestion are wired as production paths in `infra/README.md`, not claimed as demo-critical.

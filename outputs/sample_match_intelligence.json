@@ -1,80 +1,126 @@
 {
   "stats": {
     "possession_events": {
-      "Arsenal": 146,
-      "Manchester City": 140
+      "Arsenal": 139,
+      "Manchester City": 139
     },
-    "shots": 25,
-    "shots_on_target": 13,
-    "avg_pass_difficulty": 5.4,
-    "avg_pressure": 5.73,
+    "shots": 23,
+    "shots_on_target": 10,
+    "avg_pass_difficulty": 5.18,
+    "avg_pressure": 5.29,
     "momentum": [
       {
         "window": "0-15",
         "dominant": "Arsenal",
-        "events": 49
+        "events": 42
       },
       {
         "window": "15-30",
-        "dominant": "Manchester City",
-        "events": 47
+        "dominant": "Arsenal",
+        "events": 46
       },
       {
         "window": "30-45",
         "dominant": "Manchester City",
-        "events": 49
+        "events": 47
       },
       {
         "window": "45-60",
         "dominant": "Manchester City",
-        "events": 45
+        "events": 46
       },
       {
         "window": "60-75",
-        "dominant": "Manchester City",
+        "dominant": "Arsenal",
         "events": 48
       },
       {
         "window": "75-90",
-        "dominant": "Arsenal",
-        "events": 48
+        "dominant": "Manchester City",
+        "events": 49
       }
     ],
     "key_moments": [
       {
         "match_id": "SYN-ARS-MCI-001",
-        "clock": 4.15,
-        "minute": 4,
+        "clock": 6.34,
+        "minute": 6,
+        "type": "pressure",
+        "team": "Arsenal",
+        "player": "Gael Clichy",
+        "synthetic": true,
+        "player_speed_kmh": 31.8,
+        "distance_covered_m": 32.2,
+        "pressure_intensity": 9.1
+      },
+      {
+        "match_id": "SYN-ARS-MCI-001",
+        "clock": 20.65,
+        "minute": 20,
+        "type": "shot",
+        "team": "Manchester City",
+        "player": "Samir Nasri",
+        "synthetic": true,
+        "player_speed_kmh": 25.3,
+        "distance_covered_m": 41.4,
+        "shot_speed_kmh": 101.0,
+        "ball_speed_kmh": 115.0,
+        "on_target": true
+      },
+      {
+        "match_id": "SYN-ARS-MCI-001",
+        "clock": 22.12,
+        "minute": 22,
+        "type": "shot",
+        "team": "Arsenal",
+        "player": "Gael Clichy",
+        "synthetic": true,
+        "player_speed_kmh": 20.2,
+        "distance_covered_m": 83.2,
+        "shot_speed_kmh": 74.1,
+        "ball_speed_kmh": 106.0,
+        "on_target": true
+      },
+      {
+        "match_id": "SYN-ARS-MCI-001",
+        "clock": 27.61,
+        "minute": 27,
         "type": "shot",
         "team": "Arsenal",
         "player": "Kolo Toure",
         "synthetic": true,
-        "shot_speed_kmh": 111.9,
-        "ball_speed_kmh": 76.5,
+        "player_speed_kmh": 14.7,
+        "distance_covered_m": 24.9,
+        "shot_speed_kmh": 75.5,
+        "ball_speed_kmh": 101.3,
         "on_target": true
       },
       {
         "match_id": "SYN-ARS-MCI-001",
-        "clock": 4.41,
-        "minute": 4,
+        "clock": 31.05,
+        "minute": 31,
         "type": "shot",
         "team": "Arsenal",
-        "player": "Thierry Henry",
+        "player": "Gael Clichy",
         "synthetic": true,
-        "shot_speed_kmh": 114.1,
-        "ball_speed_kmh": 96.5,
+        "player_speed_kmh": 7.0,
+        "distance_covered_m": 56.0,
+        "shot_speed_kmh": 72.1,
+        "ball_speed_kmh": 97.8,
         "on_target": true
       },
       {
         "match_id": "SYN-ARS-MCI-001",
-        "clock": 15.18,
-        "minute": 15,
+        "clock": 36.59,
+        "minute": 36,
         "type": "shot",
         "team": "Manchester City",
         "player": "Erling Haaland",
         "synthetic": true,
-        "shot_speed_kmh": 69.6,
-        "ball_speed_kmh": 84.5,
+        "player_speed_kmh": 27.5,
+        "distance_covered_m": 37.8,
+        "shot_speed_kmh": 96.2,
+        "ball_speed_kmh": 106.7,
         "on_target": true,
         "goal": true,
         "score": {
@@ -84,199 +130,575 @@
       },
       {
         "match_id": "SYN-ARS-MCI-001",
-        "clock": 17.16,
-        "minute": 17,
+        "clock": 36.68,
+        "minute": 36,
         "type": "shot",
         "team": "Arsenal",
-        "player": "Kolo Toure",
+        "player": "Samir Nasri",
         "synthetic": true,
-        "shot_speed_kmh": 102.3,
-        "ball_speed_kmh": 124.0,
-        "on_target": true
+        "player_speed_kmh": 33.2,
+        "distance_covered_m": 28.9,
+        "shot_speed_kmh": 105.9,
+        "ball_speed_kmh": 67.7,
+        "on_target": true,
+        "threshold_alerts": [
+          "SPRINT_ALERT: player speed >= 32 km/h"
+        ]
       },
       {
         "match_id": "SYN-ARS-MCI-001",
-        "clock": 20.64,
-        "minute": 20,
+        "clock": 37.75,
+        "minute": 37,
         "type": "pressure",
         "team": "Arsenal",
         "player": "Robin van Persie",
         "synthetic": true,
-        "pressure_intensity": 9.7
+        "player_speed_kmh": 18.4,
+        "distance_covered_m": 58.2,
+        "pressure_intensity": 9.9
       },
       {
         "match_id": "SYN-ARS-MCI-001",
-        "clock": 22.91,
-        "minute": 22,
-        "type": "shot",
-        "team": "Manchester City",
-        "player": "Samir Nasri",
+        "clock": 42.42,
+        "minute": 42,
+        "type": "pressure",
+        "team": "Arsenal",
+        "player": "Kolo Toure",
         "synthetic": true,
-        "shot_speed_kmh": 63.6,
-        "ball_speed_kmh": 80.7,
-        "on_target": true
+        "player_speed_kmh": 7.3,
+        "distance_covered_m": 63.9,
+        "pressure_intensity": 9.2
       },
       {
         "match_id": "SYN-ARS-MCI-001",
-        "clock": 62.57,
-        "minute": 62,
+        "clock": 46.64,
+        "minute": 46,
         "type": "shot",
         "team": "Arsenal",
         "player": "Samir Nasri",
         "synthetic": true,
+        "player_speed_kmh": 11.6,
+        "distance_covered_m": 77.0,
         "shot_speed_kmh": 78.3,
         "ball_speed_kmh": 117.2,
         "on_target": true
       },
       {
         "match_id": "SYN-ARS-MCI-001",
-        "clock": 68.26,
-        "minute": 68,
-        "type": "shot",
-        "team": "Manchester City",
-        "player": "Gael Clichy",
-        "synthetic": true,
-        "shot_speed_kmh": 117.2,
-        "ball_speed_kmh": 126.5,
-        "on_target": true
-      },
-      {
-        "match_id": "SYN-ARS-MCI-001",
-        "clock": 69.35,
-        "minute": 69,
-        "type": "shot",
-        "team": "Manchester City",
-        "player": "Erling Haaland",
-        "synthetic": true,
-        "shot_speed_kmh": 126.7,
-        "ball_speed_kmh": 116.6,
-        "on_target": true
-      },
-      {
-        "match_id": "SYN-ARS-MCI-001",
-        "clock": 69.44,
-        "minute": 69,
-        "type": "shot",
-        "team": "Arsenal",
-        "player": "Gael Clichy",
-        "synthetic": true,
-        "shot_speed_kmh": 117.7,
-        "ball_speed_kmh": 103.7,
-        "on_target": true
-      },
-      {
-        "match_id": "SYN-ARS-MCI-001",
-        "clock": 72.82,
-        "minute": 72,
+        "clock": 48.55,
+        "minute": 48,
         "type": "pressure",
         "team": "Arsenal",
-        "player": "Thierry Henry",
+        "player": "Kolo Toure",
         "synthetic": true,
-        "pressure_intensity": 9.6
+        "player_speed_kmh": 21.8,
+        "distance_covered_m": 59.6,
+        "pressure_intensity": 9.3
       },
       {
         "match_id": "SYN-ARS-MCI-001",
-        "clock": 73.34,
-        "minute": 73,
+        "clock": 48.81,
+        "minute": 48,
         "type": "shot",
-        "team": "Arsenal",
-        "player": "Robin van Persie",
+        "team": "Manchester City",
+        "player": "Gael Clichy",
         "synthetic": true,
-        "shot_speed_kmh": 85.0,
-        "ball_speed_kmh": 104.9,
-        "on_target": true,
-        "goal": true,
-        "score": {
-          "Arsenal": 1,
-          "Manchester City": 1
-        }
+        "player_speed_kmh": 31.6,
+        "distance_covered_m": 37.2,
+        "shot_speed_kmh": 90.4,
+        "ball_speed_kmh": 96.8,
+        "on_target": true
       }
     ],
-    "chaos_index": 0.133
+    "chaos_index": 0.122,
+    "threshold_alerts": [
+      {
+        "minute": 1,
+        "player": "Erling Haaland",
+        "alerts": [
+          "LONG_RANGE_ALERT: pass >= 35m"
+        ]
+      },
+      {
+        "minute": 4,
+        "player": "Erling Haaland",
+        "alerts": [
+          "LONG_RANGE_ALERT: pass >= 35m"
+        ]
+      },
+      {
+        "minute": 4,
+        "player": "Gael Clichy",
+        "alerts": [
+          "SPRINT_ALERT: player speed >= 32 km/h"
+        ]
+      },
+      {
+        "minute": 6,
+        "player": "Gael Clichy",
+        "alerts": [
+          "SPRINT_ALERT: player speed >= 32 km/h"
+        ]
+      },
+      {
+        "minute": 9,
+        "player": "Thierry Henry",
+        "alerts": [
+          "LONG_RANGE_ALERT: pass >= 35m"
+        ]
+      },
+      {
+        "minute": 9,
+        "player": "Samir Nasri",
+        "alerts": [
+          "SPRINT_ALERT: player speed >= 32 km/h"
+        ]
+      },
+      {
+        "minute": 9,
+        "player": "Samir Nasri",
+        "alerts": [
+          "LONG_RANGE_ALERT: pass >= 35m"
+        ]
+      },
+      {
+        "minute": 10,
+        "player": "Samir Nasri",
+        "alerts": [
+          "LONG_RANGE_ALERT: pass >= 35m"
+        ]
+      },
+      {
+        "minute": 10,
+        "player": "Erling Haaland",
+        "alerts": [
+          "SPRINT_ALERT: player speed >= 32 km/h"
+        ]
+      },
+      {
+        "minute": 11,
+        "player": "Samir Nasri",
+        "alerts": [
+          "SPRINT_ALERT: player speed >= 32 km/h"
+        ]
+      },
+      {
+        "minute": 12,
+        "player": "Samir Nasri",
+        "alerts": [
+          "LONG_RANGE_ALERT: pass >= 35m"
+        ]
+      },
+      {
+        "minute": 13,
+        "player": "Samir Nasri",
+        "alerts": [
+          "LONG_RANGE_ALERT: pass >= 35m"
+        ]
+      },
+      {
+        "minute": 14,
+        "player": "Gael Clichy",
+        "alerts": [
+          "LONG_RANGE_ALERT: pass >= 35m"
+        ]
+      },
+      {
+        "minute": 14,
+        "player": "Gael Clichy",
+        "alerts": [
+          "SPRINT_ALERT: player speed >= 32 km/h"
+        ]
+      },
+      {
+        "minute": 16,
+        "player": "Samir Nasri",
+        "alerts": [
+          "SPRINT_ALERT: player speed >= 32 km/h"
+        ]
+      },
+      {
+        "minute": 18,
+        "player": "Thierry Henry",
+        "alerts": [
+          "LONG_RANGE_ALERT: pass >= 35m"
+        ]
+      },
+      {
+        "minute": 19,
+        "player": "Robin van Persie",
+        "alerts": [
+          "LONG_RANGE_ALERT: pass >= 35m"
+        ]
+      },
+      {
+        "minute": 24,
+        "player": "Thierry Henry",
+        "alerts": [
+          "LONG_RANGE_ALERT: pass >= 35m"
+        ]
+      },
+      {
+        "minute": 26,
+        "player": "James Milner",
+        "alerts": [
+          "SPRINT_ALERT: player speed >= 32 km/h"
+        ]
+      },
+      {
+        "minute": 28,
+        "player": "James Milner",
+        "alerts": [
+          "LONG_RANGE_ALERT: pass >= 35m",
+          "SPRINT_ALERT: player speed >= 32 km/h"
+        ]
+      },
+      {
+        "minute": 30,
+        "player": "James Milner",
+        "alerts": [
+          "LONG_RANGE_ALERT: pass >= 35m"
+        ]
+      },
+      {
+        "minute": 32,
+        "player": "Kolo Toure",
+        "alerts": [
+          "LONG_RANGE_ALERT: pass >= 35m"
+        ]
+      },
+      {
+        "minute": 32,
+        "player": "Kolo Toure",
+        "alerts": [
+          "LONG_RANGE_ALERT: pass >= 35m"
+        ]
+      },
+      {
+        "minute": 34,
+        "player": "Kolo Toure",
+        "alerts": [
+          "SPRINT_ALERT: player speed >= 32 km/h"
+        ]
+      },
+      {
+        "minute": 35,
+        "player": "Gael Clichy",
+        "alerts": [
+          "LONG_RANGE_ALERT: pass >= 35m"
+        ]
+      },
+      {
+        "minute": 36,
+        "player": "Gael Clichy",
+        "alerts": [
+          "LONG_RANGE_ALERT: pass >= 35m"
+        ]
+      },
+      {
+        "minute": 36,
+        "player": "Samir Nasri",
+        "alerts": [
+          "SPRINT_ALERT: player speed >= 32 km/h"
+        ]
+      },
+      {
+        "minute": 36,
+        "player": "Thierry Henry",
+        "alerts": [
+          "SPRINT_ALERT: player speed >= 32 km/h"
+        ]
+      },
+      {
+        "minute": 37,
+        "player": "Thierry Henry",
+        "alerts": [
+          "SPRINT_ALERT: player speed >= 32 km/h"
+        ]
+      },
+      {
+        "minute": 45,
+        "player": "Kolo Toure",
+        "alerts": [
+          "LONG_RANGE_ALERT: pass >= 35m",
+          "SPRINT_ALERT: player speed >= 32 km/h"
+        ]
+      },
+      {
+        "minute": 46,
+        "player": "Samir Nasri",
+        "alerts": [
+          "LONG_RANGE_ALERT: pass >= 35m"
+        ]
+      },
+      {
+        "minute": 46,
+        "player": "Thierry Henry",
+        "alerts": [
+          "SPRINT_ALERT: player speed >= 32 km/h"
+        ]
+      },
+      {
+        "minute": 47,
+        "player": "Kolo Toure",
+        "alerts": [
+          "SPRINT_ALERT: player speed >= 32 km/h"
+        ]
+      },
+      {
+        "minute": 48,
+        "player": "Robin van Persie",
+        "alerts": [
+          "LONG_RANGE_ALERT: pass >= 35m"
+        ]
+      },
+      {
+        "minute": 53,
+        "player": "James Milner",
+        "alerts": [
+          "SPRINT_ALERT: player speed >= 32 km/h"
+        ]
+      },
+      {
+        "minute": 56,
+        "player": "Samir Nasri",
+        "alerts": [
+          "LONG_RANGE_ALERT: pass >= 35m"
+        ]
+      },
+      {
+        "minute": 56,
+        "player": "James Milner",
+        "alerts": [
+          "LONG_RANGE_ALERT: pass >= 35m",
+          "SPRINT_ALERT: player speed >= 32 km/h"
+        ]
+      },
+      {
+        "minute": 57,
+        "player": "Samir Nasri",
+        "alerts": [
+          "LONG_RANGE_ALERT: pass >= 35m"
+        ]
+      },
+      {
+        "minute": 58,
+        "player": "Erling Haaland",
+        "alerts": [
+          "LONG_RANGE_ALERT: pass >= 35m"
+        ]
+      },
+      {
+        "minute": 60,
+        "player": "Kolo Toure",
+        "alerts": [
+          "LONG_RANGE_ALERT: pass >= 35m"
+        ]
+      },
+      {
+        "minute": 61,
+        "player": "Gael Clichy",
+        "alerts": [
+          "SPRINT_ALERT: player speed >= 32 km/h"
+        ]
+      },
+      {
+        "minute": 61,
+        "player": "Gael Clichy",
+        "alerts": [
+          "SPRINT_ALERT: player speed >= 32 km/h"
+        ]
+      },
+      {
+        "minute": 62,
+        "player": "Gael Clichy",
+        "alerts": [
+          "LONG_RANGE_ALERT: pass >= 35m"
+        ]
+      },
+      {
+        "minute": 63,
+        "player": "Erling Haaland",
+        "alerts": [
+          "SPRINT_ALERT: player speed >= 32 km/h"
+        ]
+      },
+      {
+        "minute": 65,
+        "player": "Erling Haaland",
+        "alerts": [
+          "LONG_RANGE_ALERT: pass >= 35m"
+        ]
+      },
+      {
+        "minute": 65,
+        "player": "Thierry Henry",
+        "alerts": [
+          "SPRINT_ALERT: player speed >= 32 km/h"
+        ]
+      },
+      {
+        "minute": 66,
+        "player": "Gael Clichy",
+        "alerts": [
+          "LONG_RANGE_ALERT: pass >= 35m"
+        ]
+      },
+      {
+        "minute": 67,
+        "player": "Kolo Toure",
+        "alerts": [
+          "SPEED_ALERT: shot >= 110 km/h"
+        ]
+      },
+      {
+        "minute": 68,
+        "player": "Gael Clichy",
+        "alerts": [
+          "SPRINT_ALERT: player speed >= 32 km/h"
+        ]
+      },
+      {
+        "minute": 69,
+        "player": "Thierry Henry",
+        "alerts": [
+          "SPRINT_ALERT: player speed >= 32 km/h"
+        ]
+      },
+      {
+        "minute": 69,
+        "player": "Robin van Persie",
+        "alerts": [
+          "SPRINT_ALERT: player speed >= 32 km/h"
+        ]
+      },
+      {
+        "minute": 69,
+        "player": "Erling Haaland",
+        "alerts": [
+          "SPRINT_ALERT: player speed >= 32 km/h"
+        ]
+      },
+      {
+        "minute": 72,
+        "player": "Samir Nasri",
+        "alerts": [
+          "SPRINT_ALERT: player speed >= 32 km/h"
+        ]
+      },
+      {
+        "minute": 74,
+        "player": "James Milner",
+        "alerts": [
+          "SPRINT_ALERT: player speed >= 32 km/h"
+        ]
+      },
+      {
+        "minute": 74,
+        "player": "Robin van Persie",
+        "alerts": [
+          "SPRINT_ALERT: player speed >= 32 km/h"
+        ]
+      },
+      {
+        "minute": 77,
+        "player": "Samir Nasri",
+        "alerts": [
+          "LONG_RANGE_ALERT: pass >= 35m"
+        ]
+      },
+      {
+        "minute": 79,
+        "player": "Erling Haaland",
+        "alerts": [
+          "LONG_RANGE_ALERT: pass >= 35m"
+        ]
+      },
+      {
+        "minute": 80,
+        "player": "Gael Clichy",
+        "alerts": [
+          "SPRINT_ALERT: player speed >= 32 km/h"
+        ]
+      },
+      {
+        "minute": 80,
+        "player": "Kolo Toure",
+        "alerts": [
+          "LONG_RANGE_ALERT: pass >= 35m",
+          "SPRINT_ALERT: player speed >= 32 km/h"
+        ]
+      },
+      {
+        "minute": 81,
+        "player": "Gael Clichy",
+        "alerts": [
+          "SPRINT_ALERT: player speed >= 32 km/h"
+        ]
+      },
+      {
+        "minute": 83,
+        "player": "Erling Haaland",
+        "alerts": [
+          "SPRINT_ALERT: player speed >= 32 km/h"
+        ]
+      },
+      {
+        "minute": 84,
+        "player": "Erling Haaland",
+        "alerts": [
+          "LONG_RANGE_ALERT: pass >= 35m"
+        ]
+      },
+      {
+        "minute": 85,
+        "player": "Kolo Toure",
+        "alerts": [
+          "LONG_RANGE_ALERT: pass >= 35m"
+        ]
+      },
+      {
+        "minute": 87,
+        "player": "James Milner",
+        "alerts": [
+          "SPEED_ALERT: shot >= 110 km/h"
+        ]
+      },
+      {
+        "minute": 87,
+        "player": "Kolo Toure",
+        "alerts": [
+          "LONG_RANGE_ALERT: pass >= 35m"
+        ]
+      },
+      {
+        "minute": 89,
+        "player": "Samir Nasri",
+        "alerts": [
+          "LONG_RANGE_ALERT: pass >= 35m"
+        ]
+      }
+    ]
   },
   "graph_context": {
     "key_moment_context": [
       {
-        "minute": 4,
-        "player": "Kolo Toure",
-        "kevin_bacon_score": 1.03,
-        "degree": 3,
+        "minute": 6,
+        "player": "Gael Clichy",
+        "kevin_bacon_score": 0.34,
+        "degree": 2,
         "path_to_haaland": [
-          "Kolo Toure",
+          "Gael Clichy",
           "Manchester City",
           "Erling Haaland"
         ],
         "path_to_arsenal": [
-          "Kolo Toure",
-          "Arsenal"
-        ]
-      },
-      {
-        "minute": 4,
-        "player": "Thierry Henry",
-        "kevin_bacon_score": 0.0,
-        "degree": 1,
-        "path_to_haaland": [
-          "Thierry Henry",
-          "Arsenal",
-          "Patrick Vieira",
-          "Manchester City",
-          "Erling Haaland"
-        ],
-        "path_to_arsenal": [
-          "Thierry Henry",
-          "Arsenal"
-        ]
-      },
-      {
-        "minute": 15,
-        "player": "Erling Haaland",
-        "kevin_bacon_score": 0.0,
-        "degree": 1,
-        "path_to_haaland": [
-          "Erling Haaland"
-        ],
-        "path_to_arsenal": [
-          "Erling Haaland",
-          "Manchester City",
-          "Patrick Vieira",
-          "Arsenal"
-        ]
-      },
-      {
-        "minute": 17,
-        "player": "Kolo Toure",
-        "kevin_bacon_score": 1.03,
-        "degree": 3,
-        "path_to_haaland": [
-          "Kolo Toure",
-          "Manchester City",
-          "Erling Haaland"
-        ],
-        "path_to_arsenal": [
-          "Kolo Toure",
+          "Gael Clichy",
           "Arsenal"
         ]
       },
       {
         "minute": 20,
-        "player": "Robin van Persie",
-        "kevin_bacon_score": 0.0,
-        "degree": 2,
-        "path_to_haaland": [
-          "Robin van Persie",
-          "Arsenal",
-          "Patrick Vieira",
-          "Manchester City",
-          "Erling Haaland"
-        ],
-        "path_to_arsenal": [
-          "Robin van Persie",
-          "Arsenal"
-        ]
-      },
-      {
-        "minute": 22,
         "player": "Samir Nasri",
         "kevin_bacon_score": 0.34,
         "degree": 2,
@@ -287,6 +709,66 @@
         ],
         "path_to_arsenal": [
           "Samir Nasri",
+          "Arsenal"
+        ]
+      },
+      {
+        "minute": 22,
+        "player": "Gael Clichy",
+        "kevin_bacon_score": 0.34,
+        "degree": 2,
+        "path_to_haaland": [
+          "Gael Clichy",
+          "Manchester City",
+          "Erling Haaland"
+        ],
+        "path_to_arsenal": [
+          "Gael Clichy",
+          "Arsenal"
+        ]
+      },
+      {
+        "minute": 27,
+        "player": "Kolo Toure",
+        "kevin_bacon_score": 1.03,
+        "degree": 3,
+        "path_to_haaland": [
+          "Kolo Toure",
+          "Manchester City",
+          "Erling Haaland"
+        ],
+        "path_to_arsenal": [
+          "Kolo Toure",
+          "Arsenal"
+        ]
+      },
+      {
+        "minute": 31,
+        "player": "Gael Clichy",
+        "kevin_bacon_score": 0.34,
+        "degree": 2,
+        "path_to_haaland": [
+          "Gael Clichy",
+          "Manchester City",
+          "Erling Haaland"
+        ],
+        "path_to_arsenal": [
+          "Gael Clichy",
+          "Arsenal"
+        ]
+      },
+      {
+        "minute": 36,
+        "player": "Erling Haaland",
+        "kevin_bacon_score": 0.0,
+        "degree": 1,
+        "path_to_haaland": [
+          "Erling Haaland"
+        ],
+        "path_to_arsenal": [
+          "Erling Haaland",
+          "Manchester City",
+          "Patrick Vieira",
           "Arsenal"
         ]
       }
@@ -331,30 +813,34 @@
   },
   "narrative": {
     "why_it_matters": [
-      "Minute 4: Kolo Toure matters here \u2014 Kevin Bacon Score 1.03/10, 3 graph connections. Path to Haaland: Kolo Toure \u2192 Manchester City \u2192 Erling Haaland.",
-      "Minute 4: Thierry Henry matters here \u2014 Kevin Bacon Score 0.0/10, 1 graph connections. Path to Haaland: Thierry Henry \u2192 Arsenal \u2192 Patrick Vieira \u2192 Manchester City \u2192 Erling Haaland.",
-      "Minute 15: Erling Haaland matters here \u2014 Kevin Bacon Score 0.0/10, 1 graph connections. Path to Haaland: Erling Haaland.",
-      "Minute 17: Kolo Toure matters here \u2014 Kevin Bacon Score 1.03/10, 3 graph connections. Path to Haaland: Kolo Toure \u2192 Manchester City \u2192 Erling Haaland."
+      "Minute 6: Gael Clichy matters here \u2014 Kevin Bacon Score 0.34/10, 2 graph connections. Path to Haaland: Gael Clichy \u2192 Manchester City \u2192 Erling Haaland.",
+      "Minute 20: Samir Nasri matters here \u2014 Kevin Bacon Score 0.34/10, 2 graph connections. Path to Haaland: Samir Nasri \u2192 Manchester City \u2192 Erling Haaland.",
+      "Minute 22: Gael Clichy matters here \u2014 Kevin Bacon Score 0.34/10, 2 graph connections. Path to Haaland: Gael Clichy \u2192 Manchester City \u2192 Erling Haaland.",
+      "Minute 27: Kolo Toure matters here \u2014 Kevin Bacon Score 1.03/10, 3 graph connections. Path to Haaland: Kolo Toure \u2192 Manchester City \u2192 Erling Haaland."
     ],
-    "recap": "Arsenal 1\u20131 Manchester City (synthetic). 25 shots, chaos index 0.133 \u2014 control swung by 15-minute windows: 0-15 Arsenal, 15-30 Manchester City, 30-45 Manchester City, 45-60 Manchester City, 60-75 Manchester City, 75-90 Arsenal.",
+    "recap": "Arsenal 0\u20131 Manchester City (synthetic). 23 shots, chaos index 0.122 \u2014 control swung by 15-minute windows: 0-15 Arsenal, 15-30 Arsenal, 30-45 Manchester City, 45-60 Manchester City, 60-75 Arsenal, 75-90 Manchester City.",
     "explainability": "Every narrative claim is grounded in a generated event or a verified graph path \u2014 the narrator never invents a connection."
   },
   "personalized": {
     "analyst": {
       "headline": "Control vs chaos, pass difficulty, pressure",
-      "body": "Avg pass difficulty 5.4, avg pressure 5.73, chaos 0.133. Momentum: [{'window': '0-15', 'dominant': 'Arsenal', 'events': 49}, {'window': '15-30', 'dominant': 'Manchester City', 'events': 47}, {'window': '30-45', 'dominant': 'Manchester City', 'events': 49}, {'window': '45-60', 'dominant': 'Manchester City', 'events': 45}, {'window': '60-75', 'dominant': 'Manchester City', 'events': 48}, {'window': '75-90', 'dominant': 'Arsenal', 'events': 48}]"
+      "body": "Avg pass difficulty 5.18, avg pressure 5.29, chaos 0.122. Momentum: [{'window': '0-15', 'dominant': 'Arsenal', 'events': 42}, {'window': '15-30', 'dominant': 'Arsenal', 'events': 46}, {'window': '30-45', 'dominant': 'Manchester City', 'events': 47}, {'window': '45-60', 'dominant': 'Manchester City', 'events': 46}, {'window': '60-75', 'dominant': 'Arsenal', 'events': 48}, {'window': '75-90', 'dominant': 'Manchester City', 'events': 49}]"
     },
     "casual_fan": {
       "headline": "The story of the match, in plain English",
-      "body": "Arsenal 1\u20131 Manchester City (synthetic). 25 shots, chaos index 0.133 \u2014 control swung by 15-minute windows: 0-15 Arsenal, 15-30 Manchester City, 30-45 Manchester City, 45-60 Manchester City, 60-75 Manchester City, 75-90 Arsenal."
+      "body": "Arsenal 0\u20131 Manchester City (synthetic). 23 shots, chaos index 0.122 \u2014 control swung by 15-minute windows: 0-15 Arsenal, 15-30 Arsenal, 30-45 Manchester City, 45-60 Manchester City, 60-75 Arsenal, 75-90 Manchester City."
     },
     "player_focus": {
       "headline": "Following Erling Haaland",
-      "body": "Focus mode tracks Erling Haaland through every key moment and graph connection. Minute 4: Kolo Toure matters here \u2014 Kevin Bacon Score 1.03/10, 3 graph connections. Path to Haaland: Kolo Toure \u2192 Manchester City \u2192 Erling Haaland. Minute 4: Thierry Henry matters here \u2014 Kevin Bacon Score 0.0/10, 1 graph connections. Path to Haaland: Thierry Henry \u2192 Arsenal \u2192 Patrick Vieira \u2192 Manchester City \u2192 Erling Haaland."
+      "body": "Focus mode tracks Erling Haaland through every key moment and graph connection. Minute 6: Gael Clichy matters here \u2014 Kevin Bacon Score 0.34/10, 2 graph connections. Path to Haaland: Gael Clichy \u2192 Manchester City \u2192 Erling Haaland. Minute 20: Samir Nasri matters here \u2014 Kevin Bacon Score 0.34/10, 2 graph connections. Path to Haaland: Samir Nasri \u2192 Manchester City \u2192 Erling Haaland."
+    },
+    "club_focus": {
+      "headline": "Club focus: Arsenal",
+      "body": "Every key moment, overlay and statistic filtered through Arsenal: momentum windows [{'window': '0-15', 'dominant': 'Arsenal', 'events': 42}, {'window': '15-30', 'dominant': 'Arsenal', 'events': 46}, {'window': '30-45', 'dominant': 'Manchester City', 'events': 47}, {'window': '45-60', 'dominant': 'Manchester City', 'events': 46}, {'window': '60-75', 'dominant': 'Arsenal', 'events': 48}, {'window': '75-90', 'dominant': 'Manchester City', 'events': 49}], with the graph context for Arsenal players first. Same intelligence, centred on your club."
     },
     "es": {
       "headline": "Resumen del partido (sint\u00e9tico)",
-      "body": "Narraci\u00f3n generada desde los mismos eventos y el mismo grafo \u2014 la personalizaci\u00f3n por idioma usa el pipeline compartido, no una traducci\u00f3n separada."
+      "body": "Resultado final (sint\u00e9tico): Arsenal 0-1 Manchester City. El partido registr\u00f3 23 tiros, 10 a puerta, y un \u00edndice de caos de 0.122. La presi\u00f3n media fue 5.29 y la dificultad media de pase 5.18. Narraci\u00f3n generada desde los mismos eventos y el mismo grafo que el resto de modos."
     }
   },
   "overlay": {
@@ -364,91 +850,97 @@
     "feed": [
       {
         "overlay_id": "ov-001",
-        "at_minute": 4,
+        "at_minute": 6,
         "duration_s": 8,
         "type": "key_moment",
-        "title": "Kolo Toure \u2014 why this matters",
-        "body": "Minute 4: Kolo Toure matters here \u2014 Kevin Bacon Score 1.03/10, 3 graph connections. Path to Haaland: Kolo Toure \u2192 Manchester City \u2192 Erling Haaland.",
-        "kevin_bacon_score": 1.03,
+        "title": "Gael Clichy \u2014 why this matters",
+        "body": "Minute 6: Gael Clichy matters here \u2014 Kevin Bacon Score 0.34/10, 2 graph connections. Path to Haaland: Gael Clichy \u2192 Manchester City \u2192 Erling Haaland.",
+        "kevin_bacon_score": 0.34,
         "modes": [
           "analyst",
           "casual_fan",
           "player_focus",
+          "club_focus",
           "es"
         ]
       },
       {
         "overlay_id": "ov-002",
-        "at_minute": 4,
+        "at_minute": 20,
         "duration_s": 8,
         "type": "key_moment",
-        "title": "Thierry Henry \u2014 why this matters",
-        "body": "Minute 4: Thierry Henry matters here \u2014 Kevin Bacon Score 0.0/10, 1 graph connections. Path to Haaland: Thierry Henry \u2192 Arsenal \u2192 Patrick Vieira \u2192 Manchester City \u2192 Erling Haaland.",
-        "kevin_bacon_score": 0.0,
+        "title": "Samir Nasri \u2014 why this matters",
+        "body": "Minute 20: Samir Nasri matters here \u2014 Kevin Bacon Score 0.34/10, 2 graph connections. Path to Haaland: Samir Nasri \u2192 Manchester City \u2192 Erling Haaland.",
+        "kevin_bacon_score": 0.34,
         "modes": [
           "analyst",
           "casual_fan",
           "player_focus",
+          "club_focus",
           "es"
         ]
       },
       {
         "overlay_id": "ov-003",
-        "at_minute": 15,
+        "at_minute": 22,
         "duration_s": 8,
         "type": "key_moment",
-        "title": "Erling Haaland \u2014 why this matters",
-        "body": "Minute 15: Erling Haaland matters here \u2014 Kevin Bacon Score 0.0/10, 1 graph connections. Path to Haaland: Erling Haaland.",
-        "kevin_bacon_score": 0.0,
+        "title": "Gael Clichy \u2014 why this matters",
+        "body": "Minute 22: Gael Clichy matters here \u2014 Kevin Bacon Score 0.34/10, 2 graph connections. Path to Haaland: Gael Clichy \u2192 Manchester City \u2192 Erling Haaland.",
+        "kevin_bacon_score": 0.34,
         "modes": [
           "analyst",
           "casual_fan",
           "player_focus",
+          "club_focus",
           "es"
         ]
       },
       {
         "overlay_id": "ov-004",
-        "at_minute": 17,
+        "at_minute": 27,
         "duration_s": 8,
         "type": "key_moment",
         "title": "Kolo Toure \u2014 why this matters",
-        "body": "Minute 17: Kolo Toure matters here \u2014 Kevin Bacon Score 1.03/10, 3 graph connections. Path to Haaland: Kolo Toure \u2192 Manchester City \u2192 Erling Haaland.",
+        "body": "Minute 27: Kolo Toure matters here \u2014 Kevin Bacon Score 1.03/10, 3 graph connections. Path to Haaland: Kolo Toure \u2192 Manchester City \u2192 Erling Haaland.",
         "kevin_bacon_score": 1.03,
         "modes": [
           "analyst",
           "casual_fan",
           "player_focus",
+          "club_focus",
           "es"
         ]
       },
       {
         "overlay_id": "ov-005",
-        "at_minute": 20,
+        "at_minute": 31,
         "duration_s": 8,
         "type": "key_moment",
-        "title": "Robin van Persie \u2014 why this matters",
-        "body": "",
-        "kevin_bacon_score": 0.0,
-        "modes": [
-          "analyst",
-          "casual_fan",
-          "player_focus",
-          "es"
-        ]
-      },
-      {
-        "overlay_id": "ov-006",
-        "at_minute": 22,
-        "duration_s": 8,
-        "type": "key_moment",
-        "title": "Samir Nasri \u2014 why this matters",
+        "title": "Gael Clichy \u2014 why this matters",
         "body": "",
         "kevin_bacon_score": 0.34,
         "modes": [
           "analyst",
           "casual_fan",
           "player_focus",
+          "club_focus",
+          "es"
+        ]
+      },
+      {
+        "overlay_id": "ov-006",
+        "at_minute": 36,
+        "duration_s": 8,
+        "type": "key_moment",
+        "title": "Erling Haaland \u2014 why this matters",
+        "body": "",
+        "kevin_bacon_score": 0.0,
+        "modes": [
+          "analyst",
+          "casual_fan",
+          "player_focus",
+          "club_focus",
           "es"
         ]
       }
@@ -462,9 +954,9 @@
       "synthetic": true
     },
     "final_score": {
-      "Arsenal": 1,
+      "Arsenal": 0,
       "Manchester City": 1
     },
-    "event_count": 286
+    "event_count": 278
   }
 }

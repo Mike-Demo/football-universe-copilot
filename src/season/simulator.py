@@ -49,7 +49,7 @@ def simulate(clubs, seed, relegation_spots):
         gh, ga = poisson(rng, xg_h), poisson(rng, xg_a)
         shots_h = gh + rng.randint(5, 12); shots_a = ga + rng.randint(4, 11)
         poss_h = max(28, min(72, round(50 + (clubs[h][0] + clubs[h][1] - clubs[a][0] - clubs[a][1]) * 22 + rng.uniform(-6, 6))))
-        matches.append({**f, "home_goals": gh, "away_goals": ga, "home_shots": shots_h, "away_shots": shots_a, "home_possession": poss_h})
+        matches.append({**f, "xg_home": round(xg_h,2), "xg_away": round(xg_a,2), "home_goals": gh, "away_goals": ga, "home_shots": shots_h, "away_shots": shots_a, "home_possession": poss_h})
         T = table
         T[h]["played"] += 1; T[a]["played"] += 1; T[h]["gf"] += gh; T[h]["ga"] += ga; T[a]["gf"] += ga; T[a]["ga"] += gh
         if gh > ga: T[h]["won"] += 1; T[a]["lost"] += 1; T[h]["points"] += 3; T[h]["home_points"] += 3; T[h]["form"].append("W"); T[a]["form"].append("L")

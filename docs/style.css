@@ -136,3 +136,40 @@ header{padding:18px 20px 0;max-width:1560px;margin:0 auto}
   #scrub{flex:1 1 100%;order:5}
   #seasonTable th:nth-child(8),#seasonTable td:nth-child(8),#seasonTable th:nth-child(9),#seasonTable td:nth-child(9){display:none}
 }
+
+/* ---------- Fluent UI React v9: motion tokens (Fluent Motion standard) ---------- */
+:root{
+  --durUltraFast:50ms; --durFaster:100ms; --durFast:150ms; --durNormal:200ms; --durGentle:250ms; --durSlow:300ms; --durSlower:400ms; --durUltraSlow:500ms;
+  --curveAccelerateMax:cubic-bezier(.9,.1,1,.2); --curveAccelerateMid:cubic-bezier(.55,.55,0,1); --curveAccelerateMin:cubic-bezier(.8,0,.78,1);
+  --curveDecelerateMax:cubic-bezier(.1,.9,.2,1); --curveDecelerateMid:cubic-bezier(.1,.9,.2,1); --curveDecelerateMin:cubic-bezier(.33,0,.1,1);
+  --curveEasyEaseMax:cubic-bezier(.8,0,.2,1); --curveEasyEase:cubic-bezier(.33,0,.67,1); --curveLinear:cubic-bezier(0,0,1,1);
+}
+button,.btn,select{transition:background-color var(--durFast) var(--curveEasyEase),border-color var(--durFast) var(--curveEasyEase),box-shadow var(--durFast) var(--curveEasyEase)}
+button:active,.btn:active{transform:scale(.98);transition-duration:var(--durFaster)}
+.agent{transition:box-shadow var(--durFast) var(--curveEasyEase)}
+.agent:hover{box-shadow:var(--shadow2)}
+@keyframes cardIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes bargrow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes linedraw{to{stroke-dashoffset:0}}
+main .card{animation:cardIn var(--durNormal) var(--curveDecelerateMax) both}
+main .card:nth-of-type(2){animation-delay:40ms} main .card:nth-of-type(3){animation-delay:80ms}
+/* Poisson horizontal bars (v9 HorizontalBarChart anatomy) */
+.hbar{display:flex;align-items:center;gap:10px;margin:6px 0;font-size:13px}
+.hbar .hl{width:130px;color:var(--text-2)}
+.hbar .ht{flex:1;background:var(--card-alt);border-radius:2px;height:14px;overflow:hidden}
+.hbar .hf{display:block;height:100%;border-radius:2px;transition:width var(--durSlow) var(--curveDecelerateMax)}
+/* v9 Switch for the Voronoi toggle */
+#vorToggle{appearance:none;-webkit-appearance:none;width:40px;height:20px;border-radius:999px;border:1px solid var(--muted);background:#fff;position:relative;cursor:pointer;vertical-align:-4px;transition:background-color var(--durFast) var(--curveEasyEase),border-color var(--durFast) var(--curveEasyEase)}
+#vorToggle::after{content:"";position:absolute;top:3px;left:3px;width:12px;height:12px;border-radius:50%;background:var(--text-2);transition:left var(--durFast) var(--curveEasyEase),background-color var(--durFast) var(--curveEasyEase)}
+#vorToggle:checked{background:var(--brand);border-color:var(--brand)}
+#vorToggle:checked::after{left:23px;background:#fff}
+/* v9 TabList anatomy for personas on wider screens */
+@media (min-width: 641px){
+  .modes{gap:2px;border-bottom:1px solid var(--divider)}
+  .modes .mode{background:transparent;border:none;border-bottom:2px solid transparent;border-radius:4px 4px 0 0;color:var(--text-2);font-weight:400}
+  .modes .mode:hover{background:var(--card-alt)}
+  .modes .mode.active{background:transparent;color:var(--brand);border-bottom:2px solid var(--brand);font-weight:600}
+}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
+}

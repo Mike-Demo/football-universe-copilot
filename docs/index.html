@@ -41,7 +41,7 @@
     </div>
 
     <section class="card">
-      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px">
+      <div class="chips" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px">
         <span class="chip live">● LIVE SYNTHETIC MATCH · <span id="chipClock">0'</span></span>
         <span class="chip">Seeded simulator — deterministic</span>
         <span class="chip">Graph seed universe: 45 nodes · 63 edges</span>
@@ -149,6 +149,12 @@
     </section>
   </main>
 </div>
+<nav id="tabbar" aria-label="Sections">
+  <a href="#studio">📡<span>Studio</span></a>
+  <a href="#pitchCard">🎯<span>Pitch</span></a>
+  <a href="#graphCard">✦<span>Graph</span></a>
+  <a href="#seasonCard">📊<span>Season</span></a>
+</nav>
 <script src="app.js"></script>
 <script>
 let SEASON=null, LEAGUE='premier_league';

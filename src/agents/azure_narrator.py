@@ -24,10 +24,14 @@ def azure_narrate(match, stats, ctx):
     req = urllib.request.Request(f"{endpoint}/openai/deployments/{deployment}/chat/completions?api-version={API_VERSION}",
                                  data=json.dumps(body).encode(), method="POST",
                                  headers={"Content-Type": "application/json", "api-key": key})
-    try:
-        with urllib.request.urlopen(req, timeout=30) as r:
-            data = json.loads(r.read())
-        provider = "microsoft-foundry" if "phi" in deployment.lower() else "azure-openai"
-        return {"recap": data["choices"][0]["message"]["content"], "source": f"{provider}:{deployment}"}
-    except Exception:
-        return None
+    provider = "microsoft-foundry" if "phi" in deployment.lower() else "azure-openai"
+    # Serverless Phi cold start measured at ~61s (Oct 2026) - a 30s timeout silently forced
+    # template fallback on the first call after idle. 120s + one retry instead.
+    for attempt in range(2):
+        try:
+            with urllib.request.urlopen(req, timeout=120) as r:
+                data = json.loads(r.read())
+            return {"recap": data["choices"][0]["message"]["content"], "source": f"{provider}:{deployment}"}
+        except Exception:
+            if attempt == 1:
+                return None

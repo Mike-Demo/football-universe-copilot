@@ -9,7 +9,7 @@ function render() {
   $('scrub').value = minute;
   const evs = D.events.filter(e => e.minute <= minute);
   const feed = evs.slice(-14).reverse();
-  $('feed').innerHTML = feed.map(e => `<li class="${e.goal ? 'goal' : ''}">${e.minute}' <strong>${e.type}</strong> — ${e.player} (${e.team})${e.goal ? ' ⚽ GOAL' : ''}${e.type === 'shot' ? ` · ${e.shot_speed_kmh} km/h${e.on_target ? ' · on target' : ''}` : ''}${e.type === 'pass' ? ` · ${e.distance_m}m · difficulty ${e.difficulty}` : ''}${e.type === 'pressure' ? ` · intensity ${e.pressure_intensity}` : ''}</li>`).join('');
+  $('feed').innerHTML = feed.map(e => `<li class="${e.goal ? 'goal' : ''}">${e.minute}' <strong>${e.type}</strong> — ${e.player} (${e.team})${e.goal ? ' ⚽ GOAL' : ''}${e.type === 'shot' ? ` · ${e.shot_speed_kmh} km/h${e.on_target ? ' · on target' : ''}` : ''}${e.type === 'pass' ? ` · ${e.distance_m}m · difficulty ${e.difficulty}` : ''}${e.type === 'pressure' ? ` · intensity ${e.pressure_intensity}` : ''}${e.threshold_alerts ? ' ⚡ ' + e.threshold_alerts.join(', ') : ''}</li>`).join('');
   const shots = evs.filter(e => e.type === 'shot').length, passes = evs.filter(e => e.type === 'pass').length;
   $('liveStats').textContent = `${evs.length} events so far · ${shots} shots · ${passes} passes · chaos index (full match) ${D.stats.chaos_index}`;
   const ov = [...D.overlay.feed].reverse().find(o => o.at_minute <= minute);
@@ -80,6 +80,7 @@ async function load() {
   $('board').innerHTML = D.graph_context.leaderboard.map(x => `<li>${x.name} — <strong>${x.kevin_bacon_score}/10</strong> (${x.degree} connections)</li>`).join('');
   $('why').innerHTML = D.narrative.why_it_matters.map(x => `<li>${x}</li>`).join('');
   $('recap').textContent = D.narrative.recap;
+  $('alerts').innerHTML = (D.stats.threshold_alerts || []).slice(0, 10).map(a => `<li>${a.minute}' ${a.player} — ${a.alerts.join('; ')}</li>`).join('') || '<li>None in this match.</li>';
   setMode('casual_fan'); render(); initGraph();
 }
 $('playBtn').addEventListener('click', () => { playing = !playing; lastTs = null; $('playBtn').textContent = playing ? '⏸ Pause' : '▶ Play replay'; if (playing) requestAnimationFrame(tick); });

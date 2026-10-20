@@ -15,7 +15,8 @@ class InterpreterAgent:
                 "avg_pass_difficulty":round(sum(p.get("difficulty",0) for p in passes)/max(len(passes),1),2),
                 "avg_pressure":round(sum(p.get("pressure_intensity",0) for p in pressure)/max(len(pressure),1),2),
                 "momentum":momentum,"key_moments":key[:12],
-                "chaos_index":round(len([e for e in ev if e["type"] in ("possession_change","tackle")])/max(len(ev),1),3)}
+                "chaos_index":round(len([e for e in ev if e["type"] in ("possession_change","tackle")])/max(len(ev),1),3),
+                "threshold_alerts":[{"minute":e["minute"],"player":e["player"],"alerts":e["threshold_alerts"]} for e in ev if e.get("threshold_alerts")]}
 class GraphContextAgent:
     name="GraphContext"
     def __init__(self): self.u=Universe()
@@ -40,9 +41,10 @@ class NarratorAgent:
         return {"why_it_matters":why,"recap":recap,"explainability":"Every narrative claim is grounded in a generated event or a verified graph path — the narrator never invents a connection."}
 class PersonalizerAgent:
     name="Personalizer"
-    def run(self, stats, narrator, focus_player="Erling Haaland"):
+    def run(self, stats, narrator, focus_player="Erling Haaland", final_score=None, focus_club="Arsenal"):
         return {
           "analyst":{"headline":"Control vs chaos, pass difficulty, pressure","body":f"Avg pass difficulty {stats['avg_pass_difficulty']}, avg pressure {stats['avg_pressure']}, chaos {stats['chaos_index']}. Momentum: {stats['momentum']}"},
           "casual_fan":{"headline":"The story of the match, in plain English","body":narrator["recap"]},
           "player_focus":{"headline":f"Following {focus_player}","body":f"Focus mode tracks {focus_player} through every key moment and graph connection. " + " ".join(narrator["why_it_matters"][:2])},
-          "es":{"headline":"Resumen del partido (sintético)","body":"Narración generada desde los mismos eventos y el mismo grafo — la personalización por idioma usa el pipeline compartido, no una traducción separada."}}
+          "club_focus":{"headline":f"Club focus: {focus_club}","body":f"Every key moment, overlay and statistic filtered through {focus_club}: momentum windows {stats['momentum']}, with the graph context for {focus_club} players first. Same intelligence, centred on your club."},
+          "es":{"headline":"Resumen del partido (sintético)","body":(f"Resultado final (sintético): {final_score}. " if final_score else "") + f"El partido registró {stats['shots']} tiros, {stats['shots_on_target']} a puerta, y un índice de caos de {stats['chaos_index']}. La presión media fue {stats['avg_pressure']} y la dificultad media de pase {stats['avg_pass_difficulty']}. Narración generada desde los mismos eventos y el mismo grafo que el resto de modos."}}

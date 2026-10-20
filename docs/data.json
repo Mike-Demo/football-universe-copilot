@@ -12965,32 +12965,56 @@
    {
     "window": "0-15",
     "dominant": "Arsenal",
-    "events": 42
+    "events": 42,
+    "split": {
+     "Arsenal": 22,
+     "Manchester City": 20
+    }
    },
    {
     "window": "15-30",
     "dominant": "Arsenal",
-    "events": 46
+    "events": 46,
+    "split": {
+     "Arsenal": 26,
+     "Manchester City": 20
+    }
    },
    {
     "window": "30-45",
     "dominant": "Manchester City",
-    "events": 47
+    "events": 47,
+    "split": {
+     "Arsenal": 22,
+     "Manchester City": 25
+    }
    },
    {
     "window": "45-60",
     "dominant": "Manchester City",
-    "events": 46
+    "events": 46,
+    "split": {
+     "Manchester City": 27,
+     "Arsenal": 19
+    }
    },
    {
     "window": "60-75",
     "dominant": "Arsenal",
-    "events": 48
+    "events": 48,
+    "split": {
+     "Arsenal": 26,
+     "Manchester City": 22
+    }
    },
    {
     "window": "75-90",
     "dominant": "Manchester City",
-    "events": 49
+    "events": 49,
+    "split": {
+     "Arsenal": 24,
+     "Manchester City": 25
+    }
    }
   ],
   "key_moments": [
@@ -14742,7 +14766,7 @@
  "personalized": {
   "analyst": {
    "headline": "Control vs chaos, pass difficulty, pressure",
-   "body": "Avg pass difficulty 5.18, avg pressure 5.29, chaos 0.122. Momentum: [{'window': '0-15', 'dominant': 'Arsenal', 'events': 42}, {'window': '15-30', 'dominant': 'Arsenal', 'events': 46}, {'window': '30-45', 'dominant': 'Manchester City', 'events': 47}, {'window': '45-60', 'dominant': 'Manchester City', 'events': 46}, {'window': '60-75', 'dominant': 'Arsenal', 'events': 48}, {'window': '75-90', 'dominant': 'Manchester City', 'events': 49}]"
+   "body": "Avg pass difficulty 5.18, avg pressure 5.29, chaos 0.122. Momentum: [{'window': '0-15', 'dominant': 'Arsenal', 'events': 42, 'split': {'Arsenal': 22, 'Manchester City': 20}}, {'window': '15-30', 'dominant': 'Arsenal', 'events': 46, 'split': {'Arsenal': 26, 'Manchester City': 20}}, {'window': '30-45', 'dominant': 'Manchester City', 'events': 47, 'split': {'Arsenal': 22, 'Manchester City': 25}}, {'window': '45-60', 'dominant': 'Manchester City', 'events': 46, 'split': {'Manchester City': 27, 'Arsenal': 19}}, {'window': '60-75', 'dominant': 'Arsenal', 'events': 48, 'split': {'Arsenal': 26, 'Manchester City': 22}}, {'window': '75-90', 'dominant': 'Manchester City', 'events': 49, 'split': {'Arsenal': 24, 'Manchester City': 25}}]"
   },
   "casual_fan": {
    "headline": "The story of the match, in plain English",
@@ -14754,7 +14778,7 @@
   },
   "club_focus": {
    "headline": "Club focus: Arsenal",
-   "body": "Every key moment, overlay and statistic filtered through Arsenal: momentum windows [{'window': '0-15', 'dominant': 'Arsenal', 'events': 42}, {'window': '15-30', 'dominant': 'Arsenal', 'events': 46}, {'window': '30-45', 'dominant': 'Manchester City', 'events': 47}, {'window': '45-60', 'dominant': 'Manchester City', 'events': 46}, {'window': '60-75', 'dominant': 'Arsenal', 'events': 48}, {'window': '75-90', 'dominant': 'Manchester City', 'events': 49}], with the graph context for Arsenal players first. Same intelligence, centred on your club."
+   "body": "Every key moment, overlay and statistic filtered through Arsenal: momentum windows [{'window': '0-15', 'dominant': 'Arsenal', 'events': 42, 'split': {'Arsenal': 22, 'Manchester City': 20}}, {'window': '15-30', 'dominant': 'Arsenal', 'events': 46, 'split': {'Arsenal': 26, 'Manchester City': 20}}, {'window': '30-45', 'dominant': 'Manchester City', 'events': 47, 'split': {'Arsenal': 22, 'Manchester City': 25}}, {'window': '45-60', 'dominant': 'Manchester City', 'events': 46, 'split': {'Manchester City': 27, 'Arsenal': 19}}, {'window': '60-75', 'dominant': 'Arsenal', 'events': 48, 'split': {'Arsenal': 26, 'Manchester City': 22}}, {'window': '75-90', 'dominant': 'Manchester City', 'events': 49, 'split': {'Arsenal': 24, 'Manchester City': 25}}], with the graph context for Arsenal players first. Same intelligence, centred on your club."
   },
   "es": {
    "headline": "Resumen del partido (sint\u00e9tico)",

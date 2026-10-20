@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="style.css"></head>
 <body>
 <div class="cmdbar">
-  <span class="logo">⚽</span><strong>Football Universe</strong><span class="pill-copilot">✦ COPILOT</span>
+  <span class="logo"><img class="fe fe-logo" src="assets/fluent-emoji/soccer-ball.svg" alt="" aria-hidden="true"></span><strong>Football Universe</strong><span class="pill-copilot"><img class="fe" src="assets/fluent-emoji/sparkles.svg" alt="" aria-hidden="true"> COPILOT</span>
   <nav><a href="#studio">Live Match Studio</a><a href="#graphCard">Graph Explorer</a><a href="#seasonCard">Season Hub</a><a href="tech.html">Tech Stack</a></nav>
   <span class="spacer"></span>
   <button id="tourBtn" class="btn">Tour &amp; Guide</button>
@@ -13,15 +13,15 @@
 <div class="shell">
   <aside class="rail">
     <h3>INTELLIGENCE &amp; PLAY</h3>
-    <a href="#studio" class="on">▦ Command Overview</a>
-    <a href="#studio">📡 Live Match Studio</a>
-    <a href="#graphCard">✦ Graph Explorer</a>
-    <a href="#seasonCard">📊 Season Hub</a>
+    <a href="#studio" class="on"><img class="fe" src="assets/fluent-emoji/control-knobs.svg" alt="" aria-hidden="true"> Command Overview</a>
+    <a href="#studio"><img class="fe" src="assets/fluent-emoji/satellite-antenna.svg" alt="" aria-hidden="true"> Live Match Studio</a>
+    <a href="#graphCard"><img class="fe" src="assets/fluent-emoji/globe-with-meridians.svg" alt="" aria-hidden="true"> Graph Explorer</a>
+    <a href="#seasonCard"><img class="fe" src="assets/fluent-emoji/bar-chart.svg" alt="" aria-hidden="true"> Season Hub</a>
     <h3>COPILOT</h3>
-    <a href="#agentsCard">🧠 Tactical Lab — Agents</a>
-    <a href="tech.html">⚙ Open Source &amp; Tech</a>
+    <a href="#agentsCard"><img class="fe" src="assets/fluent-emoji/brain.svg" alt="" aria-hidden="true"> Tactical Lab — Agents</a>
+    <a href="tech.html"><img class="fe" src="assets/fluent-emoji/gear.svg" alt="" aria-hidden="true"> Open Source &amp; Tech</a>
     <div class="card" style="margin-top:16px;background:linear-gradient(135deg,rgba(123,66,188,.06),rgba(17,94,163,.06));border-color:rgba(123,66,188,.25)">
-      <strong>✦ Match insights</strong>
+      <strong><img class="fe" src="assets/fluent-emoji/sparkles.svg" alt="" aria-hidden="true"> Match insights</strong>
       <p class="small" style="margin:6px 0 0">Four agents narrate every synthetic fixture. In Azure, narration runs on Microsoft's Phi-4-mini-instruct; this static page uses the built-in deterministic narrator and says so on every output.</p>
     </div>
   </aside>
@@ -62,23 +62,23 @@
         <button data-mode="es" class="mode">Español</button>
       </div>
       <p class="small" id="xgLine" style="margin-top:8px"></p>
-      <p class="small" style="margin-top:2px">✦ Copilot adapts narrative depth to the selected persona — the same verified events, five ways.</p>
+      <p class="small" style="margin-top:2px"><img class="fe" src="assets/fluent-emoji/sparkles.svg" alt="" aria-hidden="true"> Copilot adapts narrative depth to the selected persona — the same verified events, five ways.</p>
     </section>
 
     <section class="card">
-      <h2>📅 Pick your match</h2>
+      <h2><img class="fe" src="assets/fluent-emoji/calendar.svg" alt="" aria-hidden="true"> Pick your match</h2>
       <p class="small">Choose a league, filter by your team, pick any fixture from the full synthetic calendar — the replay, feed and momentum rebuild for that match. <span id="matchLabel">Featured match — full agent pipeline</span></p>
       <div class="controls" style="flex-wrap:wrap;gap:8px">
         <label>League <select id="pickLeague"></select></label>
         <label>Your team <select id="pickTeam"></select></label>
         <label>Match <select id="pickMatch" style="max-width:340px"></select></label>
         <button id="loadMatchBtn">▶ Load match</button>
-        <button id="featuredBtn">★ Featured: Arsenal v Man City</button>
+        <button id="featuredBtn"><img class="fe" src="assets/fluent-emoji/star.svg" alt="" aria-hidden="true"> Featured: Arsenal v Man City</button>
       </div>
       <p class="small" id="genStatus"></p>
     </section>
 
-    <section class="card" id="overlayCard" hidden><h2>📺 Broadcast overlay — key moment</h2><p id="overlayText"></p></section>
+    <section class="card" id="overlayCard" hidden><h2><img class="fe" src="assets/fluent-emoji/television.svg" alt="" aria-hidden="true"> Broadcast overlay — key moment</h2><p id="overlayText"></p></section>
     <section class="card" id="storyCard"><h2 id="modeTitle">The story of the match</h2><p id="modeBody">Press Play.</p></section>
 
     <div class="grid">
@@ -86,7 +86,7 @@
       <section class="card"><h2>Momentum (events per 15')</h2><div id="momentum"></div><p id="liveStats" class="small"></p></section>
     </div>
 
-    <section class="card" id="agentsCard"><h2>Agent pipeline — Tactical Lab</h2>
+    <section class="card" id="agentsCard"><h2><img class="fe" src="assets/fluent-emoji/robot.svg" alt="" aria-hidden="true"> Agent pipeline — Tactical Lab</h2>
       <div class="agents">
         <div class="agent"><span class="n">1</span><strong>Interpreter</strong><p class="small" id="agInterpreter">—</p></div>
         <div class="agent"><span class="n">2</span><strong>GraphContext</strong><p class="small" id="agGraph">—</p></div>
@@ -114,22 +114,22 @@
       <div id="poiOut"></div>
     </section>
 
-    <section class="card" id="graphCard"><h2>Football Universe graph — why it matters</h2>
+    <section class="card" id="graphCard"><h2><img class="fe" src="assets/fluent-emoji/globe-with-meridians.svg" alt="" aria-hidden="true"> Football Universe graph — why it matters</h2>
       <canvas id="graph" width="1020" height="560" aria-label="Force directed graph of players, clubs and managers"></canvas>
       <p class="small">Blue = player · Red = club · Green = manager. Node size = Kevin Bacon Score. Gold path animates the verified shortest path: <strong>Nicolas Anelka → Manchester City → Erling Haaland (2 degrees)</strong>. Tap or click any node — or use the picker — for its connections.</p>
       <p id="nodeInfo" class="small"></p>
       <label class="small">On a phone? Pick a connection here: <select id="nodeSelect" style="max-width:320px"></select></label>
-      <div style="margin-top:8px"><button id="pathBtn">✦ Animate Anelka → Haaland path</button></div>
+      <div style="margin-top:8px"><button id="pathBtn"><img class="fe" src="assets/fluent-emoji/sparkles.svg" alt="" aria-hidden="true"> Animate Anelka → Haaland path</button></div>
     </section>
 
     <div class="grid">
-      <section class="card"><h2>Kevin Bacon Leaderboard</h2><ol id="board"></ol></section>
+      <section class="card"><h2><img class="fe" src="assets/fluent-emoji/trophy.svg" alt="" aria-hidden="true"> Kevin Bacon Leaderboard</h2><ol id="board"></ol></section>
       <section class="card"><h2>Why these moments matter</h2><ul id="why"></ul></section>
     </div>
-    <section class="card"><h2>⚡ Speed / distance threshold alerts</h2><ul id="alerts"></ul></section>
+    <section class="card"><h2><img class="fe" src="assets/fluent-emoji/high-voltage.svg" alt="" aria-hidden="true"> Speed / distance threshold alerts</h2><ul id="alerts"></ul></section>
     <section class="card"><h2>Auto match recap</h2><p id="recap"></p>
     <div style="border-top:1px solid var(--divider);margin-top:10px;padding-top:10px">
-      <button id="azureBtn" class="primary">✦ Ask Azure — live Phi-4-mini narration</button>
+      <button id="azureBtn" class="primary"><img class="fe" src="assets/fluent-emoji/sparkles.svg" alt="" aria-hidden="true"> Ask Azure — live Phi-4-mini narration</button>
       <span class="small"> Calls the Azure Function live; its narrator is Microsoft's Phi-4-mini-instruct on Foundry. First call after idle can take ~60–90s (serverless cold start — the progress timer is honest). Featured match only.</span>
       <p class="small" id="azureStatus" style="margin-top:8px"></p>
       <div id="azureOut"></div>
@@ -150,10 +150,10 @@
   </main>
 </div>
 <nav id="tabbar" aria-label="Sections">
-  <a href="#studio">📡<span>Studio</span></a>
-  <a href="#pitchCard">🎯<span>Pitch</span></a>
-  <a href="#graphCard">✦<span>Graph</span></a>
-  <a href="#seasonCard">📊<span>Season</span></a>
+  <a href="#studio"><img class="fe fe-tab" src="assets/fluent-emoji/satellite-antenna.svg" alt="" aria-hidden="true"><span>Studio</span></a>
+  <a href="#pitchCard"><img class="fe fe-tab" src="assets/fluent-emoji/bullseye.svg" alt="" aria-hidden="true"><span>Pitch</span></a>
+  <a href="#graphCard"><img class="fe fe-tab" src="assets/fluent-emoji/globe-with-meridians.svg" alt="" aria-hidden="true"><span>Graph</span></a>
+  <a href="#seasonCard"><img class="fe fe-tab" src="assets/fluent-emoji/bar-chart.svg" alt="" aria-hidden="true"><span>Season</span></a>
 </nav>
 <script src="app.js"></script>
 <script>
@@ -161,7 +161,7 @@ let SEASON=null, LEAGUE='premier_league';
 function formBadges(f){return f.map(x=>'<span style="display:inline-block;width:16px;height:16px;line-height:16px;text-align:center;border-radius:4px;font-size:10px;margin-right:2px;background:'+({W:'#107C10',D:'#616161',L:'#C50F1F'}[x])+';color:#fff">'+x+'</span>').join('')}
 function renderSeason(){
   const lg=SEASON[LEAGUE]; if(!lg) return;
-  document.getElementById('seasonStories').innerHTML=lg.narratives.map(n=>'<div class="ev">📌 '+n+'</div>').join('');
+  document.getElementById('seasonStories').innerHTML=lg.narratives.map(n=>'<div class="ev"><img class="fe" src="assets/fluent-emoji/pushpin.svg" alt="" aria-hidden="true"> '+n+'</div>').join('');
   let h='<tr><th>#</th><th>Club</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>Pts</th><th>Form</th></tr>';
   lg.standings.forEach(r=>{const z=r.zone==='relegation'?'background:#FDF3F4':(r.zone==='ucl'||r.zone==='champions')?'background:#EBF3FC':'';
     h+='<tr data-club="'+r.club+'" style="cursor:pointer;'+z+'"><td>'+r.position+'</td><td><b>'+r.club+'</b></td><td>'+r.played+'</td><td>'+r.won+'</td><td>'+r.drawn+'</td><td>'+r.lost+'</td><td>'+r.gf+'</td><td>'+r.ga+'</td><td>'+r.gd+'</td><td><b>'+r.points+'</b></td><td>'+formBadges(r.form)+'</td></tr>'});

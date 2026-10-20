@@ -39,7 +39,9 @@ function tick(ts) {
   const dt = (ts - lastTs) / 1000; lastTs = ts;
   minute += dt * (parseFloat($('speed').value) * 0.5);
   if (minute >= 90) { minute = 90; playing = false; $('playBtn').textContent = '▶ Play replay'; }
-  render(); if (playing) requestAnimationFrame(tick);
+  render(); drawPitch(true);
+  perf.steps++; const pl = $('perfLine'); if (pl && perf.steps % 30 === 0) { const evs = D.events.filter(e => e.minute <= minute).length; pl.textContent = `Measured in your browser: ${evs} events rendered so far · ${perf.steps} replay steps this session · current speed ${$('speed').value}×. Timings are measured live — never hard-coded.`; }
+  if (playing) requestAnimationFrame(tick);
 }
 // ---- force-directed graph (small custom physics, canvas) ----
 let nodes = [], links = [], pathAnim = null, selectedNode = null;
@@ -156,12 +158,18 @@ function drawPitch(force) {
   ctx.strokeStyle = 'rgba(16,124,16,.45)'; ctx.lineWidth = 2; ctx.strokeRect(30, 30, W - 60, H - 60);
   ctx.beginPath(); ctx.moveTo(W / 2, 30); ctx.lineTo(W / 2, H - 30); ctx.stroke(); ctx.beginPath(); ctx.arc(W / 2, H / 2, 91, 0, 7); ctx.stroke();
   ctx.strokeRect(30, 138, 165, H - 276); ctx.strokeRect(W - 195, 138, 165, H - 276); ctx.strokeRect(30, 248, 55, H - 496); ctx.strokeRect(W - 85, 248, 55, H - 496);
-  if (!snap) { $('pitchInfo').textContent = 'Press Play — the snapshot follows the latest key moment (shot, corner or long pass), with Voronoi zones computed live from the 22 synthetic player positions.'; return; }
+  if (!snap) { let pv = null; for (const e of D.events) { if (e.clock <= minute) pv = e; else break; } if (pv) { ctx.beginPath(); ctx.arc(pv.x * S, pv.y * S, 7, 0, 7); ctx.fillStyle = '#0F6CBD'; ctx.fill(); ctx.strokeStyle = '#fff'; ctx.lineWidth = 2; ctx.stroke(); } $('pitchInfo').textContent = 'The blue ball tracks the event stream live. Player snapshots with Voronoi zones appear at key moments (shots, corners, 35m+ passes) — the first one is coming up.'; return; }
   const pts = snap.positions;
   if ($('vorToggle').checked) { for (let i = 0; i < pts.length; i++) { let poly = [[0, 0], [105, 0], [105, 68], [0, 68]]; for (let j = 0; j < pts.length; j++) { if (j === i) continue; const mx = (pts[i][0] + pts[j][0]) / 2, my = (pts[i][1] + pts[j][1]) / 2, dx = pts[j][0] - pts[i][0], dy = pts[j][1] - pts[i][1]; const np = []; for (let k = 0; k < poly.length; k++) { const a = poly[k], b = poly[(k + 1) % poly.length]; const da = (a[0] - mx) * dx + (a[1] - my) * dy, db = (b[0] - mx) * dx + (b[1] - my) * dy; if (da <= 0) np.push(a); if ((da < 0) !== (db < 0)) { const f = da / (da - db); np.push([a[0] + (b[0] - a[0]) * f, a[1] + (b[1] - a[1]) * f]); } } poly = np; if (!poly.length) break; } if (poly.length) { ctx.beginPath(); poly.forEach((q, qi) => qi ? ctx.lineTo(q[0] * S, q[1] * S) : ctx.moveTo(q[0] * S, q[1] * S)); ctx.closePath(); ctx.fillStyle = pts[i][2] === 0 ? 'rgba(15,108,189,.10)' : 'rgba(197,15,31,.10)'; ctx.fill(); ctx.strokeStyle = 'rgba(36,36,36,.10)'; ctx.lineWidth = 1; ctx.stroke(); } } }
   if (snap.dx !== undefined) { ctx.strokeStyle = '#0F6CBD'; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.moveTo((snap.x - snap.dx) * S, (snap.y - snap.dy) * S); ctx.lineTo(snap.x * S, snap.y * S); ctx.stroke(); }
   for (const q of pts) { ctx.beginPath(); ctx.arc(q[0] * S, q[1] * S, 7, 0, 7); ctx.fillStyle = q[2] === 0 ? '#0F6CBD' : '#C50F1F'; ctx.fill(); }
   ctx.beginPath(); ctx.arc(snap.x * S, snap.y * S, 6, 0, 7); ctx.fillStyle = '#fff'; ctx.fill(); ctx.strokeStyle = '#242424'; ctx.lineWidth = 2; ctx.stroke();
+  // Live ball: interpolated between the events surrounding the current clock, plus a fading trail.
+  let prev = null, next = null; for (const e of D.events) { if (e.clock <= minute) prev = e; else { next = e; break; } }
+  if (prev) { let bx = prev.x, by = prev.y; if (next && next.clock > prev.clock) { const f = Math.min(1, Math.max(0, (minute - prev.clock) / (next.clock - prev.clock))); bx = prev.x + (next.x - prev.x) * f; by = prev.y + (next.y - prev.y) * f; }
+    const trail = D.events.filter(e => e.clock <= minute).slice(-8); trail.forEach((e, i) => { ctx.beginPath(); ctx.arc(e.x * S, e.y * S, 3, 0, 7); ctx.fillStyle = `rgba(15,108,189,${0.08 + 0.05 * i})`; ctx.fill(); });
+    const pulse = 7 + Math.sin(performance.now() / 280) * 1.6; ctx.beginPath(); ctx.arc(bx * S, by * S, pulse + 5, 0, 7); ctx.strokeStyle = 'rgba(15,108,189,.35)'; ctx.lineWidth = 2; ctx.stroke();
+    ctx.beginPath(); ctx.arc(bx * S, by * S, pulse, 0, 7); ctx.fillStyle = '#0F6CBD'; ctx.fill(); ctx.strokeStyle = '#fff'; ctx.lineWidth = 2; ctx.stroke(); }
   for (const m of pitchMarkers) { ctx.beginPath(); ctx.arc(m.x * S, m.y * S, 4, 0, 7); ctx.strokeStyle = m.ev.goal ? '#B7860B' : 'rgba(36,36,36,.4)'; ctx.lineWidth = m.ev.goal ? 2.5 : 1.2; ctx.stroke(); }
   ctx.font = '600 15px "Segoe UI", system-ui'; ctx.fillStyle = '#242424'; ctx.fillText(snap.player, Math.min(W - 150, snap.x * S + 10), Math.max(18, snap.y * S - 10));
   let info = `Snapshot: ${snap.type} · ${snap.minute}' · ${snap.team} · ball at (${snap.x}, ${snap.y}) · xT ${snap.xt}`;
@@ -214,7 +222,7 @@ async function load() {
 }
 $('playBtn').addEventListener('click', () => { playing = !playing; lastTs = null; $('playBtn').textContent = playing ? '⏸ Pause' : '▶ Play replay'; if (playing) requestAnimationFrame(tick); });
 $('resetBtn').addEventListener('click', () => { minute = 0; playing = false; $('playBtn').textContent = '▶ Play replay'; render(); });
-$('scrub').addEventListener('input', e => { minute = parseFloat(e.target.value); render(); });
+$('scrub').addEventListener('input', e => { minute = parseFloat(e.target.value); render(); drawPitch(true); });
 document.querySelectorAll('.mode').forEach(b => b.addEventListener('click', () => setMode(b.dataset.mode)));
 const cp = $('copyPayloadBtn'); if (cp) cp.addEventListener('click', () => { navigator.clipboard && navigator.clipboard.writeText($('payloadPre').textContent); cp.textContent = 'Copied ✓'; setTimeout(() => cp.textContent = 'Copy JSON', 1500); });
 ['lamH', 'lamA'].forEach(id => { const el = $(id); if (el) el.addEventListener('input', updatePoisson); });

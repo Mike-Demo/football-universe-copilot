@@ -27,7 +27,7 @@ python3 -m http.server 8000                # then open /frontend/ (reads outputs
 Optional API: `pip install fastapi uvicorn` then `uvicorn src.api.app:app` — `/health`, `/match/intelligence`, `/graph/path?a=Nicolas Anelka&b=Erling Haaland`, `/graph/leaderboard`.
 
 ## Microsoft stack
-Microsoft Foundry / Azure OpenAI (optional narration layer, offline fallback default) · Microsoft Agent Framework orchestration pattern (4 agents, shared state, explicit handoffs, failure fallback) · Azure Cosmos DB Gremlin API (production graph target, schema in `graph/schema/`; local in-memory graph with identical schema for judge-friendly runs) · Microsoft Fabric (roadmap ingestion) · Azure Functions / Static Web Apps (hosting path, `infra/`).
+Microsoft Foundry with Microsoft's own **Phi-4-mini-instruct** as the primary narration model (GPT-4o-mini fallback, deterministic template as final fallback — every output labels its `narration_source`) · Microsoft Agent Framework orchestration pattern (4 agents, shared state, explicit handoffs, failure fallback) · Azure Cosmos DB Gremlin API (production graph target, schema in `graph/schema/`; local in-memory graph with identical schema for judge-friendly runs) · Microsoft Fabric (roadmap ingestion) · Azure Functions / Static Web Apps (hosting path, `infra/`).
 
 ## Repo map
 `src/synthetic` event engine · `src/graph` universe + centrality · `src/agents` 4 agents · `src/overlay` timed overlay · `src/pipeline.py` orchestrator · `data/seed` 20 players / 20 clubs / 10 managers (from the master build plan §7.3) · `outputs/` a real generated run + recap · `docs/` architecture + 2-minute demo script · `SUBMISSION.md` checklist

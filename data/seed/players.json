@@ -1,0 +1,397 @@
+[
+  {
+    "id": "player-thierry-henry",
+    "common_name": "Thierry Henry",
+    "nationality": "FRA",
+    "position": "FW",
+    "clubs": [
+      {
+        "club": "Arsenal",
+        "season_start": 1999,
+        "season_end": 2007
+      }
+    ]
+  },
+  {
+    "id": "player-patrick-vieira",
+    "common_name": "Patrick Vieira",
+    "nationality": "FRA",
+    "position": "MF",
+    "clubs": [
+      {
+        "club": "Arsenal",
+        "season_start": 1996,
+        "season_end": 2005
+      },
+      {
+        "club": "Manchester City",
+        "season_start": 2010,
+        "season_end": 2011
+      }
+    ]
+  },
+  {
+    "id": "player-nicolas-anelka",
+    "common_name": "Nicolas Anelka",
+    "nationality": "FRA",
+    "position": "FW",
+    "clubs": [
+      {
+        "club": "Arsenal",
+        "season_start": 1997,
+        "season_end": 1999
+      },
+      {
+        "club": "Liverpool",
+        "season_start": 2001,
+        "season_end": 2002
+      },
+      {
+        "club": "Manchester City",
+        "season_start": 2002,
+        "season_end": 2005
+      },
+      {
+        "club": "Chelsea",
+        "season_start": 2008,
+        "season_end": 2012
+      },
+      {
+        "club": "Bolton Wanderers",
+        "season_start": 2006,
+        "season_end": 2008
+      }
+    ]
+  },
+  {
+    "id": "player-frank-lampard",
+    "common_name": "Frank Lampard",
+    "nationality": "ENG",
+    "position": "MF",
+    "clubs": [
+      {
+        "club": "West Ham United",
+        "season_start": 1995,
+        "season_end": 2001
+      },
+      {
+        "club": "Chelsea",
+        "season_start": 2001,
+        "season_end": 2014
+      },
+      {
+        "club": "Manchester City",
+        "season_start": 2014,
+        "season_end": 2015
+      }
+    ]
+  },
+  {
+    "id": "player-john-terry",
+    "common_name": "John Terry",
+    "nationality": "ENG",
+    "position": "DF",
+    "clubs": [
+      {
+        "club": "Chelsea",
+        "season_start": 1998,
+        "season_end": 2017
+      },
+      {
+        "club": "Aston Villa",
+        "season_start": 2017,
+        "season_end": 2018
+      }
+    ]
+  },
+  {
+    "id": "player-steven-gerrard",
+    "common_name": "Steven Gerrard",
+    "nationality": "ENG",
+    "position": "MF",
+    "clubs": [
+      {
+        "club": "Liverpool",
+        "season_start": 1998,
+        "season_end": 2015
+      }
+    ]
+  },
+  {
+    "id": "player-james-milner",
+    "common_name": "James Milner",
+    "nationality": "ENG",
+    "position": "MF",
+    "clubs": [
+      {
+        "club": "Leeds United",
+        "season_start": 2002,
+        "season_end": 2004
+      },
+      {
+        "club": "Newcastle United",
+        "season_start": 2004,
+        "season_end": 2008
+      },
+      {
+        "club": "Aston Villa",
+        "season_start": 2008,
+        "season_end": 2010
+      },
+      {
+        "club": "Manchester City",
+        "season_start": 2010,
+        "season_end": 2015
+      },
+      {
+        "club": "Liverpool",
+        "season_start": 2015,
+        "season_end": 2023
+      },
+      {
+        "club": "Brighton & Hove Albion",
+        "season_start": 2023,
+        "season_end": 2026
+      }
+    ]
+  },
+  {
+    "id": "player-erling-haaland",
+    "common_name": "Erling Haaland",
+    "nationality": "NOR",
+    "position": "FW",
+    "clubs": [
+      {
+        "club": "Manchester City",
+        "season_start": 2022,
+        "season_end": 2026
+      }
+    ]
+  },
+  {
+    "id": "player-mohamed-salah",
+    "common_name": "Mohamed Salah",
+    "nationality": "EGY",
+    "position": "FW",
+    "clubs": [
+      {
+        "club": "Chelsea",
+        "season_start": 2014,
+        "season_end": 2016
+      },
+      {
+        "club": "Liverpool",
+        "season_start": 2017,
+        "season_end": 2026
+      }
+    ]
+  },
+  {
+    "id": "player-didier-drogba",
+    "common_name": "Didier Drogba",
+    "nationality": "CIV",
+    "position": "FW",
+    "clubs": [
+      {
+        "club": "Chelsea",
+        "season_start": 2004,
+        "season_end": 2012
+      }
+    ]
+  },
+  {
+    "id": "player-wayne-rooney",
+    "common_name": "Wayne Rooney",
+    "nationality": "ENG",
+    "position": "FW",
+    "clubs": [
+      {
+        "club": "Everton",
+        "season_start": 2002,
+        "season_end": 2004
+      },
+      {
+        "club": "Manchester United",
+        "season_start": 2004,
+        "season_end": 2017
+      }
+    ]
+  },
+  {
+    "id": "player-peter-schmeichel",
+    "common_name": "Peter Schmeichel",
+    "nationality": "DEN",
+    "position": "GK",
+    "clubs": [
+      {
+        "club": "Manchester United",
+        "season_start": 1991,
+        "season_end": 1999
+      },
+      {
+        "club": "Manchester City",
+        "season_start": 2002,
+        "season_end": 2003
+      }
+    ]
+  },
+  {
+    "id": "player-robbie-fowler",
+    "common_name": "Robbie Fowler",
+    "nationality": "ENG",
+    "position": "FW",
+    "clubs": [
+      {
+        "club": "Liverpool",
+        "season_start": 1993,
+        "season_end": 2001
+      },
+      {
+        "club": "Leeds United",
+        "season_start": 2001,
+        "season_end": 2003
+      },
+      {
+        "club": "Manchester City",
+        "season_start": 2003,
+        "season_end": 2006
+      },
+      {
+        "club": "Blackburn Rovers",
+        "season_start": 2008,
+        "season_end": 2009
+      }
+    ]
+  },
+  {
+    "id": "player-emmanuel-petit",
+    "common_name": "Emmanuel Petit",
+    "nationality": "FRA",
+    "position": "MF",
+    "clubs": [
+      {
+        "club": "Arsenal",
+        "season_start": 1997,
+        "season_end": 2000
+      },
+      {
+        "club": "Chelsea",
+        "season_start": 2001,
+        "season_end": 2004
+      }
+    ]
+  },
+  {
+    "id": "player-gael-clichy",
+    "common_name": "Gael Clichy",
+    "nationality": "FRA",
+    "position": "DF",
+    "clubs": [
+      {
+        "club": "Arsenal",
+        "season_start": 2003,
+        "season_end": 2011
+      },
+      {
+        "club": "Manchester City",
+        "season_start": 2011,
+        "season_end": 2017
+      }
+    ]
+  },
+  {
+    "id": "player-kolo-toure",
+    "common_name": "Kolo Toure",
+    "nationality": "CIV",
+    "position": "DF",
+    "clubs": [
+      {
+        "club": "Arsenal",
+        "season_start": 2002,
+        "season_end": 2009
+      },
+      {
+        "club": "Manchester City",
+        "season_start": 2009,
+        "season_end": 2013
+      },
+      {
+        "club": "Liverpool",
+        "season_start": 2013,
+        "season_end": 2016
+      }
+    ]
+  },
+  {
+    "id": "player-samir-nasri",
+    "common_name": "Samir Nasri",
+    "nationality": "FRA",
+    "position": "MF",
+    "clubs": [
+      {
+        "club": "Arsenal",
+        "season_start": 2008,
+        "season_end": 2011
+      },
+      {
+        "club": "Manchester City",
+        "season_start": 2011,
+        "season_end": 2017
+      }
+    ]
+  },
+  {
+    "id": "player-robin-van-persie",
+    "common_name": "Robin van Persie",
+    "nationality": "NED",
+    "position": "FW",
+    "clubs": [
+      {
+        "club": "Arsenal",
+        "season_start": 2004,
+        "season_end": 2012
+      },
+      {
+        "club": "Manchester United",
+        "season_start": 2012,
+        "season_end": 2015
+      }
+    ]
+  },
+  {
+    "id": "player-sol-campbell",
+    "common_name": "Sol Campbell",
+    "nationality": "ENG",
+    "position": "DF",
+    "clubs": [
+      {
+        "club": "Tottenham Hotspur",
+        "season_start": 1992,
+        "season_end": 2001
+      },
+      {
+        "club": "Arsenal",
+        "season_start": 2001,
+        "season_end": 2006
+      }
+    ]
+  },
+  {
+    "id": "player-ashley-cole",
+    "common_name": "Ashley Cole",
+    "nationality": "ENG",
+    "position": "DF",
+    "clubs": [
+      {
+        "club": "Arsenal",
+        "season_start": 1999,
+        "season_end": 2006
+      },
+      {
+        "club": "Chelsea",
+        "season_start": 2006,
+        "season_end": 2014
+      }
+    ]
+  }
+]

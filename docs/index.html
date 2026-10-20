@@ -4,11 +4,11 @@
 <link rel="stylesheet" href="style.css"></head>
 <body>
 <div class="cmdbar">
-  <span class="logo"><img class="fe fe-logo" src="assets/fluent-emoji/soccer-ball.svg" alt="" aria-hidden="true"></span><strong>Football Universe</strong><span class="pill-copilot"><img class="fe" src="assets/fluent-emoji/sparkles.svg" alt="" aria-hidden="true"> COPILOT</span>
+  <span class="logo"><img class="fe fe-logo" src="assets/fluent-emoji/soccer-ball.svg" alt="" aria-hidden="true"></span><strong>Football Universe</strong><span class="pill-copilot"><img class="fe" src="assets/fluent-emoji/sparkles.svg" alt="" aria-hidden="true"><span class="pill-text">COPILOT</span></span>
   <nav><a href="#studio">Live Match Studio</a><a href="#graphCard">Graph Explorer</a><a href="#seasonCard">Season Hub</a><a href="tech.html">Tech Stack</a></nav>
   <span class="spacer"></span>
   <button id="tourBtn" class="btn">Tour &amp; Guide</button>
-  <a class="btn" style="text-decoration:none;display:inline-flex;align-items:center" href="https://github.com/Mike-Demo/football-universe-copilot">GitHub</a>
+  <a class="btn ghbtn" style="text-decoration:none;display:inline-flex;align-items:center" href="https://github.com/Mike-Demo/football-universe-copilot">GitHub</a>
 </div>
 <div class="shell">
   <aside class="rail">
@@ -60,6 +60,11 @@
         <button data-mode="player_focus" class="mode">Player Focus: Haaland</button>
         <button data-mode="club_focus" class="mode">My Club: Arsenal</button>
         <button data-mode="es" class="mode">Español</button>
+      </div>
+      <div class="focusrow">
+        <label>Player focus <select id="focusPlayer" aria-label="Choose the player to focus on"></select></label>
+        <label>My club <select id="focusClub" aria-label="Choose your club"></select></label>
+        <span class="small">Pick your own — those two personas rebuild around your choices and update live as the match runs.</span>
       </div>
       <p class="small" id="xgLine" style="margin-top:8px"></p>
       <p class="small" style="margin-top:2px"><img class="fe" src="assets/fluent-emoji/sparkles.svg" alt="" aria-hidden="true"> Copilot adapts narrative depth to the selected persona — the same verified events, five ways.</p>
@@ -148,6 +153,12 @@
       <p class="small" style="margin-top:8px">Entirely simulated: a seeded Poisson model over plausible synthetic club ratings. Not real fixtures or results.</p>
     </section>
   </main>
+</div>
+<div id="dock" hidden role="complementary" aria-label="Copilot live commentary">
+  <img class="fe" src="assets/fluent-emoji/sparkles.svg" alt="" aria-hidden="true">
+  <div class="dock-main"><strong id="dockTitle">Copilot live</strong><p id="dockBody">Press Play — the commentary anchors here while the match runs, wherever you scroll.</p></div>
+  <button id="dockPlay" aria-label="Play or pause the replay">⏸</button>
+  <button id="dockClose" aria-label="Hide the commentary dock">✕</button>
 </div>
 <nav id="tabbar" aria-label="Sections">
   <a href="#studio"><img class="fe fe-tab" src="assets/fluent-emoji/satellite-antenna.svg" alt="" aria-hidden="true"><span>Studio</span></a>

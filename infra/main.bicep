@@ -16,13 +16,20 @@ resource plan 'Microsoft.Web/serverfarms@2023-12-01' = {
   name: '${prefix}-plan' location: location sku: { name: 'Y1' tier: 'Dynamic' } properties: { reserved: true } kind: 'linux'
 }
 resource openai 'Microsoft.CognitiveServices/accounts@2024-10-01' = {
-  name: '${prefix}-openai-${nameSuffix}' location: location sku: { name: 'S0' } kind: 'OpenAI'
+  name: '${prefix}-foundry-${nameSuffix}' location: location sku: { name: 'S0' } kind: 'AIServices'
   properties: { publicNetworkAccess: 'Enabled' }
 }
 resource model 'Microsoft.CognitiveServices/accounts/deployments@2024-10-01' = {
   parent: openai name: 'gpt-4o-mini'
   sku: { name: 'GlobalStandard' capacity: 10 }
   properties: { model: { format: 'OpenAI' name: 'gpt-4o-mini' version: '2024-07-18' } }
+}
+// Microsoft's own model — PRIMARY narrator. Format 'Microsoft' per Foundry model catalog.
+resource phiModel 'Microsoft.CognitiveServices/accounts/deployments@2024-10-01' = {
+  parent: openai name: 'Phi-4-mini-instruct'
+  dependsOn: [ model ]
+  sku: { name: 'GlobalStandard' capacity: 1 }
+  properties: { model: { format: 'Microsoft' name: 'Phi-4-mini-instruct' version: '1' } }
 }
 resource cosmos 'Microsoft.DocumentDB/databaseAccounts@2024-11-15' = {
   name: '${prefix}-cosmos-${nameSuffix}' location: location kind: 'GlobalDocumentDB'
@@ -53,7 +60,7 @@ resource funcApp 'Microsoft.Web/sites@2023-12-01' = {
         { name: 'FUNCTIONS_WORKER_RUNTIME' value: 'python' }
         { name: 'APPINSIGHTS_INSTRUMENTATIONKEY' value: insights.properties.InstrumentationKey }
         { name: 'AZURE_OPENAI_ENDPOINT' value: openai.properties.endpoint }
-        { name: 'AZURE_OPENAI_DEPLOYMENT' value: 'gpt-4o-mini' }
+        { name: 'AZURE_OPENAI_DEPLOYMENT' value: 'Phi-4-mini-instruct' }
         // AZURE_OPENAI_API_KEY: set from Key Vault / portal after deploy — never in source.
       ]
     }

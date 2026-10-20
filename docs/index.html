@@ -23,6 +23,19 @@
   </div>
 </header>
 <main>
+  <div class="card" style="margin-bottom:12px">
+    <h2 style="margin-top:0">📅 Pick your match</h2>
+    <p class="small">Choose a league, filter by your team, pick any fixture from the full synthetic calendar — the replay, feed and momentum rebuild for that match. <span id="matchLabel">Featured match — full agent pipeline</span></p>
+    <div class="controls" style="flex-wrap:wrap;gap:8px">
+      <label>League <select id="pickLeague"></select></label>
+      <label>Your team <select id="pickTeam"></select></label>
+      <label>Match <select id="pickMatch" style="max-width:340px"></select></label>
+      <button id="loadMatchBtn">▶ Load match</button>
+      <button id="featuredBtn">★ Featured: Arsenal v Man City</button>
+    </div>
+    <p class="small"><a href="tech.html">Open source &amp; tech stack →</a> · <a href="https://github.com/Mike-Demo/football-universe-copilot">GitHub repo</a></p>
+  </div>
+
   <section class="card" id="overlayCard" hidden><h2>📺 Broadcast overlay — key moment</h2><p id="overlayText"></p></section>
   <section class="card"><h2 id="modeTitle">The story of the match</h2><p id="modeBody">Press Play.</p></section>
   <div class="grid">
@@ -34,6 +47,7 @@
     <canvas id="graph" width="1020" height="560" aria-label="Force directed graph of players, clubs and managers"></canvas>
     <p class="small">Blue = player · Red = club · Green = manager. Node size = Kevin Bacon Score. Gold path animates the verified shortest path: <strong>Nicolas Anelka → Manchester City → Erling Haaland (2 degrees)</strong>. Click any node for its connections.</p>
     <p id="nodeInfo" class="small"></p>
+    <label class="small">On a phone? Pick a connection here: <select id="nodeSelect" style="max-width:320px"></select></label>
     <button id="pathBtn">✦ Animate Anelka → Haaland path</button>
   </section>
   <div class="grid">

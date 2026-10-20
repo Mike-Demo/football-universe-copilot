@@ -3,84 +3,140 @@
 <title>Football Universe Copilot — Live Match Intelligence (Synthetic Demo)</title>
 <link rel="stylesheet" href="style.css"></head>
 <body>
-<header>
-  <h1>⚽ Football Universe Copilot</h1>
-  <p class="sub">Synthetic match events → explainable intelligence → broadcast overlay → personalized for every fan. <strong>All match data is synthetic. Graph data is the seed universe.</strong></p>
-  <div class="scorebar"><span id="homeName">Arsenal</span> <strong id="score">0 – 0</strong> <span id="awayName">Manchester City</span>
-  <span class="clock" id="clock">0'</span></div>
-  <div class="controls">
-    <button id="playBtn">▶ Play replay</button>
-    <label>Speed <select id="speed"><option value="1">1×</option><option value="4" selected>4×</option><option value="12">12×</option><option value="30">30×</option></select></label>
-    <input type="range" id="scrub" min="0" max="90" step="0.1" value="0" aria-label="Match minute">
-    <button id="resetBtn">↺ Reset</button>
-  </div>
-  <div class="modes" role="group" aria-label="Personalization mode">
-    <button data-mode="casual_fan" class="mode active">Casual Fan</button>
-    <button data-mode="analyst" class="mode">Analyst</button>
-    <button data-mode="player_focus" class="mode">Player Focus: Haaland</button>
-    <button data-mode="club_focus" class="mode">My Club: Arsenal</button>
-    <button data-mode="es" class="mode">Español</button>
-  </div>
-</header>
-<main>
-  <div class="card" style="margin-bottom:12px">
-    <h2 style="margin-top:0">📅 Pick your match</h2>
-    <p class="small">Choose a league, filter by your team, pick any fixture from the full synthetic calendar — the replay, feed and momentum rebuild for that match. <span id="matchLabel">Featured match — full agent pipeline</span></p>
-    <div class="controls" style="flex-wrap:wrap;gap:8px">
-      <label>League <select id="pickLeague"></select></label>
-      <label>Your team <select id="pickTeam"></select></label>
-      <label>Match <select id="pickMatch" style="max-width:340px"></select></label>
-      <button id="loadMatchBtn">▶ Load match</button>
-      <button id="featuredBtn">★ Featured: Arsenal v Man City</button>
+<div class="cmdbar">
+  <span class="logo">⚽</span><strong>Football Universe</strong><span class="pill-copilot">✦ COPILOT</span>
+  <nav><a href="#studio">Live Match Studio</a><a href="#graphCard">Graph Explorer</a><a href="#seasonCard">Season Hub</a><a href="tech.html">Tech Stack</a></nav>
+  <span class="spacer"></span>
+  <button id="tourBtn" class="btn">Tour &amp; Guide</button>
+  <a class="btn" style="text-decoration:none;display:inline-flex;align-items:center" href="https://github.com/Mike-Demo/football-universe-copilot">GitHub</a>
+</div>
+<div class="shell">
+  <aside class="rail">
+    <h3>INTELLIGENCE &amp; PLAY</h3>
+    <a href="#studio" class="on">▦ Command Overview</a>
+    <a href="#studio">📡 Live Match Studio</a>
+    <a href="#graphCard">✦ Graph Explorer</a>
+    <a href="#seasonCard">📊 Season Hub</a>
+    <h3>COPILOT</h3>
+    <a href="#agentsCard">🧠 Tactical Lab — Agents</a>
+    <a href="tech.html">⚙ Open Source &amp; Tech</a>
+    <div class="card" style="margin-top:16px;background:linear-gradient(135deg,rgba(123,66,188,.06),rgba(17,94,163,.06));border-color:rgba(123,66,188,.25)">
+      <strong>✦ Match insights</strong>
+      <p class="small" style="margin:6px 0 0">Four agents narrate every synthetic fixture. In Azure, narration runs on Microsoft's Phi-4-mini-instruct; this static page uses the built-in deterministic narrator and says so on every output.</p>
     </div>
-    <p class="small"><a href="tech.html">Open source &amp; tech stack →</a> · <a href="https://github.com/Mike-Demo/football-universe-copilot">GitHub repo</a></p>
-  </div>
+  </aside>
+  <main id="studio">
+    <div class="banner" id="tourBanner">
+      <div><strong>Welcome to Football Universe Copilot</strong><br>
+      <span class="small" style="color:var(--text-2)">A 4-agent pipeline turns synthetic match events into explainable intelligence. Everything here is simulated and labelled — take the ~1 minute tour to see how it flows.</span></div>
+      <button id="startTourBtn" class="primary">Start tour</button>
+      <button id="dismissBannerBtn" class="x" aria-label="Dismiss">✕</button>
+    </div>
+    <div class="tour" id="tourCard" hidden>
+      <strong id="tourTitle"></strong>
+      <p id="tourBody" style="margin:6px 0"></p>
+      <button id="tourNextBtn" class="primary">Next</button>
+      <button id="tourEndBtn">End tour</button>
+      <span class="small" id="tourStep"></span>
+    </div>
 
-  <section class="card" id="overlayCard" hidden><h2>📺 Broadcast overlay — key moment</h2><p id="overlayText"></p></section>
-  <section class="card"><h2 id="modeTitle">The story of the match</h2><p id="modeBody">Press Play.</p></section>
-  <div class="grid">
-    <section class="card"><h2>Live event feed</h2><ul id="feed" class="feed"></ul></section>
-    <section class="card"><h2>Momentum (events per 15')</h2><div id="momentum"></div>
-      <p id="liveStats" class="small"></p></section>
-  </div>
-  <section class="card"><h2>Football Universe graph — why it matters</h2>
-    <canvas id="graph" width="1020" height="560" aria-label="Force directed graph of players, clubs and managers"></canvas>
-    <p class="small">Blue = player · Red = club · Green = manager. Node size = Kevin Bacon Score. Gold path animates the verified shortest path: <strong>Nicolas Anelka → Manchester City → Erling Haaland (2 degrees)</strong>. Click any node for its connections.</p>
-    <p id="nodeInfo" class="small"></p>
-    <label class="small">On a phone? Pick a connection here: <select id="nodeSelect" style="max-width:320px"></select></label>
-    <button id="pathBtn">✦ Animate Anelka → Haaland path</button>
-  </section>
-  <div class="grid">
-    <section class="card"><h2>Kevin Bacon Leaderboard</h2><ol id="board"></ol></section>
-    <section class="card"><h2>Why these moments matter</h2><ul id="why"></ul></section>
-  </div>
-  <section class="card"><h2>⚡ Speed / distance threshold alerts</h2><ul id="alerts"></ul></section>
-  <section class="card"><h2>Auto match recap</h2><p id="recap"></p>
-  <p class="small">Pipeline: Interpreter agent → GraphContext agent → Narrator agent → Personalizer agent. Code + tests: <a href="https://github.com/Mike-Demo/football-universe-copilot">github.com/Mike-Demo/football-universe-copilot</a></p></section>
+    <section class="card">
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px">
+        <span class="chip live">● LIVE SYNTHETIC MATCH · <span id="chipClock">0'</span></span>
+        <span class="chip">Seeded simulator — deterministic</span>
+        <span class="chip">Graph seed universe: 45 nodes · 63 edges</span>
+        <span class="chip" id="narrChip">Narration: —</span>
+      </div>
+      <div class="scorebar"><span class="teams" id="homeName">Arsenal</span><span class="score" id="score">0 – 0</span><span class="teams" id="awayName">Manchester City</span><span class="clock" id="clock">0'</span></div>
+      <div class="controls">
+        <button id="playBtn">▶ Play replay</button>
+        <label>Speed <select id="speed"><option value="1">1×</option><option value="4" selected>4×</option><option value="12">12×</option><option value="30">30×</option></select></label>
+        <input type="range" id="scrub" min="0" max="90" step="0.1" value="0" aria-label="Match minute" style="flex:1;min-width:120px">
+        <button id="resetBtn">↺ Reset</button>
+      </div>
+      <div class="modes" role="group" aria-label="Personalization mode">
+        <button data-mode="casual_fan" class="mode active">Casual Fan</button>
+        <button data-mode="analyst" class="mode">Analyst</button>
+        <button data-mode="player_focus" class="mode">Player Focus: Haaland</button>
+        <button data-mode="club_focus" class="mode">My Club: Arsenal</button>
+        <button data-mode="es" class="mode">Español</button>
+      </div>
+      <p class="small" style="margin-top:8px">✦ Copilot adapts narrative depth to the selected persona — the same verified events, five ways.</p>
+    </section>
 
-<section class="card" style="margin-top:14px">
-  <h2>Full synthetic season — Premier League &amp; Women's Super League</h2>
-  <div class="modes" style="margin-bottom:10px">
-    <button class="btn" data-league="premier_league">Premier League (380 matches)</button>
-    <button class="btn" data-league="wsl">Women's Super League (132 matches)</button>
-  </div>
-  <div id="seasonStories" style="margin-bottom:10px"></div>
-  <div style="overflow-x:auto"><table id="seasonTable" style="width:100%;border-collapse:collapse;font-size:13px"></table></div>
-  <div id="clubDetail" style="margin-top:10px;color:var(--muted)">Click a club in the table for its season story — points progression, home/away split and form.</div>
-  <p style="color:var(--muted);font-size:12px;margin-top:8px">Entirely simulated: a seeded Poisson model over plausible synthetic club ratings. Not real fixtures or results.</p>
-</section>
-</main>
+    <section class="card">
+      <h2>📅 Pick your match</h2>
+      <p class="small">Choose a league, filter by your team, pick any fixture from the full synthetic calendar — the replay, feed and momentum rebuild for that match. <span id="matchLabel">Featured match — full agent pipeline</span></p>
+      <div class="controls" style="flex-wrap:wrap;gap:8px">
+        <label>League <select id="pickLeague"></select></label>
+        <label>Your team <select id="pickTeam"></select></label>
+        <label>Match <select id="pickMatch" style="max-width:340px"></select></label>
+        <button id="loadMatchBtn">▶ Load match</button>
+        <button id="featuredBtn">★ Featured: Arsenal v Man City</button>
+      </div>
+      <p class="small" id="genStatus"></p>
+    </section>
+
+    <section class="card" id="overlayCard" hidden><h2>📺 Broadcast overlay — key moment</h2><p id="overlayText"></p></section>
+    <section class="card" id="storyCard"><h2 id="modeTitle">The story of the match</h2><p id="modeBody">Press Play.</p></section>
+
+    <div class="grid">
+      <section class="card"><h2>Live event feed</h2><ul id="feed" class="feed"></ul></section>
+      <section class="card"><h2>Momentum (events per 15')</h2><div id="momentum"></div><p id="liveStats" class="small"></p></section>
+    </div>
+
+    <section class="card" id="agentsCard"><h2>Agent pipeline — Tactical Lab</h2>
+      <div class="agents">
+        <div class="agent"><span class="n">1</span><strong>Interpreter</strong><p class="small" id="agInterpreter">—</p></div>
+        <div class="agent"><span class="n">2</span><strong>GraphContext</strong><p class="small" id="agGraph">—</p></div>
+        <div class="agent ai"><span class="n">3</span><strong>Narrator</strong><p class="small" id="agNarrator">—</p></div>
+        <div class="agent"><span class="n">4</span><strong>Personalizer</strong><p class="small" id="agPersonalizer">—</p></div>
+      </div>
+      <details style="margin-top:10px"><summary><strong>Agent output payload</strong> <span class="small">(the timed overlay for the current minute — real data, copy it)</span></summary>
+        <pre class="payload" id="payloadPre">{}</pre>
+        <button id="copyPayloadBtn">Copy JSON</button>
+      </details>
+    </section>
+
+    <section class="card" id="graphCard"><h2>Football Universe graph — why it matters</h2>
+      <canvas id="graph" width="1020" height="560" aria-label="Force directed graph of players, clubs and managers"></canvas>
+      <p class="small">Blue = player · Red = club · Green = manager. Node size = Kevin Bacon Score. Gold path animates the verified shortest path: <strong>Nicolas Anelka → Manchester City → Erling Haaland (2 degrees)</strong>. Tap or click any node — or use the picker — for its connections.</p>
+      <p id="nodeInfo" class="small"></p>
+      <label class="small">On a phone? Pick a connection here: <select id="nodeSelect" style="max-width:320px"></select></label>
+      <div style="margin-top:8px"><button id="pathBtn">✦ Animate Anelka → Haaland path</button></div>
+    </section>
+
+    <div class="grid">
+      <section class="card"><h2>Kevin Bacon Leaderboard</h2><ol id="board"></ol></section>
+      <section class="card"><h2>Why these moments matter</h2><ul id="why"></ul></section>
+    </div>
+    <section class="card"><h2>⚡ Speed / distance threshold alerts</h2><ul id="alerts"></ul></section>
+    <section class="card"><h2>Auto match recap</h2><p id="recap"></p>
+    <p class="small">Pipeline: Interpreter agent → GraphContext agent → Narrator agent → Personalizer agent. Open source (MIT): <a href="https://github.com/Mike-Demo/football-universe-copilot">github.com/Mike-Demo/football-universe-copilot</a> · <a href="tech.html">Tech stack</a></p></section>
+
+    <section class="card" id="seasonCard">
+      <h2>Full synthetic season — Premier League &amp; Women's Super League</h2>
+      <div class="modes" style="margin-bottom:10px">
+        <button class="btn" data-league="premier_league">Premier League (380 matches)</button>
+        <button class="btn" data-league="wsl">Women's Super League (132 matches)</button>
+      </div>
+      <div id="seasonStories" style="margin-bottom:10px"></div>
+      <div style="overflow-x:auto"><table id="seasonTable"></table></div>
+      <div id="clubDetail" style="margin-top:10px;color:var(--muted)">Click a club in the table for its season story — points progression, home/away split and form.</div>
+      <p class="small" style="margin-top:8px">Entirely simulated: a seeded Poisson model over plausible synthetic club ratings. Not real fixtures or results.</p>
+    </section>
+  </main>
+</div>
 <script src="app.js"></script>
-
 <script>
 let SEASON=null, LEAGUE='premier_league';
-function formBadges(f){return f.map(x=>'<span style="display:inline-block;width:16px;height:16px;line-height:16px;text-align:center;border-radius:4px;font-size:10px;margin-right:2px;background:'+({W:'#14532d',D:'#3f3f46',L:'#7f1d1d'}[x])+';color:#fff">'+x+'</span>').join('')}
+function formBadges(f){return f.map(x=>'<span style="display:inline-block;width:16px;height:16px;line-height:16px;text-align:center;border-radius:4px;font-size:10px;margin-right:2px;background:'+({W:'#107C10',D:'#616161',L:'#C50F1F'}[x])+';color:#fff">'+x+'</span>').join('')}
 function renderSeason(){
   const lg=SEASON[LEAGUE]; if(!lg) return;
   document.getElementById('seasonStories').innerHTML=lg.narratives.map(n=>'<div class="ev">📌 '+n+'</div>').join('');
-  let h='<tr style="text-align:left;color:var(--muted)"><th>#</th><th>Club</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>Pts</th><th>Form</th></tr>';
-  lg.standings.forEach(r=>{const z=r.zone==='relegation'?'background:rgba(127,29,29,.18)':(r.zone==='ucl'||r.zone==='champions')?'background:rgba(30,64,175,.15)':'';
-    h+='<tr data-club="'+r.club+'" style="cursor:pointer;border-top:1px solid #26262e;'+z+'"><td>'+r.position+'</td><td><b>'+r.club+'</b></td><td>'+r.played+'</td><td>'+r.won+'</td><td>'+r.drawn+'</td><td>'+r.lost+'</td><td>'+r.gf+'</td><td>'+r.ga+'</td><td>'+r.gd+'</td><td><b>'+r.points+'</b></td><td>'+formBadges(r.form)+'</td></tr>'});
+  let h='<tr><th>#</th><th>Club</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>Pts</th><th>Form</th></tr>';
+  lg.standings.forEach(r=>{const z=r.zone==='relegation'?'background:#FDF3F4':(r.zone==='ucl'||r.zone==='champions')?'background:#EBF3FC':'';
+    h+='<tr data-club="'+r.club+'" style="cursor:pointer;'+z+'"><td>'+r.position+'</td><td><b>'+r.club+'</b></td><td>'+r.played+'</td><td>'+r.won+'</td><td>'+r.drawn+'</td><td>'+r.lost+'</td><td>'+r.gf+'</td><td>'+r.ga+'</td><td>'+r.gd+'</td><td><b>'+r.points+'</b></td><td>'+formBadges(r.form)+'</td></tr>'});
   const tb=document.getElementById('seasonTable'); tb.innerHTML=h;
   tb.querySelectorAll('tr[data-club]').forEach(tr=>tr.onclick=()=>clubDetail(tr.dataset.club));
 }
@@ -92,5 +148,20 @@ function clubDetail(name){
 }
 fetch('season.json').then(r=>r.json()).then(s=>{SEASON=s;renderSeason()}).catch(()=>{document.getElementById('seasonStories').textContent='Season data failed to load.'});
 document.querySelectorAll('[data-league]').forEach(b=>b.onclick=()=>{LEAGUE=b.dataset.league;renderSeason()});
+/* Onboarding tour (Fluent 2 pattern: Notify banner -> Orient popovers) */
+const TOUR=[
+ ['1 · Pick any match','Use “Pick your match” to choose your team and any fixture from the full 512-match synthetic calendar — Premier League or the Women’s Super League. The featured Arsenal v Man City match runs the deepest pipeline.'],
+ ['2 · Watch the agents work','Press Play. The Interpreter reads the events, GraphContext grounds the moments in the football universe graph, the Narrator explains why they matter, and the Personalizer retells the same match for five audiences — switch personas any time.'],
+ ['3 · Explore the connections','Scroll to the graph: tap any node (or use the phone-friendly picker) to see its connections, and animate the verified Anelka → Haaland path — 2 degrees through Manchester City.']];
+let tourI=-1;
+const tc=document.getElementById('tourCard');
+function tourShow(i){tourI=i; if(i<0||i>=TOUR.length){tc.hidden=true;return;} tc.hidden=false;
+ document.getElementById('tourTitle').textContent=TOUR[i][0]; document.getElementById('tourBody').textContent=TOUR[i][1];
+ document.getElementById('tourStep').textContent='Step '+(i+1)+' of '+TOUR.length+' · ~1 minute total'; tc.scrollIntoView({behavior:'smooth',block:'center'});}
+document.getElementById('startTourBtn').onclick=()=>tourShow(0);
+document.getElementById('tourBtn').onclick=()=>tourShow(0);
+document.getElementById('tourNextBtn').onclick=()=>tourShow(tourI+1);
+document.getElementById('tourEndBtn').onclick=()=>tourShow(-1);
+document.getElementById('dismissBannerBtn').onclick=()=>{document.getElementById('tourBanner').hidden=true;};
 </script>
 </body></html>

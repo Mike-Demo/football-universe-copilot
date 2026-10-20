@@ -147,11 +147,11 @@ function updateAgents() {
   $('agPersonalizer').textContent = 'Five personas rendered from the same intelligence: Casual Fan · Analyst · Player Focus · Club Focus · Español';
 }
 function updateModelUI() { const xl = $('xgLine'); if (xl && D.model) xl.textContent = `Model xG (Poisson λ): ${D.fixture.home} ${D.model.xg_home.toFixed(2)} — ${D.model.xg_away.toFixed(2)} ${D.fixture.away} · the same ratings model that simulated the season`; const lh = $('lamH'); if (lh && D.model) { $('lamHName').textContent = D.fixture.home; $('lamAName').textContent = D.fixture.away; lh.value = D.model.xg_home; $('lamA').value = D.model.xg_away; updatePoisson(); } drawPitch(true); }
-let pitchKey = -2;
+let pitchKey = -2, pitchSnap = null, pitchMarkers = [];
 function drawPitch(force) {
   const cv = $('pitch'); if (!cv) return; const ctx = cv.getContext('2d'); const W = 1050, H = 680, S = 10;
   let snap = null; for (const e of D.events) { if (e.minute > minute) break; if (e.positions) snap = e; }
-  const key = snap ? D.events.indexOf(snap) : -1; if (!force && key === pitchKey) return; pitchKey = key;
+  const key = snap ? D.events.indexOf(snap) : -1; if (!force && key === pitchKey) return; pitchKey = key; pitchSnap = snap; pitchMarkers = D.events.filter(e => e.positions).map(e => ({ x: e.x, y: e.y, ev: e }));
   ctx.clearRect(0, 0, W, H); ctx.fillStyle = '#F1FAF1'; ctx.fillRect(0, 0, W, H);
   ctx.strokeStyle = 'rgba(16,124,16,.45)'; ctx.lineWidth = 2; ctx.strokeRect(30, 30, W - 60, H - 60);
   ctx.beginPath(); ctx.moveTo(W / 2, 30); ctx.lineTo(W / 2, H - 30); ctx.stroke(); ctx.beginPath(); ctx.arc(W / 2, H / 2, 91, 0, 7); ctx.stroke();
@@ -162,6 +162,8 @@ function drawPitch(force) {
   if (snap.dx !== undefined) { ctx.strokeStyle = '#0F6CBD'; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.moveTo((snap.x - snap.dx) * S, (snap.y - snap.dy) * S); ctx.lineTo(snap.x * S, snap.y * S); ctx.stroke(); }
   for (const q of pts) { ctx.beginPath(); ctx.arc(q[0] * S, q[1] * S, 7, 0, 7); ctx.fillStyle = q[2] === 0 ? '#0F6CBD' : '#C50F1F'; ctx.fill(); }
   ctx.beginPath(); ctx.arc(snap.x * S, snap.y * S, 6, 0, 7); ctx.fillStyle = '#fff'; ctx.fill(); ctx.strokeStyle = '#242424'; ctx.lineWidth = 2; ctx.stroke();
+  for (const m of pitchMarkers) { ctx.beginPath(); ctx.arc(m.x * S, m.y * S, 4, 0, 7); ctx.strokeStyle = m.ev.goal ? '#B7860B' : 'rgba(36,36,36,.4)'; ctx.lineWidth = m.ev.goal ? 2.5 : 1.2; ctx.stroke(); }
+  ctx.font = '600 15px "Segoe UI", system-ui'; ctx.fillStyle = '#242424'; ctx.fillText(snap.player, Math.min(W - 150, snap.x * S + 10), Math.max(18, snap.y * S - 10));
   let info = `Snapshot: ${snap.type} · ${snap.minute}' · ${snap.team} · ball at (${snap.x}, ${snap.y}) · xT ${snap.xt}`;
   if (snap.xt_delta !== undefined) info += ` · ΔxT ${snap.xt_delta >= 0 ? '+' : ''}${snap.xt_delta}`;
   if (snap.xg !== undefined) info += ` · shot xG (model) ${snap.xg}`;
@@ -217,4 +219,21 @@ document.querySelectorAll('.mode').forEach(b => b.addEventListener('click', () =
 const cp = $('copyPayloadBtn'); if (cp) cp.addEventListener('click', () => { navigator.clipboard && navigator.clipboard.writeText($('payloadPre').textContent); cp.textContent = 'Copied ✓'; setTimeout(() => cp.textContent = 'Copy JSON', 1500); });
 ['lamH', 'lamA'].forEach(id => { const el = $(id); if (el) el.addEventListener('input', updatePoisson); });
 const vt = $('vorToggle'); if (vt) vt.addEventListener('change', () => drawPitch(true));
+(function pitchInteract() {
+  const cv = $('pitch'); if (!cv) return;
+  const toMeters = e => { const r = cv.getBoundingClientRect(); return [(e.clientX - r.left) * 1050 / r.width / 10, (e.clientY - r.top) * 680 / r.height / 10]; };
+  const LINES = ['Goalkeeper', 'Defence', 'Defence', 'Defence', 'Defence', 'Midfield', 'Midfield', 'Midfield', 'Attack', 'Attack', 'Attack'];
+  cv.style.cursor = 'crosshair';
+  cv.addEventListener('pointermove', e => { const [mx, my] = toMeters(e); const hot = pitchMarkers.some(m => Math.hypot(m.x - mx, m.y - my) < 1.8) || (pitchSnap && pitchSnap.positions.some(q => Math.hypot(q[0] - mx, q[1] - my) < 1.6)); cv.style.cursor = hot ? 'pointer' : 'crosshair'; });
+  cv.addEventListener('pointerdown', e => {
+    const [mx, my] = toMeters(e);
+    const mk = pitchMarkers.map(m => [Math.hypot(m.x - mx, m.y - my), m]).sort((a, b) => a[0] - b[0])[0];
+    if (mk && mk[0] < 1.8) { minute = mk[1].ev.minute + 0.01; playing = false; $('playBtn').textContent = '▶ Play replay'; render(); drawPitch(true); $('pitchInfo').textContent = `Jumped to ${mk[1].ev.minute}' — ${mk[1].ev.type} by ${mk[1].ev.player} (${mk[1].ev.team}).`; return; }
+    if (pitchSnap) { const dots = pitchSnap.positions.map((q, i) => [Math.hypot(q[0] - mx, q[1] - my), q, i]).sort((a, b) => a[0] - b[0])[0];
+      if (dots && dots[0] < 1.6) { const q = dots[1], teamName = q[2] === 0 ? D.fixture.home : D.fixture.away;
+        if (Math.hypot(pitchSnap.x - mx, pitchSnap.y - my) < 2.2) { $('pitchInfo').textContent = `Ball carrier: ${pitchSnap.player} (${pitchSnap.team}). Selecting them in the knowledge graph…`; if (typeof showNode === 'function' && D.graph.nodes.some(n => n.id === pitchSnap.player)) { selected = pitchSnap.player; showNode(pitchSnap.player); $('graphCard').scrollIntoView({ behavior: 'smooth', block: 'center' }); } return; }
+        $('pitchInfo').textContent = `${teamName} · ${LINES[dots[2] % 11]} slot at (${q[0]}, ${q[1]}) — synthetic formation position for the ${pitchSnap.minute}' snapshot. Player dots are formation slots; only the labelled ball carrier is a named player.`; return; } }
+    $('pitchInfo').textContent = `Pitch point (${mx.toFixed(1)}, ${my.toFixed(1)}) — xT there is ${xtModel(mx, my)} on our documented threat surface. Click a ringed marker to jump the replay to that key moment.`;
+  });
+})();
 load().catch(() => { $('modeBody').textContent = 'Could not load data.json — serve this folder over http (python3 -m http.server) or view the live GitHub Pages demo.'; });

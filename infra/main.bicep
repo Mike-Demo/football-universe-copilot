@@ -46,6 +46,7 @@ resource foundry 'Microsoft.CognitiveServices/accounts@2024-10-01' = {
   kind: 'AIServices'
   properties: {
     publicNetworkAccess: 'Enabled'
+    customSubDomainName: '${prefix}-foundry-${nameSuffix}'
   }
 }
 

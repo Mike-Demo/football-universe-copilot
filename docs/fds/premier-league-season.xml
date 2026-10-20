@@ -1,0 +1,1903 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MatchData xmlns="http://fifa.com/fc" ExportDate="2026-10-20T00:00:00" Synthetic="true" Standard="FCD 3.3-aligned export — synthetic data, not an official FIFA record">
+  <Match MatchFIFAId="SYN4000" Status="Played" Matchday="1" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="3" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1000"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1018"/>
+  </Match>
+  <Match MatchFIFAId="SYN4001" Status="Played" Matchday="1" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1014"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1005"/>
+  </Match>
+  <Match MatchFIFAId="SYN4002" Status="Played" Matchday="1" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1012"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1010"/>
+  </Match>
+  <Match MatchFIFAId="SYN4003" Status="Played" Matchday="1" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="3" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1006"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1021"/>
+  </Match>
+  <Match MatchFIFAId="SYN4004" Status="Played" Matchday="1" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1019"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1002"/>
+  </Match>
+  <Match MatchFIFAId="SYN4005" Status="Played" Matchday="1" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1015"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1008"/>
+  </Match>
+  <Match MatchFIFAId="SYN4006" Status="Played" Matchday="1" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1016"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1017"/>
+  </Match>
+  <Match MatchFIFAId="SYN4007" Status="Played" Matchday="1" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1001"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1003"/>
+  </Match>
+  <Match MatchFIFAId="SYN4008" Status="Played" Matchday="1" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1004"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1009"/>
+  </Match>
+  <Match MatchFIFAId="SYN4009" Status="Played" Matchday="1" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="4" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1020"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1007"/>
+  </Match>
+  <Match MatchFIFAId="SYN4010" Status="Played" Matchday="2" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="3"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1005"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1000"/>
+  </Match>
+  <Match MatchFIFAId="SYN4011" Status="Played" Matchday="2" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1010"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1018"/>
+  </Match>
+  <Match MatchFIFAId="SYN4012" Status="Played" Matchday="2" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="3"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1021"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1014"/>
+  </Match>
+  <Match MatchFIFAId="SYN4013" Status="Played" Matchday="2" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1002"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1012"/>
+  </Match>
+  <Match MatchFIFAId="SYN4014" Status="Played" Matchday="2" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="3" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1008"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1006"/>
+  </Match>
+  <Match MatchFIFAId="SYN4015" Status="Played" Matchday="2" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1017"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1019"/>
+  </Match>
+  <Match MatchFIFAId="SYN4016" Status="Played" Matchday="2" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1003"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1015"/>
+  </Match>
+  <Match MatchFIFAId="SYN4017" Status="Played" Matchday="2" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1009"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1016"/>
+  </Match>
+  <Match MatchFIFAId="SYN4018" Status="Played" Matchday="2" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="3"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1007"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1001"/>
+  </Match>
+  <Match MatchFIFAId="SYN4019" Status="Played" Matchday="2" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1020"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1004"/>
+  </Match>
+  <Match MatchFIFAId="SYN4020" Status="Played" Matchday="3" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="3" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1000"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1010"/>
+  </Match>
+  <Match MatchFIFAId="SYN4021" Status="Played" Matchday="3" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1005"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1021"/>
+  </Match>
+  <Match MatchFIFAId="SYN4022" Status="Played" Matchday="3" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1018"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1002"/>
+  </Match>
+  <Match MatchFIFAId="SYN4023" Status="Played" Matchday="3" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="3"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1014"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1008"/>
+  </Match>
+  <Match MatchFIFAId="SYN4024" Status="Played" Matchday="3" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1012"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1017"/>
+  </Match>
+  <Match MatchFIFAId="SYN4025" Status="Played" Matchday="3" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="3" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1006"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1003"/>
+  </Match>
+  <Match MatchFIFAId="SYN4026" Status="Played" Matchday="3" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1019"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1009"/>
+  </Match>
+  <Match MatchFIFAId="SYN4027" Status="Played" Matchday="3" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1015"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1007"/>
+  </Match>
+  <Match MatchFIFAId="SYN4028" Status="Played" Matchday="3" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="3" AwayScore="4"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1016"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1020"/>
+  </Match>
+  <Match MatchFIFAId="SYN4029" Status="Played" Matchday="3" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1001"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1004"/>
+  </Match>
+  <Match MatchFIFAId="SYN4030" Status="Played" Matchday="4" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1021"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1000"/>
+  </Match>
+  <Match MatchFIFAId="SYN4031" Status="Played" Matchday="4" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1002"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1010"/>
+  </Match>
+  <Match MatchFIFAId="SYN4032" Status="Played" Matchday="4" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1008"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1005"/>
+  </Match>
+  <Match MatchFIFAId="SYN4033" Status="Played" Matchday="4" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1017"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1018"/>
+  </Match>
+  <Match MatchFIFAId="SYN4034" Status="Played" Matchday="4" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="3"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1003"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1014"/>
+  </Match>
+  <Match MatchFIFAId="SYN4035" Status="Played" Matchday="4" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1009"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1012"/>
+  </Match>
+  <Match MatchFIFAId="SYN4036" Status="Played" Matchday="4" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1007"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1006"/>
+  </Match>
+  <Match MatchFIFAId="SYN4037" Status="Played" Matchday="4" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="3" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1020"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1019"/>
+  </Match>
+  <Match MatchFIFAId="SYN4038" Status="Played" Matchday="4" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1004"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1015"/>
+  </Match>
+  <Match MatchFIFAId="SYN4039" Status="Played" Matchday="4" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1001"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1016"/>
+  </Match>
+  <Match MatchFIFAId="SYN4040" Status="Played" Matchday="5" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="3"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1000"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1002"/>
+  </Match>
+  <Match MatchFIFAId="SYN4041" Status="Played" Matchday="5" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="3"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1021"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1008"/>
+  </Match>
+  <Match MatchFIFAId="SYN4042" Status="Played" Matchday="5" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1010"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1017"/>
+  </Match>
+  <Match MatchFIFAId="SYN4043" Status="Played" Matchday="5" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1005"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1003"/>
+  </Match>
+  <Match MatchFIFAId="SYN4044" Status="Played" Matchday="5" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1018"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1009"/>
+  </Match>
+  <Match MatchFIFAId="SYN4045" Status="Played" Matchday="5" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1014"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1007"/>
+  </Match>
+  <Match MatchFIFAId="SYN4046" Status="Played" Matchday="5" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1012"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1020"/>
+  </Match>
+  <Match MatchFIFAId="SYN4047" Status="Played" Matchday="5" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1006"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1004"/>
+  </Match>
+  <Match MatchFIFAId="SYN4048" Status="Played" Matchday="5" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1019"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1001"/>
+  </Match>
+  <Match MatchFIFAId="SYN4049" Status="Played" Matchday="5" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1015"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1016"/>
+  </Match>
+  <Match MatchFIFAId="SYN4050" Status="Played" Matchday="6" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="3" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1008"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1000"/>
+  </Match>
+  <Match MatchFIFAId="SYN4051" Status="Played" Matchday="6" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="3"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1017"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1002"/>
+  </Match>
+  <Match MatchFIFAId="SYN4052" Status="Played" Matchday="6" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1003"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1021"/>
+  </Match>
+  <Match MatchFIFAId="SYN4053" Status="Played" Matchday="6" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1009"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1010"/>
+  </Match>
+  <Match MatchFIFAId="SYN4054" Status="Played" Matchday="6" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1007"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1005"/>
+  </Match>
+  <Match MatchFIFAId="SYN4055" Status="Played" Matchday="6" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1020"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1018"/>
+  </Match>
+  <Match MatchFIFAId="SYN4056" Status="Played" Matchday="6" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1004"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1014"/>
+  </Match>
+  <Match MatchFIFAId="SYN4057" Status="Played" Matchday="6" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1001"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1012"/>
+  </Match>
+  <Match MatchFIFAId="SYN4058" Status="Played" Matchday="6" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1016"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1006"/>
+  </Match>
+  <Match MatchFIFAId="SYN4059" Status="Played" Matchday="6" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="4" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1015"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1019"/>
+  </Match>
+  <Match MatchFIFAId="SYN4060" Status="Played" Matchday="7" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1000"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1017"/>
+  </Match>
+  <Match MatchFIFAId="SYN4061" Status="Played" Matchday="7" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1008"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1003"/>
+  </Match>
+  <Match MatchFIFAId="SYN4062" Status="Played" Matchday="7" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1002"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1009"/>
+  </Match>
+  <Match MatchFIFAId="SYN4063" Status="Played" Matchday="7" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1021"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1007"/>
+  </Match>
+  <Match MatchFIFAId="SYN4064" Status="Played" Matchday="7" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="4" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1010"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1020"/>
+  </Match>
+  <Match MatchFIFAId="SYN4065" Status="Played" Matchday="7" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1005"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1004"/>
+  </Match>
+  <Match MatchFIFAId="SYN4066" Status="Played" Matchday="7" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="3" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1018"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1001"/>
+  </Match>
+  <Match MatchFIFAId="SYN4067" Status="Played" Matchday="7" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="3" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1014"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1016"/>
+  </Match>
+  <Match MatchFIFAId="SYN4068" Status="Played" Matchday="7" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1012"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1015"/>
+  </Match>
+  <Match MatchFIFAId="SYN4069" Status="Played" Matchday="7" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="3" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1006"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1019"/>
+  </Match>
+  <Match MatchFIFAId="SYN4070" Status="Played" Matchday="8" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1003"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1000"/>
+  </Match>
+  <Match MatchFIFAId="SYN4071" Status="Played" Matchday="8" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1009"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1017"/>
+  </Match>
+  <Match MatchFIFAId="SYN4072" Status="Played" Matchday="8" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1007"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1008"/>
+  </Match>
+  <Match MatchFIFAId="SYN4073" Status="Played" Matchday="8" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="3" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1020"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1002"/>
+  </Match>
+  <Match MatchFIFAId="SYN4074" Status="Played" Matchday="8" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1004"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1021"/>
+  </Match>
+  <Match MatchFIFAId="SYN4075" Status="Played" Matchday="8" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1001"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1010"/>
+  </Match>
+  <Match MatchFIFAId="SYN4076" Status="Played" Matchday="8" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1016"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1005"/>
+  </Match>
+  <Match MatchFIFAId="SYN4077" Status="Played" Matchday="8" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="3"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1015"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1018"/>
+  </Match>
+  <Match MatchFIFAId="SYN4078" Status="Played" Matchday="8" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1019"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1014"/>
+  </Match>
+  <Match MatchFIFAId="SYN4079" Status="Played" Matchday="8" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1006"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1012"/>
+  </Match>
+  <Match MatchFIFAId="SYN4080" Status="Played" Matchday="9" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1000"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1009"/>
+  </Match>
+  <Match MatchFIFAId="SYN4081" Status="Played" Matchday="9" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1003"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1007"/>
+  </Match>
+  <Match MatchFIFAId="SYN4082" Status="Played" Matchday="9" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="3"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1017"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1020"/>
+  </Match>
+  <Match MatchFIFAId="SYN4083" Status="Played" Matchday="9" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1008"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1004"/>
+  </Match>
+  <Match MatchFIFAId="SYN4084" Status="Played" Matchday="9" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1002"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1001"/>
+  </Match>
+  <Match MatchFIFAId="SYN4085" Status="Played" Matchday="9" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="4"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1021"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1016"/>
+  </Match>
+  <Match MatchFIFAId="SYN4086" Status="Played" Matchday="9" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="3"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1010"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1015"/>
+  </Match>
+  <Match MatchFIFAId="SYN4087" Status="Played" Matchday="9" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1005"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1019"/>
+  </Match>
+  <Match MatchFIFAId="SYN4088" Status="Played" Matchday="9" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="4"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1018"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1006"/>
+  </Match>
+  <Match MatchFIFAId="SYN4089" Status="Played" Matchday="9" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1014"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1012"/>
+  </Match>
+  <Match MatchFIFAId="SYN4090" Status="Played" Matchday="10" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1007"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1000"/>
+  </Match>
+  <Match MatchFIFAId="SYN4091" Status="Played" Matchday="10" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="3" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1020"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1009"/>
+  </Match>
+  <Match MatchFIFAId="SYN4092" Status="Played" Matchday="10" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1004"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1003"/>
+  </Match>
+  <Match MatchFIFAId="SYN4093" Status="Played" Matchday="10" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1001"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1017"/>
+  </Match>
+  <Match MatchFIFAId="SYN4094" Status="Played" Matchday="10" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1016"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1008"/>
+  </Match>
+  <Match MatchFIFAId="SYN4095" Status="Played" Matchday="10" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1015"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1002"/>
+  </Match>
+  <Match MatchFIFAId="SYN4096" Status="Played" Matchday="10" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="3" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1019"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1021"/>
+  </Match>
+  <Match MatchFIFAId="SYN4097" Status="Played" Matchday="10" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1006"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1010"/>
+  </Match>
+  <Match MatchFIFAId="SYN4098" Status="Played" Matchday="10" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="3" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1012"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1005"/>
+  </Match>
+  <Match MatchFIFAId="SYN4099" Status="Played" Matchday="10" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="3"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1014"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1018"/>
+  </Match>
+  <Match MatchFIFAId="SYN4100" Status="Played" Matchday="11" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1000"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1020"/>
+  </Match>
+  <Match MatchFIFAId="SYN4101" Status="Played" Matchday="11" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1007"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1004"/>
+  </Match>
+  <Match MatchFIFAId="SYN4102" Status="Played" Matchday="11" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1009"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1001"/>
+  </Match>
+  <Match MatchFIFAId="SYN4103" Status="Played" Matchday="11" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="3"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1003"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1016"/>
+  </Match>
+  <Match MatchFIFAId="SYN4104" Status="Played" Matchday="11" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1017"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1015"/>
+  </Match>
+  <Match MatchFIFAId="SYN4105" Status="Played" Matchday="11" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1008"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1019"/>
+  </Match>
+  <Match MatchFIFAId="SYN4106" Status="Played" Matchday="11" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1002"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1006"/>
+  </Match>
+  <Match MatchFIFAId="SYN4107" Status="Played" Matchday="11" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1021"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1012"/>
+  </Match>
+  <Match MatchFIFAId="SYN4108" Status="Played" Matchday="11" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="4"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1010"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1014"/>
+  </Match>
+  <Match MatchFIFAId="SYN4109" Status="Played" Matchday="11" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1005"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1018"/>
+  </Match>
+  <Match MatchFIFAId="SYN4110" Status="Played" Matchday="12" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1004"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1000"/>
+  </Match>
+  <Match MatchFIFAId="SYN4111" Status="Played" Matchday="12" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1001"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1020"/>
+  </Match>
+  <Match MatchFIFAId="SYN4112" Status="Played" Matchday="12" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1016"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1007"/>
+  </Match>
+  <Match MatchFIFAId="SYN4113" Status="Played" Matchday="12" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1015"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1009"/>
+  </Match>
+  <Match MatchFIFAId="SYN4114" Status="Played" Matchday="12" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="6" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1019"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1003"/>
+  </Match>
+  <Match MatchFIFAId="SYN4115" Status="Played" Matchday="12" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1006"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1017"/>
+  </Match>
+  <Match MatchFIFAId="SYN4116" Status="Played" Matchday="12" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1012"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1008"/>
+  </Match>
+  <Match MatchFIFAId="SYN4117" Status="Played" Matchday="12" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="3" AwayScore="3"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1014"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1002"/>
+  </Match>
+  <Match MatchFIFAId="SYN4118" Status="Played" Matchday="12" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1018"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1021"/>
+  </Match>
+  <Match MatchFIFAId="SYN4119" Status="Played" Matchday="12" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1005"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1010"/>
+  </Match>
+  <Match MatchFIFAId="SYN4120" Status="Played" Matchday="13" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1000"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1001"/>
+  </Match>
+  <Match MatchFIFAId="SYN4121" Status="Played" Matchday="13" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1004"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1016"/>
+  </Match>
+  <Match MatchFIFAId="SYN4122" Status="Played" Matchday="13" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="3"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1020"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1015"/>
+  </Match>
+  <Match MatchFIFAId="SYN4123" Status="Played" Matchday="13" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1007"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1019"/>
+  </Match>
+  <Match MatchFIFAId="SYN4124" Status="Played" Matchday="13" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1009"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1006"/>
+  </Match>
+  <Match MatchFIFAId="SYN4125" Status="Played" Matchday="13" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1003"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1012"/>
+  </Match>
+  <Match MatchFIFAId="SYN4126" Status="Played" Matchday="13" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1017"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1014"/>
+  </Match>
+  <Match MatchFIFAId="SYN4127" Status="Played" Matchday="13" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1008"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1018"/>
+  </Match>
+  <Match MatchFIFAId="SYN4128" Status="Played" Matchday="13" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="3"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1002"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1005"/>
+  </Match>
+  <Match MatchFIFAId="SYN4129" Status="Played" Matchday="13" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="4"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1021"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1010"/>
+  </Match>
+  <Match MatchFIFAId="SYN4130" Status="Played" Matchday="14" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="4" AwayScore="3"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1016"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1000"/>
+  </Match>
+  <Match MatchFIFAId="SYN4131" Status="Played" Matchday="14" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1015"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1001"/>
+  </Match>
+  <Match MatchFIFAId="SYN4132" Status="Played" Matchday="14" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1019"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1004"/>
+  </Match>
+  <Match MatchFIFAId="SYN4133" Status="Played" Matchday="14" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="4" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1006"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1020"/>
+  </Match>
+  <Match MatchFIFAId="SYN4134" Status="Played" Matchday="14" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1012"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1007"/>
+  </Match>
+  <Match MatchFIFAId="SYN4135" Status="Played" Matchday="14" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1014"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1009"/>
+  </Match>
+  <Match MatchFIFAId="SYN4136" Status="Played" Matchday="14" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="5"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1018"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1003"/>
+  </Match>
+  <Match MatchFIFAId="SYN4137" Status="Played" Matchday="14" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1005"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1017"/>
+  </Match>
+  <Match MatchFIFAId="SYN4138" Status="Played" Matchday="14" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1010"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1008"/>
+  </Match>
+  <Match MatchFIFAId="SYN4139" Status="Played" Matchday="14" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="3" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1021"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1002"/>
+  </Match>
+  <Match MatchFIFAId="SYN4140" Status="Played" Matchday="15" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1000"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1015"/>
+  </Match>
+  <Match MatchFIFAId="SYN4141" Status="Played" Matchday="15" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1016"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1019"/>
+  </Match>
+  <Match MatchFIFAId="SYN4142" Status="Played" Matchday="15" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1001"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1006"/>
+  </Match>
+  <Match MatchFIFAId="SYN4143" Status="Played" Matchday="15" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1004"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1012"/>
+  </Match>
+  <Match MatchFIFAId="SYN4144" Status="Played" Matchday="15" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1020"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1014"/>
+  </Match>
+  <Match MatchFIFAId="SYN4145" Status="Played" Matchday="15" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1007"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1018"/>
+  </Match>
+  <Match MatchFIFAId="SYN4146" Status="Played" Matchday="15" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1009"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1005"/>
+  </Match>
+  <Match MatchFIFAId="SYN4147" Status="Played" Matchday="15" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1003"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1010"/>
+  </Match>
+  <Match MatchFIFAId="SYN4148" Status="Played" Matchday="15" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="3" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1017"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1021"/>
+  </Match>
+  <Match MatchFIFAId="SYN4149" Status="Played" Matchday="15" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1008"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1002"/>
+  </Match>
+  <Match MatchFIFAId="SYN4150" Status="Played" Matchday="16" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1019"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1000"/>
+  </Match>
+  <Match MatchFIFAId="SYN4151" Status="Played" Matchday="16" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1006"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1015"/>
+  </Match>
+  <Match MatchFIFAId="SYN4152" Status="Played" Matchday="16" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="3" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1012"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1016"/>
+  </Match>
+  <Match MatchFIFAId="SYN4153" Status="Played" Matchday="16" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1014"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1001"/>
+  </Match>
+  <Match MatchFIFAId="SYN4154" Status="Played" Matchday="16" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1018"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1004"/>
+  </Match>
+  <Match MatchFIFAId="SYN4155" Status="Played" Matchday="16" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1005"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1020"/>
+  </Match>
+  <Match MatchFIFAId="SYN4156" Status="Played" Matchday="16" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="5" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1010"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1007"/>
+  </Match>
+  <Match MatchFIFAId="SYN4157" Status="Played" Matchday="16" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1021"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1009"/>
+  </Match>
+  <Match MatchFIFAId="SYN4158" Status="Played" Matchday="16" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1002"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1003"/>
+  </Match>
+  <Match MatchFIFAId="SYN4159" Status="Played" Matchday="16" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1008"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1017"/>
+  </Match>
+  <Match MatchFIFAId="SYN4160" Status="Played" Matchday="17" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1000"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1006"/>
+  </Match>
+  <Match MatchFIFAId="SYN4161" Status="Played" Matchday="17" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1019"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1012"/>
+  </Match>
+  <Match MatchFIFAId="SYN4162" Status="Played" Matchday="17" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="3"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1015"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1014"/>
+  </Match>
+  <Match MatchFIFAId="SYN4163" Status="Played" Matchday="17" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="5" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1016"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1018"/>
+  </Match>
+  <Match MatchFIFAId="SYN4164" Status="Played" Matchday="17" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="3"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1001"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1005"/>
+  </Match>
+  <Match MatchFIFAId="SYN4165" Status="Played" Matchday="17" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="3"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1004"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1010"/>
+  </Match>
+  <Match MatchFIFAId="SYN4166" Status="Played" Matchday="17" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1020"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1021"/>
+  </Match>
+  <Match MatchFIFAId="SYN4167" Status="Played" Matchday="17" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="3" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1007"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1002"/>
+  </Match>
+  <Match MatchFIFAId="SYN4168" Status="Played" Matchday="17" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1009"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1008"/>
+  </Match>
+  <Match MatchFIFAId="SYN4169" Status="Played" Matchday="17" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="4" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1003"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1017"/>
+  </Match>
+  <Match MatchFIFAId="SYN4170" Status="Played" Matchday="18" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1012"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1000"/>
+  </Match>
+  <Match MatchFIFAId="SYN4171" Status="Played" Matchday="18" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="3" AwayScore="5"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1014"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1006"/>
+  </Match>
+  <Match MatchFIFAId="SYN4172" Status="Played" Matchday="18" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="3" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1018"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1019"/>
+  </Match>
+  <Match MatchFIFAId="SYN4173" Status="Played" Matchday="18" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="5"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1005"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1015"/>
+  </Match>
+  <Match MatchFIFAId="SYN4174" Status="Played" Matchday="18" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1010"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1016"/>
+  </Match>
+  <Match MatchFIFAId="SYN4175" Status="Played" Matchday="18" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1021"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1001"/>
+  </Match>
+  <Match MatchFIFAId="SYN4176" Status="Played" Matchday="18" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="3"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1002"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1004"/>
+  </Match>
+  <Match MatchFIFAId="SYN4177" Status="Played" Matchday="18" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="3" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1008"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1020"/>
+  </Match>
+  <Match MatchFIFAId="SYN4178" Status="Played" Matchday="18" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1017"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1007"/>
+  </Match>
+  <Match MatchFIFAId="SYN4179" Status="Played" Matchday="18" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="3"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1003"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1009"/>
+  </Match>
+  <Match MatchFIFAId="SYN4180" Status="Played" Matchday="19" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1000"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1014"/>
+  </Match>
+  <Match MatchFIFAId="SYN4181" Status="Played" Matchday="19" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1012"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1018"/>
+  </Match>
+  <Match MatchFIFAId="SYN4182" Status="Played" Matchday="19" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="4" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1006"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1005"/>
+  </Match>
+  <Match MatchFIFAId="SYN4183" Status="Played" Matchday="19" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1019"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1010"/>
+  </Match>
+  <Match MatchFIFAId="SYN4184" Status="Played" Matchday="19" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="3" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1015"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1021"/>
+  </Match>
+  <Match MatchFIFAId="SYN4185" Status="Played" Matchday="19" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1016"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1002"/>
+  </Match>
+  <Match MatchFIFAId="SYN4186" Status="Played" Matchday="19" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1001"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1008"/>
+  </Match>
+  <Match MatchFIFAId="SYN4187" Status="Played" Matchday="19" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1004"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1017"/>
+  </Match>
+  <Match MatchFIFAId="SYN4188" Status="Played" Matchday="19" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1020"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1003"/>
+  </Match>
+  <Match MatchFIFAId="SYN4189" Status="Played" Matchday="19" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="3"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1007"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1009"/>
+  </Match>
+  <Match MatchFIFAId="SYN4190" Status="Played" Matchday="20" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1018"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1000"/>
+  </Match>
+  <Match MatchFIFAId="SYN4191" Status="Played" Matchday="20" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="4"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1005"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1014"/>
+  </Match>
+  <Match MatchFIFAId="SYN4192" Status="Played" Matchday="20" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1010"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1012"/>
+  </Match>
+  <Match MatchFIFAId="SYN4193" Status="Played" Matchday="20" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="5"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1021"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1006"/>
+  </Match>
+  <Match MatchFIFAId="SYN4194" Status="Played" Matchday="20" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1002"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1019"/>
+  </Match>
+  <Match MatchFIFAId="SYN4195" Status="Played" Matchday="20" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1008"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1015"/>
+  </Match>
+  <Match MatchFIFAId="SYN4196" Status="Played" Matchday="20" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1017"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1016"/>
+  </Match>
+  <Match MatchFIFAId="SYN4197" Status="Played" Matchday="20" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1003"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1001"/>
+  </Match>
+  <Match MatchFIFAId="SYN4198" Status="Played" Matchday="20" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="3" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1009"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1004"/>
+  </Match>
+  <Match MatchFIFAId="SYN4199" Status="Played" Matchday="20" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1007"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1020"/>
+  </Match>
+  <Match MatchFIFAId="SYN4200" Status="Played" Matchday="21" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="3" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1000"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1005"/>
+  </Match>
+  <Match MatchFIFAId="SYN4201" Status="Played" Matchday="21" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="3"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1018"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1010"/>
+  </Match>
+  <Match MatchFIFAId="SYN4202" Status="Played" Matchday="21" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1014"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1021"/>
+  </Match>
+  <Match MatchFIFAId="SYN4203" Status="Played" Matchday="21" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="4"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1012"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1002"/>
+  </Match>
+  <Match MatchFIFAId="SYN4204" Status="Played" Matchday="21" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1006"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1008"/>
+  </Match>
+  <Match MatchFIFAId="SYN4205" Status="Played" Matchday="21" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1019"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1017"/>
+  </Match>
+  <Match MatchFIFAId="SYN4206" Status="Played" Matchday="21" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1015"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1003"/>
+  </Match>
+  <Match MatchFIFAId="SYN4207" Status="Played" Matchday="21" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1016"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1009"/>
+  </Match>
+  <Match MatchFIFAId="SYN4208" Status="Played" Matchday="21" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1001"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1007"/>
+  </Match>
+  <Match MatchFIFAId="SYN4209" Status="Played" Matchday="21" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="3" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1004"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1020"/>
+  </Match>
+  <Match MatchFIFAId="SYN4210" Status="Played" Matchday="22" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="3" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1010"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1000"/>
+  </Match>
+  <Match MatchFIFAId="SYN4211" Status="Played" Matchday="22" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1021"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1005"/>
+  </Match>
+  <Match MatchFIFAId="SYN4212" Status="Played" Matchday="22" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="3" AwayScore="3"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1002"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1018"/>
+  </Match>
+  <Match MatchFIFAId="SYN4213" Status="Played" Matchday="22" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="4"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1008"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1014"/>
+  </Match>
+  <Match MatchFIFAId="SYN4214" Status="Played" Matchday="22" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1017"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1012"/>
+  </Match>
+  <Match MatchFIFAId="SYN4215" Status="Played" Matchday="22" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1003"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1006"/>
+  </Match>
+  <Match MatchFIFAId="SYN4216" Status="Played" Matchday="22" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="3" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1009"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1019"/>
+  </Match>
+  <Match MatchFIFAId="SYN4217" Status="Played" Matchday="22" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1007"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1015"/>
+  </Match>
+  <Match MatchFIFAId="SYN4218" Status="Played" Matchday="22" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="3" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1020"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1016"/>
+  </Match>
+  <Match MatchFIFAId="SYN4219" Status="Played" Matchday="22" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="3" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1004"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1001"/>
+  </Match>
+  <Match MatchFIFAId="SYN4220" Status="Played" Matchday="23" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="4" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1000"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1021"/>
+  </Match>
+  <Match MatchFIFAId="SYN4221" Status="Played" Matchday="23" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1010"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1002"/>
+  </Match>
+  <Match MatchFIFAId="SYN4222" Status="Played" Matchday="23" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="5"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1005"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1008"/>
+  </Match>
+  <Match MatchFIFAId="SYN4223" Status="Played" Matchday="23" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1018"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1017"/>
+  </Match>
+  <Match MatchFIFAId="SYN4224" Status="Played" Matchday="23" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1014"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1003"/>
+  </Match>
+  <Match MatchFIFAId="SYN4225" Status="Played" Matchday="23" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1012"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1009"/>
+  </Match>
+  <Match MatchFIFAId="SYN4226" Status="Played" Matchday="23" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1006"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1007"/>
+  </Match>
+  <Match MatchFIFAId="SYN4227" Status="Played" Matchday="23" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="4" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1019"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1020"/>
+  </Match>
+  <Match MatchFIFAId="SYN4228" Status="Played" Matchday="23" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1015"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1004"/>
+  </Match>
+  <Match MatchFIFAId="SYN4229" Status="Played" Matchday="23" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1016"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1001"/>
+  </Match>
+  <Match MatchFIFAId="SYN4230" Status="Played" Matchday="24" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1002"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1000"/>
+  </Match>
+  <Match MatchFIFAId="SYN4231" Status="Played" Matchday="24" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1008"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1021"/>
+  </Match>
+  <Match MatchFIFAId="SYN4232" Status="Played" Matchday="24" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1017"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1010"/>
+  </Match>
+  <Match MatchFIFAId="SYN4233" Status="Played" Matchday="24" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1003"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1005"/>
+  </Match>
+  <Match MatchFIFAId="SYN4234" Status="Played" Matchday="24" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="3" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1009"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1018"/>
+  </Match>
+  <Match MatchFIFAId="SYN4235" Status="Played" Matchday="24" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1007"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1014"/>
+  </Match>
+  <Match MatchFIFAId="SYN4236" Status="Played" Matchday="24" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="3"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1020"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1012"/>
+  </Match>
+  <Match MatchFIFAId="SYN4237" Status="Played" Matchday="24" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="3" AwayScore="3"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1004"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1006"/>
+  </Match>
+  <Match MatchFIFAId="SYN4238" Status="Played" Matchday="24" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1001"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1019"/>
+  </Match>
+  <Match MatchFIFAId="SYN4239" Status="Played" Matchday="24" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="3"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1016"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1015"/>
+  </Match>
+  <Match MatchFIFAId="SYN4240" Status="Played" Matchday="25" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1000"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1008"/>
+  </Match>
+  <Match MatchFIFAId="SYN4241" Status="Played" Matchday="25" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="3" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1002"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1017"/>
+  </Match>
+  <Match MatchFIFAId="SYN4242" Status="Played" Matchday="25" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="4"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1021"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1003"/>
+  </Match>
+  <Match MatchFIFAId="SYN4243" Status="Played" Matchday="25" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1010"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1009"/>
+  </Match>
+  <Match MatchFIFAId="SYN4244" Status="Played" Matchday="25" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1005"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1007"/>
+  </Match>
+  <Match MatchFIFAId="SYN4245" Status="Played" Matchday="25" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1018"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1020"/>
+  </Match>
+  <Match MatchFIFAId="SYN4246" Status="Played" Matchday="25" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1014"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1004"/>
+  </Match>
+  <Match MatchFIFAId="SYN4247" Status="Played" Matchday="25" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1012"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1001"/>
+  </Match>
+  <Match MatchFIFAId="SYN4248" Status="Played" Matchday="25" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1006"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1016"/>
+  </Match>
+  <Match MatchFIFAId="SYN4249" Status="Played" Matchday="25" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="3" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1019"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1015"/>
+  </Match>
+  <Match MatchFIFAId="SYN4250" Status="Played" Matchday="26" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="3"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1017"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1000"/>
+  </Match>
+  <Match MatchFIFAId="SYN4251" Status="Played" Matchday="26" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="3" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1003"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1008"/>
+  </Match>
+  <Match MatchFIFAId="SYN4252" Status="Played" Matchday="26" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="3"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1009"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1002"/>
+  </Match>
+  <Match MatchFIFAId="SYN4253" Status="Played" Matchday="26" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1007"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1021"/>
+  </Match>
+  <Match MatchFIFAId="SYN4254" Status="Played" Matchday="26" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1020"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1010"/>
+  </Match>
+  <Match MatchFIFAId="SYN4255" Status="Played" Matchday="26" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1004"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1005"/>
+  </Match>
+  <Match MatchFIFAId="SYN4256" Status="Played" Matchday="26" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1001"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1018"/>
+  </Match>
+  <Match MatchFIFAId="SYN4257" Status="Played" Matchday="26" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="3"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1016"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1014"/>
+  </Match>
+  <Match MatchFIFAId="SYN4258" Status="Played" Matchday="26" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1015"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1012"/>
+  </Match>
+  <Match MatchFIFAId="SYN4259" Status="Played" Matchday="26" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="4" AwayScore="4"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1019"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1006"/>
+  </Match>
+  <Match MatchFIFAId="SYN4260" Status="Played" Matchday="27" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1000"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1003"/>
+  </Match>
+  <Match MatchFIFAId="SYN4261" Status="Played" Matchday="27" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="5" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1017"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1009"/>
+  </Match>
+  <Match MatchFIFAId="SYN4262" Status="Played" Matchday="27" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="3"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1008"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1007"/>
+  </Match>
+  <Match MatchFIFAId="SYN4263" Status="Played" Matchday="27" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1002"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1020"/>
+  </Match>
+  <Match MatchFIFAId="SYN4264" Status="Played" Matchday="27" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1021"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1004"/>
+  </Match>
+  <Match MatchFIFAId="SYN4265" Status="Played" Matchday="27" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1010"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1001"/>
+  </Match>
+  <Match MatchFIFAId="SYN4266" Status="Played" Matchday="27" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1005"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1016"/>
+  </Match>
+  <Match MatchFIFAId="SYN4267" Status="Played" Matchday="27" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1018"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1015"/>
+  </Match>
+  <Match MatchFIFAId="SYN4268" Status="Played" Matchday="27" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="3" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1014"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1019"/>
+  </Match>
+  <Match MatchFIFAId="SYN4269" Status="Played" Matchday="27" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="5" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1012"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1006"/>
+  </Match>
+  <Match MatchFIFAId="SYN4270" Status="Played" Matchday="28" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1009"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1000"/>
+  </Match>
+  <Match MatchFIFAId="SYN4271" Status="Played" Matchday="28" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1007"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1003"/>
+  </Match>
+  <Match MatchFIFAId="SYN4272" Status="Played" Matchday="28" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1020"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1017"/>
+  </Match>
+  <Match MatchFIFAId="SYN4273" Status="Played" Matchday="28" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1004"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1008"/>
+  </Match>
+  <Match MatchFIFAId="SYN4274" Status="Played" Matchday="28" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1001"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1002"/>
+  </Match>
+  <Match MatchFIFAId="SYN4275" Status="Played" Matchday="28" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1016"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1021"/>
+  </Match>
+  <Match MatchFIFAId="SYN4276" Status="Played" Matchday="28" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="3" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1015"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1010"/>
+  </Match>
+  <Match MatchFIFAId="SYN4277" Status="Played" Matchday="28" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="3" AwayScore="3"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1019"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1005"/>
+  </Match>
+  <Match MatchFIFAId="SYN4278" Status="Played" Matchday="28" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="3" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1006"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1018"/>
+  </Match>
+  <Match MatchFIFAId="SYN4279" Status="Played" Matchday="28" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1012"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1014"/>
+  </Match>
+  <Match MatchFIFAId="SYN4280" Status="Played" Matchday="29" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="3" AwayScore="4"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1000"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1007"/>
+  </Match>
+  <Match MatchFIFAId="SYN4281" Status="Played" Matchday="29" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1009"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1020"/>
+  </Match>
+  <Match MatchFIFAId="SYN4282" Status="Played" Matchday="29" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1003"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1004"/>
+  </Match>
+  <Match MatchFIFAId="SYN4283" Status="Played" Matchday="29" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1017"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1001"/>
+  </Match>
+  <Match MatchFIFAId="SYN4284" Status="Played" Matchday="29" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1008"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1016"/>
+  </Match>
+  <Match MatchFIFAId="SYN4285" Status="Played" Matchday="29" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1002"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1015"/>
+  </Match>
+  <Match MatchFIFAId="SYN4286" Status="Played" Matchday="29" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="5"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1021"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1019"/>
+  </Match>
+  <Match MatchFIFAId="SYN4287" Status="Played" Matchday="29" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="3"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1010"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1006"/>
+  </Match>
+  <Match MatchFIFAId="SYN4288" Status="Played" Matchday="29" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="4"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1005"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1012"/>
+  </Match>
+  <Match MatchFIFAId="SYN4289" Status="Played" Matchday="29" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1018"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1014"/>
+  </Match>
+  <Match MatchFIFAId="SYN4290" Status="Played" Matchday="30" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1020"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1000"/>
+  </Match>
+  <Match MatchFIFAId="SYN4291" Status="Played" Matchday="30" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="4" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1004"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1007"/>
+  </Match>
+  <Match MatchFIFAId="SYN4292" Status="Played" Matchday="30" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="4" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1001"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1009"/>
+  </Match>
+  <Match MatchFIFAId="SYN4293" Status="Played" Matchday="30" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="3" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1016"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1003"/>
+  </Match>
+  <Match MatchFIFAId="SYN4294" Status="Played" Matchday="30" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1015"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1017"/>
+  </Match>
+  <Match MatchFIFAId="SYN4295" Status="Played" Matchday="30" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="3"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1019"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1008"/>
+  </Match>
+  <Match MatchFIFAId="SYN4296" Status="Played" Matchday="30" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1006"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1002"/>
+  </Match>
+  <Match MatchFIFAId="SYN4297" Status="Played" Matchday="30" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="3" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1012"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1021"/>
+  </Match>
+  <Match MatchFIFAId="SYN4298" Status="Played" Matchday="30" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="4" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1014"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1010"/>
+  </Match>
+  <Match MatchFIFAId="SYN4299" Status="Played" Matchday="30" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1018"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1005"/>
+  </Match>
+  <Match MatchFIFAId="SYN4300" Status="Played" Matchday="31" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1000"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1004"/>
+  </Match>
+  <Match MatchFIFAId="SYN4301" Status="Played" Matchday="31" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1020"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1001"/>
+  </Match>
+  <Match MatchFIFAId="SYN4302" Status="Played" Matchday="31" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1007"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1016"/>
+  </Match>
+  <Match MatchFIFAId="SYN4303" Status="Played" Matchday="31" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1009"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1015"/>
+  </Match>
+  <Match MatchFIFAId="SYN4304" Status="Played" Matchday="31" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1003"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1019"/>
+  </Match>
+  <Match MatchFIFAId="SYN4305" Status="Played" Matchday="31" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1017"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1006"/>
+  </Match>
+  <Match MatchFIFAId="SYN4306" Status="Played" Matchday="31" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1008"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1012"/>
+  </Match>
+  <Match MatchFIFAId="SYN4307" Status="Played" Matchday="31" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1002"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1014"/>
+  </Match>
+  <Match MatchFIFAId="SYN4308" Status="Played" Matchday="31" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1021"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1018"/>
+  </Match>
+  <Match MatchFIFAId="SYN4309" Status="Played" Matchday="31" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1010"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1005"/>
+  </Match>
+  <Match MatchFIFAId="SYN4310" Status="Played" Matchday="32" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1001"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1000"/>
+  </Match>
+  <Match MatchFIFAId="SYN4311" Status="Played" Matchday="32" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="3"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1016"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1004"/>
+  </Match>
+  <Match MatchFIFAId="SYN4312" Status="Played" Matchday="32" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1015"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1020"/>
+  </Match>
+  <Match MatchFIFAId="SYN4313" Status="Played" Matchday="32" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1019"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1007"/>
+  </Match>
+  <Match MatchFIFAId="SYN4314" Status="Played" Matchday="32" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1006"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1009"/>
+  </Match>
+  <Match MatchFIFAId="SYN4315" Status="Played" Matchday="32" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="3" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1012"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1003"/>
+  </Match>
+  <Match MatchFIFAId="SYN4316" Status="Played" Matchday="32" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1014"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1017"/>
+  </Match>
+  <Match MatchFIFAId="SYN4317" Status="Played" Matchday="32" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="3" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1018"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1008"/>
+  </Match>
+  <Match MatchFIFAId="SYN4318" Status="Played" Matchday="32" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1005"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1002"/>
+  </Match>
+  <Match MatchFIFAId="SYN4319" Status="Played" Matchday="32" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1010"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1021"/>
+  </Match>
+  <Match MatchFIFAId="SYN4320" Status="Played" Matchday="33" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="3" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1000"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1016"/>
+  </Match>
+  <Match MatchFIFAId="SYN4321" Status="Played" Matchday="33" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1001"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1015"/>
+  </Match>
+  <Match MatchFIFAId="SYN4322" Status="Played" Matchday="33" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1004"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1019"/>
+  </Match>
+  <Match MatchFIFAId="SYN4323" Status="Played" Matchday="33" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="3"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1020"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1006"/>
+  </Match>
+  <Match MatchFIFAId="SYN4324" Status="Played" Matchday="33" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1007"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1012"/>
+  </Match>
+  <Match MatchFIFAId="SYN4325" Status="Played" Matchday="33" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1009"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1014"/>
+  </Match>
+  <Match MatchFIFAId="SYN4326" Status="Played" Matchday="33" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="3"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1003"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1018"/>
+  </Match>
+  <Match MatchFIFAId="SYN4327" Status="Played" Matchday="33" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1017"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1005"/>
+  </Match>
+  <Match MatchFIFAId="SYN4328" Status="Played" Matchday="33" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1008"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1010"/>
+  </Match>
+  <Match MatchFIFAId="SYN4329" Status="Played" Matchday="33" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="4" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1002"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1021"/>
+  </Match>
+  <Match MatchFIFAId="SYN4330" Status="Played" Matchday="34" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1015"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1000"/>
+  </Match>
+  <Match MatchFIFAId="SYN4331" Status="Played" Matchday="34" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1019"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1016"/>
+  </Match>
+  <Match MatchFIFAId="SYN4332" Status="Played" Matchday="34" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="3" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1006"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1001"/>
+  </Match>
+  <Match MatchFIFAId="SYN4333" Status="Played" Matchday="34" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1012"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1004"/>
+  </Match>
+  <Match MatchFIFAId="SYN4334" Status="Played" Matchday="34" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="3" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1014"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1020"/>
+  </Match>
+  <Match MatchFIFAId="SYN4335" Status="Played" Matchday="34" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1018"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1007"/>
+  </Match>
+  <Match MatchFIFAId="SYN4336" Status="Played" Matchday="34" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1005"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1009"/>
+  </Match>
+  <Match MatchFIFAId="SYN4337" Status="Played" Matchday="34" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1010"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1003"/>
+  </Match>
+  <Match MatchFIFAId="SYN4338" Status="Played" Matchday="34" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1021"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1017"/>
+  </Match>
+  <Match MatchFIFAId="SYN4339" Status="Played" Matchday="34" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="4"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1002"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1008"/>
+  </Match>
+  <Match MatchFIFAId="SYN4340" Status="Played" Matchday="35" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1000"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1019"/>
+  </Match>
+  <Match MatchFIFAId="SYN4341" Status="Played" Matchday="35" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1015"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1006"/>
+  </Match>
+  <Match MatchFIFAId="SYN4342" Status="Played" Matchday="35" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="4" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1016"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1012"/>
+  </Match>
+  <Match MatchFIFAId="SYN4343" Status="Played" Matchday="35" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1001"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1014"/>
+  </Match>
+  <Match MatchFIFAId="SYN4344" Status="Played" Matchday="35" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1004"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1018"/>
+  </Match>
+  <Match MatchFIFAId="SYN4345" Status="Played" Matchday="35" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="4" AwayScore="3"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1020"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1005"/>
+  </Match>
+  <Match MatchFIFAId="SYN4346" Status="Played" Matchday="35" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="3"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1007"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1010"/>
+  </Match>
+  <Match MatchFIFAId="SYN4347" Status="Played" Matchday="35" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1009"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1021"/>
+  </Match>
+  <Match MatchFIFAId="SYN4348" Status="Played" Matchday="35" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="3"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1003"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1002"/>
+  </Match>
+  <Match MatchFIFAId="SYN4349" Status="Played" Matchday="35" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="4" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1017"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1008"/>
+  </Match>
+  <Match MatchFIFAId="SYN4350" Status="Played" Matchday="36" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1006"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1000"/>
+  </Match>
+  <Match MatchFIFAId="SYN4351" Status="Played" Matchday="36" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="3" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1012"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1019"/>
+  </Match>
+  <Match MatchFIFAId="SYN4352" Status="Played" Matchday="36" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="3" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1014"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1015"/>
+  </Match>
+  <Match MatchFIFAId="SYN4353" Status="Played" Matchday="36" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="4" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1018"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1016"/>
+  </Match>
+  <Match MatchFIFAId="SYN4354" Status="Played" Matchday="36" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1005"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1001"/>
+  </Match>
+  <Match MatchFIFAId="SYN4355" Status="Played" Matchday="36" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1010"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1004"/>
+  </Match>
+  <Match MatchFIFAId="SYN4356" Status="Played" Matchday="36" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1021"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1020"/>
+  </Match>
+  <Match MatchFIFAId="SYN4357" Status="Played" Matchday="36" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1002"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1007"/>
+  </Match>
+  <Match MatchFIFAId="SYN4358" Status="Played" Matchday="36" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1008"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1009"/>
+  </Match>
+  <Match MatchFIFAId="SYN4359" Status="Played" Matchday="36" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="3"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1017"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1003"/>
+  </Match>
+  <Match MatchFIFAId="SYN4360" Status="Played" Matchday="37" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1000"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1012"/>
+  </Match>
+  <Match MatchFIFAId="SYN4361" Status="Played" Matchday="37" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1006"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1014"/>
+  </Match>
+  <Match MatchFIFAId="SYN4362" Status="Played" Matchday="37" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1019"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1018"/>
+  </Match>
+  <Match MatchFIFAId="SYN4363" Status="Played" Matchday="37" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1015"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1005"/>
+  </Match>
+  <Match MatchFIFAId="SYN4364" Status="Played" Matchday="37" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="3" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1016"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1010"/>
+  </Match>
+  <Match MatchFIFAId="SYN4365" Status="Played" Matchday="37" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1001"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1021"/>
+  </Match>
+  <Match MatchFIFAId="SYN4366" Status="Played" Matchday="37" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1004"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1002"/>
+  </Match>
+  <Match MatchFIFAId="SYN4367" Status="Played" Matchday="37" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="4" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1020"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1008"/>
+  </Match>
+  <Match MatchFIFAId="SYN4368" Status="Played" Matchday="37" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1007"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1017"/>
+  </Match>
+  <Match MatchFIFAId="SYN4369" Status="Played" Matchday="37" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1009"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1003"/>
+  </Match>
+  <Match MatchFIFAId="SYN4370" Status="Played" Matchday="38" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="3" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1014"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1000"/>
+  </Match>
+  <Match MatchFIFAId="SYN4371" Status="Played" Matchday="38" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="3"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1018"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1012"/>
+  </Match>
+  <Match MatchFIFAId="SYN4372" Status="Played" Matchday="38" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1005"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1006"/>
+  </Match>
+  <Match MatchFIFAId="SYN4373" Status="Played" Matchday="38" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1010"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1019"/>
+  </Match>
+  <Match MatchFIFAId="SYN4374" Status="Played" Matchday="38" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="1"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1021"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1015"/>
+  </Match>
+  <Match MatchFIFAId="SYN4375" Status="Played" Matchday="38" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="0" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1002"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1016"/>
+  </Match>
+  <Match MatchFIFAId="SYN4376" Status="Played" Matchday="38" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1008"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1001"/>
+  </Match>
+  <Match MatchFIFAId="SYN4377" Status="Played" Matchday="38" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="2" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1017"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1004"/>
+  </Match>
+  <Match MatchFIFAId="SYN4378" Status="Played" Matchday="38" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="0"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1003"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1020"/>
+  </Match>
+  <Match MatchFIFAId="SYN4379" Status="Played" Matchday="38" CompetitionFIFAId="SYN0001">
+    <Phase Phase="2H" RegularTime="45" HomeScore="1" AwayScore="2"/>
+    <Team TeamNature="Home" OrganisationFIFAId="SYN1009"/>
+    <Team TeamNature="Away" OrganisationFIFAId="SYN1007"/>
+  </Match>
+</MatchData>

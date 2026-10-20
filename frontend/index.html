@@ -1,0 +1,20 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Football Universe Copilot — Live Match Intelligence</title>
+<style>body{font-family:system-ui;margin:0;background:#0b1220;color:#eef}header,main{max-width:1080px;margin:auto;padding:20px}button{padding:9px 14px;border-radius:8px;border:0;margin:4px;cursor:pointer}.card{background:#16213a;border-radius:12px;padding:16px;margin:12px 0}select,input{padding:9px;border-radius:8px}pre{white-space:pre-wrap;overflow:auto}</style></head>
+<body><header><h1>⚽ Football Universe Copilot</h1><p>Synthetic match events → explainable intelligence → broadcast overlay → personalized for you. <b>All data on this page is synthetic / graph-seed data.</b></p>
+<div><button onclick="setMode('casual_fan')">Casual Fan</button><button onclick="setMode('analyst')">Analyst</button><button onclick="setMode('player_focus')">Player Focus: Haaland</button><button onclick="setMode('es')">Español</button></div></header>
+<main><section class="card"><h2 id="modeTitle">Loading…</h2><p id="modeBody"></p></section>
+<section class="card"><h2>Why this moment matters</h2><ul id="why"></ul></section>
+<section class="card"><h2>Timed overlay feed (machine-readable)</h2><pre id="overlay"></pre></section>
+<section class="card"><h2>Kevin Bacon Leaderboard</h2><ol id="board"></ol>
+<p><b>Verified shortest path:</b> Nicolas Anelka → Manchester City → Erling Haaland — <b>2 degrees</b>. The master plan's 3-degree Wenger path is longer; the graph returns the true shortest path.</p></section>
+<section class="card"><h2>Auto match recap</h2><p id="recap"></p></section></main>
+<script>
+let D; async function load(){D=await (await fetch('../outputs/sample_match_intelligence.json')).json(); setMode('casual_fan');
+ document.getElementById('why').innerHTML=D.narrative.why_it_matters.map(x=>`<li>${x}</li>`).join('');
+ document.getElementById('overlay').textContent=JSON.stringify(D.overlay,null,2);
+ document.getElementById('board').innerHTML=D.graph_context.leaderboard.map(x=>`<li>${x.name} — ${x.kevin_bacon_score}/10 (${x.degree} connections)</li>`).join('');
+ document.getElementById('recap').textContent=D.narrative.recap;}
+function setMode(m){if(!D)return; document.getElementById('modeTitle').textContent=D.personalized[m].headline; document.getElementById('modeBody').textContent=D.personalized[m].body;}
+load().catch(e=>{document.getElementById('modeTitle').textContent='Serve this folder over http (fetch needs it) — e.g. python3 -m http.server — or read outputs/sample_match_intelligence.json directly.'});
+</script></body></html>

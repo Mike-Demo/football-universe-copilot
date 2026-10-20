@@ -4,7 +4,8 @@
 
 > Synthetic football events in. Explainable match intelligence out — rendered as a timed broadcast overlay, personalized for every fan.
 
-**Live demo: https://mike-demo.github.io/football-universe-copilot/** — play the synthetic match replay, animate the graph path, switch personalization modes.
+**Live demo: https://mike-demo.github.io/football-universe-copilot/
+Live Azure API (Functions + Foundry Phi-4-mini + Cosmos Gremlin, westus2, own billing profile): https://fuc-api-pv4pnqx2o2t4y.azurewebsites.net/api/health** — play the synthetic match replay, animate the graph path, switch personalization modes.
 
 ## The problem
 Match data tells fans *what* happened. It rarely explains *why it matters*, and the same feed serves an analyst and a first-time fan identically.

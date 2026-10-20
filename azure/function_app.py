@@ -16,5 +16,11 @@ def path(req):
     u = Universe(); a, b = req.params.get("a", ""), req.params.get("b", "")
     p = u.shortest_path(a, b)
     return func.HttpResponse(json.dumps({"from": a, "to": b, "degrees": (len(p) - 1 if p else None), "path": p, "edges": u.path_edges(p)}), mimetype="application/json")
+@app.route(route="season", methods=["GET"])
+def season(req):
+    from src.season.simulator import build_season
+    s = build_season(); key = req.params.get("league", "premier_league")
+    lg = s[key]
+    return func.HttpResponse(json.dumps({"competition": lg["competition"], "standings": lg["standings"], "narratives": lg["narratives"], "synthetic": True}), mimetype="application/json")
 @app.route(route="graph/leaderboard", methods=["GET"])
 def leaderboard(req): return func.HttpResponse(json.dumps(Universe().kevin_bacon_scores()[:20]), mimetype="application/json")

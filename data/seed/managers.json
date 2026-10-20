@@ -1,0 +1,127 @@
+[
+  {
+    "id": "manager-arsene-wenger",
+    "full_name": "Arsene Wenger",
+    "clubs": [
+      {
+        "club": "Arsenal",
+        "season_start": 1996,
+        "season_end": 2018
+      }
+    ]
+  },
+  {
+    "id": "manager-pep-guardiola",
+    "full_name": "Pep Guardiola",
+    "clubs": [
+      {
+        "club": "Manchester City",
+        "season_start": 2016,
+        "season_end": 2026
+      }
+    ]
+  },
+  {
+    "id": "manager-jose-mourinho",
+    "full_name": "Jose Mourinho",
+    "clubs": [
+      {
+        "club": "Chelsea",
+        "season_start": 2004,
+        "season_end": 2007
+      },
+      {
+        "club": "Manchester United",
+        "season_start": 2016,
+        "season_end": 2018
+      }
+    ]
+  },
+  {
+    "id": "manager-alex-ferguson",
+    "full_name": "Alex Ferguson",
+    "clubs": [
+      {
+        "club": "Manchester United",
+        "season_start": 1986,
+        "season_end": 2013
+      }
+    ]
+  },
+  {
+    "id": "manager-jurgen-klopp",
+    "full_name": "Jurgen Klopp",
+    "clubs": [
+      {
+        "club": "Liverpool",
+        "season_start": 2015,
+        "season_end": 2024
+      }
+    ]
+  },
+  {
+    "id": "manager-carlo-ancelotti",
+    "full_name": "Carlo Ancelotti",
+    "clubs": [
+      {
+        "club": "Chelsea",
+        "season_start": 2009,
+        "season_end": 2011
+      },
+      {
+        "club": "Everton",
+        "season_start": 2019,
+        "season_end": 2021
+      }
+    ]
+  },
+  {
+    "id": "manager-claudio-ranieri",
+    "full_name": "Claudio Ranieri",
+    "clubs": [
+      {
+        "club": "Leicester City",
+        "season_start": 2015,
+        "season_end": 2017
+      }
+    ]
+  },
+  {
+    "id": "manager-kevin-keegan",
+    "full_name": "Kevin Keegan",
+    "clubs": [
+      {
+        "club": "Newcastle United",
+        "season_start": 1992,
+        "season_end": 1997
+      },
+      {
+        "club": "Manchester City",
+        "season_start": 2001,
+        "season_end": 2005
+      }
+    ]
+  },
+  {
+    "id": "manager-bobby-robson",
+    "full_name": "Bobby Robson",
+    "clubs": [
+      {
+        "club": "Newcastle United",
+        "season_start": 1999,
+        "season_end": 2004
+      }
+    ]
+  },
+  {
+    "id": "manager-mikel-arteta",
+    "full_name": "Mikel Arteta",
+    "clubs": [
+      {
+        "club": "Arsenal",
+        "season_start": 2019,
+        "season_end": 2026
+      }
+    ]
+  }
+]

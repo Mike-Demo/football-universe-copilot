@@ -1,11 +1,24 @@
 {
   "project": "football-universe-copilot",
-  "model_deployment": "Phi-4-mini-instruct", "model_provider": "Microsoft", "fallback_deployment": "gpt-4o-mini",
+  "model_deployment": "Phi-4-mini-instruct",
+  "model_provider": "Microsoft",
   "agents": [
-    {"name": "Interpreter", "role": "Synthetic events -> statistics, momentum, chaos, threshold alerts"},
-    {"name": "GraphContext", "role": "Graph grounding: shortest paths, centrality (Kevin Bacon Score), communities"},
-    {"name": "Narrator", "role": "Grounded narration + auto recap (Azure OpenAI when configured, template fallback)"},
-    {"name": "Personalizer", "role": "Analyst / casual / player-focus / club-focus / Spanish renderings + timed overlay"}
+    {
+      "name": "Interpreter",
+      "role": "Synthetic events -> statistics, momentum, chaos, threshold alerts"
+    },
+    {
+      "name": "GraphContext",
+      "role": "Graph grounding: shortest paths, centrality (Kevin Bacon Score), communities"
+    },
+    {
+      "name": "Narrator",
+      "role": "Grounded narration + auto recap (Azure OpenAI when configured, template fallback)"
+    },
+    {
+      "name": "Personalizer",
+      "role": "Analyst / casual / player-focus / club-focus / Spanish renderings + timed overlay"
+    }
   ],
   "orchestration": "Sequential shared-state handoffs (Microsoft Agent Framework manifest in src/agents/framework_adapter.py)",
   "foundry_steps": [
@@ -13,5 +26,6 @@
     "Confirm the gpt-4o-mini deployment exists (created by Bicep)",
     "Register the four agents above with the instructions in framework_adapter.AGENT_MANIFEST",
     "Run an evaluation on the sample fixture (outputs/sample_match_intelligence.json) and keep the run link for the submission"
-  ]
+  ],
+  "fallback": "deterministic template narrator (narration_source: template-fallback)"
 }

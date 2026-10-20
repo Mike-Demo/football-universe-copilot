@@ -9,7 +9,7 @@ class InterpreterAgent:
         momentum=[]
         for w in range(0,90,15):
             seg=[e for e in ev if w<=e["minute"]<w+15]; c=Counter(e["team"] for e in seg)
-            momentum.append({"window":f"{w}-{w+15}","dominant":c.most_common(1)[0][0] if c else None,"events":len(seg)})
+            momentum.append({"window":f"{w}-{w+15}","dominant":c.most_common(1)[0][0] if c else None,"events":len(seg),"split":dict(c)})
         key=[e for e in ev if e.get("goal") or (e["type"]=="pressure" and e.get("pressure_intensity",0)>=9) or (e["type"]=="shot" and e.get("on_target"))]
         return {"possession_events":dict(by_team),"shots":len(shots),"shots_on_target":sum(1 for s in shots if s.get("on_target")),
                 "avg_pass_difficulty":round(sum(p.get("difficulty",0) for p in passes)/max(len(passes),1),2),

@@ -112,7 +112,7 @@ resource gremlinGraph 'Microsoft.DocumentDB/databaseAccounts/gremlinDatabases/gr
       id: 'FootballGraph'
       partitionKey: {
         paths: [
-          '/label'
+          '/pk'
         ]
         kind: 'Hash'
       }

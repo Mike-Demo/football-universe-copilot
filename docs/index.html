@@ -61,7 +61,8 @@
         <button data-mode="club_focus" class="mode">My Club: Arsenal</button>
         <button data-mode="es" class="mode">Español</button>
       </div>
-      <p class="small" style="margin-top:8px">✦ Copilot adapts narrative depth to the selected persona — the same verified events, five ways.</p>
+      <p class="small" id="xgLine" style="margin-top:8px"></p>
+      <p class="small" style="margin-top:2px">✦ Copilot adapts narrative depth to the selected persona — the same verified events, five ways.</p>
     </section>
 
     <section class="card">
@@ -92,10 +93,25 @@
         <div class="agent ai"><span class="n">3</span><strong>Narrator</strong><p class="small" id="agNarrator">—</p></div>
         <div class="agent"><span class="n">4</span><strong>Personalizer</strong><p class="small" id="agPersonalizer">—</p></div>
       </div>
+      <p class="small" id="perfLine">Measured in your browser: press Play — replay timing is measured live, never hard-coded.</p>
       <details style="margin-top:10px"><summary><strong>Agent output payload</strong> <span class="small">(the timed overlay for the current minute — real data, copy it)</span></summary>
         <pre class="payload" id="payloadPre">{}</pre>
         <button id="copyPayloadBtn">Copy JSON</button>
       </details>
+    </section>
+
+    <section class="card" id="pitchCard"><h2>Pitch telemetry — Voronoi zones &amp; expected threat</h2>
+      <canvas id="pitch" width="1050" height="680" style="width:100%;height:auto;border:1px solid var(--divider);border-radius:4px" aria-label="Pitch snapshot with Voronoi zones"></canvas>
+      <p class="small" id="pitchInfo">Press Play — the snapshot follows the latest key moment (shot, corner or long pass), with Voronoi zones computed live from the 22 synthetic player positions.</p>
+      <label class="small"><input type="checkbox" id="vorToggle" checked> Show Voronoi zones</label>
+      <span class="small"> · xT = our documented expected-threat surface (distance/angle to goal); shot xG = 2.2 × xT at the shot location, capped at 0.95. Both are simple transparent models — formulas on the <a href="tech.html">tech page</a>.</span>
+    </section>
+
+    <section class="card" id="poissonCard"><h2>Poisson what-if — Tactical Lab</h2>
+      <p class="small">Drag the expected-goals rates (λ) and the outcome probabilities recompute live from two independent Poisson distributions. What-if only — it never changes a simulated result.</p>
+      <div class="controls"><label><span id="lamHName">Home</span> λ <strong id="lamHV"></strong><br><input type="range" id="lamH" min="0.2" max="3.5" step="0.05" style="width:220px"></label>
+      <label><span id="lamAName">Away</span> λ <strong id="lamAV"></strong><br><input type="range" id="lamA" min="0.2" max="3.5" step="0.05" style="width:220px"></label></div>
+      <div id="poiOut"></div>
     </section>
 
     <section class="card" id="graphCard"><h2>Football Universe graph — why it matters</h2>

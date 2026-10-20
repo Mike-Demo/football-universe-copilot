@@ -1,0 +1,27 @@
+{
+  "rivalries": [
+    {
+      "a": "Arsenal",
+      "b": "Tottenham Hotspur",
+      "name": "North London Derby",
+      "intensity": 10
+    },
+    {
+      "a": "Arsenal",
+      "b": "Manchester United",
+      "name": "Arsenal-Man Utd rivalry",
+      "intensity": 9
+    },
+    {
+      "a": "Chelsea",
+      "b": "Tottenham Hotspur",
+      "name": "London derby",
+      "intensity": 8
+    }
+  ],
+  "competitions": [
+    "Premier League",
+    "UEFA Champions League",
+    "FA Cup"
+  ]
+}

@@ -1,0 +1,82 @@
+[
+  {
+    "id": "club-arsenal",
+    "name": "Arsenal"
+  },
+  {
+    "id": "club-chelsea",
+    "name": "Chelsea"
+  },
+  {
+    "id": "club-manchester-city",
+    "name": "Manchester City"
+  },
+  {
+    "id": "club-manchester-united",
+    "name": "Manchester United"
+  },
+  {
+    "id": "club-liverpool",
+    "name": "Liverpool"
+  },
+  {
+    "id": "club-tottenham-hotspur",
+    "name": "Tottenham Hotspur"
+  },
+  {
+    "id": "club-everton",
+    "name": "Everton"
+  },
+  {
+    "id": "club-aston-villa",
+    "name": "Aston Villa"
+  },
+  {
+    "id": "club-newcastle-united",
+    "name": "Newcastle United"
+  },
+  {
+    "id": "club-leeds-united",
+    "name": "Leeds United"
+  },
+  {
+    "id": "club-west-ham-united",
+    "name": "West Ham United"
+  },
+  {
+    "id": "club-leicester-city",
+    "name": "Leicester City"
+  },
+  {
+    "id": "club-blackburn-rovers",
+    "name": "Blackburn Rovers"
+  },
+  {
+    "id": "club-bolton-wanderers",
+    "name": "Bolton Wanderers"
+  },
+  {
+    "id": "club-brighton-and-hove-albion",
+    "name": "Brighton & Hove Albion"
+  },
+  {
+    "id": "club-nottingham-forest",
+    "name": "Nottingham Forest"
+  },
+  {
+    "id": "club-southampton",
+    "name": "Southampton"
+  },
+  {
+    "id": "club-fulham",
+    "name": "Fulham"
+  },
+  {
+    "id": "club-wolverhampton-wanderers",
+    "name": "Wolverhampton Wanderers"
+  },
+  {
+    "id": "club-crystal-palace",
+    "name": "Crystal Palace"
+  }
+]

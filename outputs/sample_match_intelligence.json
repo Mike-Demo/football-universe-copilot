@@ -819,6 +819,7 @@
       "Minute 27: Kolo Toure matters here \u2014 Kevin Bacon Score 1.03/10, 3 graph connections. Path to Haaland: Kolo Toure \u2192 Manchester City \u2192 Erling Haaland."
     ],
     "recap": "Arsenal 0\u20131 Manchester City (synthetic). 23 shots, chaos index 0.122 \u2014 control swung by 15-minute windows: 0-15 Arsenal, 15-30 Arsenal, 30-45 Manchester City, 45-60 Manchester City, 60-75 Arsenal, 75-90 Manchester City.",
+    "narration_source": "template-fallback",
     "explainability": "Every narrative claim is grounded in a generated event or a verified graph path \u2014 the narrator never invents a connection."
   },
   "personalized": {

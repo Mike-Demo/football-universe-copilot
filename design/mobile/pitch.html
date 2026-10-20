@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tactical Lab — Pitch | Football Universe Copilot</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "status-warning-bg": "#FFF9F5",
+            "surface-bright": "#fcf9f8",
+            "copilot-blue": "#115EA3",
+            "surface-tint": "#0060ab",
+            "surface-container": "#f0eded",
+            "on-background": "#1b1c1c",
+            "on-tertiary-container": "#f5e7ff",
+            "surface-container-high": "#eae7e7",
+            "on-secondary-container": "#00457c",
+            "on-surface-variant": "#414751",
+            "copilot-purple": "#7B42BC",
+            "primary": "#005396",
+            "on-primary-container": "#e3ecff",
+            "secondary-fixed-dim": "#a3c9ff",
+            "on-tertiary": "#ffffff",
+            "brand-pressed": "#0C3B5E",
+            "inverse-primary": "#a3c9ff",
+            "error-container": "#ffdad6",
+            "on-error-container": "#93000a",
+            "inverse-surface": "#303030",
+            "surface-canvas": "#FAFAFA",
+            "primary-fixed-dim": "#a3c9ff",
+            "surface-variant": "#e4e2e1",
+            "outline-variant": "#c1c7d3",
+            "secondary-fixed": "#d3e4ff",
+            "brand-classic": "#0078D4",
+            "surface-card": "#FFFFFF",
+            "status-danger-bg": "#FDF3F4",
+            "on-tertiary-fixed": "#2a0053",
+            "primary-container": "#0f6cbd",
+            "surface-container-lowest": "#ffffff",
+            "on-primary": "#ffffff",
+            "on-surface": "#1b1c1c",
+            "on-secondary": "#ffffff",
+            "status-warning": "#D83B01",
+            "primary-fixed": "#d3e3ff",
+            "status-info": "#0F6CBD",
+            "on-primary-fixed-variant": "#004883",
+            "tertiary-fixed": "#efdbff",
+            "on-tertiary-fixed-variant": "#6023a0",
+            "surface-container-low": "#f6f3f2",
+            "secondary-container": "#79b3fe",
+            "surface-dim": "#dcd9d9",
+            "surface-card-alt": "#F5F5F5",
+            "surface": "#fcf9f8",
+            "brand-secondary": "#2886DE",
+            "status-danger": "#C50F1F",
+            "on-error": "#ffffff",
+            "outline": "#717783",
+            "status-success": "#107C10",
+            "tertiary-container": "#864dc7",
+            "background": "#FAFAFA",
+            "tertiary": "#6c32ad",
+            "secondary": "#1560a5",
+            "status-info-bg": "#EBF3FC",
+            "status-success-bg": "#F1FAF1",
+            "on-primary-fixed": "#001c39",
+            "inverse-on-surface": "#f3f0ef",
+            "brand-tint": "#EBF3FC",
+            "on-secondary-fixed-variant": "#004882",
+            "tertiary-fixed-dim": "#dab9ff",
+            "on-secondary-fixed": "#001c38",
+            "error": "#ba1a1a",
+            "surface-container-highest": "#e4e2e1"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "space-xl": "1.5rem",
+            "margin-mobile": "1rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1rem",
+            "space-md": "0.75rem",
+            "margin": "1.5rem",
+            "space-sm": "0.5rem",
+            "gutter-sm": "0.75rem",
+            "gutter-lg": "1.5rem",
+            "gutter": "1rem",
+            "margin-desktop": "2rem"
+          },
+          "fontFamily": {
+            "body-large": ["Segoe UI", "sans-serif"],
+            "display-mobile": ["Segoe UI", "sans-serif"],
+            "title-1": ["Segoe UI", "sans-serif"],
+            "display": ["Segoe UI", "sans-serif"],
+            "subtitle-1": ["Segoe UI", "sans-serif"],
+            "title-3": ["Segoe UI", "sans-serif"],
+            "caption-1": ["Segoe UI", "sans-serif"],
+            "body-strong": ["Segoe UI", "sans-serif"],
+            "subtitle-2": ["Segoe UI", "sans-serif"],
+            "title-1-mobile": ["Segoe UI", "sans-serif"],
+            "caption-2": ["Segoe UI", "sans-serif"],
+            "title-2": ["Segoe UI", "sans-serif"],
+            "body-default": ["Segoe UI", "sans-serif"],
+            "caption-1-strong": ["Segoe UI", "sans-serif"]
+          },
+          "fontSize": {
+            "body-large": ["16px", { "lineHeight": "22px", "letterSpacing": "0", "fontWeight": "400" }],
+            "display-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "title-1": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "display": ["40px", { "lineHeight": "52px", "letterSpacing": "-0.025em", "fontWeight": "600" }],
+            "subtitle-1": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "title-3": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "caption-1": ["12px", { "lineHeight": "16px", "letterSpacing": "0", "fontWeight": "400" }],
+            "body-strong": ["14px", { "lineHeight": "20px", "letterSpacing": "0", "fontWeight": "600" }],
+            "subtitle-2": ["16px", { "lineHeight": "22px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "title-1-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "caption-2": ["10px", { "lineHeight": "14px", "letterSpacing": "0", "fontWeight": "400" }],
+            "title-2": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "body-default": ["14px", { "lineHeight": "20px", "letterSpacing": "0", "fontWeight": "400" }],
+            "caption-1-strong": ["12px", { "lineHeight": "16px", "letterSpacing": "0", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Fluent input range styling */
+    input[type=range] {
+      -webkit-appearance: none;
+      background: transparent;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      height: 16px;
+      width: 16px;
+      border-radius: 50%;
+      background: #FFFFFF;
+      border: 2px solid #0F6CBD;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+      cursor: pointer;
+      margin-top: -6px;
+    }
+    input[type=range]::-webkit-slider-runnable-track {
+      width: 100%;
+      height: 4px;
+      cursor: pointer;
+      border-radius: 2px;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#FAFAFA] text-[#242424] font-body-default antialiased min-h-screen flex justify-center selection:bg-brand-tint selection:text-primary">
+<!-- Mobile Viewport Container exactly 390px wide -->
+<main class="w-[390px] max-w-[390px] min-h-screen bg-[#FAFAFA] relative flex flex-col pb-24 shadow-sm border-x border-[#E0E0E0]">
+<!-- 1. Top App Bar (Shared Components standard mapped with Tactical Lab) -->
+<header class="bg-surface-card/90 dark:bg-inverse-surface/90 backdrop-blur-md border-b border-outline-variant dark:border-outline/30 shadow-sm docked full-width top-0 sticky z-40">
+<div class="flex justify-between items-center w-full px-4 h-12 max-w-[390px] mx-auto">
+<!-- Leading Icon & Headline -->
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded bg-[#0F6CBD] flex items-center justify-center text-white shadow-sm">
+<span class="material-symbols-outlined text-[18px]" data-icon="sports_soccer">sports_soccer</span>
+</div>
+<span class="text-subtitle-2 font-subtitle-2 text-[#242424] tracking-tight">Tactical Lab</span>
+</div>
+<!-- Trailing Action: Copilot Gradient Spark Pill -->
+<div class="flex items-center">
+<button class="h-6 px-2.5 rounded-full flex items-center gap-1 text-[11px] font-semibold text-white tracking-wide shadow-sm active:scale-95 transition-transform duration-150" style="background: linear-gradient(135deg, #7B42BC 0%, #115EA3 100%);">
+<span class="material-symbols-outlined text-[13px] leading-none" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span>COPILOT</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Content Body with 16px side margins -->
+<div class="px-4 pt-3.5 space-y-3.5 flex-1">
+<!-- 2. Pitch Card: Pitch telemetry — Voronoi zones & expected threat -->
+<section class="bg-surface-card rounded-lg border border-[#D1D1D1] p-4 shadow-[0_0_2px_rgba(0,0,0,0.12),0_2px_4px_rgba(0,0,0,0.14)]">
+<!-- Card Header -->
+<div class="flex items-start justify-between mb-2.5">
+<div>
+<h2 class="text-body-strong font-body-strong text-[#242424] leading-snug">
+              Pitch telemetry — Voronoi zones &amp; expected threat
+            </h2>
+<p class="text-caption-1 font-caption-1 text-[#616161] mt-0.5">Arsenal vs Manchester City · High block analysis</p>
+</div>
+<span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-semibold bg-brand-tint text-primary border border-outline-variant/60">
+            LIVE xT
+          </span>
+</div>
+<!-- Pitch Graphic SVG (326px x 194px) horizontal view -->
+<div class="relative w-full rounded overflow-hidden border border-[#D1D1D1] bg-[#E8F3EA] shadow-inner select-none" id="pitch-container">
+<svg class="w-full h-auto block" viewbox="0 0 326 194" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<!-- Pitch striping pattern -->
+<pattern height="194" id="turfPattern" patternunits="userSpaceOnUse" width="32.6">
+<rect fill="#EBF5EC" height="194" width="16.3"></rect>
+<rect fill="#E2F0E5" height="194" width="16.3" x="16.3"></rect>
+</pattern>
+<!-- Threat Gradient Vector -->
+<lineargradient id="threatArrow" x1="0%" x2="100%" y1="0%" y2="0%">
+<stop offset="0%" stop-color="#0F6CBD" stop-opacity="0.85"></stop>
+<stop offset="100%" stop-color="#7B42BC" stop-opacity="1"></stop>
+</lineargradient>
+</defs>
+<!-- Base Turf -->
+<rect fill="url(#turfPattern)" height="194" width="326"></rect>
+<!-- Voronoi Polygonal Partitions (Arsenal Blue tint & Man City Red tint) -->
+<g class="transition-opacity duration-200" id="voronoi-layer">
+<!-- Man City Zones (Red/Amber tint rgba(216, 59, 1, 0.20)) -->
+<polygon fill="rgba(216, 59, 1, 0.18)" points="163,0 230,0 245,65 178,60" stroke="#D83B01" stroke-dasharray="2 2" stroke-width="0.75"></polygon>
+<polygon fill="rgba(216, 59, 1, 0.22)" points="230,0 326,0 326,75 250,70 245,65" stroke="#D83B01" stroke-dasharray="2 2" stroke-width="0.75"></polygon>
+<polygon fill="rgba(216, 59, 1, 0.19)" points="178,60 250,70 268,125 180,120" stroke="#D83B01" stroke-dasharray="2 2" stroke-width="0.75"></polygon>
+<polygon fill="rgba(216, 59, 1, 0.25)" points="250,70 326,75 326,140 270,135 268,125" stroke="#D83B01" stroke-width="1"></polygon>
+<polygon fill="rgba(216, 59, 1, 0.17)" points="180,120 268,125 255,194 163,194" stroke="#D83B01" stroke-dasharray="2 2" stroke-width="0.75"></polygon>
+<polygon fill="rgba(216, 59, 1, 0.21)" points="268,125 326,140 326,194 255,194" stroke="#D83B01" stroke-dasharray="2 2" stroke-width="0.75"></polygon>
+<!-- Arsenal Zones (Blue tint rgba(15, 108, 189, 0.20)) -->
+<polygon fill="rgba(15, 108, 189, 0.18)" points="0,0 80,0 75,65 0,60" stroke="#0F6CBD" stroke-dasharray="2 2" stroke-width="0.75"></polygon>
+<polygon fill="rgba(15, 108, 189, 0.21)" points="80,0 163,0 178,60 90,65 75,65" stroke="#0F6CBD" stroke-dasharray="2 2" stroke-width="0.75"></polygon>
+<polygon fill="rgba(15, 108, 189, 0.19)" points="0,60 75,65 85,130 0,135" stroke="#0F6CBD" stroke-dasharray="2 2" stroke-width="0.75"></polygon>
+<polygon fill="rgba(15, 108, 189, 0.23)" points="75,65 90,65 178,60 180,120 95,125 85,130" stroke="#0F6CBD" stroke-dasharray="2 2" stroke-width="0.75"></polygon>
+<polygon fill="rgba(15, 108, 189, 0.17)" points="0,135 85,130 90,194 0,194" stroke="#0F6CBD" stroke-dasharray="2 2" stroke-width="0.75"></polygon>
+<polygon fill="rgba(15, 108, 189, 0.20)" points="85,130 95,125 180,120 163,194 90,194" stroke="#0F6CBD" stroke-dasharray="2 2" stroke-width="0.75"></polygon>
+</g>
+<!-- White Pitch Markings -->
+<g fill="none" opacity="0.95" stroke="#FFFFFF" stroke-width="1.2">
+<!-- Outer boundary -->
+<rect height="178" width="310" x="8" y="8"></rect>
+<!-- Halfway line -->
+<line x1="163" x2="163" y1="8" y2="186"></line>
+<!-- Center circle & spot -->
+<circle cx="163" cy="97" r="32"></circle>
+<circle cx="163" cy="97" fill="#FFFFFF" r="1.5"></circle>
+<!-- Left Penalty Box (Arsenal Defending) -->
+<rect height="106" width="48" x="8" y="44"></rect>
+<rect height="58" width="18" x="8" y="68"></rect>
+<path d="M 56,77 A 24,24 0 0 1 56,117"></path>
+<circle cx="38" cy="97" fill="#FFFFFF" r="1.5"></circle>
+<!-- Right Penalty Box (Man City Attacking) -->
+<rect height="106" width="48" x="270" y="44"></rect>
+<rect height="58" width="18" x="300" y="68"></rect>
+<path d="M 270,77 A 24,24 0 0 0 270,117"></path>
+<circle cx="280" cy="97" fill="#FFFFFF" r="1.5"></circle>
+</g>
+<!-- Arsenal Player Dots (Fluent Blue) -->
+<g fill="#005396" stroke="#FFFFFF" stroke-width="1.2">
+<circle cx="24" cy="97" r="3.5"></circle> <!-- GK Raya -->
+<circle cx="68" cy="40" r="3.2"></circle> <!-- White -->
+<circle cx="72" cy="78" r="3.2"></circle> <!-- Saliba -->
+<circle cx="70" cy="116" r="3.2"></circle> <!-- Gabriel -->
+<circle cx="64" cy="156" r="3.2"></circle> <!-- Timber -->
+<circle cx="130" cy="62" r="3.2"></circle> <!-- Odegaard -->
+<circle cx="118" cy="97" r="3.2"></circle> <!-- Rice -->
+<circle cx="125" cy="140" r="3.2"></circle> <!-- Havertz -->
+<circle cx="190" cy="38" r="3.2"></circle> <!-- Saka -->
+<circle cx="185" cy="94" r="3.2"></circle> <!-- Trossard -->
+<circle cx="188" cy="158" r="3.2"></circle> <!-- Martinelli -->
+</g>
+<!-- Manchester City Player Dots (Fluent Red #D83B01) -->
+<g fill="#D83B01" stroke="#FFFFFF" stroke-width="1.2">
+<circle cx="302" cy="97" r="3.5"></circle> <!-- GK Ederson -->
+<circle cx="255" cy="42" r="3.2"></circle> <!-- Walker -->
+<circle cx="245" cy="76" r="3.2"></circle> <!-- Dias -->
+<circle cx="248" cy="118" r="3.2"></circle> <!-- Akanji -->
+<circle cx="252" cy="160" r="3.2"></circle> <!-- Gvardiol -->
+<circle cx="202" cy="68" r="3.2"></circle> <!-- Bernardo -->
+<circle cx="198" cy="126" r="3.2"></circle> <!-- Kovacic -->
+<circle cx="152" cy="45" r="3.2"></circle> <!-- Foden -->
+<circle cx="148" cy="150" r="3.2"></circle> <!-- Doku -->
+<circle cx="225" cy="100" r="3.2"></circle> <!-- De Bruyne -->
+</g>
+<!-- Ball carrier & action: Haaland at (88.8, 24.6% pitch transform -> SVG x=268, y=74) -->
+<!-- Dynamic pass vector / expected threat channel leading into space -->
+<g>
+<line marker-end="url(#arrowhead)" stroke="url(#threatArrow)" stroke-dasharray="3 2" stroke-width="2" x1="268" x2="294" y1="74" y2="92"></line>
+<!-- Haaland Player Pin -->
+<circle class="drop-shadow" cx="268" cy="74" fill="#D83B01" r="5" stroke="#FFFFFF" stroke-width="1.8"></circle>
+<!-- Ball Indicator at coordinate (88.8, 24.6) -->
+<circle cx="265" cy="69" fill="#FFFFFF" r="3.2" stroke="#1B1C1C" stroke-width="1"></circle>
+<circle cx="265" cy="69" fill="#1B1C1C" r="1.2"></circle>
+<!-- Player Label Tag -->
+<g transform="translate(242, 52)">
+<rect fill="#1B1C1C" height="14" opacity="0.88" rx="2" width="52"></rect>
+<text fill="#FFFFFF" font-family="Segoe UI, sans-serif" font-size="8.5" font-weight="600" text-anchor="middle" x="26" y="10">E. Haaland</text>
+</g>
+</g>
+</svg>
+</div>
+<!-- Metric Readout Line -->
+<div class="mt-2.5 p-2 rounded bg-surface-card-alt border border-outline-variant/40 flex items-start gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-[#0F6CBD] mt-0.5 shrink-0" data-icon="query_stats">query_stats</span>
+<p class="text-[11px] leading-[15px] text-[#424242] font-mono select-all">
+<span class="font-semibold text-[#242424]">Snapshot:</span> shot · 34' · Manchester City · ball at (88.8, 24.6) · <span class="text-primary font-semibold">xT 0.152</span> · shot xG (model) <span class="text-status-warning font-semibold">0.334</span>
+</p>
+</div>
+<!-- Toggle Row: Minimum 44px Touch Height Target -->
+<div class="mt-2.5 pt-2 border-t border-[#E0E0E0] flex items-center justify-between min-h-[44px]">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-[#424242]" data-icon="strategy">strategy</span>
+<label class="text-caption-1-strong font-caption-1-strong text-[#242424] cursor-pointer" for="voronoi-toggle">
+              Show Voronoi zones
+            </label>
+</div>
+<!-- Fluent Toggle Switch -->
+<button aria-checked="true" class="relative inline-flex h-6 w-11 shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-[#0F6CBD] transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-[#0F6CBD] focus:ring-offset-2" id="voronoi-toggle" onclick="toggleVoronoi(this)" role="switch">
+<span class="sr-only">Toggle Voronoi overlay</span>
+<span class="pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow-sm ring-0 transition duration-200 ease-in-out translate-x-5" id="voronoi-knob"></span>
+</button>
+</div>
+</section>
+<!-- 3. Poisson what-if Card -->
+<section class="bg-surface-card rounded-lg border border-[#D1D1D1] p-4 shadow-[0_0_2px_rgba(0,0,0,0.12),0_2px_4px_rgba(0,0,0,0.14)]">
+<div class="flex items-center justify-between mb-1">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-[#0F6CBD]" data-icon="calculate">calculate</span>
+<h2 class="text-body-strong font-body-strong text-[#242424]">Poisson what-if</h2>
+</div>
+<span class="text-[11px] font-mono px-2 py-0.5 rounded bg-surface-card-alt text-[#424242] border border-[#D1D1D1]">
+            Most likely: 1 - 1
+          </span>
+</div>
+<p class="text-caption-1 font-caption-1 text-[#616161] mb-3">
+          Expected goal parameters (λ) simulate match win/draw probabilities.
+        </p>
+<!-- Slider Row 1: Arsenal λ -->
+<div class="space-y-1 mb-3">
+<div class="flex justify-between items-center text-caption-1 font-caption-1">
+<span class="font-semibold text-[#005396] flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-[#005396] inline-block"></span>
+              Arsenal λ
+            </span>
+<span class="font-mono font-semibold text-[#242424] bg-surface-card-alt px-1.5 py-0.5 rounded border border-[#D1D1D1]" id="arsenal-lambda-val">1.46</span>
+</div>
+<div class="h-6 flex items-center">
+<input class="w-full h-1 bg-[#D1D1D1] rounded accent-[#0F6CBD]" id="slider-arsenal" max="3.0" min="0.5" oninput="updatePoisson()" step="0.01" style="background: linear-gradient(to right, #0F6CBD 0%, #0F6CBD 38.4%, #D1D1D1 38.4%, #D1D1D1 100%);" type="range" value="1.46"/>
+</div>
+</div>
+<!-- Slider Row 2: Manchester City λ -->
+<div class="space-y-1 mb-3.5">
+<div class="flex justify-between items-center text-caption-1 font-caption-1">
+<span class="font-semibold text-[#D83B01] flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-[#D83B01] inline-block"></span>
+              Manchester City λ
+            </span>
+<span class="font-mono font-semibold text-[#242424] bg-surface-card-alt px-1.5 py-0.5 rounded border border-[#D1D1D1]" id="mancity-lambda-val">1.14</span>
+</div>
+<div class="h-6 flex items-center">
+<input class="w-full h-1 bg-[#D1D1D1] rounded accent-[#0F6CBD]" id="slider-mancity" max="3.0" min="0.5" oninput="updatePoisson()" step="0.01" style="background: linear-gradient(to right, #0F6CBD 0%, #0F6CBD 25.6%, #D1D1D1 25.6%, #D1D1D1 100%);" type="range" value="1.14"/>
+</div>
+</div>
+<!-- Probability Bar Rows -->
+<div class="space-y-2 pt-2 border-t border-[#E0E0E0]">
+<!-- Arsenal Win -->
+<div>
+<div class="flex justify-between items-center text-[11px] mb-1">
+<span class="text-[#242424] font-medium">Arsenal win</span>
+<span class="font-mono font-semibold text-[#005396]" id="prob-arsenal">48% · computed live</span>
+</div>
+<div class="w-full h-2 rounded bg-surface-card-alt overflow-hidden border border-[#D1D1D1]/60">
+<div class="h-full bg-[#0F6CBD] rounded-sm transition-all duration-300" id="bar-arsenal" style="width: 48%;"></div>
+</div>
+</div>
+<!-- Draw -->
+<div>
+<div class="flex justify-between items-center text-[11px] mb-1">
+<span class="text-[#242424] font-medium">Draw</span>
+<span class="font-mono font-semibold text-[#616161]" id="prob-draw">26% · computed live</span>
+</div>
+<div class="w-full h-2 rounded bg-surface-card-alt overflow-hidden border border-[#D1D1D1]/60">
+<div class="h-full bg-[#717783] rounded-sm transition-all duration-300" id="bar-draw" style="width: 26%;"></div>
+</div>
+</div>
+<!-- Manchester City Win -->
+<div>
+<div class="flex justify-between items-center text-[11px] mb-1">
+<span class="text-[#242424] font-medium">Manchester City win</span>
+<span class="font-mono font-semibold text-[#D83B01]" id="prob-mancity">26% · computed live</span>
+</div>
+<div class="w-full h-2 rounded bg-surface-card-alt overflow-hidden border border-[#D1D1D1]/60">
+<div class="h-full bg-[#D83B01] rounded-sm transition-all duration-300" id="bar-mancity" style="width: 26%;"></div>
+</div>
+</div>
+</div>
+<!-- Footnotes -->
+<div class="mt-3 pt-2 text-[11px] leading-tight text-[#616161] space-y-0.5">
+<p>Most likely score shown as text. Computed live from the two λ values.</p>
+<p class="text-[10px] text-[#717783] italic">What-if only — never changes a simulated result.</p>
+</div>
+</section>
+<!-- 4. Agent Pipeline Section -->
+<section class="space-y-2">
+<div class="flex items-center justify-between px-0.5">
+<div>
+<h2 class="text-subtitle-2 font-subtitle-2 text-[#242424]">Agent pipeline</h2>
+<p class="text-caption-1 font-caption-1 text-[#616161]">Orchestration &amp; context graph verification</p>
+</div>
+<span class="px-2 py-0.5 rounded text-[11px] font-semibold text-[#107C10] bg-[#F1FAF1] border border-[#107C10]/30 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#107C10]"></span> Active
+          </span>
+</div>
+<div class="space-y-2">
+<!-- Card 1: Interpreter -->
+<div class="bg-surface-card rounded-lg border border-[#D1D1D1] p-3 flex items-start gap-3 shadow-[0_0_2px_rgba(0,0,0,0.12),0_2px_4px_rgba(0,0,0,0.14)]">
+<div class="w-6 h-6 rounded-full bg-[#EBF3FC] text-[#0F6CBD] font-semibold text-xs flex items-center justify-center shrink-0 mt-0.5 border border-[#0F6CBD]/20">
+              1
+            </div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="text-body-strong font-body-strong text-[#242424]">Interpreter</span>
+<span class="text-[10px] font-mono text-[#616161]">stage 1</span>
+</div>
+<p class="text-caption-1 font-caption-1 text-[#424242] mt-0.5">
+                278 events interpreted · threshold alerts flagged
+              </p>
+</div>
+</div>
+<!-- Card 2: GraphContext -->
+<div class="bg-surface-card rounded-lg border border-[#D1D1D1] p-3 flex items-start gap-3 shadow-[0_0_2px_rgba(0,0,0,0.12),0_2px_4px_rgba(0,0,0,0.14)]">
+<div class="w-6 h-6 rounded-full bg-[#EBF3FC] text-[#0F6CBD] font-semibold text-xs flex items-center justify-center shrink-0 mt-0.5 border border-[#0F6CBD]/20">
+              2
+            </div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="text-body-strong font-body-strong text-[#242424]">GraphContext</span>
+<span class="text-[10px] font-mono text-[#616161]">stage 2</span>
+</div>
+<p class="text-caption-1 font-caption-1 text-[#424242] mt-0.5">
+                45 nodes · 63 edges · verified path Anelka → Haaland: 2 degrees
+              </p>
+</div>
+</div>
+<!-- Card 3: Narrator (Special Copilot Wash Styling) -->
+<div class="rounded-lg p-3 flex items-start gap-3 shadow-[0_0_2px_rgba(0,0,0,0.12),0_2px_4px_rgba(0,0,0,0.14)] border border-[#7B42BC]/30" style="background: linear-gradient(135deg, rgba(123, 66, 188, 0.06) 0%, rgba(17, 94, 163, 0.06) 100%);">
+<div class="w-6 h-6 rounded-full text-white font-semibold text-xs flex items-center justify-center shrink-0 mt-0.5 shadow-sm" style="background: linear-gradient(135deg, #7B42BC 0%, #115EA3 100%);">
+              3
+            </div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="text-body-strong font-body-strong text-[#242424] flex items-center gap-1.5">
+                  Narrator
+                  <span class="material-symbols-outlined text-[13px] text-[#7B42BC]" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</span>
+<span class="text-[10px] font-mono text-[#7B42BC] font-medium">Copilot Core</span>
+</div>
+<p class="text-caption-1 font-caption-1 text-[#424242] mt-0.5">
+                Narration source: <code class="font-mono text-[#7B42BC] bg-white/70 px-1 py-0.5 rounded text-[11px]">microsoft-foundry:Phi-4-mini-instruct</code>
+</p>
+</div>
+</div>
+<!-- Card 4: Personalizer -->
+<div class="bg-surface-card rounded-lg border border-[#D1D1D1] p-3 flex items-start gap-3 shadow-[0_0_2px_rgba(0,0,0,0.12),0_2px_4px_rgba(0,0,0,0.14)]">
+<div class="w-6 h-6 rounded-full bg-[#EBF3FC] text-[#0F6CBD] font-semibold text-xs flex items-center justify-center shrink-0 mt-0.5 border border-[#0F6CBD]/20">
+              4
+            </div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<span class="text-body-strong font-body-strong text-[#242424]">Personalizer</span>
+<span class="text-[10px] font-mono text-[#616161]">stage 4</span>
+</div>
+<p class="text-caption-1 font-caption-1 text-[#424242] mt-0.5">
+                Five personas: Casual Fan · Analyst · Player Focus · Club Focus · Español
+              </p>
+</div>
+</div>
+</div>
+<!-- Footnote line -->
+<p class="text-[11px] text-[#616161] italic text-center pt-1">
+          Timings are measured live in the browser — never hard-coded.
+        </p>
+</section>
+</div>
+<!-- 5. Bottom Navigation Bar (Persistent, JSON Shared Component executed) -->
+<!-- Destination count: 4 | Labels: Studio, Timeline, Insights, Tactics -->
+<!-- Active: Tactics (Semantic lock: screen is "Tactical Lab — Pitch") -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-1 max-w-[390px] mx-auto bg-surface-card dark:bg-inverse-surface border-t border-outline-variant dark:border-outline/30 shadow-md">
+<!-- Studio -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant py-1 min-w-[56px] min-h-[44px] hover:text-primary dark:hover:text-inverse-primary transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined text-[20px]" data-icon="query_stats">query_stats</span>
+<span class="text-caption-2 font-caption-2">Studio</span>
+</button>
+<!-- Timeline -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant py-1 min-w-[56px] min-h-[44px] hover:text-primary dark:hover:text-inverse-primary transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined text-[20px]" data-icon="timer">timer</span>
+<span class="text-caption-2 font-caption-2">Timeline</span>
+</button>
+<!-- Insights -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant py-1 min-w-[56px] min-h-[44px] hover:text-primary dark:hover:text-inverse-primary transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined text-[20px]" data-icon="auto_awesome">auto_awesome</span>
+<span class="text-caption-2 font-caption-2">Insights</span>
+</button>
+<!-- Tactics (ACTIVE: Primary Intent Match) -->
+<button class="flex flex-col items-center justify-center text-primary dark:text-inverse-primary font-semibold py-1 min-w-[56px] min-h-[44px] hover:text-primary transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined text-[20px]" data-icon="strategy" style="font-variation-settings: 'FILL' 1;">strategy</span>
+<span class="text-caption-2 font-caption-2 font-semibold">Tactics</span>
+</button>
+</nav>
+</main>
+<!-- Interactive Logic for Voronoi toggle and Poisson slider -->
+<script>
+    function toggleVoronoi(btn) {
+      const isChecked = btn.getAttribute('aria-checked') === 'true';
+      const newChecked = !isChecked;
+      btn.setAttribute('aria-checked', newChecked);
+      
+      const knob = document.getElementById('voronoi-knob');
+      const voronoiLayer = document.getElementById('voronoi-layer');
+      
+      if (newChecked) {
+        btn.classList.remove('bg-[#D1D1D1]');
+        btn.classList.add('bg-[#0F6CBD]');
+        knob.classList.remove('translate-x-0');
+        knob.classList.add('translate-x-5');
+        voronoiLayer.style.opacity = '1';
+      } else {
+        btn.classList.remove('bg-[#0F6CBD]');
+        btn.classList.add('bg-[#D1D1D1]');
+        knob.classList.remove('translate-x-5');
+        knob.classList.add('translate-x-0');
+        voronoiLayer.style.opacity = '0';
+      }
+    }
+
+    function updatePoisson() {
+      const l1 = parseFloat(document.getElementById('slider-arsenal').value);
+      const l2 = parseFloat(document.getElementById('slider-mancity').value);
+      
+      document.getElementById('arsenal-lambda-val').textContent = l1.toFixed(2);
+      document.getElementById('mancity-lambda-val').textContent = l2.toFixed(2);
+
+      // Adjust track visual fill
+      const p1 = ((l1 - 0.5) / (3.0 - 0.5)) * 100;
+      const p2 = ((l2 - 0.5) / (3.0 - 0.5)) * 100;
+      document.getElementById('slider-arsenal').style.background = `linear-gradient(to right, #0F6CBD 0%, #0F6CBD ${p1}%, #D1D1D1 ${p1}%, #D1D1D1 100%)`;
+      document.getElementById('slider-mancity').style.background = `linear-gradient(to right, #0F6CBD 0%, #0F6CBD ${p2}%, #D1D1D1 ${p2}%, #D1D1D1 100%)`;
+
+      // Live estimate calculation
+      const total = l1 + l2;
+      let pWin1 = Math.round((l1 / (total + 0.9)) * 100);
+      let pWin2 = Math.round((l2 / (total + 0.9)) * 100);
+      let pDraw = 100 - (pWin1 + pWin2);
+      if (pDraw < 10) pDraw = 10;
+      const sum = pWin1 + pWin2 + pDraw;
+      pWin1 = Math.round((pWin1 / sum) * 100);
+      pWin2 = Math.round((pWin2 / sum) * 100);
+      pDraw = 100 - pWin1 - pWin2;
+
+      document.getElementById('prob-arsenal').textContent = `${pWin1}% · computed live`;
+      document.getElementById('bar-arsenal').style.width = `${pWin1}%`;
+
+      document.getElementById('prob-draw').textContent = `${pDraw}% · computed live`;
+      document.getElementById('bar-draw').style.width = `${pDraw}%`;
+
+      document.getElementById('prob-mancity').textContent = `${pWin2}% · computed live`;
+      document.getElementById('bar-mancity').style.width = `${pWin2}%`;
+    }
+  </script>
+</body></html>

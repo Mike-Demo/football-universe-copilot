@@ -43,6 +43,40 @@
   <section class="card"><h2>⚡ Speed / distance threshold alerts</h2><ul id="alerts"></ul></section>
   <section class="card"><h2>Auto match recap</h2><p id="recap"></p>
   <p class="small">Pipeline: Interpreter agent → GraphContext agent → Narrator agent → Personalizer agent. Code + tests: <a href="https://github.com/Mike-Demo/football-universe-copilot">github.com/Mike-Demo/football-universe-copilot</a></p></section>
+
+<section class="card" style="margin-top:14px">
+  <h2>Full synthetic season — Premier League &amp; Women's Super League</h2>
+  <div class="modes" style="margin-bottom:10px">
+    <button class="btn" data-league="premier_league">Premier League (380 matches)</button>
+    <button class="btn" data-league="wsl">Women's Super League (132 matches)</button>
+  </div>
+  <div id="seasonStories" style="margin-bottom:10px"></div>
+  <div style="overflow-x:auto"><table id="seasonTable" style="width:100%;border-collapse:collapse;font-size:13px"></table></div>
+  <div id="clubDetail" style="margin-top:10px;color:var(--muted)">Click a club in the table for its season story — points progression, home/away split and form.</div>
+  <p style="color:var(--muted);font-size:12px;margin-top:8px">Entirely simulated: a seeded Poisson model over plausible synthetic club ratings. Not real fixtures or results.</p>
+</section>
 </main>
 <script src="app.js"></script>
+
+<script>
+let SEASON=null, LEAGUE='premier_league';
+function formBadges(f){return f.map(x=>'<span style="display:inline-block;width:16px;height:16px;line-height:16px;text-align:center;border-radius:4px;font-size:10px;margin-right:2px;background:'+({W:'#14532d',D:'#3f3f46',L:'#7f1d1d'}[x])+';color:#fff">'+x+'</span>').join('')}
+function renderSeason(){
+  const lg=SEASON[LEAGUE]; if(!lg) return;
+  document.getElementById('seasonStories').innerHTML=lg.narratives.map(n=>'<div class="ev">📌 '+n+'</div>').join('');
+  let h='<tr style="text-align:left;color:var(--muted)"><th>#</th><th>Club</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>Pts</th><th>Form</th></tr>';
+  lg.standings.forEach(r=>{const z=r.zone==='relegation'?'background:rgba(127,29,29,.18)':(r.zone==='ucl'||r.zone==='champions')?'background:rgba(30,64,175,.15)':'';
+    h+='<tr data-club="'+r.club+'" style="cursor:pointer;border-top:1px solid #26262e;'+z+'"><td>'+r.position+'</td><td><b>'+r.club+'</b></td><td>'+r.played+'</td><td>'+r.won+'</td><td>'+r.drawn+'</td><td>'+r.lost+'</td><td>'+r.gf+'</td><td>'+r.ga+'</td><td>'+r.gd+'</td><td><b>'+r.points+'</b></td><td>'+formBadges(r.form)+'</td></tr>'});
+  const tb=document.getElementById('seasonTable'); tb.innerHTML=h;
+  tb.querySelectorAll('tr[data-club]').forEach(tr=>tr.onclick=()=>clubDetail(tr.dataset.club));
+}
+function clubDetail(name){
+  const r=SEASON[LEAGUE].standings.find(x=>x.club===name); if(!r) return;
+  const max=Math.max(...r.progression);
+  const bars=r.progression.map((p,i)=>'<div title="MW'+(i+1)+': '+p+' pts" style="flex:1;background:var(--accent);height:'+Math.max(6,p/max*44)+'px;border-radius:2px 2px 0 0"></div>').join('');
+  document.getElementById('clubDetail').innerHTML='<b style="color:var(--text)">'+r.club+'</b> — finished '+r.position+''+({1:'st',2:'nd',3:'rd'}[r.position]||'th')+' with '+r.points+' points ('+r.won+'W '+r.drawn+'D '+r.lost+'L, GD '+(r.gd>0?'+':'')+r.gd+'). Home points '+r.home_points+' · Away points '+r.away_points+'.<div style="display:flex;gap:2px;align-items:flex-end;height:48px;margin-top:6px">'+bars+'</div><div style="font-size:11px">Points progression across all '+r.progression.length+' matchweeks.</div>';
+}
+fetch('season.json').then(r=>r.json()).then(s=>{SEASON=s;renderSeason()}).catch(()=>{document.getElementById('seasonStories').textContent='Season data failed to load.'});
+document.querySelectorAll('[data-league]').forEach(b=>b.onclick=()=>{LEAGUE=b.dataset.league;renderSeason()});
+</script>
 </body></html>

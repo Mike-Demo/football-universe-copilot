@@ -1,4 +1,18 @@
 {
+ "fds": {
+  "standard": "FIFA Connect Data (FCD) v3.3 \u2014 aligned export (not a FIFA-certified integration)",
+  "featured_match_id": "SYN3001",
+  "competition_ids": {
+   "premier_league": "SYN0001",
+   "wsl": "SYN0002"
+  },
+  "xml": {
+   "featured": "fds/featured-match.xml",
+   "premier_league": "fds/premier-league-season.xml",
+   "wsl": "fds/wsl-season.xml"
+  },
+  "note": "Match/Phase/GoalEvent/Team expressed in the FCD model and validated against its XSDs; telemetry events remain our JSON extension \u2014 FCD has no event-stream model. Mapping: src/fds/README.md"
+ },
  "model": {
   "xg_home": 1.46,
   "xg_away": 1.14,

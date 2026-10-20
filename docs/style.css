@@ -185,3 +185,34 @@ table th{height:40px}
 #tabbar a .fe-tab{width:22px;height:22px;vertical-align:middle}
 #tabbar a span{margin-top:1px}
 h1 .fe{width:1em;height:1em;vertical-align:-.12em}
+
+/* ---------- Focus pickers + Copilot commentary dock ---------- */
+.focusrow{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:10px}
+.focusrow label{font-size:13px;color:var(--text-2);display:flex;align-items:center;gap:6px}
+.focusrow select{max-width:210px}
+#dock{position:fixed;left:50%;transform:translateX(-50%);bottom:14px;width:min(980px,calc(100% - 20px));z-index:40;display:flex;gap:10px;align-items:center;background:rgba(255,255,255,.92);backdrop-filter:blur(20px);border:1px solid var(--divider);border-left:3px solid var(--brand);border-radius:var(--r-card);box-shadow:var(--shadow3);padding:10px 12px;animation:cardIn var(--durNormal) var(--curveDecelerateMax) both}
+#dock[hidden]{display:none}
+#dock .fe{width:22px;height:22px;flex:0 0 auto}
+.dock-main{flex:1;min-width:0}
+.dock-main strong{font-size:13px}
+.dock-main p{margin:2px 0 0;font-size:13px;color:var(--text-2);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+#dock button{flex:0 0 auto;min-width:36px;min-height:36px}
+@media (max-width: 640px){
+  #dock{bottom:64px}
+  body.dock-on{padding-bottom:150px}
+  .cmdbar{flex-wrap:nowrap;height:52px;overflow:hidden;padding:0 10px;gap:8px}
+  .ghbtn{display:none !important}
+  .pill-text{display:none}
+  .pill-copilot{padding:4px 8px}
+  .cmdbar strong{white-space:nowrap;font-size:15px}
+  .cmdbar .btn{white-space:nowrap}
+  .banner{position:relative;flex-direction:row;flex-wrap:wrap;padding-right:48px}
+  .banner>div{flex:1 1 100%}
+  .banner .x{position:absolute;top:8px;right:8px;margin:0}
+  .modes{scroll-snap-type:x proximity;-webkit-mask-image:linear-gradient(90deg,#000 93%,transparent);mask-image:linear-gradient(90deg,#000 93%,transparent)}
+  .modes .mode{scroll-snap-align:start}
+  .focusrow label{flex:1 1 44%}
+  .focusrow select{flex:1;max-width:none;width:100%}
+}
+
+body.dock-on{padding-bottom:96px}

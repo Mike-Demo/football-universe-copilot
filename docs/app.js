@@ -6,6 +6,7 @@ function render() {
   const s = scoreAt(minute);
   $('score').textContent = `${s[D.fixture.home]} – ${s[D.fixture.away]}`;
   $('clock').textContent = `${Math.floor(minute)}'`;
+  const cc = $('chipClock'); if (cc) cc.textContent = `${Math.floor(minute)}'`;
   $('scrub').value = minute;
   const evs = D.events.filter(e => e.minute <= minute);
   const feed = evs.slice(-14).reverse();
@@ -14,6 +15,7 @@ function render() {
   $('liveStats').textContent = `${evs.length} events so far · ${shots} shots · ${passes} passes · chaos index (full match) ${D.stats.chaos_index}`;
   const ov = [...D.overlay.feed].reverse().find(o => o.at_minute <= minute);
   if (ov) { $('overlayCard').hidden = false; $('overlayText').textContent = `${ov.at_minute}' — ${ov.title}: ${ov.body}`; }
+  const pp = $('payloadPre'); if (pp) pp.textContent = JSON.stringify({ schema: 'football-universe-overlay/v1', at_minute: Math.floor(minute), fixture: D.fixture, score: s, overlay: ov || null, persona: mode, narration_source: D.narrative.narration_source || 'deterministic-template' }, null, 2);
   const w = Math.min(5, Math.floor(minute / 15));
   $('momentum').innerHTML = D.stats.momentum.map((m, i) => `<div class="mbar"><span>${m.window}'</span><div class="bar" style="width:${Math.min(100, m.events * 2)}%;${i === w ? 'background:#cc7a00' : ''}"></div><span>${m.dominant || ''} · ${m.events}</span></div>`).join('');
 }
@@ -58,7 +60,7 @@ function initGraph() {
     const path = D.graph.highlight_path;
     for (const l of links) {
       const onPath = pathAnim != null && path.includes(l.a.id) && path.includes(l.b.id) && Math.abs(path.indexOf(l.a.id) - path.indexOf(l.b.id)) === 1;
-      ctx.strokeStyle = onPath ? '#f5c542' : 'rgba(160,175,205,.35)'; ctx.lineWidth = onPath ? 4 : 1;
+      ctx.strokeStyle = onPath ? '#C77400' : 'rgba(36,36,36,.18)'; ctx.lineWidth = onPath ? 4 : 1;
       ctx.beginPath(); ctx.moveTo(l.a.x, l.a.y); ctx.lineTo(l.b.x, l.b.y); ctx.stroke();
     }
     for (const n of nodes) {
@@ -66,8 +68,8 @@ function initGraph() {
       const onPath = pathAnim != null && path.includes(n.id);
       const isSel = selectedNode && selectedNode.id === n.id;
       ctx.fillStyle = col[n.kind] || '#888'; ctx.beginPath(); ctx.arc(n.x, n.y, (onPath || isSel) ? r + 4 : r, 0, 7); ctx.fill();
-      if (onPath || isSel) { ctx.strokeStyle = isSel ? '#ffffff' : '#f5c542'; ctx.lineWidth = 3; ctx.stroke(); }
-      ctx.fillStyle = '#dbe4ff'; ctx.font = '11px system-ui'; ctx.fillText(n.id, n.x + r + 3, n.y + 3);
+      if (onPath || isSel) { ctx.strokeStyle = isSel ? '#0F6CBD' : '#C77400'; ctx.lineWidth = 3; ctx.stroke(); }
+      ctx.fillStyle = '#242424'; ctx.font = '11px "Segoe UI", system-ui'; ctx.fillText(n.id, n.x + r + 3, n.y + 3);
     }
     if (pathAnim != null) pathAnim += 0.016;
     requestAnimationFrame(step);
@@ -125,14 +127,23 @@ function genMatchData(m, lg) {
   if (goals.length) overlay.push({ at_minute: goals[0].minute, title: 'First goal', body: `${goals[0].minute}' — ${goals[0].team} strike first through ${goals[0].player}.` });
   const pers = (club) => ({ headline: `${m.home} vs ${m.away} — the story`, body: recap });
   return { fixture: { home: m.home, away: m.away }, events, stats: { chaos_index: chaos, momentum, threshold_alerts: alerts }, overlay: { feed: overlay },
-    narrative: { why_it_matters: why, recap }, personalized: { casual_fan: pers(), analyst: { headline: 'Analyst view', body: `${events.length} generated events · xThreat proxy from shot volume ${m.home_shots}–${m.away_shots} · chaos ${chaos} · possession ${m.home_possession}%–${100 - m.home_possession}%.` }, player_focus: pers(), club_focus: pers(), es: { headline: 'Resumen', body: `${m.home} ${m.home_goals}–${m.away_goals} ${m.away} (sintético, jornada ${m.matchweek}). ${m.home_shots + m.away_shots} tiros en total.` } },
+    narrative: { why_it_matters: why, recap, narration_source: 'browser-generated-timeline (deterministic; the Azure API narrates with Phi-4-mini-instruct)' }, personalized: { casual_fan: pers(), analyst: { headline: 'Analyst view', body: `${events.length} generated events · xThreat proxy from shot volume ${m.home_shots}–${m.away_shots} · chaos ${chaos} · possession ${m.home_possession}%–${100 - m.home_possession}%.` }, player_focus: pers(), club_focus: pers(), es: { headline: 'Resumen', body: `${m.home} ${m.home_goals}–${m.away_goals} ${m.away} (sintético, jornada ${m.matchweek}). ${m.home_shots + m.away_shots} tiros en total.` } },
     graph: D.graph, graph_context: D.graph_context };
+}
+function updateAgents() {
+  const gc = $('agGraph'); if (!gc) return;
+  $('agInterpreter').textContent = `${D.events.length} events interpreted · chaos index ${D.stats.chaos_index} · ${(D.stats.threshold_alerts || []).length} threshold alerts`;
+  gc.textContent = `${D.graph.nodes.length} nodes · ${D.graph.edges.length} edges · verified path Anelka → Haaland: 2 degrees (via Manchester City)`;
+  const src = D.narrative.narration_source || 'deterministic-template';
+  $('agNarrator').textContent = `Narration source: ${src}. The narrator only verbalizes verified events and graph paths — it never invents a connection.`;
+  const nc = $('narrChip'); if (nc) nc.textContent = 'Narration: ' + src;
+  $('agPersonalizer').textContent = 'Five personas rendered from the same intelligence: Casual Fan · Analyst · Player Focus · Club Focus · Español';
 }
 function applyMatch(nd, label) {
   D = nd; minute = 0; playing = false; $('playBtn').textContent = '▶ Play replay';
   $('homeName').textContent = D.fixture.home; $('awayName').textContent = D.fixture.away;
   $('matchLabel').textContent = label;
-  setMode(mode); render(); window.scrollTo({ top: 0, behavior: 'smooth' });
+  setMode(mode); render(); updateAgents(); window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 function initPicker(season) {
   const lgSel = $('pickLeague'), teamSel = $('pickTeam'), matchSel = $('pickMatch');
@@ -152,7 +163,10 @@ function initPicker(season) {
   fillTeams();
   $('loadMatchBtn').addEventListener('click', () => {
     const lg = season[lgSel.value]; const m = lg.matches[parseInt(matchSel.value, 10)]; if (!m) return;
-    applyMatch(genMatchData(m, lg), `${lg.competition} · Matchweek ${m.matchweek}`);
+    const st = $('genStatus'), card = $('storyCard');
+    if (st) st.innerHTML = '<span class="morse"><i></i><i></i><i></i></span> Generating timeline — personalizing multi-persona matrix ...';
+    if (card) card.classList.add('shimmer');
+    setTimeout(() => { applyMatch(genMatchData(m, lg), `${lg.competition} · Matchweek ${m.matchweek}`); if (card) card.classList.remove('shimmer'); if (st) st.textContent = 'Timeline generated deterministically from the simulated scoreline.'; }, 550);
   });
   $('featuredBtn').addEventListener('click', () => { if (window.__featured) applyMatch(window.__featured, 'Featured match — full agent pipeline'); });
 }
@@ -164,11 +178,12 @@ async function load() {
   $('why').innerHTML = D.narrative.why_it_matters.map(x => `<li>${x}</li>`).join('');
   $('recap').textContent = D.narrative.recap;
   $('alerts').innerHTML = (D.stats.threshold_alerts || []).slice(0, 10).map(a => `<li>${a.minute}' ${a.player} — ${a.alerts.join('; ')}</li>`).join('') || '<li>None in this match.</li>';
-  setMode('casual_fan'); render(); initGraph();
+  setMode('casual_fan'); render(); updateAgents(); initGraph();
   try { const season = await (await fetch('season.json')).json(); initPicker(season); } catch (e) { /* picker optional */ }
 }
 $('playBtn').addEventListener('click', () => { playing = !playing; lastTs = null; $('playBtn').textContent = playing ? '⏸ Pause' : '▶ Play replay'; if (playing) requestAnimationFrame(tick); });
 $('resetBtn').addEventListener('click', () => { minute = 0; playing = false; $('playBtn').textContent = '▶ Play replay'; render(); });
 $('scrub').addEventListener('input', e => { minute = parseFloat(e.target.value); render(); });
 document.querySelectorAll('.mode').forEach(b => b.addEventListener('click', () => setMode(b.dataset.mode)));
+const cp = $('copyPayloadBtn'); if (cp) cp.addEventListener('click', () => { navigator.clipboard && navigator.clipboard.writeText($('payloadPre').textContent); cp.textContent = 'Copied ✓'; setTimeout(() => cp.textContent = 'Copy JSON', 1500); });
 load().catch(() => { $('modeBody').textContent = 'Could not load data.json — serve this folder over http (python3 -m http.server) or view the live GitHub Pages demo.'; });

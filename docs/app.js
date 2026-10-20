@@ -236,4 +236,24 @@ const vt = $('vorToggle'); if (vt) vt.addEventListener('change', () => drawPitch
     $('pitchInfo').textContent = `Pitch point (${mx.toFixed(1)}, ${my.toFixed(1)}) — xT there is ${xtModel(mx, my)} on our documented threat surface. Click a ringed marker to jump the replay to that key moment.`;
   });
 })();
+(function azureButton() {
+  const btn = $('azureBtn'); if (!btn) return; const API = 'https://fuc-api-pv4pnqx2o2t4y.azurewebsites.net';
+  btn.addEventListener('click', async () => {
+    btn.disabled = true; const st = $('azureStatus'), out = $('azureOut'); out.innerHTML = '';
+    const t0 = performance.now(); const tick = setInterval(() => { const s = Math.floor((performance.now() - t0) / 1000); st.innerHTML = '<span class="morse"><i></i><i></i><i></i></span> Asking Azure… ' + s + 's elapsed' + (s > 5 ? ' — Phi-4-mini serverless endpoint is warming up / generating; this is a real live call' : ''); }, 500);
+    try {
+      try { await fetch(API + '/api/health'); } catch (e) { /* warm-up ping only */ }
+      const ctl = new AbortController(); const to = setTimeout(() => ctl.abort(), 170000);
+      const r = await fetch(API + '/api/match/intelligence', { signal: ctl.signal }); clearTimeout(to);
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      const d = await r.json(); const secs = ((performance.now() - t0) / 1000).toFixed(1);
+      const src = (d.narrative && d.narrative.narration_source) || 'unknown';
+      const isPhi = src.includes('Phi') || src.includes('phi');
+      out.innerHTML = '<div class="agent ai" style="margin-top:8px"><strong>Live from Azure in ' + secs + 's</strong> · narration_source: <code>' + src + '</code>' + (isPhi ? '' : '<p class="small">Phi did not respond within its window on this call, so Azure served the labelled deterministic template instead — the source string above always tells you which one you got.</p>') + '<p style="margin-top:6px">' + ((d.narrative && d.narrative.recap) || '') + '</p></div>';
+      st.textContent = '';
+    } catch (e) {
+      st.textContent = 'The live Azure call did not complete (' + (e.name === 'AbortError' ? 'timed out after 170s — the serverless endpoint is very cold' : e.message) + '). The static recap above is the same pipeline running locally; you can retry the Azure call.';
+    } finally { clearInterval(tick); btn.disabled = false; }
+  });
+})();
 load().catch(() => { $('modeBody').textContent = 'Could not load data.json — serve this folder over http (python3 -m http.server) or view the live GitHub Pages demo.'; });

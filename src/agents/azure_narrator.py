@@ -27,6 +27,7 @@ def azure_narrate(match, stats, ctx):
     try:
         with urllib.request.urlopen(req, timeout=30) as r:
             data = json.loads(r.read())
-        return {"recap": data["choices"][0]["message"]["content"], "source": f"azure-openai:{deployment}"}
+        provider = "microsoft-foundry" if "phi" in deployment.lower() else "azure-openai"
+        return {"recap": data["choices"][0]["message"]["content"], "source": f"{provider}:{deployment}"}
     except Exception:
         return None

@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Football Universe - Live Match Studio</title>
+<!-- Segoe UI Font System -->
+<link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with Forms and Container Queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "brand-pressed": "#0C3B5E",
+            "surface-bright": "#fcf9f8",
+            "on-tertiary": "#ffffff",
+            "error-container": "#ffdad6",
+            "surface-container-lowest": "#ffffff",
+            "inverse-primary": "#a3c9ff",
+            "status-warning-bg": "#FFF9F5",
+            "on-primary-fixed-variant": "#004883",
+            "brand-classic": "#0078D4",
+            "copilot-blue": "#115EA3",
+            "status-success-bg": "#F1FAF1",
+            "status-success": "#107C10",
+            "secondary-fixed-dim": "#a3c9ff",
+            "outline": "#717783",
+            "on-secondary-fixed": "#001c38",
+            "background": "#fcf9f8",
+            "surface-container-high": "#eae7e7",
+            "surface-canvas": "#FAFAFA",
+            "secondary": "#1560a5",
+            "secondary-container": "#79b3fe",
+            "tertiary-fixed": "#efdbff",
+            "on-primary-container": "#e3ecff",
+            "surface": "#fcf9f8",
+            "on-error": "#ffffff",
+            "primary-container": "#0f6cbd",
+            "on-tertiary-fixed-variant": "#6023a0",
+            "on-secondary": "#ffffff",
+            "brand-secondary": "#2886DE",
+            "outline-variant": "#c1c7d3",
+            "surface-dim": "#dcd9d9",
+            "secondary-fixed": "#d3e4ff",
+            "surface-card": "#FFFFFF",
+            "on-error-container": "#93000a",
+            "on-tertiary-fixed": "#2a0053",
+            "surface-container-low": "#f6f3f2",
+            "surface-container-highest": "#e4e2e1",
+            "status-warning": "#D83B01",
+            "surface-card-alt": "#F5F5F5",
+            "on-surface": "#1b1c1c",
+            "surface-tint": "#0060ab",
+            "surface-container": "#f0eded",
+            "status-danger": "#C50F1F",
+            "status-info": "#0F6CBD",
+            "primary": "#005396",
+            "on-secondary-container": "#00457c",
+            "on-primary": "#ffffff",
+            "tertiary": "#6c32ad",
+            "on-secondary-fixed-variant": "#004882",
+            "on-primary-fixed": "#001c39",
+            "tertiary-fixed-dim": "#dab9ff",
+            "surface-variant": "#e4e2e1",
+            "inverse-surface": "#303030",
+            "status-info-bg": "#EBF3FC",
+            "tertiary-container": "#864dc7",
+            "primary-fixed": "#d3e3ff",
+            "copilot-purple": "#7B42BC",
+            "error": "#ba1a1a",
+            "on-background": "#1b1c1c",
+            "on-tertiary-container": "#f5e7ff",
+            "brand-tint": "#EBF3FC",
+            "on-surface-variant": "#414751",
+            "primary-fixed-dim": "#a3c9ff",
+            "status-danger-bg": "#FDF3F4",
+            "inverse-on-surface": "#f3f0ef"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "margin-desktop": "2rem",
+            "margin": "1.5rem",
+            "space-sm": "0.5rem",
+            "gutter": "1rem",
+            "gutter-sm": "0.75rem",
+            "space-xs": "0.25rem",
+            "space-md": "0.75rem",
+            "space-lg": "1rem",
+            "margin-mobile": "1rem",
+            "space-xl": "1.5rem",
+            "gutter-lg": "1.5rem"
+          },
+          "fontFamily": {
+            "title-3": ["Segoe UI", "sans-serif"],
+            "caption-1": ["Segoe UI", "sans-serif"],
+            "body-large": ["Segoe UI", "sans-serif"],
+            "subtitle-1": ["Segoe UI", "sans-serif"],
+            "body-strong": ["Segoe UI", "sans-serif"],
+            "title-1": ["Segoe UI", "sans-serif"],
+            "caption-2": ["Segoe UI", "sans-serif"],
+            "body-default": ["Segoe UI", "sans-serif"],
+            "caption-1-strong": ["Segoe UI", "sans-serif"],
+            "title-2": ["Segoe UI", "sans-serif"],
+            "subtitle-2": ["Segoe UI", "sans-serif"],
+            "title-1-mobile": ["Segoe UI", "sans-serif"],
+            "display-mobile": ["Segoe UI", "sans-serif"],
+            "display": ["Segoe UI", "sans-serif"]
+          },
+          "fontSize": {
+            "title-3": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "caption-1": ["12px", { "lineHeight": "16px", "letterSpacing": "0", "fontWeight": "400" }],
+            "body-large": ["16px", { "lineHeight": "22px", "letterSpacing": "0", "fontWeight": "400" }],
+            "subtitle-1": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-strong": ["14px", { "lineHeight": "20px", "letterSpacing": "0", "fontWeight": "600" }],
+            "title-1": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "caption-2": ["10px", { "lineHeight": "14px", "letterSpacing": "0", "fontWeight": "400" }],
+            "body-default": ["14px", { "lineHeight": "20px", "letterSpacing": "0", "fontWeight": "400" }],
+            "caption-1-strong": ["12px", { "lineHeight": "16px", "letterSpacing": "0", "fontWeight": "600" }],
+            "title-2": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "subtitle-2": ["16px", { "lineHeight": "22px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "title-1-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "display-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "display": ["40px", { "lineHeight": "52px", "letterSpacing": "-0.025em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .fluent-shadow-1 {
+      box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.14);
+    }
+    .fluent-border {
+      border: 1px solid #D1D1D1;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    /* Scrub range slider customization */
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      height: 14px;
+      width: 14px;
+      border-radius: 9999px;
+      background: #0F6CBD;
+      cursor: pointer;
+      border: 2px solid #FFFFFF;
+      box-shadow: 0 0 2px rgba(0,0,0,0.3);
+    }
+    input[type=range]::-moz-range-thumb {
+      height: 14px;
+      width: 14px;
+      border-radius: 9999px;
+      background: #0F6CBD;
+      cursor: pointer;
+      border: 2px solid #FFFFFF;
+      box-shadow: 0 0 2px rgba(0,0,0,0.3);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#FAFAFA] text-[#242424] antialiased min-h-screen flex justify-center selection:bg-brand-tint selection:text-primary">
+<!-- Mobile Viewport Container 390px -->
+<div class="w-full max-w-[390px] min-h-screen bg-[#FAFAFA] flex flex-col relative pb-20 border-x border-[#EBEBEB]">
+<!-- SHARED COMPONENT 1: TopAppBar -->
+<header class="bg-surface-card/90 dark:bg-inverse-surface/90 backdrop-blur-md text-primary dark:text-inverse-primary docked full-width top-0 sticky z-40 border-b border-outline-variant dark:border-outline/30 shadow-sm flex justify-between items-center w-full px-4 h-12 max-w-[390px] mx-auto">
+<div class="text-subtitle-2 font-subtitle-2 text-on-surface dark:text-inverse-on-surface flex items-center gap-2">
+<div class="w-7 h-7 rounded bg-[#0F6CBD] flex items-center justify-center text-white shadow-sm flex-shrink-0">
+<span class="material-symbols-outlined text-[18px]">sports_soccer</span>
+</div>
+<span class="text-subtitle-2 font-subtitle-2 font-semibold text-[#242424]">Football Universe</span>
+</div>
+<div class="flex items-center">
+<!-- Copilot trailing action gradient pill -->
+<div class="h-6 px-2.5 rounded-full flex items-center gap-1 text-white shadow-sm" style="background: linear-gradient(135deg, #7B42BC 0%, #115EA3 100%);">
+<span class="text-[11px] leading-none">✦</span>
+<span class="text-caption-2 font-caption-2 font-semibold tracking-wider">Copilot</span>
+</div>
+</div>
+</header>
+<!-- SECTION 2: Horizontal Metadata Chips Row -->
+<section class="w-full px-4 py-2 flex items-center gap-2 overflow-x-auto no-scrollbar border-b border-[#F0EDED] bg-[#FAFAFA]">
+<!-- Red Live Match Pill -->
+<div class="flex-shrink-0 bg-[#FDF3F4] text-[#C50F1F] border border-[#ffdad6] text-caption-1 font-caption-1-strong rounded-full px-3 py-1 flex items-center gap-1.5 shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-[#C50F1F] animate-pulse"></span>
+<span>LIVE SYNTHETIC MATCH · 67'</span>
+</div>
+<!-- Seeded simulator chip -->
+<div class="flex-shrink-0 bg-white border border-[#D1D1D1] text-[#424242] text-caption-1 font-caption-1 rounded-full px-3 py-1 shadow-sm">
+        Seeded simulator
+      </div>
+<!-- Graph metrics chip -->
+<div class="flex-shrink-0 bg-white border border-[#D1D1D1] text-[#424242] text-caption-1 font-caption-1 rounded-full px-3 py-1 shadow-sm">
+        Graph: 45 nodes · 63 edges
+      </div>
+<!-- Narration model chip -->
+<div class="flex-shrink-0 bg-white border border-[#D1D1D1] text-[#424242] text-caption-1 font-caption-1 rounded-full px-3 py-1 shadow-sm">
+        Narration: Phi-4-mini-instruct
+      </div>
+</section>
+<!-- MAIN SCROLLABLE CONTENT (16px page margins) -->
+<main class="flex-1 px-4 py-3.5 space-y-3.5">
+<!-- SECTION 3: Scoreboard Card -->
+<section class="bg-[#FFFFFF] fluent-border rounded-xl p-4 fluent-shadow-1">
+<!-- Teams & Score Header -->
+<div class="flex items-center justify-between">
+<!-- Home Team -->
+<div class="flex-1 text-left">
+<h2 class="text-subtitle-2 font-subtitle-2 text-[#242424] font-semibold">Arsenal</h2>
+<p class="text-caption-2 font-caption-2 text-[#616161]">Home · 4-3-3</p>
+</div>
+<!-- Score & Clock Center Badge -->
+<div class="flex flex-col items-center px-2">
+<div class="bg-[#F5F5F5] border border-[#D1D1D1] px-4 py-1.5 rounded-lg flex items-center justify-center">
+<span class="text-title-3 font-title-3 text-[#242424] tracking-widest font-bold">0 – 1</span>
+</div>
+<div class="mt-1 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#C50F1F]"></span>
+<span class="text-caption-2 font-caption-1-strong text-[#C50F1F] tracking-wide">67'</span>
+</div>
+</div>
+<!-- Away Team -->
+<div class="flex-1 text-right">
+<h2 class="text-subtitle-2 font-subtitle-2 text-[#242424] font-semibold">Manchester City</h2>
+<p class="text-caption-2 font-caption-2 text-[#616161]">Away · 3-2-4-1</p>
+</div>
+</div>
+<!-- Transport Controls Row (Min 44px Touch Targets) -->
+<div class="mt-4 flex items-center justify-between gap-2">
+<!-- Primary Blue Pause Button (Min 44px Target) -->
+<button class="min-h-[44px] px-3.5 bg-[#0F6CBD] hover:bg-[#115EA3] active:bg-[#0C3B5E] text-white rounded font-body-strong text-body-strong flex items-center justify-center gap-1.5 transition-colors shadow-sm" type="button">
+<span class="text-caption-1 font-caption-1-strong">❚❚</span>
+<span>Pause</span>
+</button>
+<!-- Speed Segmented Control -->
+<div class="min-h-[44px] border border-[#D1D1D1] rounded p-0.5 bg-[#F5F5F5] flex items-center">
+<button class="min-h-[36px] px-2 text-caption-1 font-caption-1 text-[#424242] rounded hover:text-[#0F6CBD] transition-colors" type="button">1×</button>
+<button class="min-h-[36px] px-2.5 bg-white shadow-sm text-[#0F6CBD] font-caption-1-strong rounded" type="button">4×</button>
+<button class="min-h-[36px] px-2 text-caption-1 font-caption-1 text-[#424242] rounded hover:text-[#0F6CBD] transition-colors" type="button">12×</button>
+<button class="min-h-[36px] px-2 text-caption-1 font-caption-1 text-[#424242] rounded hover:text-[#0F6CBD] transition-colors" type="button">30×</button>
+</div>
+<!-- Secondary Reset Button (Min 44px Target) -->
+<button class="min-h-[44px] px-3 bg-white border border-[#D1D1D1] hover:bg-[#F5F5F5] text-[#242424] rounded font-body-default text-body-default flex items-center justify-center transition-colors" type="button">
+            Reset
+          </button>
+</div>
+<!-- Full-Width Scrub Slider -->
+<div class="mt-4">
+<div class="flex justify-between items-center text-caption-2 font-caption-2 text-[#616161] mb-1">
+<span>0'</span>
+<span class="text-[#0F6CBD] font-caption-1-strong">Current: 67' (Synthetic Time)</span>
+<span>90'</span>
+</div>
+<div class="relative flex items-center">
+<input class="w-full h-1.5 bg-[#E4E2E1] rounded-lg appearance-none cursor-pointer accent-[#0F6CBD]" max="90" min="0" type="range" value="67"/>
+</div>
+</div>
+<!-- Persona Pills Row (Wrapping & Scrollable, min 44px interactive container) -->
+<div class="mt-3.5 pt-3 border-t border-[#EBEBEB] flex items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5">
+<!-- Selected: Casual Fan -->
+<button class="min-h-[32px] bg-[#0F6CBD] text-white font-caption-1-strong text-caption-1 px-3 py-1 rounded-full whitespace-nowrap shadow-sm" type="button">
+            Casual Fan
+          </button>
+<!-- Unselected Pills -->
+<button class="min-h-[32px] bg-white border border-[#D1D1D1] text-[#424242] font-caption-1 text-caption-1 px-3 py-1 rounded-full whitespace-nowrap hover:bg-[#F5F5F5] transition-colors" type="button">
+            Analyst
+          </button>
+<button class="min-h-[32px] bg-white border border-[#D1D1D1] text-[#424242] font-caption-1 text-caption-1 px-3 py-1 rounded-full whitespace-nowrap hover:bg-[#F5F5F5] transition-colors" type="button">
+            Player Focus: Haaland
+          </button>
+<button class="min-h-[32px] bg-white border border-[#D1D1D1] text-[#424242] font-caption-1 text-caption-1 px-3 py-1 rounded-full whitespace-nowrap hover:bg-[#F5F5F5] transition-colors" type="button">
+            My Club: Arsenal
+          </button>
+<button class="min-h-[32px] bg-white border border-[#D1D1D1] text-[#424242] font-caption-1 text-caption-1 px-3 py-1 rounded-full whitespace-nowrap hover:bg-[#F5F5F5] transition-colors" type="button">
+            Español
+          </button>
+</div>
+<!-- Strict Poisson Caption -->
+<div class="mt-3 border-t border-[#EBEBEB] pt-2 text-center">
+<p class="text-caption-1 font-caption-1 text-[#616161]">
+            Model xG (Poisson λ): Arsenal 1.46 — 1.14 Manchester City
+          </p>
+</div>
+</section>
+<!-- SECTION 4: Story Card -->
+<section class="bg-[#FFFFFF] fluent-border rounded-xl p-4 fluent-shadow-1">
+<div class="flex items-center gap-2 mb-3">
+<div class="w-5 h-5 rounded-full flex items-center justify-center text-white text-[10px]" style="background: linear-gradient(135deg, #7B42BC, #115EA3);">
+            ✦
+          </div>
+<h3 class="text-subtitle-2 font-subtitle-2 text-[#242424] font-semibold">The story of the match</h3>
+</div>
+<div class="space-y-2.5 text-body-default font-body-default text-[#424242] leading-relaxed">
+<p class="text-[13px] leading-[18px]">
+            Manchester City established patient control across the middle third during the first half, leveraging Haaland's physical presence to stretch the defensive line while Arsenal maintained a disciplined, compact low block.
+          </p>
+<p class="text-[13px] leading-[18px]">
+            The decisive breakthrough materialized at the 52-minute mark when an incisive transition sequence unlocked the flanks, allowing City to convert a high-probability opportunity into the opening goal.
+          </p>
+<p class="text-[13px] leading-[18px]">
+            Heading into the final 25 minutes, Arsenal responded with sustained territorial pressure, orchestrating compact combinations in an attempt to breach City's well-structured rest-defense.
+          </p>
+</div>
+<!-- Verified Graph Sub-note -->
+<div class="mt-3 pt-2.5 border-t border-[#F0EDED] flex items-center justify-between text-caption-2 font-caption-2 text-[#616161]">
+<span>Entity Path: Anelka → Manchester City → Haaland</span>
+<span class="bg-[#F5F5F5] px-1.5 py-0.5 rounded border border-[#D1D1D1] font-caption-1-strong text-[#242424]">2 degrees</span>
+</div>
+</section>
+<!-- SECTION 5: Live Event Feed Card -->
+<section class="bg-[#FFFFFF] fluent-border rounded-xl p-4 fluent-shadow-1">
+<div class="flex items-center justify-between mb-2">
+<div>
+<h3 class="text-subtitle-2 font-subtitle-2 text-[#242424] font-semibold">Live event feed</h3>
+<p class="text-caption-2 font-caption-2 text-[#616161]">Real-time simulation timeline</p>
+</div>
+<span class="text-caption-2 font-caption-1-strong text-[#0F6CBD] bg-[#EBF3FC] px-2 py-0.5 rounded">6 Events</span>
+</div>
+<div class="divide-y divide-[#F0EDED]">
+<!-- Event 1 (67') -->
+<div class="py-2.5 flex items-start justify-between text-body-default font-body-default">
+<div class="flex items-start gap-2.5">
+<span class="text-caption-1-strong font-caption-1-strong text-[#616161] w-6 pt-0.5">67'</span>
+<div>
+<p class="text-[13px] text-[#242424] font-semibold">Substitution</p>
+<p class="text-caption-1 font-caption-1 text-[#616161]">Manchester City · Alvarez on, Foden off</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-[#717783] text-[18px]">sync_alt</span>
+</div>
+<!-- Event 2 (63') -->
+<div class="py-2.5 flex items-start justify-between text-body-default font-body-default">
+<div class="flex items-start gap-2.5">
+<span class="text-caption-1-strong font-caption-1-strong text-[#616161] w-6 pt-0.5">63'</span>
+<div>
+<p class="text-[13px] text-[#242424] font-semibold">Shot on target</p>
+<p class="text-caption-1 font-caption-1 text-[#616161]">Arsenal · Saka (<span class="text-[#0F6CBD] font-caption-1-strong">ΔxT +0.12</span>)</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-[#0F6CBD] text-[18px]">sports_soccer</span>
+</div>
+<!-- Event 3 (52' - GOAL HIGHLIGHTED) -->
+<div class="my-1 -mx-2 px-2 py-2.5 bg-[#EBF3FC] border-l-4 border-[#0F6CBD] rounded-r flex items-start justify-between">
+<div class="flex items-start gap-2.5">
+<span class="text-caption-1-strong font-caption-1-strong text-[#0F6CBD] w-6 pt-0.5">52'</span>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="text-[13px] text-[#0C3B5E] font-bold">Goal</span>
+<span class="text-[10px] font-caption-1-strong bg-[#0F6CBD] text-white px-1.5 py-0.2 rounded">0-1</span>
+</div>
+<p class="text-caption-1 font-caption-1 text-[#242424]">Manchester City · Haaland (<span class="font-semibold">xG 0.33</span>)</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-[#0F6CBD] text-[20px]">sports_score</span>
+</div>
+<!-- Event 4 (44') -->
+<div class="py-2.5 flex items-start justify-between text-body-default font-body-default">
+<div class="flex items-start gap-2.5">
+<span class="text-caption-1-strong font-caption-1-strong text-[#616161] w-6 pt-0.5">44'</span>
+<div>
+<p class="text-[13px] text-[#242424] font-semibold">Yellow Card</p>
+<p class="text-caption-1 font-caption-1 text-[#616161]">Arsenal · Saliba</p>
+</div>
+</div>
+<div class="w-3 h-4 bg-[#D83B01] rounded-sm mt-0.5"></div>
+</div>
+<!-- Event 5 (31') -->
+<div class="py-2.5 flex items-start justify-between text-body-default font-body-default">
+<div class="flex items-start gap-2.5">
+<span class="text-caption-1-strong font-caption-1-strong text-[#616161] w-6 pt-0.5">31'</span>
+<div>
+<p class="text-[13px] text-[#242424] font-semibold">Key Pass</p>
+<p class="text-caption-1 font-caption-1 text-[#616161]">Manchester City · De Bruyne</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-[#717783] text-[18px]">moving</span>
+</div>
+<!-- Event 6 (18') -->
+<div class="py-2.5 flex items-start justify-between text-body-default font-body-default">
+<div class="flex items-start gap-2.5">
+<span class="text-caption-1-strong font-caption-1-strong text-[#616161] w-6 pt-0.5">18'</span>
+<div>
+<p class="text-[13px] text-[#242424] font-semibold">Blocked Shot</p>
+<p class="text-caption-1 font-caption-1 text-[#616161]">Arsenal · Martinelli</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-[#717783] text-[18px]">shield</span>
+</div>
+</div>
+</section>
+<!-- SECTION 6: Momentum Card -->
+<section class="bg-[#FFFFFF] fluent-border rounded-xl p-4 fluent-shadow-1">
+<div class="flex items-center justify-between mb-3">
+<div>
+<h3 class="text-subtitle-2 font-subtitle-2 text-[#242424] font-semibold">Momentum</h3>
+<p class="text-caption-2 font-caption-2 text-[#616161]">Events per 15' interval</p>
+</div>
+<!-- Legend -->
+<div class="flex items-center gap-2.5 text-caption-2 font-caption-2">
+<div class="flex items-center gap-1">
+<span class="w-2.5 h-2.5 rounded-sm bg-[#0F6CBD]"></span>
+<span class="text-[#424242]">Arsenal</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="w-2.5 h-2.5 rounded-sm bg-[#D83B01]"></span>
+<span class="text-[#424242]">Man City</span>
+</div>
+</div>
+</div>
+<!-- 6 Interval Pairs Chart -->
+<div class="grid grid-cols-6 gap-2 items-end h-28 pt-4 pb-1 border-b border-[#EBEBEB]">
+<!-- 0-15' -->
+<div class="flex flex-col items-center h-full justify-end gap-1">
+<div class="w-full flex items-end justify-center gap-1 h-20">
+<div class="w-2.5 bg-[#0F6CBD] rounded-t-sm" style="height: 40%;"></div>
+<div class="w-2.5 bg-[#D83B01] rounded-t-sm" style="height: 60%;"></div>
+</div>
+<span class="text-[10px] text-[#616161] whitespace-nowrap">0-15'</span>
+</div>
+<!-- 15-30' -->
+<div class="flex flex-col items-center h-full justify-end gap-1">
+<div class="w-full flex items-end justify-center gap-1 h-20">
+<div class="w-2.5 bg-[#0F6CBD] rounded-t-sm" style="height: 50%;"></div>
+<div class="w-2.5 bg-[#D83B01] rounded-t-sm" style="height: 75%;"></div>
+</div>
+<span class="text-[10px] text-[#616161] whitespace-nowrap">15-30'</span>
+</div>
+<!-- 30-45' -->
+<div class="flex flex-col items-center h-full justify-end gap-1">
+<div class="w-full flex items-end justify-center gap-1 h-20">
+<div class="w-2.5 bg-[#0F6CBD] rounded-t-sm" style="height: 65%;"></div>
+<div class="w-2.5 bg-[#D83B01] rounded-t-sm" style="height: 55%;"></div>
+</div>
+<span class="text-[10px] text-[#616161] whitespace-nowrap">30-45'</span>
+</div>
+<!-- 45-60' -->
+<div class="flex flex-col items-center h-full justify-end gap-1">
+<div class="w-full flex items-end justify-center gap-1 h-20">
+<div class="w-2.5 bg-[#0F6CBD] rounded-t-sm" style="height: 35%;"></div>
+<div class="w-2.5 bg-[#D83B01] rounded-t-sm" style="height: 85%;"></div>
+</div>
+<span class="text-[10px] text-[#616161] whitespace-nowrap">45-60'</span>
+</div>
+<!-- 60-75' (Active interval) -->
+<div class="flex flex-col items-center h-full justify-end gap-1 bg-[#F5F5F5] rounded-t px-0.5">
+<div class="w-full flex items-end justify-center gap-1 h-20">
+<div class="w-2.5 bg-[#0F6CBD] rounded-t-sm" style="height: 70%;"></div>
+<div class="w-2.5 bg-[#D83B01] rounded-t-sm" style="height: 45%;"></div>
+</div>
+<span class="text-[10px] text-[#0F6CBD] font-bold whitespace-nowrap">60-75'</span>
+</div>
+<!-- 75-90' (Upcoming / projection) -->
+<div class="flex flex-col items-center h-full justify-end gap-1 opacity-40">
+<div class="w-full flex items-end justify-center gap-1 h-20">
+<div class="w-2.5 bg-[#0F6CBD] rounded-t-sm" style="height: 20%;"></div>
+<div class="w-2.5 bg-[#D83B01] rounded-t-sm" style="height: 20%;"></div>
+</div>
+<span class="text-[10px] text-[#616161] whitespace-nowrap">75-90'</span>
+</div>
+</div>
+<p class="mt-2 text-caption-2 font-caption-2 text-[#616161] text-center">Current momentum shifted toward Arsenal (60-75')</p>
+</section>
+<!-- SECTION 7: Primary AI Action Button (min 48px height) -->
+<section class="pt-1">
+<button class="w-full min-h-[48px] bg-[#0F6CBD] hover:bg-[#115EA3] active:bg-[#0C3B5E] text-white rounded font-body-strong text-body-strong px-4 py-3 flex items-center justify-center gap-2 shadow-sm transition-colors" type="button">
+<span class="text-white text-base">✦</span>
+<span>Ask Azure — live Phi-4-mini narration</span>
+</button>
+<p class="text-caption-2 font-caption-2 text-[#616161] text-center mt-1.5 leading-normal">
+          Note: The first call after idle can take ~60–90s due to cold start.
+        </p>
+</section>
+<!-- SECTION 8: Open Source Attribution Footer -->
+<footer class="pt-2 pb-6 text-center">
+<p class="text-[11px] text-[#616161]">
+          Open source (MIT) · Synthetic data only
+        </p>
+</footer>
+</main>
+<!-- SHARED COMPONENT 2: BottomNavBar (Fixed Docked Destination Shell) -->
+<!-- Active Destination determined strictly by page title/intent: "Studio" -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 py-1 max-w-[390px] mx-auto bg-surface-card dark:bg-inverse-surface border-t border-outline-variant dark:border-outline/30 shadow-md">
+<!-- Studio (Active) -->
+<button class="flex flex-col items-center justify-center text-primary dark:text-inverse-primary font-semibold py-1 active:scale-95 transition-transform duration-150 min-h-[44px] min-w-[64px]" type="button">
+<span class="material-symbols-outlined text-[20px]">query_stats</span>
+<span class="text-caption-2 font-caption-2 mt-0.5">Studio</span>
+</button>
+<!-- Timeline (Inactive) -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant py-1 hover:text-primary dark:hover:text-inverse-primary transition-colors active:scale-95 duration-150 min-h-[44px] min-w-[64px]" type="button">
+<span class="material-symbols-outlined text-[20px]">timer</span>
+<span class="text-caption-2 font-caption-2 mt-0.5">Timeline</span>
+</button>
+<!-- Insights (Inactive) -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant py-1 hover:text-primary dark:hover:text-inverse-primary transition-colors active:scale-95 duration-150 min-h-[44px] min-w-[64px]" type="button">
+<span class="material-symbols-outlined text-[20px]">auto_awesome</span>
+<span class="text-caption-2 font-caption-2 mt-0.5">Insights</span>
+</button>
+<!-- Tactics (Inactive) -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant py-1 hover:text-primary dark:hover:text-inverse-primary transition-colors active:scale-95 duration-150 min-h-[44px] min-w-[64px]" type="button">
+<span class="material-symbols-outlined text-[20px]">strategy</span>
+<span class="text-caption-2 font-caption-2 mt-0.5">Tactics</span>
+</button>
+</nav>
+</div>
+</body></html>

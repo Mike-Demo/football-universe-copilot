@@ -34,6 +34,15 @@
 <section class="card"><h2>Running costs</h2>
 <p>The full breakdown is in <a href="https://github.com/Mike-Demo/football-universe-copilot/blob/main/infra/COSTS.md">infra/COSTS.md</a>: every Azure service is pay-per-use with a $0 floor, the deployment sits under its own billing profile with a $10 budget alert, and the realistic total through judging is $0–2.</p></section>
 
-<section class="card"><h2>Reproduce it</h2>
+<section class="card">
+<h2>The models (exactly what runs, no black boxes)</h2>
+<div class="card">
+<p><strong>Poisson goals model.</strong> Every fixture's expected goals come from club attack/defence ratings: λ<sub>home</sub> = 1.42 × attack<sub>home</sub> ÷ defence<sub>away</sub>, λ<sub>away</sub> = 1.12 × attack<sub>away</sub> ÷ defence<sub>home</sub> (1.42/1.12 are the league-average home/away baselines). Season results are Poisson draws on those λ values; the demo's what-if panel recomputes win/draw/win probabilities live from any λ pair using two independent Poisson distributions.</p>
+<p><strong>Expected threat (xT), simplified.</strong> Each event carries synthetic pitch coordinates (105×68). The threat of a location is xT(x, y) = 0.38 · e<sup>−d/24</sup> · (1 − 0.45·|y−34|/34), where d is the distance to the goal centre — an analytic surface peaking near goal and decaying with distance and width. ΔxT for a pass is xT at the ball's new location minus xT at its previous one. Shot xG (model) = min(0.95, 2.2 × xT at the shot location). These are deliberately simple, fully documented stand-ins for learned xT/xG models — the formulas are the product, not a fitted black box.</p>
+<p><strong>Positions &amp; Voronoi.</strong> Key events (shots, corners, 35m+ passes) carry a snapshot of all 22 players: each team's formation template shifted toward the ball and jittered from the same seeded stream. Voronoi zones are computed in the browser by half-plane clipping — real geometry on synthetic positions, labelled as such.</p>
+<p><strong>Performance numbers.</strong> Any timing shown in the Tactical Lab is measured live in your browser with <code>performance.now()</code>. We never display invented throughput or latency figures.</p>
+</div>
+
+<h2>Reproduce it</h2>
 <p><code>git clone</code> the repo → <code>python3 -m unittest discover -s tests</code> (9 tests, no installs) → <code>python3 tools/build_demo_data.py &amp;&amp; python3 tools/build_season_data.py</code> → open <code>docs/</code> over any static server. Azure: <code>infra/deploy.sh</code> with your own subscription.</p></section>
 </main></body></html>

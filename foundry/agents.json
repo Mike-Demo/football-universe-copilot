@@ -1,0 +1,17 @@
+{
+  "project": "football-universe-copilot",
+  "model_deployment": "gpt-4o-mini",
+  "agents": [
+    {"name": "Interpreter", "role": "Synthetic events -> statistics, momentum, chaos, threshold alerts"},
+    {"name": "GraphContext", "role": "Graph grounding: shortest paths, centrality (Kevin Bacon Score), communities"},
+    {"name": "Narrator", "role": "Grounded narration + auto recap (Azure OpenAI when configured, template fallback)"},
+    {"name": "Personalizer", "role": "Analyst / casual / player-focus / club-focus / Spanish renderings + timed overlay"}
+  ],
+  "orchestration": "Sequential shared-state handoffs (Microsoft Agent Framework manifest in src/agents/framework_adapter.py)",
+  "foundry_steps": [
+    "In Microsoft Foundry portal: create/open the project linked to the Azure OpenAI resource from infra/main.bicep",
+    "Confirm the gpt-4o-mini deployment exists (created by Bicep)",
+    "Register the four agents above with the instructions in framework_adapter.AGENT_MANIFEST",
+    "Run an evaluation on the sample fixture (outputs/sample_match_intelligence.json) and keep the run link for the submission"
+  ]
+}

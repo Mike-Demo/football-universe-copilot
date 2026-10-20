@@ -128,6 +128,12 @@
     </div>
     <section class="card"><h2>⚡ Speed / distance threshold alerts</h2><ul id="alerts"></ul></section>
     <section class="card"><h2>Auto match recap</h2><p id="recap"></p>
+    <div style="border-top:1px solid var(--divider);margin-top:10px;padding-top:10px">
+      <button id="azureBtn" class="primary">✦ Ask Azure — live Phi-4-mini narration</button>
+      <span class="small"> Calls the Azure Function live; its narrator is Microsoft's Phi-4-mini-instruct on Foundry. First call after idle can take ~60–90s (serverless cold start — the progress timer is honest). Featured match only.</span>
+      <p class="small" id="azureStatus" style="margin-top:8px"></p>
+      <div id="azureOut"></div>
+    </div>
     <p class="small">Pipeline: Interpreter agent → GraphContext agent → Narrator agent → Personalizer agent. Open source (MIT): <a href="https://github.com/Mike-Demo/football-universe-copilot">github.com/Mike-Demo/football-universe-copilot</a> · <a href="tech.html">Tech stack</a></p></section>
 
     <section class="card" id="seasonCard">

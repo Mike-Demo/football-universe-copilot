@@ -1,6 +1,6 @@
 {
   "project": "football-universe-copilot",
-  "model_deployment": "gpt-4o-mini",
+  "model_deployment": "Phi-4-mini-instruct", "model_provider": "Microsoft", "fallback_deployment": "gpt-4o-mini",
   "agents": [
     {"name": "Interpreter", "role": "Synthetic events -> statistics, momentum, chaos, threshold alerts"},
     {"name": "GraphContext", "role": "Graph grounding: shortest paths, centrality (Kevin Bacon Score), communities"},

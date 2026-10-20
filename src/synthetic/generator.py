@@ -10,10 +10,15 @@ def generate(seed=25, minutes=90):
         if t>minutes: break
         team=rng.choice(teams); opp=teams[1] if team==teams[0] else teams[0]
         player=rng.choice(SQUADS[team]); et=rng.choices(TYPES,weights=[62,10,8,6,7,4,3])[0]
-        ev={"match_id":"SYN-ARS-MCI-001","clock":round(t,2),"minute":int(t),"type":et,"team":team,"player":player,"synthetic":True}
+        ev={"match_id":"SYN-ARS-MCI-001","clock":round(t,2),"minute":int(t),"type":et,"team":team,"player":player,"synthetic":True,"player_speed_kmh":round(rng.uniform(4,35),1),"distance_covered_m":round(rng.uniform(8,85),1)}
         if et=="pass": ev.update({"distance_m":round(rng.uniform(4,42),1),"accuracy":round(rng.uniform(0.55,0.99),2),"difficulty":round(rng.uniform(1,10),1)})
         if et=="shot": ev.update({"shot_speed_kmh":round(rng.uniform(62,128),1),"ball_speed_kmh":round(rng.uniform(62,128),1),"on_target":rng.random()<0.42})
         if et=="pressure": ev.update({"pressure_intensity":round(rng.uniform(1,10),1)})
+        alerts=[]
+        if ev.get("shot_speed_kmh",0)>=110: alerts.append("SPEED_ALERT: shot >= 110 km/h")
+        if ev.get("distance_m",0)>=35: alerts.append("LONG_RANGE_ALERT: pass >= 35m")
+        if ev["player_speed_kmh"]>=32: alerts.append("SPRINT_ALERT: player speed >= 32 km/h")
+        if alerts: ev["threshold_alerts"]=alerts
         if et=="shot" and ev["on_target"] and rng.random()<0.28:
             score[team]+=1; ev["goal"]=True; ev["score"]=dict(score)
         events.append(ev)

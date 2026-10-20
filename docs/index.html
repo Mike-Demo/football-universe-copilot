@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Football Universe Copilot — Live Match Intelligence (Synthetic Demo)</title>
+<link rel="stylesheet" href="style.css"></head>
+<body>
+<header>
+  <h1>⚽ Football Universe Copilot</h1>
+  <p class="sub">Synthetic match events → explainable intelligence → broadcast overlay → personalized for every fan. <strong>All match data is synthetic. Graph data is the seed universe.</strong></p>
+  <div class="scorebar"><span id="homeName">Arsenal</span> <strong id="score">0 – 0</strong> <span id="awayName">Manchester City</span>
+  <span class="clock" id="clock">0'</span></div>
+  <div class="controls">
+    <button id="playBtn">▶ Play replay</button>
+    <label>Speed <select id="speed"><option value="1">1×</option><option value="4" selected>4×</option><option value="12">12×</option><option value="30">30×</option></select></label>
+    <input type="range" id="scrub" min="0" max="90" step="0.1" value="0" aria-label="Match minute">
+    <button id="resetBtn">↺ Reset</button>
+  </div>
+  <div class="modes" role="group" aria-label="Personalization mode">
+    <button data-mode="casual_fan" class="mode active">Casual Fan</button>
+    <button data-mode="analyst" class="mode">Analyst</button>
+    <button data-mode="player_focus" class="mode">Player Focus: Haaland</button>
+    <button data-mode="es" class="mode">Español</button>
+  </div>
+</header>
+<main>
+  <section class="card" id="overlayCard" hidden><h2>📺 Broadcast overlay — key moment</h2><p id="overlayText"></p></section>
+  <section class="card"><h2 id="modeTitle">The story of the match</h2><p id="modeBody">Press Play.</p></section>
+  <div class="grid">
+    <section class="card"><h2>Live event feed</h2><ul id="feed" class="feed"></ul></section>
+    <section class="card"><h2>Momentum (events per 15')</h2><div id="momentum"></div>
+      <p id="liveStats" class="small"></p></section>
+  </div>
+  <section class="card"><h2>Football Universe graph — why it matters</h2>
+    <canvas id="graph" width="1020" height="560" aria-label="Force directed graph of players, clubs and managers"></canvas>
+    <p class="small">Blue = player · Red = club · Green = manager. Node size = Kevin Bacon Score. Gold path animates the verified shortest path: <strong>Nicolas Anelka → Manchester City → Erling Haaland (2 degrees)</strong>. Click any node for its connections.</p>
+    <p id="nodeInfo" class="small"></p>
+    <button id="pathBtn">✦ Animate Anelka → Haaland path</button>
+  </section>
+  <div class="grid">
+    <section class="card"><h2>Kevin Bacon Leaderboard</h2><ol id="board"></ol></section>
+    <section class="card"><h2>Why these moments matter</h2><ul id="why"></ul></section>
+  </div>
+  <section class="card"><h2>Auto match recap</h2><p id="recap"></p>
+  <p class="small">Pipeline: Interpreter agent → GraphContext agent → Narrator agent → Personalizer agent. Code + tests: <a href="https://github.com/Mike-Demo/football-universe-copilot">github.com/Mike-Demo/football-universe-copilot</a></p></section>
+</main>
+<script src="app.js"></script>
+</body></html>

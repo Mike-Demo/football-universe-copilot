@@ -1,6 +1,13 @@
 // Football Universe Copilot — live replay + force-directed graph. No dependencies.
 let D, minute = 0, playing = false, lastTs = null, shown = 0, mode = 'casual_fan';
 const $ = id => document.getElementById(id);
+function xtModel(x, y) { const d = Math.hypot(105 - x, 34 - y); return Math.round(0.38 * Math.exp(-d / 24) * (1 - 0.45 * Math.abs(y - 34) / 34) * 1000) / 1000; }
+const FORMATION = [[4,34],[18,10],[18,26],[18,42],[18,58],[34,16],[34,34],[34,52],[52,22],[52,46],[66,34]];
+function positionsFor(rng, bx, by) { const out = []; for (let ti = 0; ti < 2; ti++) for (const [fx, fy] of FORMATION) { let x = ti ? 105 - fx : fx, y = ti ? 68 - fy : fy; x += (bx - 52.5) * 0.35; y += (by - 34) * 0.3; out.push([Math.round(Math.max(1, Math.min(104, x + rng() * 14 - 7)) * 10) / 10, Math.round(Math.max(1, Math.min(67, y + rng() * 12 - 6)) * 10) / 10, ti]); } return out; }
+function poiPmf(lam, k) { let p = Math.exp(-lam); for (let i = 1; i <= k; i++) p *= lam / i; return p; }
+function poiOutcomes(lh, la) { let hw = 0, dr = 0, aw = 0, best = [0, -1, -1]; for (let i = 0; i <= 10; i++) for (let j = 0; j <= 10; j++) { const p = poiPmf(lh, i) * poiPmf(la, j); if (i > j) hw += p; else if (i === j) dr += p; else aw += p; if (p > best[0]) best = [p, i, j]; } return { hw, dr, aw, best }; }
+function updatePoisson() { const lh = parseFloat($('lamH').value), la = parseFloat($('lamA').value); $('lamHV').textContent = lh.toFixed(2); $('lamAV').textContent = la.toFixed(2); const o = poiOutcomes(lh, la); const bar = (lbl, v, c) => `<div class="mbar"><span style="width:130px">${lbl}</span><span class="bar" style="width:${Math.round(v * 260)}px;background:${c}"></span> ${(v * 100).toFixed(1)}%</div>`; $('poiOut').innerHTML = bar($('lamHName').textContent + ' win', o.hw, 'var(--brand)') + bar('Draw', o.dr, '#616161') + bar($('lamAName').textContent + ' win', o.aw, '#C50F1F') + `<p class="small">Most likely score: ${o.best[1]}–${o.best[2]} (${(o.best[0] * 100).toFixed(1)}%). Computed live in your browser from the two λ values.</p>`; }
+let perf = { steps: 0, ms: 0, last: 0 };
 const scoreAt = m => { const s = { [D.fixture.home]: 0, [D.fixture.away]: 0 }; for (const e of D.events) { if (e.minute <= m && e.goal) s[e.team]++; } return s; };
 function render() {
   const s = scoreAt(minute);
@@ -139,11 +146,33 @@ function updateAgents() {
   const nc = $('narrChip'); if (nc) nc.textContent = 'Narration: ' + src;
   $('agPersonalizer').textContent = 'Five personas rendered from the same intelligence: Casual Fan · Analyst · Player Focus · Club Focus · Español';
 }
+function updateModelUI() { const xl = $('xgLine'); if (xl && D.model) xl.textContent = `Model xG (Poisson λ): ${D.fixture.home} ${D.model.xg_home.toFixed(2)} — ${D.model.xg_away.toFixed(2)} ${D.fixture.away} · the same ratings model that simulated the season`; const lh = $('lamH'); if (lh && D.model) { $('lamHName').textContent = D.fixture.home; $('lamAName').textContent = D.fixture.away; lh.value = D.model.xg_home; $('lamA').value = D.model.xg_away; updatePoisson(); } drawPitch(true); }
+let pitchKey = -2;
+function drawPitch(force) {
+  const cv = $('pitch'); if (!cv) return; const ctx = cv.getContext('2d'); const W = 1050, H = 680, S = 10;
+  let snap = null; for (const e of D.events) { if (e.minute > minute) break; if (e.positions) snap = e; }
+  const key = snap ? D.events.indexOf(snap) : -1; if (!force && key === pitchKey) return; pitchKey = key;
+  ctx.clearRect(0, 0, W, H); ctx.fillStyle = '#F1FAF1'; ctx.fillRect(0, 0, W, H);
+  ctx.strokeStyle = 'rgba(16,124,16,.45)'; ctx.lineWidth = 2; ctx.strokeRect(30, 30, W - 60, H - 60);
+  ctx.beginPath(); ctx.moveTo(W / 2, 30); ctx.lineTo(W / 2, H - 30); ctx.stroke(); ctx.beginPath(); ctx.arc(W / 2, H / 2, 91, 0, 7); ctx.stroke();
+  ctx.strokeRect(30, 138, 165, H - 276); ctx.strokeRect(W - 195, 138, 165, H - 276); ctx.strokeRect(30, 248, 55, H - 496); ctx.strokeRect(W - 85, 248, 55, H - 496);
+  if (!snap) { $('pitchInfo').textContent = 'Press Play — the snapshot follows the latest key moment (shot, corner or long pass), with Voronoi zones computed live from the 22 synthetic player positions.'; return; }
+  const pts = snap.positions;
+  if ($('vorToggle').checked) { for (let i = 0; i < pts.length; i++) { let poly = [[0, 0], [105, 0], [105, 68], [0, 68]]; for (let j = 0; j < pts.length; j++) { if (j === i) continue; const mx = (pts[i][0] + pts[j][0]) / 2, my = (pts[i][1] + pts[j][1]) / 2, dx = pts[j][0] - pts[i][0], dy = pts[j][1] - pts[i][1]; const np = []; for (let k = 0; k < poly.length; k++) { const a = poly[k], b = poly[(k + 1) % poly.length]; const da = (a[0] - mx) * dx + (a[1] - my) * dy, db = (b[0] - mx) * dx + (b[1] - my) * dy; if (da <= 0) np.push(a); if ((da < 0) !== (db < 0)) { const f = da / (da - db); np.push([a[0] + (b[0] - a[0]) * f, a[1] + (b[1] - a[1]) * f]); } } poly = np; if (!poly.length) break; } if (poly.length) { ctx.beginPath(); poly.forEach((q, qi) => qi ? ctx.lineTo(q[0] * S, q[1] * S) : ctx.moveTo(q[0] * S, q[1] * S)); ctx.closePath(); ctx.fillStyle = pts[i][2] === 0 ? 'rgba(15,108,189,.10)' : 'rgba(197,15,31,.10)'; ctx.fill(); ctx.strokeStyle = 'rgba(36,36,36,.10)'; ctx.lineWidth = 1; ctx.stroke(); } } }
+  if (snap.dx !== undefined) { ctx.strokeStyle = '#0F6CBD'; ctx.lineWidth = 2.5; ctx.beginPath(); ctx.moveTo((snap.x - snap.dx) * S, (snap.y - snap.dy) * S); ctx.lineTo(snap.x * S, snap.y * S); ctx.stroke(); }
+  for (const q of pts) { ctx.beginPath(); ctx.arc(q[0] * S, q[1] * S, 7, 0, 7); ctx.fillStyle = q[2] === 0 ? '#0F6CBD' : '#C50F1F'; ctx.fill(); }
+  ctx.beginPath(); ctx.arc(snap.x * S, snap.y * S, 6, 0, 7); ctx.fillStyle = '#fff'; ctx.fill(); ctx.strokeStyle = '#242424'; ctx.lineWidth = 2; ctx.stroke();
+  let info = `Snapshot: ${snap.type} · ${snap.minute}' · ${snap.team} · ball at (${snap.x}, ${snap.y}) · xT ${snap.xt}`;
+  if (snap.xt_delta !== undefined) info += ` · ΔxT ${snap.xt_delta >= 0 ? '+' : ''}${snap.xt_delta}`;
+  if (snap.xg !== undefined) info += ` · shot xG (model) ${snap.xg}`;
+  if (snap.dx !== undefined) info += ` · ball vector (${snap.dx}, ${snap.dy}) m`;
+  $('pitchInfo').textContent = info + ' · Voronoi zones computed in your browser from these positions (blue = ' + D.fixture.home + ', red = ' + D.fixture.away + ').';
+}
 function applyMatch(nd, label) {
   D = nd; minute = 0; playing = false; $('playBtn').textContent = '▶ Play replay';
   $('homeName').textContent = D.fixture.home; $('awayName').textContent = D.fixture.away;
   $('matchLabel').textContent = label;
-  setMode(mode); render(); updateAgents(); window.scrollTo({ top: 0, behavior: 'smooth' });
+  setMode(mode); render(); updateAgents(); updateModelUI(); perf = { steps: 0, ms: 0, last: performance.now() }; window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 function initPicker(season) {
   const lgSel = $('pickLeague'), teamSel = $('pickTeam'), matchSel = $('pickMatch');
@@ -178,7 +207,7 @@ async function load() {
   $('why').innerHTML = D.narrative.why_it_matters.map(x => `<li>${x}</li>`).join('');
   $('recap').textContent = D.narrative.recap;
   $('alerts').innerHTML = (D.stats.threshold_alerts || []).slice(0, 10).map(a => `<li>${a.minute}' ${a.player} — ${a.alerts.join('; ')}</li>`).join('') || '<li>None in this match.</li>';
-  setMode('casual_fan'); render(); updateAgents(); initGraph();
+  setMode('casual_fan'); render(); updateAgents(); updateModelUI(); initGraph();
   try { const season = await (await fetch('season.json')).json(); initPicker(season); } catch (e) { /* picker optional */ }
 }
 $('playBtn').addEventListener('click', () => { playing = !playing; lastTs = null; $('playBtn').textContent = playing ? '⏸ Pause' : '▶ Play replay'; if (playing) requestAnimationFrame(tick); });
@@ -186,4 +215,6 @@ $('resetBtn').addEventListener('click', () => { minute = 0; playing = false; $('
 $('scrub').addEventListener('input', e => { minute = parseFloat(e.target.value); render(); });
 document.querySelectorAll('.mode').forEach(b => b.addEventListener('click', () => setMode(b.dataset.mode)));
 const cp = $('copyPayloadBtn'); if (cp) cp.addEventListener('click', () => { navigator.clipboard && navigator.clipboard.writeText($('payloadPre').textContent); cp.textContent = 'Copied ✓'; setTimeout(() => cp.textContent = 'Copy JSON', 1500); });
+['lamH', 'lamA'].forEach(id => { const el = $(id); if (el) el.addEventListener('input', updatePoisson); });
+const vt = $('vorToggle'); if (vt) vt.addEventListener('change', () => drawPitch(true));
 load().catch(() => { $('modeBody').textContent = 'Could not load data.json — serve this folder over http (python3 -m http.server) or view the live GitHub Pages demo.'; });

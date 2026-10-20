@@ -8,7 +8,7 @@ def run(seed=25, focus_player="Erling Haaland"):
     stats=InterpreterAgent().run(match)                        # 2 Interpret
     ctx=GraphContextAgent().run(stats)                         # 3 Explain — graph grounding
     narrator=NarratorAgent().run(match, stats, ctx)            # 3b Narrate
-    modes=PersonalizerAgent().run(stats, narrator, focus_player)  # 5 Personalize
+    modes=PersonalizerAgent().run(stats, narrator, focus_player, final_score=f"{match['fixture']['home']} {match['final_score'][match['fixture']['home']]}-{match['final_score'][match['fixture']['away']]} {match['fixture']['away']}")  # 5 Personalize
     overlay=render_overlay(match, stats, ctx, narrator, modes)    # 4 Render
     return {"match":match,"stats":stats,"graph_context":ctx,"narrative":narrator,"personalized":modes,"overlay":overlay,
             "agents":["Interpreter","GraphContext","Narrator","Personalizer"],"handoff":"shared state dict, each agent consumes the previous agent's output"}

@@ -33,12 +33,16 @@ class GraphContextAgent:
 class NarratorAgent:
     name="Narrator"
     def run(self, match, stats, ctx):
+        from src.agents.azure_narrator import azure_narrate
+        live = azure_narrate(match, stats, ctx)
         why=[]
         for c in ctx["key_moment_context"][:4]:
             why.append(f"Minute {c['minute']}: {c['player']} matters here — Kevin Bacon Score {c['kevin_bacon_score']}/10, {c['degree']} graph connections. Path to Haaland: {' → '.join(c['path_to_haaland'] or [])}.")
         recap=(f"{match['fixture']['home']} {match['final_score'][match['fixture']['home']]}–{match['final_score'][match['fixture']['away']]} {match['fixture']['away']} (synthetic). "
                f"{stats['shots']} shots, chaos index {stats['chaos_index']} — control swung by 15-minute windows: " + ", ".join(f"{m['window']} {m['dominant']}" for m in stats["momentum"]) + ".")
-        return {"why_it_matters":why,"recap":recap,"explainability":"Every narrative claim is grounded in a generated event or a verified graph path — the narrator never invents a connection."}
+        if live:
+            return {"why_it_matters":why,"recap":live["recap"],"narration_source":live["source"],"explainability":"Every narrative claim is grounded in a generated event or a verified graph path — the narrator never invents a connection."}
+        return {"why_it_matters":why,"recap":recap,"narration_source":"template-fallback","explainability":"Every narrative claim is grounded in a generated event or a verified graph path — the narrator never invents a connection."}
 class PersonalizerAgent:
     name="Personalizer"
     def run(self, stats, narrator, focus_player="Erling Haaland", final_score=None, focus_club="Arsenal"):

@@ -9,6 +9,7 @@
   <span class="spacer"></span>
   <button id="prideBtn" class="btn pridebtn" aria-label="Open Pride Matchday mode"><img class="fe" src="assets/fluent-emoji/rainbow-flag.svg" alt=""><span class="ptext"> Pride</span></button>
   <button id="tourBtn" class="btn">Tour &amp; Guide</button>
+  <button id="friendlyBtn" class="btn friendlybtn" aria-haspopup="dialog"><img class="fe" src="assets/fluent-emoji/beaming-face.svg" alt="" aria-hidden="true"><span class="ftext"> The friendly version</span></button>
   <a class="btn ghbtn" style="text-decoration:none;display:inline-flex;align-items:center" href="https://github.com/Mike-Demo/football-universe-copilot">GitHub</a>
 </div>
 <div class="shell">
@@ -272,6 +273,34 @@
       <div class="chaos-tile"><span class="small">ACOUSTIC PRIDE PEAK</span><strong id="pTeleDb">—</strong><span class="small" id="pTeleDbCap"></span></div>
       <div class="chaos-tile"><span class="small">EXPECTED GIGGLES (xG)</span><strong id="pTeleGiggles">—</strong><span class="small" id="pTeleGigglesCap"></span></div>
     </section>
+  </div>
+</div>
+<div id="friendly" hidden>
+  <div class="friendly-box" role="dialog" aria-modal="true" aria-labelledby="friendlyTitle">
+    <div class="friendly-head">
+      <h2 id="friendlyTitle"><img class="fe" src="assets/fluent-emoji/beaming-face.svg" alt="" aria-hidden="true"> Football Universe Copilot, in plain English</h2>
+      <button id="friendlyClose" class="friendly-x" aria-label="Close the friendly version">✕</button>
+    </div>
+    <div class="friendly-body">
+      <p>New here? Welcome in. This page is a football companion. It watches a match with you and explains what is happening, and why it matters, in words anyone can follow. No football brain required. No computer brain required either.</p>
+      <h3><img class="fe" src="assets/fluent-emoji/globe-with-meridians.svg" alt="" aria-hidden="true"> The two-steps-apart story</h3>
+      <p>You might think Nicolas Anelka and Erling Haaland have nothing to do with each other. They played in different times and never shared a pitch. But this page keeps a big map of who played where, and on that map the two of them are only two steps apart: Anelka played for Manchester City, and so did Haaland. It works like friends of friends. You may never have met someone, yet you share a friend. Football is full of hidden links like that, and finding them is half the fun here.</p>
+      <h3><img class="fe" src="assets/fluent-emoji/sparkles.svg" alt="" aria-hidden="true"> Meet the four helpers</h3>
+      <p>Four helpers share the work, like a little team behind the curtain:</p>
+      <ul>
+        <li><strong>The reader</strong> watches the match closely and writes down everything that happens: every pass, shot, and goal.</li>
+        <li><strong>The memory</strong> remembers how all the players and clubs connect to each other, going back years.</li>
+        <li><strong>The storyteller</strong> turns those notes into the story of the match, as it unfolds.</li>
+        <li><strong>The shaper</strong> adjusts the story to fit you. Want it short and simple? Following one favourite player? Cheering for one club? The same match, retold your way.</li>
+      </ul>
+      <h3><img class="fe" src="assets/fluent-emoji/television.svg" alt="" aria-hidden="true"> A recap written on the spot</h3>
+      <p>In the match area there is a button marked Ask Azure. Tap it, and a real AI writes a fresh recap of the match for you, right there and then. Nothing is copied from a script. And this page always tells you where the words came from, so you can see whether a recap was written fresh for you or filled in with a ready-made summary. No pretending, ever.</p>
+      <h3><img class="fe" src="assets/fluent-emoji/party-popper.svg" alt="" aria-hidden="true"> Two fun extras</h3>
+      <p><strong>Chaos Arcade</strong> turns the same match into a silly arcade game, with confetti, sound effects, and daft camera angles. <strong>Pride Matchday</strong> dresses the same match in rainbows, because football is for everyone. Same match underneath, just dressed up for fun.</p>
+      <h3><img class="fe" src="assets/fluent-emoji/pushpin.svg" alt="" aria-hidden="true"> One honest note</h3>
+      <p>The matches on this page are made up. A computer invented them for practice, so no real results are on the line. The players and clubs are real, and so are the links between them. The games themselves never actually happened.</p>
+      <p class="friendly-cta"><button id="friendlyTry" class="primary">Pick a match and press play</button></p>
+    </div>
   </div>
 </div>
 <div id="dock" hidden role="complementary" aria-label="Copilot live commentary">

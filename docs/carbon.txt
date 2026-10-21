@@ -1,0 +1,26 @@
+# carbon.txt - carbon disclosure for Football Universe Copilot
+# Format: carbontxt.org syntax (TOML). This file is a good-faith disclosure,
+# not a certification: the sustainability of the hosting below is unverified,
+# and no green-hosting or carbon-neutral claim is made. No measurement of
+# actual energy use or emissions has been made. The per-visit figure in the
+# site footer is an estimate computed locally in the browser from transferred
+# bytes using CO2.js (The Green Web Foundation) - an estimate, not a meter.
+
+[org]
+name = "Mike Demopoulos (Demo)"
+website = "https://mike-demo.github.io/football-universe-copilot/"
+
+[[org.disclosures]]
+doc_type = "webpage"
+url = "https://mike-demo.github.io/football-universe-copilot/tech.html"
+title = "Football Universe Copilot - Open Source & Tech Stack, including the carbon disclosure"
+
+[upstream]
+
+[[upstream.services]]
+domain = "github.com"
+service_type = "cloud-hosting"
+
+[[upstream.services]]
+domain = "microsoft.com"
+service_type = "cloud-hosting"

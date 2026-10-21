@@ -8,7 +8,7 @@ API_VERSION = "2024-10-21"
 def azure_narrate(match, stats, ctx):
     endpoint = os.environ.get("AZURE_OPENAI_ENDPOINT", "").rstrip("/")
     key = os.environ.get("AZURE_OPENAI_API_KEY", "")
-    deployment = os.environ.get("AZURE_OPENAI_DEPLOYMENT", "gpt-4o-mini")
+    deployment = os.environ.get("AZURE_OPENAI_DEPLOYMENT", "Phi-4-mini-instruct")
     if not endpoint or not key:
         return None
     facts = {

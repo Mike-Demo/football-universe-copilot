@@ -222,3 +222,59 @@ body.dock-on{padding-bottom:96px}
 /* Site footer (CO2.js estimate renders into [data-co2-estimate]) */
 .sitefoot{max-width:980px;margin:0 auto;padding:16px;text-align:center}
 .sitefoot p{margin:4px 0}
+
+/* ---------- CHAOS ARCADE hidden mode (Stadium Spotlight dark system) ---------- */
+#chaos{position:fixed;inset:0;z-index:60;overflow-y:auto;background:#0a151c;color:#d9e4ee;padding:14px;font-family:"Segoe UI",system-ui,sans-serif}
+#chaos[hidden]{display:none}
+#chaos .small{color:#9fb4a8}
+.chaos-top{display:flex;gap:12px;align-items:center;flex-wrap:wrap;max-width:1240px;margin:0 auto 12px}
+.chaos-egg{display:flex;width:40px;height:40px;border-radius:10px;background:#00e478;align-items:center;justify-content:center}
+.chaos-egg .fe{width:26px;height:26px}
+.chaos-title{flex:1;min-width:220px;display:flex;flex-direction:column}
+.chaos-title strong{font-size:19px;letter-spacing:.01em}
+.chaos-fx-on{background:#00ff87;color:#003919;font-weight:700;font-size:12px;border-radius:6px;padding:6px 10px}
+.chaos-btn{background:#212b33;color:#d9e4ee;border:1px solid #3b4b3d;border-radius:8px;padding:8px 12px;cursor:pointer;font-weight:600}
+.chaos-btn:hover{background:#2b363e}
+.chaos-grid{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.chaos-card{background:#121d24;border:1px solid #2b363e;border-radius:12px;padding:14px}
+.chaos-scrubcard{grid-column:1/-1}
+.chaos-stage{grid-column:1/-1}
+.chaos-matchline{display:flex;gap:14px;align-items:baseline;flex-wrap:wrap;font-size:18px}
+.chaos-clock{color:#00d2ff;font-weight:700}
+.chaos-var{margin-left:auto;font-size:12px;font-weight:700;color:#0a151c;background:#47d6ff;border-radius:999px;padding:3px 10px}
+.chaos-var:empty{display:none}
+.chaos-keys{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+.chaos-key{background:#162128;border:1px solid #3b4b3d;color:#d9e4ee;border-radius:999px;padding:7px 12px;cursor:pointer;font-size:13px;display:inline-flex;gap:6px;align-items:center}
+.chaos-key:hover{border-color:#00e478}
+.chaos-key.on{background:#00e478;color:#003919;border-color:#00e478;font-weight:700}
+.chaos-transport{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.chaos-play{background:#00e478;color:#003919;border-color:#00e478;min-width:52px}
+.chaos-cams{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:12px}
+.chaos-cam{background:#162128;border:1px solid #3b4b3d;color:#b9cbb9;border-radius:8px;padding:7px 11px;cursor:pointer;font-size:13px}
+.chaos-cam.on{background:#00e478;color:#003919;font-weight:700;border-color:#00e478}
+.chaos-rec{font-size:12px;letter-spacing:.06em;color:#ffb2b7;margin-bottom:8px;display:flex;gap:8px;align-items:center}
+.chaos-dot{width:9px;height:9px;border-radius:50%;background:#ff5d73;display:inline-block;animation:chaosBlink 1.2s infinite}
+@keyframes chaosBlink{50%{opacity:.25}}
+.chaos-lock{margin-left:auto;color:#00ff87}
+#chaosCanvas{width:100%;height:auto;border-radius:10px;background:#0b2417;display:block}
+.chaos-stagebar{display:flex;gap:10px;align-items:center;justify-content:space-between;margin-top:10px;flex-wrap:wrap}
+.chaos-confetti{background:#00ff87;color:#003919;border-color:#00ff87}
+.chaos-stands .stand{padding:10px;border-radius:10px;background:#162128;margin-bottom:10px}
+.stand-head{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font-weight:700}
+.stand-bar{height:12px;border-radius:6px;background:#0a151c;overflow:hidden;margin:8px 0}
+.stand-fill{height:100%;border-radius:6px;transition:width var(--durSlow) var(--curveDecelerateMax)}
+.stand-emojis{display:flex;gap:5px;flex-wrap:wrap}
+.stand-emojis .fe{width:22px;height:22px}
+.stand-chant{font-size:13px;color:#a5e7ff;margin-top:6px}
+.chaos-sound h3{margin:0 0 10px;font-size:14px;letter-spacing:.05em}
+.chaos-soundgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.chaos-fx{background:#162128;border:1px solid #3b4b3d;color:#d9e4ee;border-radius:10px;padding:10px;text-align:left;cursor:pointer;font-weight:700;display:flex;flex-direction:column;gap:2px}
+.chaos-fx span{font-weight:400;font-size:12px;color:#9fb4a8}
+.chaos-fx:hover{border-color:#00d2ff}
+.chaos-fx .fe{width:22px;height:22px}
+.chaos-tele{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.chaos-tile{background:#162128;border-radius:10px;padding:10px;display:flex;flex-direction:column;gap:3px}
+.chaos-tile strong{font-size:21px;color:#00ff87}
+.chaos-fine{grid-column:1/-1}
+@media (max-width: 760px){ .chaos-grid{grid-template-columns:1fr} .chaos-tele{grid-template-columns:1fr 1fr} .chaos-title strong{font-size:16px} }
+@media (prefers-reduced-motion: reduce){ .chaos-dot{animation:none} }

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Football Universe Copilot — API Docs</title>
+<link rel="stylesheet" href="style.css"></head>
+<body>
+<header><h1><img class="fe" src="assets/fluent-emoji/robot.svg" alt="" aria-hidden="true"> API — Football Universe Copilot</h1>
+<p class="sub">The live Azure API behind the demo, plus the static files that carry the same pipeline output. <a href="index.html">← Back to the live demo</a> · <a href="tech.html">Tech stack</a></p></header>
+<main>
+<section class="card"><h2>Base URL &amp; ground rules</h2>
+<p><code>https://fuc-api-pv4pnqx2o2t4y.azurewebsites.net/api</code></p>
+<p>Anonymous — no key, no sign-up. Every response is JSON. <strong>All data is synthetic</strong>: the featured match, the seasons and the graph are generated or hand-seeded for this project; no real fixtures or results are served. The API runs on Azure Functions (Consumption, westus2) with narration by Microsoft Phi-4-mini-instruct on Microsoft Foundry; a first call after idle can take ~60–90 seconds (serverless cold start) — subsequent calls are seconds. CORS allows the demo origin <code>https://mike-demo.github.io</code>. The same pipeline runs locally with no cloud at all: <code>src/api/app.py</code> (FastAPI) exposes the same routes except <code>/season</code>.</p>
+</section>
+
+<section class="card"><h2>Endpoints</h2>
+<table>
+<tr><th>Endpoint</th><th>What it returns</th></tr>
+<tr><td><code>GET /health</code></td><td>Liveness check. <code>{"ok": true, "synthetic_only": true}</code></td></tr>
+<tr><td><code>GET /match/intelligence</code><br><span class="small">?focus_player=Erling Haaland (default)</span></td><td>The full pipeline output for the featured synthetic match (Arsenal v Manchester City): <code>stats</code> (incl. momentum with per-team splits, threshold alerts, event-share counts), <code>graph_context</code> (verified connections + leaderboard), <code>narrative</code> (recap + why-it-matters, always labelled with <code>narration_source</code> — <code>microsoft-foundry:Phi-4-mini-instruct</code> when the model answers, the deterministic template otherwise), <code>personalized</code> (five personas: casual_fan, analyst, player_focus, club_focus, es) and <code>overlay</code> (the timed broadcast feed, schema <code>football-universe-overlay/v1</code>).</td></tr>
+<tr><td><code>GET /graph/path</code><br><span class="small">?a=Nicolas Anelka&amp;b=Erling Haaland</span></td><td>Verified shortest path through the universe graph: <code>{from, to, degrees, path, edges}</code>. The documented example returns <strong>2 degrees</strong> via Manchester City. Unknown names return <code>degrees: null</code> with an empty path — paths are never invented.</td></tr>
+<tr><td><code>GET /graph/leaderboard</code></td><td>Top-20 Kevin Bacon Scores: Brandes betweenness centrality over the 45-node seed graph, scaled to /10, with each node's connection count.</td></tr>
+<tr><td><code>GET /season</code><br><span class="small">?league=premier_league (default) or wsl</span></td><td>One simulated season: <code>{competition, standings, narratives, synthetic: true}</code> — 380 Premier League or 132 WSL fixtures behind the table, from the seeded Poisson ratings model documented on the <a href="tech.html">tech page</a>.</td></tr>
+</table>
+<p class="small">Try it: <a href="https://fuc-api-pv4pnqx2o2t4y.azurewebsites.net/api/health">/api/health</a> · <a href="https://fuc-api-pv4pnqx2o2t4y.azurewebsites.net/api/graph/path?a=Nicolas%20Anelka&amp;b=Erling%20Haaland">/api/graph/path?a=Nicolas Anelka&amp;b=Erling Haaland</a> (fast, no model call). The intelligence endpoint is the one with the cold start.</p>
+</section>
+
+<section class="card"><h2>Static equivalents (no server, no cold start)</h2>
+<p>The demo itself runs on these files, baked from the same pipeline:</p>
+<table>
+<tr><th>File</th><th>Contents</th></tr>
+<tr><td><a href="data.json">data.json</a></td><td>Featured match: full event stream with pitch coordinates and key-moment snapshots, stats, graph + graph context, narrative, personas, timed overlay, and the FIFA FCD alignment block.</td></tr>
+<tr><td><a href="season.json">season.json</a></td><td>Both simulated seasons: every fixture with model xG, standings, form, points progressions, narratives.</td></tr>
+<tr><td><a href="fds/featured-match.xml">fds/featured-match.xml</a> · <a href="fds/premier-league-season.xml">season</a> · <a href="fds/wsl-season.xml">WSL</a></td><td>FIFA Connect Data v3.3 alignment exports, validated against the standard's XSDs; synthetic SYN-prefixed IDs. See the tech page's data-standard section for the honest scope.</td></tr>
+<tr><td><a href="llms.txt">llms.txt</a> · <a href="carbon.txt">carbon.txt</a></td><td>Machine-readable site summary, and the hosting carbon disclosure (no green claim).</td></tr>
+</table>
+<p class="small">Errors: unknown routes return the Functions platform 404; there is no auth and no write API — nothing you send is stored. Costs and teardown are documented in the repo's <code>infra/COSTS.md</code> (the whole deployment lives in one resource group under a $10 budget alert).</p>
+</section>
+</main>
+<footer class="sitefoot">
+  <p class="small">Football Universe Copilot — all data synthetic · MIT · <a href="https://github.com/Mike-Demo/football-universe-copilot">GitHub</a> · <a href="tech.html">Tech stack</a> · <a href="api.html">API docs</a> · <a href="llms.txt">llms.txt</a> · <a href="carbon.txt">carbon.txt</a></p>
+  <p class="small" data-co2-estimate></p>
+</footer>
+<script src="assets/co2.min.js"></script>
+<script src="assets/co2-footer.js"></script>
+</body></html>

@@ -46,5 +46,9 @@ class Universe:
                 v=stack.pop()
                 for p in pred[v]: delta[p]+= (sigma[p]/sigma[v])*(1+delta[v])
                 if v!=s: bc[v]+=delta[v]
+        # Undirected graph: summing Brandes dependencies over every source counts each
+        # unordered pair twice, so halve before normalising by the unordered-pair count —
+        # this is the standard normalised undirected betweenness (Copilot review, PR #4).
+        bc={k:v/2 for k,v in bc.items()}
         n=len(nodes); norm=((n-1)*(n-2)/2) if n>2 else 1
         return sorted(({"name":k,"kevin_bacon_score":round(v/norm*10,2),"degree":self.degree(k),"kind":self.kind.get(k)} for k,v in bc.items()), key=lambda x:-x["kevin_bacon_score"])

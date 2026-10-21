@@ -218,3 +218,7 @@ h1 .fe{width:1em;height:1em;vertical-align:-.12em}
 }
 
 body.dock-on{padding-bottom:96px}
+
+/* Site footer (CO2.js estimate renders into [data-co2-estimate]) */
+.sitefoot{max-width:980px;margin:0 auto;padding:16px;text-align:center}
+.sitefoot p{margin:4px 0}

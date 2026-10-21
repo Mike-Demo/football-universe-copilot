@@ -154,6 +154,10 @@
     </section>
   </main>
 </div>
+<footer class="sitefoot">
+  <p class="small">Football Universe Copilot — all data synthetic · MIT · <a href="https://github.com/Mike-Demo/football-universe-copilot">GitHub</a> · <a href="tech.html">Tech stack</a> · <a href="api.html">API docs</a> · <a href="llms.txt">llms.txt</a> · <a href="carbon.txt">carbon.txt</a></p>
+  <p class="small" data-co2-estimate></p>
+</footer>
 <div id="dock" hidden role="complementary" aria-label="Copilot live commentary">
   <img class="fe" src="assets/fluent-emoji/sparkles.svg" alt="" aria-hidden="true">
   <div class="dock-main"><strong id="dockTitle">Copilot live</strong><p id="dockBody">Press Play — the commentary anchors here while the match runs, wherever you scroll.</p></div>
@@ -167,6 +171,8 @@
   <a href="#seasonCard"><img class="fe fe-tab" src="assets/fluent-emoji/bar-chart.svg" alt="" aria-hidden="true"><span>Season</span></a>
 </nav>
 <script src="app.js"></script>
+<script src="assets/co2.min.js"></script>
+<script src="assets/co2-footer.js"></script>
 <script>
 let SEASON=null, LEAGUE='premier_league';
 function formBadges(f){return f.map(x=>'<span style="display:inline-block;width:16px;height:16px;line-height:16px;text-align:center;border-radius:4px;font-size:10px;margin-right:2px;background:'+({W:'#107C10',D:'#616161',L:'#C50F1F'}[x])+';color:#fff">'+x+'</span>').join('')}

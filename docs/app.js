@@ -529,3 +529,132 @@ document.addEventListener('keydown', e => {
 });
 let logoTaps = [];
 const lb = $('logoBall'); if (lb) lb.addEventListener('click', () => { const now = Date.now(); logoTaps = logoTaps.filter(t => now - t < 3000); logoTaps.push(now); if (logoTaps.length >= 7) { logoTaps = []; openChaos(); } });
+
+/* ================= PRIDE MATCHDAY — visible celebration mode =================
+   Same verified synthetic match, rainbow stadium skin. Sentiment reuses the
+   Chaos arcade math, framed positively for both ends. */
+['rainbow','rainbow-flag','red-heart','orange-heart','yellow-heart','green-heart','blue-heart','purple-heart'].forEach(n => { const i = new Image(); i.src = 'assets/fluent-emoji/' + n + '.svg'; CH[n] = i; });
+const PRIDE_COLORS = ['#E40303', '#FF8A00', '#FFED00', '#008026', '#244EE0', '#732982'];
+const TRANS_COLORS = ['#5BCFFA', '#F5ABB9', '#FFFFFF'];
+let prideOpen = false, prideCam = 'tactical', prideParts = [], prideFxCount = 0, prideLastGoals = 0, prideMetaAt = 0, prideView = { k: 1, ox: 0, oy: 0 };
+let pFlam = { on: false, t0: 0 }, pAuraUntil = 0, pTifoUntil = 0, discoUntil = 0;
+function openPride() {
+  if (!D) return;
+  prideOpen = true; $('pride').hidden = false; document.body.style.overflow = 'hidden';
+  $('prideKeys').innerHTML = chaosKeys().map(k => `<button class="chaos-key" data-m="${k.m}" data-goal="${k.goal ? 1 : 0}"><img class="fe" src="assets/fluent-emoji/${k.icon}.svg" alt="">${k.label}</button>`).join('');
+  document.querySelectorAll('#prideKeys .chaos-key').forEach(b => b.addEventListener('click', () => { minute = parseFloat(b.dataset.m); prideLastGoals = D.events.filter(e => e.goal && e.minute <= minute).length; render(); if (b.dataset.goal === '1') { const bl = chaosBall(); spawnPrideConfetti((bl.x * 10 * prideView.k) + prideView.ox, (bl.y * 10 * prideView.k) + prideView.oy, 130); popSound(); } updatePrideMeta(); }));
+  prideLastGoals = D.events.filter(e => e.goal && e.minute <= minute).length;
+  updatePrideMeta(); requestAnimationFrame(prideLoop);
+}
+function closePride() { prideOpen = false; $('pride').hidden = true; document.body.style.overflow = ''; }
+function prideLoop() { if (!prideOpen) return; drawPride(); const now = performance.now(); if (now - prideMetaAt > 500) { prideMetaAt = now; updatePrideMeta(); } requestAnimationFrame(prideLoop); }
+function spawnPrideConfetti(sx, sy, n) { if (REDUCED) return; for (let i = 0; i < n; i++) { const a = Math.random() * Math.PI * 2, v = 2 + Math.random() * 6; prideParts.push({ x: sx, y: sy, vx: Math.cos(a) * v, vy: Math.sin(a) * v - 3, rot: Math.random() * 6.3, vr: (Math.random() - .5) * .3, life: 1, col: PRIDE_COLORS[i % 6] }); } }
+function drawPrideScene(g, k, ox, oy, W, H) {
+  const X = x => ox + x * 10 * k, Y = y => oy + y * 10 * k;
+  g.fillStyle = '#0b2417'; g.fillRect(0, 0, W, H);
+  for (let i = 0; i < 12; i++) { g.fillStyle = PRIDE_COLORS[i % 6] + '24'; g.fillRect(X(i * 8.75), 0, 8.75 * 10 * k, H); }
+  g.strokeStyle = 'rgba(255,255,255,.85)'; g.lineWidth = Math.max(1, 2 * k);
+  g.strokeRect(X(3), Y(3), 99 * 10 * k, 62 * 10 * k);
+  g.beginPath(); g.moveTo(X(52.5), Y(3)); g.lineTo(X(52.5), Y(65)); g.stroke();
+  g.beginPath(); g.arc(X(52.5), Y(34), 9.15 * 10 * k, 0, 7); g.stroke();
+  g.strokeRect(X(3), Y(13.84), 16.5 * 10 * k, 40.32 * 10 * k); g.strokeRect(X(85.5), Y(13.84), 16.5 * 10 * k, 40.32 * 10 * k);
+  const snap = chaosSnap(), ball = chaosBall();
+  if (snap) {
+    let ci = 0, cd = 1e9; snap.positions.forEach((q, i) => { const d = Math.hypot(q[0] - snap.x, q[1] - snap.y); if (d < cd) { cd = d; ci = i; } });
+    snap.positions.forEach((q, i) => {
+      const px = X(q[0]), py = Y(q[1]);
+      g.beginPath(); g.arc(px, py, Math.max(4, 8 * k), 0, 7); g.fillStyle = q[2] === 0 ? PRIDE_COLORS[i % 6] : TRANS_COLORS[i % 3]; g.fill(); g.strokeStyle = 'rgba(10,21,28,.65)'; g.lineWidth = 1.5; g.stroke();
+      if (i === ci) { g.beginPath(); g.arc(px, py, Math.max(7, 13 * k), 0, 7); g.strokeStyle = '#fff'; g.lineWidth = 2; g.stroke(); const img = CH[snap.goal ? 'partying-face' : 'star-struck'], s = Math.max(14, 30 * k); if (img && img.complete && img.naturalWidth) g.drawImage(img, px - s / 2, py - s - 4, s, s); }
+    });
+    const trail = D.events.filter(e => e.clock <= minute).slice(-8);
+    if (trail.length > 1) { const grad = g.createLinearGradient(X(trail[0].x), Y(trail[0].y), X(ball.x), Y(ball.y)); PRIDE_COLORS.forEach((c, i) => grad.addColorStop(i / 5, c)); g.strokeStyle = grad; g.lineWidth = 3; g.beginPath(); trail.forEach((e, i) => { i ? g.lineTo(X(e.x), Y(e.y)) : g.moveTo(X(e.x), Y(e.y)); }); g.lineTo(X(ball.x), Y(ball.y)); g.stroke(); }
+    let txt = null;
+    if (snap.goal) txt = 'GOOOAAAL OF LOVE!';
+    else if (snap.type === 'shot' && snap.shot_speed_kmh >= 110) txt = `SPECTACULAR! ${snap.shot_speed_kmh} KM/H`;
+    else if (snap.type === 'pass' && snap.distance_m >= 35) txt = 'RAINBOW BALL!';
+    else if (snap.type === 'corner') txt = 'EVERYBODY UP!';
+    if (txt && k >= 0.9) { g.font = '700 13px "Segoe UI", system-ui'; const w = g.measureText(txt).width + 18, bx = Math.min(W - w - 6, Math.max(6, X(snap.x) - w / 2)), by = Math.max(6, Y(snap.y) - 62 * k); rr(g, bx, by, w, 24, 8); g.fillStyle = '#fff'; g.fill(); g.fillStyle = '#0a151c'; g.fillText(txt, bx + 9, by + 16); }
+  }
+  const bp = { x: X(ball.x), y: Y(ball.y) };
+  const bimg = CH['soccer-ball'], bs = Math.max(11, 17 * k);
+  if (bimg && bimg.complete && bimg.naturalWidth) { g.save(); g.translate(bp.x, bp.y); g.rotate(REDUCED ? 0 : (minute * 2.2) % 6.283); g.drawImage(bimg, -bs / 2, -bs / 2, bs, bs); g.restore(); }
+  else { g.beginPath(); g.arc(bp.x, bp.y, Math.max(3, 6.5 * k), 0, 7); g.fillStyle = '#fff'; g.fill(); }
+  if (performance.now() < pAuraUntil) { for (let i = 0; i < 6; i++) { g.beginPath(); g.arc(bp.x, bp.y, (26 + i * 5) * k + 6, i * 1.047, i * 1.047 + 0.8); g.strokeStyle = PRIDE_COLORS[i]; g.lineWidth = 3; g.stroke(); } }
+  const now = performance.now();
+  if (pFlam.on) { const p = (now - pFlam.t0) / 7000; if (p > 1) pFlam.on = false; else { const fx = -5 + p * 115, fy = 34 + Math.sin(p * 6.3) * 14, img = CH['flamingo'], s = Math.max(20, 46 * k); if (img && img.complete) g.drawImage(img, X(fx) - s / 2, Y(fy) - s / 2, s, s); g.font = '700 11px "Segoe UI", system-ui'; g.fillStyle = '#F5ABB9'; g.fillText('SIR FLAPPY · STRUTTING', Math.min(W - 160, X(fx) - 55), Y(fy) - s / 2 - 6); } }
+  if (now < discoUntil && !REDUCED) { for (let i = 0; i < 14; i++) { g.beginPath(); g.arc(Math.random() * W, Math.random() * H, 2.2, 0, 7); g.fillStyle = PRIDE_COLORS[i % 6]; g.globalAlpha = 0.75; g.fill(); } g.globalAlpha = 1; }
+  return bp;
+}
+function drawPride() {
+  const cv = $('prideCanvas'); if (!cv || !D) return; const ctx = cv.getContext('2d'); const W = 1050, H = 680;
+  const ball = chaosBall(); let k = 1, ox = 0, oy = 0;
+  if (prideCam === 'keeper' || prideCam === 'rocket') { k = prideCam === 'keeper' ? 2.1 : 2.7; ox = Math.min(0, Math.max(W - 1050 * k, W / 2 - ball.x * 10 * k)); oy = Math.min(0, Math.max(H - 680 * k, H / 2 - ball.y * 10 * k)); }
+  prideView = { k, ox, oy };
+  if (prideCam === 'retro') { const oc = drawPride._oc || (drawPride._oc = document.createElement('canvas')); oc.width = 210; oc.height = 136; drawPrideScene(oc.getContext('2d'), 0.2, 0, 0, 210, 136); ctx.imageSmoothingEnabled = false; ctx.clearRect(0, 0, W, H); ctx.drawImage(oc, 0, 0, W, H); ctx.imageSmoothingEnabled = true; }
+  else drawPrideScene(ctx, k, ox, oy, W, H);
+  for (let i = prideParts.length - 1; i >= 0; i--) { const p = prideParts[i]; p.x += p.vx; p.y += p.vy; p.vy += 0.12; p.rot += p.vr; p.life -= 0.008; if (p.life <= 0 || p.y > H + 10) { prideParts.splice(i, 1); continue; } ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.rot); ctx.globalAlpha = Math.max(0, p.life); ctx.fillStyle = p.col; ctx.fillRect(-4, -2, 8, 4); ctx.restore(); }
+  ctx.globalAlpha = 1;
+  const gc = D.events.filter(e => e.goal && e.minute <= minute).length;
+  if (gc > prideLastGoals) { prideLastGoals = gc; const b = chaosBall(); spawnPrideConfetti((b.x * 10 * k) + ox, (b.y * 10 * k) + oy, 140); popSound(); $('prideFxLine').textContent = 'GOOOAAAL OF LOVE — rainbow cannons fired. Pure euphoria.'; }
+  if (gc < prideLastGoals) prideLastGoals = gc;
+}
+function prideStand(team, other) {
+  const upto = D.events.filter(e => (e.clock ?? e.minute) <= minute);
+  const gF = upto.filter(e => e.goal && e.team === team).length, gA = upto.filter(e => e.goal && e.team === other).length;
+  const wins = D.stats.momentum.slice(0, Math.floor(minute / 15)).filter(m => m.dominant === team).length, owins = D.stats.momentum.slice(0, Math.floor(minute / 15)).filter(m => m.dominant === other).length;
+  const eu = Math.max(4, Math.min(98, Math.round(50 + 24 * (gF - gA) + 9 * (wins - owins))));
+  const leading = gF > gA, trailing = gF < gA;
+  const hearts = ['red-heart', 'orange-heart', 'yellow-heart', 'green-heart', 'blue-heart', 'purple-heart', 'rainbow', 'partying-face'];
+  const chant = leading ? 'CHAMPIONES! LOVE WINS!' : trailing ? 'Heartbroken, proud, and still singing.' : 'Singing out loud & proud!';
+  return { eu, html: `<div class="stand-head"><span>${team} end</span><span>${leading ? 'RAINBOW EUPHORIA' : trailing ? 'PASSIONATE LOVE' : 'ALL LOVE'} ${eu}%</span></div><div class="stand-bar"><div class="stand-fill" style="width:${eu}%;background:linear-gradient(90deg,#E40303,#FF8A00,#FFED00,#008026,#244EE0,#732982)"></div></div><div class="stand-emojis">${hearts.map(f => `<img class="fe" src="assets/fluent-emoji/${f}.svg" alt="">`).join('')}</div><div class="stand-chant">"${chant}"</div><div class="small">Decibel peak: ${(86 + eu * 0.37).toFixed(1)} dB of joy — arcade math</div>` };
+}
+function updatePrideMeta() {
+  if (!D) return;
+  const sc = {}; D.events.forEach(e => { if (e.goal && e.minute <= minute) sc[e.team] = (sc[e.team] || 0) + 1; });
+  $('prideScore').textContent = `${D.fixture.home} ${sc[D.fixture.home] || 0} – ${sc[D.fixture.away] || 0} ${D.fixture.away}`;
+  $('prideClock').textContent = `${Math.floor(minute)}'`;
+  $('prideRecClock').textContent = `T+${String(Math.floor(minute)).padStart(2, '0')}:${String(Math.floor((minute % 1) * 60)).padStart(2, '0')}`;
+  $('pridePlay').textContent = playing ? '⏸' : '▶';
+  const snap = chaosSnap();
+  $('prideLock').textContent = snap ? `TARGET LOCK: ${snap.player.toUpperCase()}` : '';
+  $('prideSnapLine').textContent = snap ? `${snap.minute}' ${snap.type} — ${snap.player} (${snap.team}) · xT ${snap.xt}${snap.shot_speed_kmh ? ` · ${snap.shot_speed_kmh} km/h` : ''}` : 'Ball in play — the next key-moment snapshot is coming.';
+  const sh = prideStand(D.fixture.home, D.fixture.away), sa = prideStand(D.fixture.away, D.fixture.home);
+  $('prideStandHome').innerHTML = sh.html; $('prideStandAway').innerHTML = sa.html;
+  if (performance.now() < pTifoUntil) $('prideStandHome').innerHTML = `<div class="stand-chant" style="font-size:16px;background:linear-gradient(90deg,#E40303,#FF8A00,#FFED00,#008026,#244EE0,#732982);-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:900">GIANT LOVE TIFO: LOVE WINS — the whole end is one heart.</div>` + $('prideStandHome').innerHTML;
+  const share = Math.round(100 * sh.eu / Math.max(1, sh.eu + sa.eu));
+  $('prideBarHome').style.width = share + '%'; $('prideBarAway').style.width = (100 - share) + '%';
+  $('prideHomeLabel').textContent = `${D.fixture.home} pride — love ${sh.eu}%`; $('prideAwayLabel').textContent = `${D.fixture.away} pride — love ${sa.eu}%`;
+  const goals = D.events.filter(e => e.goal && e.minute <= minute);
+  const recent = goals.length && (minute - goals[goals.length - 1].minute) < 2 ? goals[goals.length - 1] : null;
+  const gb = $('prideGoalBanner'); gb.hidden = !recent; if (recent) gb.textContent = `GOOOAAAL OF LOVE! ${recent.minute}' — ${recent.player}`;
+  document.querySelectorAll('#prideKeys .chaos-key').forEach(b => b.classList.toggle('on', Math.abs(parseFloat(b.dataset.m) - minute) < 0.6));
+  $('prideKeyName').textContent = snap ? `Active keyframe: ${snap.minute}' ${snap.type} — ${snap.player}` : '';
+  const upto = D.events.filter(e => (e.clock ?? e.minute) <= minute);
+  $('pTeleFives').textContent = (upto.length * 13 + prideFxCount * 25).toLocaleString('en-US');
+  $('pTeleFivesCap').textContent = `hugs & high fives · 13 × ${upto.length} events + 25 × ${prideFxCount} soundboard triggers`;
+  $('pTeleTears').textContent = (goals.length * 7.1).toFixed(1) + ' Liters';
+  $('pTeleTearsCap').textContent = `of happy tears · arcade math: 7.1 L per goal celebrated (${goals.length} so far), joy edition`;
+  const maxW = Math.max(...D.stats.momentum.slice(0, Math.floor(minute / 15) + 1).map(m => m.events), 0);
+  $('pTeleDb').textContent = (84 + maxW * 1.35).toFixed(1) + ' dB';
+  $('pTeleDbCap').textContent = `acoustic pride peak · loudest 15' window: ${maxW} events × 1.35 + 84 base`;
+  $('pTeleGiggles').textContent = (D.stats.chaos_index * 10 * (1 + 0.25 * goals.length)).toFixed(2) + ' xG';
+  $('pTeleGigglesCap').textContent = `expected giggles · chaos index ${D.stats.chaos_index} × 10, +25% per goal`;
+}
+document.querySelectorAll('.pride-fx').forEach(b => b.addEventListener('click', () => {
+  prideFxCount++; const fx = b.dataset.fx, line = $('prideFxLine'), now = performance.now(), bl = chaosBall(), sx = (bl.x * 10 * prideView.k) + prideView.ox, sy = (bl.y * 10 * prideView.k) + prideView.oy;
+  if (fx === 'airhorn') { hornSound(); tone(523, 0.4, 'triangle', 0.07, 0.55); tone(659, 0.4, 'triangle', 0.07, 0.65); tone(784, 0.5, 'triangle', 0.07, 0.75); line.textContent = 'RAINBOW AIRHORN — honk, but fabulous, with a major-key sparkle on top.'; }
+  if (fx === 'disco') { discoUntil = now + 4000; tone(392, 0.3, 'triangle', 0.06, 0); tone(523, 0.3, 'triangle', 0.06, 0.12); tone(659, 0.3, 'triangle', 0.06, 0.24); line.textContent = 'DISCO BALL DROP — glitter over the pitch for four fabulous seconds.'; }
+  if (fx === 'flamingo') { pFlam = { on: true, t0: now }; line.textContent = 'Sir Flappy is strutting. An icon, obviously.'; }
+  if (fx === 'smoke') { spawnPrideConfetti(20, 340, 90); spawnPrideConfetti(1030, 340, 90); popSound(); line.textContent = 'PRIDE SMOKE STORM — rainbow flares from both ends. Inclusive pyrotechnics.'; }
+  if (fx === 'aura') { pAuraUntil = now + 3500; line.textContent = 'PRISMATIC AURA — the ball carrier is glowing in all six colours.'; }
+  if (fx === 'tifo') { pTifoUntil = now + 5000; whistleSound(); line.textContent = 'GIANT LOVE TIFO — check the stands. LOVE WINS, full choreography.'; }
+  updatePrideMeta();
+}));
+document.querySelectorAll('.pride-cam').forEach(b => b.addEventListener('click', () => { prideCam = b.dataset.cam; document.querySelectorAll('.pride-cam').forEach(x => x.classList.toggle('on', x === b)); }));
+$('prideBtn').addEventListener('click', openPride);
+$('prideClose').addEventListener('click', closePride);
+$('pridePlay').addEventListener('click', () => $('playBtn').click());
+$('prideBack').addEventListener('click', () => { minute = Math.max(0, minute - 10); render(); updatePrideMeta(); });
+$('prideFwd').addEventListener('click', () => { minute = Math.min(90, minute + 10); render(); updatePrideMeta(); });
+$('prideConfetti').addEventListener('click', () => { prideFxCount++; const bl = chaosBall(); spawnPrideConfetti((bl.x * 10 * prideView.k) + prideView.ox, (bl.y * 10 * prideView.k) + prideView.oy, 150); popSound(); updatePrideMeta(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && prideOpen) closePride(); });

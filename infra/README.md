@@ -1,12 +1,9 @@
-# Infra — production path (not required for local judging demo)
-- Microsoft Foundry: agent project + Azure OpenAI (GPT-4o narration, text-embedding-3-large) — set AZURE_OPENAI_ENDPOINT to enable; offline fallback is default.
-- Azure Cosmos DB (Gremlin API, serverless, Session consistency): load data/seed/*.json with the schema in graph/schema/.
-- Azure Functions / Container Apps: host src/api/app.py (FastAPI). Azure Static Web Apps: host frontend/ + outputs/.
-- Microsoft Agent Framework: the four agents in src/agents/agents.py map 1:1 to framework agents with shared state; Semantic Kernel plugin signatures from the master plan were ported, not used as the runtime.
+# Infra — the Azure layer (deployed Oct 20, 2026)
 
-## Azure layer (added Oct 20, 2026) — code-ready, deploy pending subscription sign-in
-- `azure/function_app.py` — Azure Functions v2 HTTP API over the pipeline (/api/health, /api/match/intelligence, /api/graph/path, /api/graph/leaderboard)
-- `src/agents/azure_narrator.py` — Azure OpenAI narration (REST, gpt-4o-mini default) with deterministic template fallback; `narration_source` in every output states which ran
-- `src/agents/framework_adapter.py` + `foundry/agents.json` — Microsoft Agent Framework manifest for the 4 agents and the Foundry registration steps
-- `infra/main.bicep` + `infra/deploy.sh` — lean deployment: Functions Consumption + Azure OpenAI + Cosmos Gremlin serverless + budget guardrail
-- Costs: see infra/COSTS.md — realistic total through judging is $0-2
+Deployed topology: one resource group (`football-universe-rg`) in **westus2**, under its own billing profile with a $10 budget (alerts at 90% — an alert, not a spending cap). Teardown is deleting the group.
+
+- **Azure Functions (Consumption, Python v2)** — `azure/function_app.py`, live at https://fuc-api-pv4pnqx2o2t4y.azurewebsites.net/api with routes `/health`, `/match/intelligence`, `/graph/path`, `/graph/leaderboard`, `/season`. The local FastAPI app (`src/api/app.py`) exposes the same five routes. `/match/intelligence` is cached per focus player for 10 minutes and throttled to 20 requests/minute per client IP (in-memory, per-instance — a bound, not a guarantee).
+- **Microsoft Foundry** — one AIServices account with a **Phi-4-mini-instruct** serverless deployment; `src/agents/azure_narrator.py` calls it over REST and every response carries `narration_source` stating whether Phi or the deterministic template fallback produced the text. There is no GPT deployment (the pinned gpt-4o-mini version is deprecated for new deployments).
+- **Azure Cosmos DB (Gremlin API, serverless)** — provisioned with the graph schema (partition key `/pk`) and the seed graph definition. **The API does not query Cosmos at runtime**: it serves the universe graph in-process from `data/seed/*.json`. Cosmos is the provisioned store for the graph definition, not the live query path — stated plainly so nobody has to guess.
+- **Microsoft Agent Framework** — `src/agents/framework_adapter.py` + `foundry/agents.json` register a manifest mapping the four pipeline agents (Interpreter → GraphContext → Narrator → Personalizer) to framework agents with a shared-state handoff. The pipeline runtime is the project's own local orchestrator; the framework is a registration/mapping layer, not the runtime.
+- **Deployment** — `infra/main.bicep` + `infra/deploy.sh` (defaults: RG `football-universe-rg`, location `westus2`, passed to Bicep as the `location` parameter). Costs: see `infra/COSTS.md` — realistic total through judging (Nov 10) is $0–2.

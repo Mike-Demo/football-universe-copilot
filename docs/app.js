@@ -245,7 +245,7 @@ let pitchKey = -2, pitchSnap = null, pitchMarkers = [];
 function drawPitch(force) {
   const cv = $('pitch'); if (!cv) return; const ctx = cv.getContext('2d'); const W = 1050, H = 680, S = 10;
   let snap = null; for (const e of D.events) { if (e.minute > minute) break; if (e.positions) snap = e; }
-  const key = snap ? D.events.indexOf(snap) : -1; if (!force && key === pitchKey) return; pitchKey = key; pitchSnap = snap; pitchMarkers = D.events.filter(e => e.positions).map(e => ({ x: e.x, y: e.y, ev: e }));
+  const key = (snap ? D.events.indexOf(snap) : -1) + '|' + D.fixture.home + '|' + D.fixture.away; if (!force && key === pitchKey) return; pitchKey = key; pitchSnap = snap; pitchMarkers = D.events.filter(e => e.positions).map(e => ({ x: e.x, y: e.y, ev: e }));
   ctx.clearRect(0, 0, W, H); ctx.fillStyle = '#F1FAF1'; ctx.fillRect(0, 0, W, H);
   ctx.strokeStyle = 'rgba(16,124,16,.45)'; ctx.lineWidth = 2; ctx.strokeRect(30, 30, W - 60, H - 60);
   ctx.beginPath(); ctx.moveTo(W / 2, 30); ctx.lineTo(W / 2, H - 30); ctx.stroke(); ctx.beginPath(); ctx.arc(W / 2, H / 2, 91, 0, 7); ctx.stroke();
@@ -271,7 +271,7 @@ function drawPitch(force) {
   $('pitchInfo').textContent = info + ' · Voronoi zones computed in your browser from these positions (blue = ' + D.fixture.home + ', red = ' + D.fixture.away + ').';
 }
 function applyMatch(nd, label) {
-  D = nd; minute = 0; playing = false; $('playBtn').textContent = '▶ Play replay';
+  D = nd; minute = 0; playing = false; pitchKey = -2; pitchSnap = null; pitchMarkers = []; $('playBtn').textContent = '▶ Play replay';
   $('homeName').textContent = D.fixture.home; $('awayName').textContent = D.fixture.away;
   $('matchLabel').textContent = label;
   setMode(mode); render(); updateAgents(); updateModelUI(); perf = { steps: 0, ms: 0, last: performance.now() }; window.scrollTo({ top: 0, behavior: 'smooth' });

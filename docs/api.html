@@ -8,7 +8,7 @@
 <main>
 <section class="card"><h2>Base URL &amp; ground rules</h2>
 <p><code>https://fuc-api-pv4pnqx2o2t4y.azurewebsites.net/api</code></p>
-<p>Anonymous — no key, no sign-up. Every response is JSON. <strong>All data is synthetic</strong>: the featured match, the seasons and the graph are generated or hand-seeded for this project; no real fixtures or results are served. The API runs on Azure Functions (Consumption, westus2) with narration by Microsoft Phi-4-mini-instruct on Microsoft Foundry; a first call after idle can take ~60–90 seconds (serverless cold start) — subsequent calls are seconds. CORS allows the demo origin <code>https://mike-demo.github.io</code>. The same pipeline runs locally with no cloud at all: <code>src/api/app.py</code> (FastAPI) exposes the same routes except <code>/season</code>.</p>
+<p>Anonymous — no key, no sign-up. Every response is JSON. <strong>Synthetic match data only</strong>: the featured match and the seasons are generated for this project and no real fixtures or results are served. The universe graph is different — a hand-authored seed of well-known historical connections (real names, public career facts); it is not synthetic and is never presented as match data. The API runs on Azure Functions (Consumption, westus2) with narration by Microsoft Phi-4-mini-instruct on Microsoft Foundry; a first call after idle can take ~60–90 seconds (serverless cold start) — subsequent calls are seconds. CORS allows the demo origin <code>https://mike-demo.github.io</code>. Spend guardrails on the model-backed endpoint: <code>/match/intelligence</code> responses are cached per focus player for 10 minutes and throttled to 20 requests/minute per client IP (in-memory, per-instance — a bound, not a guarantee). The same pipeline runs locally with no cloud at all: <code>src/api/app.py</code> (FastAPI) exposes the same five routes, <code>/season</code> included.</p>
 </section>
 
 <section class="card"><h2>Endpoints</h2>
@@ -36,7 +36,7 @@
 </section>
 </main>
 <footer class="sitefoot">
-  <p class="small">Football Universe Copilot — all data synthetic · MIT · <a href="https://github.com/Mike-Demo/football-universe-copilot">GitHub</a> · <a href="tech.html">Tech stack</a> · <a href="api.html">API docs</a> · <a href="llms.txt">llms.txt</a> · <a href="carbon.txt">carbon.txt</a></p>
+  <p class="small">Football Universe Copilot — synthetic match data · graph: hand-authored career-history seed · MIT · <a href="https://github.com/Mike-Demo/football-universe-copilot">GitHub</a> · <a href="tech.html">Tech stack</a> · <a href="api.html">API docs</a> · <a href="llms.txt">llms.txt</a> · <a href="carbon.txt">carbon.txt</a></p>
   <p class="small" data-co2-estimate></p>
 </footer>
 <script src="assets/co2.min.js"></script>

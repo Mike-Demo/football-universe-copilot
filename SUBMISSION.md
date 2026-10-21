@@ -4,8 +4,8 @@
 - [ ] Hackathon project page: pitch, Microsoft/Azure tech used, problem solved — copy below is final; paste into the Innovation Studio form
 - [x] Demo video < 2 min, shows the project working: produced with Pexo from real product captures (112 s, 3840x2160, River narration, burned-in subtitles) — public YouTube URL in the Media section below
 - [x] Working demo link, free/unrestricted for judges until Nov 10, 2026: https://mike-demo.github.io/football-universe-copilot/ (GitHub Pages, main /docs, enabled Oct 19)
-- [ ] Synthetic data only; no Premier League footage/data without rights
-- [ ] All submission materials in English
+- [x] Synthetic data only; no Premier League footage/data without rights
+- [x] All submission materials in English
 
 
 ## Project page copy (Innovation Studio form, prepared Oct 20)
@@ -51,7 +51,7 @@ All match and season data is 100% synthetic and seeded — no real Premier Leagu
 
 ## Demo video (Media — add the public URL to the project page)
 
-**YouTube title:** Football Universe Copilot — Synthetic Match Intelligence, Explained by Agents | Inside the Game Hackathon
+**YouTube title (as published, 99 chars — YouTube caps titles at 100):** Football Universe Copilot — Synthetic Match Intelligence, Explained by Agents | Inside the Game
 
 **YouTube description:**
 Four cooperating agents turn synthetic live match events into explainable intelligence, a timed broadcast overlay, and stories personalized for every fan — narrated by Microsoft's Phi-4-mini on Foundry and grounded in a football universe graph.
@@ -62,4 +62,4 @@ Four cooperating agents turn synthetic live match events into explainable intell
 
 Built for Microsoft's Inside the Game / Premier League Studio hackathon. All match and season data is 100% synthetic and labelled as such; no real Premier League/WSL data or footage is used. The universe graph is a small hand-authored seed of historical connections. Psst — the demo has Easter eggs: one hides behind the Konami code, the other isn't hidden at all.
 
-**Video URL:** _(filled in on upload)_
+**Video URL:** https://www.youtube.com/watch?v=RPxx-0EvKbw (Public, published Oct 20, 2026 on the Mike Demopoulos channel; 112 s, 4K processing completes server-side)

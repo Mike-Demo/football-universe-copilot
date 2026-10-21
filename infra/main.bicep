@@ -1,7 +1,7 @@
 // Football Universe Copilot — lean hackathon deployment (one resource group).
 // Pay-per-use only: Functions Consumption, Microsoft Phi-4-mini-instruct on Foundry,
 // Cosmos DB Gremlin serverless. No fixed-floor services.
-param location string = 'eastus'
+param location string = 'westus2'
 param nameSuffix string = uniqueString(resourceGroup().id)
 
 var prefix = 'fuc'

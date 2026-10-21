@@ -684,3 +684,34 @@ $('prideBack').addEventListener('click', () => { minute = Math.max(0, minute - 1
 $('prideFwd').addEventListener('click', () => { minute = Math.min(90, minute + 10); render(); updatePrideMeta(); });
 $('prideConfetti').addEventListener('click', () => { prideFxCount++; const bl = chaosBall(); spawnPrideConfetti((bl.x * 10 * prideView.k) + prideView.ox, (bl.y * 10 * prideView.k) + prideView.oy, 150); popSound(); updatePrideMeta(); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape' && prideOpen) closePride(); });
+
+/* ================= FRIENDLY VERSION — plain-English explainer modal ================= */
+let friendlyOpen = false, friendlyReturn = null;
+function openFriendly() {
+  friendlyOpen = true; friendlyReturn = document.activeElement;
+  $('friendly').hidden = false; document.body.style.overflow = 'hidden';
+  $('friendlyClose').focus();
+}
+function closeFriendly() {
+  friendlyOpen = false; $('friendly').hidden = true; document.body.style.overflow = '';
+  if (friendlyReturn && friendlyReturn.focus) friendlyReturn.focus();
+}
+$('friendlyBtn').addEventListener('click', openFriendly);
+$('friendlyClose').addEventListener('click', closeFriendly);
+$('friendly').addEventListener('click', e => { if (e.target === $('friendly')) closeFriendly(); });
+$('friendlyTry').addEventListener('click', () => {
+  closeFriendly();
+  const p = $('pickLeague');
+  if (p) { p.scrollIntoView({ behavior: REDUCED ? 'auto' : 'smooth', block: 'center' }); p.focus({ preventScroll: true }); }
+});
+document.addEventListener('keydown', e => {
+  if (!friendlyOpen) return;
+  if (e.key === 'Escape') { closeFriendly(); return; }
+  if (e.key === 'Tab') {
+    const f = [...$('friendly').querySelectorAll('button, a[href], select, input, [tabindex]:not([tabindex="-1"])')].filter(el => !el.disabled && el.offsetParent !== null);
+    if (!f.length) return;
+    const first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  }
+});

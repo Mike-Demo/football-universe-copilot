@@ -16,5 +16,7 @@ def framework_available():
     except Exception:
         return False
 def describe_runtime():
-    return {"runtime": "microsoft-agent-framework" if framework_available() else "local-orchestrator (framework-compatible manifest)",
+    return {"runtime": "local-orchestrator",
+            "agent_framework": "manifest registered (framework-compatible); the framework package is not the pipeline runtime",
+            "framework_package_available": framework_available(),
             "agents": [a["name"] for a in AGENT_MANIFEST], "shared_state": "single dict handoff: match -> stats -> graph_context -> narrative -> personalized -> overlay"}

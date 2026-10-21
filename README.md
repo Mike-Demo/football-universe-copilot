@@ -21,7 +21,7 @@ Verified demo fact: the true shortest path is **Nicolas Anelka → Manchester Ci
 
 ## Run it (zero dependencies)
 ```bash
-python3 -m unittest discover -s tests -v   # 4 tests
+python3 -m unittest discover -s tests -v   # 11 tests
 python3 -m src.pipeline                    # full multi-agent run, JSON out
 python3 -m http.server 8000                # then open /frontend/ (reads outputs/sample_match_intelligence.json)
 ```
@@ -34,4 +34,4 @@ Microsoft Foundry with Microsoft's own **Phi-4-mini-instruct** as the primary na
 `src/synthetic` event engine · `src/graph` universe + centrality · `src/agents` 4 agents · `src/overlay` timed overlay · `src/pipeline.py` orchestrator · `data/seed` 20 players / 20 clubs / 10 managers (from the master build plan §7.3) · `outputs/` a real generated run + recap · `docs/` architecture + 2-minute demo script · `SUBMISSION.md` checklist
 
 ## Honest limits
-Seed graph is 20 players, so Kevin Bacon Scores are computed on that graph (top: Anelka 3.09/10, Milner 3.06/10) — not the inflated predictions in early draft material. Live LLM narration, Cosmos loading, and Fabric ingestion are wired as production paths in `infra/README.md`, not claimed as demo-critical.
+Seed graph is 20 players, so Kevin Bacon Scores are computed on that graph (top: Anelka 1.55/10, Milner 1.53/10 (standard normalised undirected Brandes)) — not the inflated predictions in early draft material. Live LLM narration is a real Azure path (Phi-4-mini-instruct on Microsoft Foundry, labelled per response). Cosmos DB Gremlin is provisioned with the graph schema and seed definition, but the API serves the graph in-process from `data/seed/` — Cosmos is not the runtime query path, and there is no Fabric ingestion. See `infra/README.md`.

@@ -1,8 +1,8 @@
 # Submission checklist — Inside the Game (deadline Tue Oct 27, 2026, 11:59pm PT)
 - [x] Registered (confirmed by Demo, Oct 19)
-- [x] Public GitHub repo: https://github.com/Mike-Demo/football-universe-copilot (29 files pushed Oct 19; .github/workflows/ci.yml remains local only — the API token lacks workflow scope, add it via the web UI if wanted)
-- [ ] Hackathon project page: pitch, Microsoft/Azure tech used, problem solved
-- [ ] Demo video < 2 min, public URL, shows the project working (script: docs/demo-script-2min.md)
+- [x] Public GitHub repo: https://github.com/Mike-Demo/football-universe-copilot — CI/CD live (.github/workflows/ci-cd.yml: tests gate an automatic Azure Functions deploy on pushes to main)
+- [ ] Hackathon project page: pitch, Microsoft/Azure tech used, problem solved — copy below is final; paste into the Innovation Studio form
+- [x] Demo video < 2 min, shows the project working: produced with Pexo from real product captures (112 s, 3840x2160, River narration, burned-in subtitles) — public YouTube URL in the Media section below
 - [x] Working demo link, free/unrestricted for judges until Nov 10, 2026: https://mike-demo.github.io/football-universe-copilot/ (GitHub Pages, main /docs, enabled Oct 19)
 - [ ] Synthetic data only; no Premier League footage/data without rights
 - [ ] All submission materials in English
@@ -39,7 +39,7 @@ Football Universe Copilot is a Synthetic Match Insights Engine for a Premier Lea
 A seeded Poisson simulator plays out the complete synthetic calendars — **380 Premier League matches and 132 Women's Super League matches** — with computed standings, form, points progressions and season narratives. On the demo site you can pick your team and any of the 512 fixtures from the calendar and watch a deterministic replay of it.
 
 ## Microsoft technology used
-Microsoft Foundry (Phi-4-mini-instruct), Microsoft Agent Framework (agent manifest in the repo), Azure Functions (Consumption), Azure Cosmos DB (Gremlin, serverless), Application Insights, Bicep infrastructure-as-code. Deployed live under its own billing profile with a $10 budget alert; total running cost through judging is designed to be $0–2.
+Microsoft Foundry (Phi-4-mini-instruct), Microsoft Agent Framework (the repo carries the framework manifest mapping the four agents 1:1; the runtime is the project's deterministic orchestrator), Azure Functions (Consumption), Azure Cosmos DB (Gremlin, serverless — provisioned with the graph schema and seed; the API serves the graph in-process), Application Insights, Bicep infrastructure-as-code, and GitHub Actions CI/CD (tests gate every deploy). Match data also exports in the FIFA Connect Data v3.3 format, validated against the standard's XSDs. Deployed live under its own billing profile with a $10 budget alert; total running cost through judging is designed to be $0–2.
 
 ## Try it (judges)
 - Live demo: https://mike-demo.github.io/football-universe-copilot/ — pick a match, press Play, tap the graph (touch supported), open the Open Source & Tech Stack page
@@ -48,3 +48,18 @@ Microsoft Foundry (Phi-4-mini-instruct), Microsoft Agent Framework (agent manife
 
 ## Data honesty
 All match and season data is 100% synthetic and seeded — no real Premier League/WSL data or footage is used anywhere. The graph is a small hand-authored seed of historical connections.
+
+## Demo video (Media — add the public URL to the project page)
+
+**YouTube title:** Football Universe Copilot — Synthetic Match Intelligence, Explained by Agents | Inside the Game Hackathon
+
+**YouTube description:**
+Four cooperating agents turn synthetic live match events into explainable intelligence, a timed broadcast overlay, and stories personalized for every fan — narrated by Microsoft's Phi-4-mini on Foundry and grounded in a football universe graph.
+
+▶ Live demo: https://mike-demo.github.io/football-universe-copilot/
+▶ Code (MIT): https://github.com/Mike-Demo/football-universe-copilot
+▶ Live Azure API: https://fuc-api-pv4pnqx2o2t4y.azurewebsites.net/api/health
+
+Built for Microsoft's Inside the Game / Premier League Studio hackathon. All match and season data is 100% synthetic and labelled as such; no real Premier League/WSL data or footage is used. The universe graph is a small hand-authored seed of historical connections. Psst — the demo has Easter eggs: one hides behind the Konami code, the other isn't hidden at all.
+
+**Video URL:** _(filled in on upload)_

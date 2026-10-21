@@ -14626,7 +14626,7 @@
    {
     "minute": 6,
     "player": "Gael Clichy",
-    "kevin_bacon_score": 0.34,
+    "kevin_bacon_score": 0.17,
     "degree": 2,
     "path_to_haaland": [
      "Gael Clichy",
@@ -14641,7 +14641,7 @@
    {
     "minute": 20,
     "player": "Samir Nasri",
-    "kevin_bacon_score": 0.34,
+    "kevin_bacon_score": 0.17,
     "degree": 2,
     "path_to_haaland": [
      "Samir Nasri",
@@ -14656,7 +14656,7 @@
    {
     "minute": 22,
     "player": "Gael Clichy",
-    "kevin_bacon_score": 0.34,
+    "kevin_bacon_score": 0.17,
     "degree": 2,
     "path_to_haaland": [
      "Gael Clichy",
@@ -14671,7 +14671,7 @@
    {
     "minute": 27,
     "player": "Kolo Toure",
-    "kevin_bacon_score": 1.03,
+    "kevin_bacon_score": 0.51,
     "degree": 3,
     "path_to_haaland": [
      "Kolo Toure",
@@ -14686,7 +14686,7 @@
    {
     "minute": 31,
     "player": "Gael Clichy",
-    "kevin_bacon_score": 0.34,
+    "kevin_bacon_score": 0.17,
     "degree": 2,
     "path_to_haaland": [
      "Gael Clichy",
@@ -14717,31 +14717,31 @@
   "leaderboard": [
    {
     "name": "Nicolas Anelka",
-    "kevin_bacon_score": 3.09,
+    "kevin_bacon_score": 1.55,
     "degree": 5,
     "kind": "Player"
    },
    {
     "name": "James Milner",
-    "kevin_bacon_score": 3.06,
+    "kevin_bacon_score": 1.53,
     "degree": 6,
     "kind": "Player"
    },
    {
     "name": "Frank Lampard",
-    "kevin_bacon_score": 1.42,
+    "kevin_bacon_score": 0.71,
     "degree": 3,
     "kind": "Player"
    },
    {
     "name": "Robbie Fowler",
-    "kevin_bacon_score": 1.37,
+    "kevin_bacon_score": 0.68,
     "degree": 4,
     "kind": "Player"
    },
    {
     "name": "Kolo Toure",
-    "kevin_bacon_score": 1.03,
+    "kevin_bacon_score": 0.51,
     "degree": 3,
     "kind": "Player"
    }
@@ -14754,10 +14754,10 @@
  },
  "narrative": {
   "why_it_matters": [
-   "Minute 6: Gael Clichy matters here \u2014 Kevin Bacon Score 0.34/10, 2 graph connections. Path to Haaland: Gael Clichy \u2192 Manchester City \u2192 Erling Haaland.",
-   "Minute 20: Samir Nasri matters here \u2014 Kevin Bacon Score 0.34/10, 2 graph connections. Path to Haaland: Samir Nasri \u2192 Manchester City \u2192 Erling Haaland.",
-   "Minute 22: Gael Clichy matters here \u2014 Kevin Bacon Score 0.34/10, 2 graph connections. Path to Haaland: Gael Clichy \u2192 Manchester City \u2192 Erling Haaland.",
-   "Minute 27: Kolo Toure matters here \u2014 Kevin Bacon Score 1.03/10, 3 graph connections. Path to Haaland: Kolo Toure \u2192 Manchester City \u2192 Erling Haaland."
+   "Minute 6: Gael Clichy matters here \u2014 Kevin Bacon Score 0.17/10, 2 graph connections. Path to Haaland: Gael Clichy \u2192 Manchester City \u2192 Erling Haaland.",
+   "Minute 20: Samir Nasri matters here \u2014 Kevin Bacon Score 0.17/10, 2 graph connections. Path to Haaland: Samir Nasri \u2192 Manchester City \u2192 Erling Haaland.",
+   "Minute 22: Gael Clichy matters here \u2014 Kevin Bacon Score 0.17/10, 2 graph connections. Path to Haaland: Gael Clichy \u2192 Manchester City \u2192 Erling Haaland.",
+   "Minute 27: Kolo Toure matters here \u2014 Kevin Bacon Score 0.51/10, 3 graph connections. Path to Haaland: Kolo Toure \u2192 Manchester City \u2192 Erling Haaland."
   ],
   "recap": "Arsenal 0\u20131 Manchester City (synthetic). 23 shots, chaos index 0.122 \u2014 control swung by 15-minute windows: 0-15 Arsenal, 15-30 Arsenal, 30-45 Manchester City, 45-60 Manchester City, 60-75 Arsenal, 75-90 Manchester City.",
   "narration_source": "template-fallback",
@@ -14774,7 +14774,7 @@
   },
   "player_focus": {
    "headline": "Following Erling Haaland",
-   "body": "Focus mode tracks Erling Haaland through every key moment and graph connection. Minute 6: Gael Clichy matters here \u2014 Kevin Bacon Score 0.34/10, 2 graph connections. Path to Haaland: Gael Clichy \u2192 Manchester City \u2192 Erling Haaland. Minute 20: Samir Nasri matters here \u2014 Kevin Bacon Score 0.34/10, 2 graph connections. Path to Haaland: Samir Nasri \u2192 Manchester City \u2192 Erling Haaland."
+   "body": "Focus mode tracks Erling Haaland through every key moment and graph connection. Minute 6: Gael Clichy matters here \u2014 Kevin Bacon Score 0.17/10, 2 graph connections. Path to Haaland: Gael Clichy \u2192 Manchester City \u2192 Erling Haaland. Minute 20: Samir Nasri matters here \u2014 Kevin Bacon Score 0.17/10, 2 graph connections. Path to Haaland: Samir Nasri \u2192 Manchester City \u2192 Erling Haaland."
   },
   "club_focus": {
    "headline": "Club focus: Arsenal",
@@ -14796,8 +14796,8 @@
     "duration_s": 8,
     "type": "key_moment",
     "title": "Gael Clichy \u2014 why this matters",
-    "body": "Minute 6: Gael Clichy matters here \u2014 Kevin Bacon Score 0.34/10, 2 graph connections. Path to Haaland: Gael Clichy \u2192 Manchester City \u2192 Erling Haaland.",
-    "kevin_bacon_score": 0.34,
+    "body": "Minute 6: Gael Clichy matters here \u2014 Kevin Bacon Score 0.17/10, 2 graph connections. Path to Haaland: Gael Clichy \u2192 Manchester City \u2192 Erling Haaland.",
+    "kevin_bacon_score": 0.17,
     "modes": [
      "analyst",
      "casual_fan",
@@ -14812,8 +14812,8 @@
     "duration_s": 8,
     "type": "key_moment",
     "title": "Samir Nasri \u2014 why this matters",
-    "body": "Minute 20: Samir Nasri matters here \u2014 Kevin Bacon Score 0.34/10, 2 graph connections. Path to Haaland: Samir Nasri \u2192 Manchester City \u2192 Erling Haaland.",
-    "kevin_bacon_score": 0.34,
+    "body": "Minute 20: Samir Nasri matters here \u2014 Kevin Bacon Score 0.17/10, 2 graph connections. Path to Haaland: Samir Nasri \u2192 Manchester City \u2192 Erling Haaland.",
+    "kevin_bacon_score": 0.17,
     "modes": [
      "analyst",
      "casual_fan",
@@ -14828,8 +14828,8 @@
     "duration_s": 8,
     "type": "key_moment",
     "title": "Gael Clichy \u2014 why this matters",
-    "body": "Minute 22: Gael Clichy matters here \u2014 Kevin Bacon Score 0.34/10, 2 graph connections. Path to Haaland: Gael Clichy \u2192 Manchester City \u2192 Erling Haaland.",
-    "kevin_bacon_score": 0.34,
+    "body": "Minute 22: Gael Clichy matters here \u2014 Kevin Bacon Score 0.17/10, 2 graph connections. Path to Haaland: Gael Clichy \u2192 Manchester City \u2192 Erling Haaland.",
+    "kevin_bacon_score": 0.17,
     "modes": [
      "analyst",
      "casual_fan",
@@ -14844,8 +14844,8 @@
     "duration_s": 8,
     "type": "key_moment",
     "title": "Kolo Toure \u2014 why this matters",
-    "body": "Minute 27: Kolo Toure matters here \u2014 Kevin Bacon Score 1.03/10, 3 graph connections. Path to Haaland: Kolo Toure \u2192 Manchester City \u2192 Erling Haaland.",
-    "kevin_bacon_score": 1.03,
+    "body": "Minute 27: Kolo Toure matters here \u2014 Kevin Bacon Score 0.51/10, 3 graph connections. Path to Haaland: Kolo Toure \u2192 Manchester City \u2192 Erling Haaland.",
+    "kevin_bacon_score": 0.51,
     "modes": [
      "analyst",
      "casual_fan",
@@ -14860,8 +14860,8 @@
     "duration_s": 8,
     "type": "key_moment",
     "title": "Gael Clichy \u2014 why this matters",
-    "body": "",
-    "kevin_bacon_score": 0.34,
+    "body": "Gael Clichy is 2 connections deep in the universe graph (Kevin Bacon Score 0.17). Shortest path to Haaland: Gael Clichy \u2192 Manchester City \u2192 Erling Haaland; to Arsenal: Gael Clichy \u2192 Arsenal.",
+    "kevin_bacon_score": 0.17,
     "modes": [
      "analyst",
      "casual_fan",
@@ -14876,7 +14876,7 @@
     "duration_s": 8,
     "type": "key_moment",
     "title": "Erling Haaland \u2014 why this matters",
-    "body": "",
+    "body": "Erling Haaland is 1 connections deep in the universe graph (Kevin Bacon Score 0.0). Shortest path to Haaland: Erling Haaland; to Arsenal: Erling Haaland \u2192 Manchester City \u2192 Patrick Vieira \u2192 Arsenal.",
     "kevin_bacon_score": 0.0,
     "modes": [
      "analyst",
@@ -14900,7 +14900,7 @@
     "id": "Arsenal",
     "kind": "Club",
     "degree": 14,
-    "kevin_bacon_score": 6.05
+    "kevin_bacon_score": 3.02
    },
    {
     "id": "Arsene Wenger",
@@ -14912,13 +14912,13 @@
     "id": "Ashley Cole",
     "kind": "Player",
     "degree": 2,
-    "kevin_bacon_score": 0.21
+    "kevin_bacon_score": 0.1
    },
    {
     "id": "Aston Villa",
     "kind": "Club",
     "degree": 2,
-    "kevin_bacon_score": 0.29
+    "kevin_bacon_score": 0.15
    },
    {
     "id": "Blackburn Rovers",
@@ -14948,13 +14948,13 @@
     "id": "Carlo Ancelotti",
     "kind": "Manager",
     "degree": 2,
-    "kevin_bacon_score": 0.58
+    "kevin_bacon_score": 0.29
    },
    {
     "id": "Chelsea",
     "kind": "Club",
     "degree": 10,
-    "kevin_bacon_score": 4.55
+    "kevin_bacon_score": 2.27
    },
    {
     "id": "Claudio Ranieri",
@@ -14972,7 +14972,7 @@
     "id": "Emmanuel Petit",
     "kind": "Player",
     "degree": 2,
-    "kevin_bacon_score": 0.21
+    "kevin_bacon_score": 0.1
    },
    {
     "id": "Erling Haaland",
@@ -14984,37 +14984,37 @@
     "id": "Everton",
     "kind": "Club",
     "degree": 2,
-    "kevin_bacon_score": 0.11
+    "kevin_bacon_score": 0.06
    },
    {
     "id": "Frank Lampard",
     "kind": "Player",
     "degree": 3,
-    "kevin_bacon_score": 1.42
+    "kevin_bacon_score": 0.71
    },
    {
     "id": "Gael Clichy",
     "kind": "Player",
     "degree": 2,
-    "kevin_bacon_score": 0.34
+    "kevin_bacon_score": 0.17
    },
    {
     "id": "James Milner",
     "kind": "Player",
     "degree": 6,
-    "kevin_bacon_score": 3.06
+    "kevin_bacon_score": 1.53
    },
    {
     "id": "John Terry",
     "kind": "Player",
     "degree": 2,
-    "kevin_bacon_score": 0.41
+    "kevin_bacon_score": 0.2
    },
    {
     "id": "Jose Mourinho",
     "kind": "Manager",
     "degree": 2,
-    "kevin_bacon_score": 0.37
+    "kevin_bacon_score": 0.18
    },
    {
     "id": "Jurgen Klopp",
@@ -15026,19 +15026,19 @@
     "id": "Kevin Keegan",
     "kind": "Manager",
     "degree": 2,
-    "kevin_bacon_score": 0.53
+    "kevin_bacon_score": 0.27
    },
    {
     "id": "Kolo Toure",
     "kind": "Player",
     "degree": 3,
-    "kevin_bacon_score": 1.03
+    "kevin_bacon_score": 0.51
    },
    {
     "id": "Leeds United",
     "kind": "Club",
     "degree": 2,
-    "kevin_bacon_score": 0.07
+    "kevin_bacon_score": 0.03
    },
    {
     "id": "Leicester City",
@@ -15050,19 +15050,19 @@
     "id": "Liverpool",
     "kind": "Club",
     "degree": 7,
-    "kevin_bacon_score": 3.04
+    "kevin_bacon_score": 1.52
    },
    {
     "id": "Manchester City",
     "kind": "Club",
     "degree": 12,
-    "kevin_bacon_score": 6.85
+    "kevin_bacon_score": 3.42
    },
    {
     "id": "Manchester United",
     "kind": "Club",
     "degree": 6,
-    "kevin_bacon_score": 2.47
+    "kevin_bacon_score": 1.23
    },
    {
     "id": "Mikel Arteta",
@@ -15074,25 +15074,25 @@
     "id": "Mohamed Salah",
     "kind": "Player",
     "degree": 2,
-    "kevin_bacon_score": 0.44
+    "kevin_bacon_score": 0.22
    },
    {
     "id": "Newcastle United",
     "kind": "Club",
     "degree": 3,
-    "kevin_bacon_score": 0.93
+    "kevin_bacon_score": 0.46
    },
    {
     "id": "Nicolas Anelka",
     "kind": "Player",
     "degree": 5,
-    "kevin_bacon_score": 3.09
+    "kevin_bacon_score": 1.55
    },
    {
     "id": "Patrick Vieira",
     "kind": "Player",
     "degree": 2,
-    "kevin_bacon_score": 0.34
+    "kevin_bacon_score": 0.17
    },
    {
     "id": "Pep Guardiola",
@@ -15104,13 +15104,13 @@
     "id": "Peter Schmeichel",
     "kind": "Player",
     "degree": 2,
-    "kevin_bacon_score": 0.93
+    "kevin_bacon_score": 0.47
    },
    {
     "id": "Robbie Fowler",
     "kind": "Player",
     "degree": 4,
-    "kevin_bacon_score": 1.37
+    "kevin_bacon_score": 0.68
    },
    {
     "id": "Robin van Persie",
@@ -15122,7 +15122,7 @@
     "id": "Samir Nasri",
     "kind": "Player",
     "degree": 2,
-    "kevin_bacon_score": 0.34
+    "kevin_bacon_score": 0.17
    },
    {
     "id": "Sol Campbell",
@@ -15146,13 +15146,13 @@
     "id": "Tottenham Hotspur",
     "kind": "Club",
     "degree": 3,
-    "kevin_bacon_score": 0.4
+    "kevin_bacon_score": 0.2
    },
    {
     "id": "Wayne Rooney",
     "kind": "Player",
     "degree": 2,
-    "kevin_bacon_score": 0.36
+    "kevin_bacon_score": 0.18
    },
    {
     "id": "West Ham United",

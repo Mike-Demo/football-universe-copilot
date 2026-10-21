@@ -298,3 +298,22 @@ body.dock-on{padding-bottom:96px}
 #prideGoalBanner{position:absolute;top:64px;left:50%;transform:translateX(-50%);z-index:3;font-size:clamp(20px,4.5vw,38px);font-weight:900;letter-spacing:.02em;padding:10px 22px;border-radius:14px;background:rgba(10,21,28,.82);background-clip:padding-box;border:2px solid transparent;background-image:linear-gradient(rgba(10,21,28,.88),rgba(10,21,28,.88)),linear-gradient(90deg,#E40303,#FF8A00,#FFED00,#008026,#244EE0,#732982);background-origin:border-box;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.6);white-space:nowrap}
 #prideCanvas{width:100%;height:auto;border-radius:10px;background:#0b2417;display:block}
 .pride-cannon{background:linear-gradient(90deg,#E40303,#FF8A00,#FFED00,#008026,#244EE0,#732982);color:#fff;font-weight:800;border:none;text-shadow:0 1px 3px rgba(0,0,0,.45)}
+
+/* ---------- FRIENDLY VERSION modal (plain-English explainer) ---------- */
+.friendlybtn .fe{width:18px;height:18px}
+@media (max-width:640px){ .friendlybtn .ftext{display:none} }
+#friendly{position:fixed;inset:0;z-index:70;background:rgba(0,0,0,.45);display:flex;padding:24px 14px 40px;overflow-y:auto}
+#friendly[hidden]{display:none}
+.friendly-box{background:var(--card);color:var(--text);border-radius:var(--r-card);box-shadow:var(--shadow2);max-width:620px;width:100%;margin:auto;padding:20px 22px;animation:friendlyIn var(--durNormal) var(--curveDecelerateMax) both}
+@keyframes friendlyIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion: reduce){ .friendly-box{animation:none} }
+.friendly-head{display:flex;align-items:flex-start;gap:10px;margin-bottom:6px}
+.friendly-head h2{font-size:18px;line-height:24px;margin:0}
+.friendly-head h2 .fe{width:22px;height:22px}
+.friendly-x{flex:0 0 auto;margin-left:auto}
+.friendly-body p{margin:8px 0;font-size:14px;line-height:21px}
+.friendly-body h3{font-size:14px;line-height:20px;margin:18px 0 2px}
+.friendly-body h3 .fe{width:17px;height:17px}
+.friendly-body ul{margin:6px 0;padding-left:20px}
+.friendly-body li{margin:5px 0;line-height:20px}
+.friendly-cta{margin-top:18px}

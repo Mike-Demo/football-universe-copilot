@@ -7,6 +7,7 @@
   <span class="logo" id="logoBall" title="Football Universe"><img class="fe fe-logo" src="assets/fluent-emoji/soccer-ball.svg" alt="" aria-hidden="true"></span><strong>Football Universe</strong><span class="pill-copilot"><img class="fe" src="assets/fluent-emoji/sparkles.svg" alt="" aria-hidden="true"><span class="pill-text">COPILOT</span></span>
   <nav><a href="#studio">Live Match Studio</a><a href="#graphCard">Graph Explorer</a><a href="#seasonCard">Season Hub</a><a href="tech.html">Tech Stack</a></nav>
   <span class="spacer"></span>
+  <button id="prideBtn" class="btn pridebtn" aria-label="Open Pride Matchday mode"><img class="fe" src="assets/fluent-emoji/rainbow-flag.svg" alt=""><span class="ptext"> Pride</span></button>
   <button id="tourBtn" class="btn">Tour &amp; Guide</button>
   <a class="btn ghbtn" style="text-decoration:none;display:inline-flex;align-items:center" href="https://github.com/Mike-Demo/football-universe-copilot">GitHub</a>
 </div>
@@ -157,7 +158,7 @@
 <footer class="sitefoot">
   <p class="small">Football Universe Copilot — all data synthetic · MIT · <a href="https://github.com/Mike-Demo/football-universe-copilot">GitHub</a> · <a href="tech.html">Tech stack</a> · <a href="api.html">API docs</a> · <a href="llms.txt">llms.txt</a> · <a href="carbon.txt">carbon.txt</a></p>
   <p class="small" data-co2-estimate></p>
-  <p class="small" style="opacity:.65">Psst — a hidden Chaos Arcade mode exists: Konami code (↑↑↓↓←→←→ B A) or tap the ball up top 7 times.</p>
+  <p class="small" style="opacity:.65">Psst — a hidden Chaos Arcade mode exists: Konami code (↑↑↓↓←→←→ B A) or tap the ball up top 7 times. Pride Matchday is not hidden at all — hit the Pride button up top.</p>
 </footer>
 
 <div id="chaos" hidden role="dialog" aria-modal="true" aria-label="Chaos Arcade hidden replay mode">
@@ -212,6 +213,64 @@
       <div class="chaos-tile"><span class="small">EXPECTED GIGGLES (xG)</span><strong id="teleGiggles">—</strong><span class="small" id="teleGigglesCap"></span></div>
       <div class="chaos-tile"><span class="small">COMMUNITY HIGH FIVES</span><strong id="teleFives">—</strong><span class="small" id="teleFivesCap"></span></div>
       <div class="chaos-tile"><span class="small">ACOUSTIC PEAK</span><strong id="teleDb">—</strong><span class="small" id="teleDbCap"></span></div>
+    </section>
+  </div>
+</div>
+
+<div id="pride" hidden role="dialog" aria-modal="true" aria-label="Pride Matchday mode">
+  <div class="pride-rainbowbar"></div>
+  <div class="chaos-top">
+    <span class="chaos-egg pride-egg"><img class="fe" src="assets/fluent-emoji/rainbow-flag.svg" alt=""></span>
+    <div class="chaos-title"><strong>PRIDE MATCHDAY EDITION — LOVE WINS</strong><span class="small">A rainbow stadium skin over the same verified synthetic match. A tribute to the Global Pride Parties at WordCamps — football is for everyone.</span></div>
+    <span class="chaos-fx-on pride-fx">PRIDE FX: ACTIVE</span>
+    <button id="prideClose" class="chaos-btn">✕ Exit pride</button>
+  </div>
+  <div class="chaos-grid">
+    <section class="chaos-card chaos-scrubcard">
+      <div class="chaos-matchline"><strong id="prideScore">—</strong><span id="prideClock" class="chaos-clock"></span><span class="pride-tag">#FootballIsForEveryone</span></div>
+      <div class="pride-barwrap"><div class="pride-bar"><div id="prideBarHome" class="pride-bar-home"></div><div id="prideBarAway" class="pride-bar-away"></div></div><div class="pride-barlabels"><span id="prideHomeLabel"></span><span id="prideAwayLabel"></span></div></div>
+      <div id="prideKeys" class="chaos-keys" role="group" aria-label="Match keyframes"></div>
+      <div class="chaos-transport">
+        <button id="pridePlay" class="chaos-btn chaos-play" aria-label="Play or pause">⏸</button>
+        <button id="prideBack" class="chaos-btn" aria-label="Back ten minutes">−10'</button>
+        <button id="prideFwd" class="chaos-btn" aria-label="Forward ten minutes">+10'</button>
+        <span id="prideKeyName" class="small"></span>
+      </div>
+      <div class="chaos-cams"><span class="small">DIRECTOR ANGLE</span>
+        <button class="pride-cam chaos-cam on" data-cam="tactical">Tactical Pride High</button>
+        <button class="pride-cam chaos-cam" data-cam="retro">Retro Rainbow Cam</button>
+        <button class="pride-cam chaos-cam" data-cam="keeper">Keeper POV · Glitter</button>
+        <button class="pride-cam chaos-cam" data-cam="rocket">Rainbow Rocket Cam</button>
+      </div>
+    </section>
+    <section class="chaos-card chaos-stage pride-stage">
+      <div class="chaos-rec"><span class="chaos-dot"></span> REC [PRIDE CAM] <span id="prideRecClock"></span><span id="prideLock" class="chaos-lock"></span></div>
+      <div id="prideGoalBanner" hidden>GOOOAAAL OF LOVE!</div>
+      <canvas id="prideCanvas" width="1050" height="680" aria-label="Pride rainbow pitch"></canvas>
+      <div class="chaos-stagebar"><span id="prideSnapLine" class="small"></span><button id="prideConfetti" class="chaos-btn pride-cannon">TRIGGER RAINBOW CONFETTI CANNON</button></div>
+    </section>
+    <section class="chaos-card chaos-stands">
+      <div id="prideStandHome" class="stand"></div>
+      <div id="prideStandAway" class="stand"></div>
+      <p class="small chaos-fine">Both ends, all love — the sentiment is the same arcade math as Chaos mode, framed the Pride way: nobody's despair counts here.</p>
+    </section>
+    <section class="chaos-card chaos-sound">
+      <h3>PRIDE SOUNDBOARD</h3>
+      <div class="chaos-soundgrid">
+        <button class="pride-fx chaos-fx" data-fx="airhorn" aria-label="Trigger the rainbow airhorn"><img class="fe" src="assets/fluent-emoji/loudspeaker.svg" alt=""> Rainbow Airhorn<span>Honk, but fabulous</span></button>
+        <button class="pride-fx chaos-fx" data-fx="disco" aria-label="Drop the disco ball"><img class="fe" src="assets/fluent-emoji/sparkles.svg" alt=""> Disco Ball Drop<span>Glitter over the pitch</span></button>
+        <button class="pride-fx chaos-fx" data-fx="flamingo" aria-label="Call Sir Flappy"><img class="fe" src="assets/fluent-emoji/flamingo.svg" alt=""> Sir Flappy Call<span>The icon returns</span></button>
+        <button class="pride-fx chaos-fx" data-fx="smoke" aria-label="Trigger the pride smoke storm"><img class="fe" src="assets/fluent-emoji/rainbow.svg" alt=""> Pride Smoke Storm<span>Rainbow flares, both ends</span></button>
+        <button class="pride-fx chaos-fx" data-fx="aura" aria-label="Give the ball carrier the prismatic aura"><img class="fe" src="assets/fluent-emoji/high-voltage.svg" alt=""> Prismatic Aura<span>Over 9000, in rainbow</span></button>
+        <button class="pride-fx chaos-fx" data-fx="tifo" aria-label="Drop the giant love tifo"><img class="fe" src="assets/fluent-emoji/red-heart.svg" alt=""> Giant Love Tifo<span>LOVE WINS, full stand</span></button>
+      </div>
+      <p id="prideFxLine" class="small">Ready. Everybody in.</p>
+    </section>
+    <section class="chaos-card chaos-tele">
+      <div class="chaos-tile"><span class="small">HUGS &amp; HIGH FIVES</span><strong id="pTeleFives">—</strong><span class="small" id="pTeleFivesCap"></span></div>
+      <div class="chaos-tile"><span class="small">HAPPY PRIDE TEARS</span><strong id="pTeleTears">—</strong><span class="small" id="pTeleTearsCap"></span></div>
+      <div class="chaos-tile"><span class="small">ACOUSTIC PRIDE PEAK</span><strong id="pTeleDb">—</strong><span class="small" id="pTeleDbCap"></span></div>
+      <div class="chaos-tile"><span class="small">EXPECTED GIGGLES (xG)</span><strong id="pTeleGiggles">—</strong><span class="small" id="pTeleGigglesCap"></span></div>
     </section>
   </div>
 </div>

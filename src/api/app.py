@@ -14,5 +14,9 @@ try:
         u=Universe(); p=u.shortest_path(a,b); return {"from":a,"to":b,"degrees":(len(p)-1 if p else None),"path":p,"edges":u.path_edges(p)}
     @app.get("/graph/leaderboard")
     def leaderboard(): return Universe().kevin_bacon_scores()[:20]
+    @app.get("/season")
+    def season(league:str="premier_league"):
+        from src.season.simulator import build_season
+        lg=build_season()[league]; return {"competition":lg["competition"],"standings":lg["standings"],"narratives":lg["narratives"],"synthetic":True}
 except ImportError:
     app=None

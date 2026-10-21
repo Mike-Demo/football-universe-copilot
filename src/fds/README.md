@@ -40,3 +40,7 @@ genuine `competition.xsd` types with lxml. All three are **VALID**. The tool doc
 two semantics-preserving adaptations (a harness declaring the export roots, and
 removing the literal `^`/`$` anchors from the `FIFAIdentifier` pattern in a temp copy —
 the XSD regex dialect has no anchors and libxml2 otherwise fails every value).
+
+## Reproducing the validation
+
+The exports were validated against the genuine FCD v3.3 XSDs with `tools/validate_fds.py <dir-of-xsds>`. The XSD package is FIFA-copyright and **not redistributable**, so it is deliberately not in this repo: point the script at your own copy of the FCD v3.3 package. Two semantics-preserving harness adaptations are documented in the script header (a harness schema declaring the export roots with the standard's own types, and literal `^`/`$` anchors stripped from the `FIFAIdentifier` pattern in a temp copy, because the pattern is implicitly anchored).

@@ -362,3 +362,168 @@ const vt = $('vorToggle'); if (vt) vt.addEventListener('change', () => drawPitch
   });
 })();
 load().catch(() => { $('modeBody').textContent = 'Could not load data.json — serve this folder over http (python3 -m http.server) or view the live GitHub Pages demo.'; });
+
+/* ================= CHAOS ARCADE — hidden easter egg mode =================
+   A joke skin over the same verified synthetic data. Every "novelty" number
+   is arcade math computed live from the real event stream, formulas shown. */
+const CH = {}; ['soccer-ball','partying-face','loudly-crying-face','face-with-symbols-on-mouth','broken-heart','beer-mug','fireworks','rocket','exploding-head','star-struck','face-screaming-in-fear','banana','party-popper','crown','fire','beaming-face','cloud-with-rain','flamingo','pizza','sparkles','high-voltage'].forEach(n => { const i = new Image(); i.src = 'assets/fluent-emoji/' + n + '.svg'; CH[n] = i; });
+let chaosOpen = false, chaosCam = 'tactical', chaosParts = [], chaosFxCount = 0, chaosLastGoals = 0, chaosMetaAt = 0, chaosView = { k: 1, ox: 0, oy: 0 };
+let flam = { on: false, t0: 0 }, piz = { on: false, t0: 0 }, auraUntil = 0, tifoUntil = 0;
+const REDUCED = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+function chaosBall() { let prev = null, next = null; for (const e of D.events) { if (e.clock <= minute) prev = e; else { next = e; break; } } if (!prev) return { x: 52.5, y: 34 }; if (next && next.clock > prev.clock) { const f = Math.min(1, Math.max(0, (minute - prev.clock) / (next.clock - prev.clock))); return { x: prev.x + (next.x - prev.x) * f, y: prev.y + (next.y - prev.y) * f }; } return { x: prev.x, y: prev.y }; }
+function chaosSnap() { let snap = null; for (const e of D.events) { if (e.minute > minute) break; if (e.positions) snap = e; } return snap; }
+function chaosKeys() {
+  const keys = [{ m: 0, label: "0' Kickoff", icon: 'soccer-ball' }];
+  D.events.filter(e => e.goal).forEach(g => keys.push({ m: g.minute, label: `${g.minute}' GOAL — ${g.player}`, icon: 'partying-face', goal: true }));
+  const shots = D.events.filter(e => e.type === 'shot' && e.shot_speed_kmh);
+  if (shots.length) { const b = shots.reduce((a, b) => (b.shot_speed_kmh > a.shot_speed_kmh ? b : a)); keys.push({ m: b.minute, label: `${b.minute}' Screamer — ${b.player} ${b.shot_speed_kmh} km/h`, icon: 'high-voltage' }); }
+  const passes = D.events.filter(e => e.type === 'pass' && e.distance_m);
+  if (passes.length) { const b = passes.reduce((a, b) => (b.distance_m > a.distance_m ? b : a)); keys.push({ m: b.minute, label: `${b.minute}' Hollywood ball — ${b.player} ${b.distance_m}m`, icon: 'rocket' }); }
+  keys.push({ m: 90, label: "90' Full time", icon: 'crown' });
+  return keys.sort((a, b) => a.m - b.m);
+}
+function openChaos() {
+  if (!D) return;
+  chaosOpen = true; $('chaos').hidden = false; document.body.style.overflow = 'hidden';
+  $('chaosKeys').innerHTML = chaosKeys().map((k, i) => `<button class="chaos-key" data-m="${k.m}" data-goal="${k.goal ? 1 : 0}"><img class="fe" src="assets/fluent-emoji/${k.icon}.svg" alt="">${k.label}</button>`).join('');
+  document.querySelectorAll('.chaos-key').forEach(b => b.addEventListener('click', () => { minute = parseFloat(b.dataset.m); chaosLastGoals = D.events.filter(e => e.goal && e.minute <= minute).length; render(); if (b.dataset.goal === '1') { const bl = chaosBall(); spawnConfetti((bl.x * 10 * chaosView.k) + chaosView.ox, (bl.y * 10 * chaosView.k) + chaosView.oy, 130); popSound(); } updateChaosMeta(true); }));
+  chaosLastGoals = D.events.filter(e => e.goal && e.minute <= minute).length;
+  updateChaosMeta(true); requestAnimationFrame(chaosLoop);
+}
+function closeChaos() { chaosOpen = false; $('chaos').hidden = true; document.body.style.overflow = ''; }
+function chaosLoop() { if (!chaosOpen) return; drawChaos(); const now = performance.now(); if (now - chaosMetaAt > 500) { chaosMetaAt = now; updateChaosMeta(false); } requestAnimationFrame(chaosLoop); }
+function rr(g, x, y, w, h, r) { g.beginPath(); g.moveTo(x + r, y); g.arcTo(x + w, y, x + w, y + h, r); g.arcTo(x + w, y + h, x, y + h, r); g.arcTo(x, y + h, x, y, r); g.arcTo(x, y, x + w, y, r); g.closePath(); }
+function spawnConfetti(sx, sy, n) { if (REDUCED) return; const cols = ['#00ff87', '#00d2ff', '#ffd4d6', '#FFD966', '#ffffff']; for (let i = 0; i < n; i++) { const a = Math.random() * Math.PI * 2, v = 2 + Math.random() * 6; chaosParts.push({ x: sx, y: sy, vx: Math.cos(a) * v, vy: Math.sin(a) * v - 3, rot: Math.random() * 6.3, vr: (Math.random() - .5) * .3, life: 1, col: cols[i % cols.length] }); } }
+function drawChaosScene(g, k, ox, oy, W, H) {
+  const X = x => ox + x * 10 * k, Y = y => oy + y * 10 * k;
+  g.fillStyle = '#0b2417'; g.fillRect(0, 0, W, H);
+  for (let i = 0; i < 10; i++) { if (i % 2) continue; g.fillStyle = 'rgba(255,255,255,.03)'; g.fillRect(X(i * 10.5), 0, 10.5 * 10 * k, H); }
+  g.strokeStyle = 'rgba(217,228,238,.8)'; g.lineWidth = Math.max(1, 2 * k);
+  g.strokeRect(X(3), Y(3), 99 * 10 * k, 62 * 10 * k);
+  g.beginPath(); g.moveTo(X(52.5), Y(3)); g.lineTo(X(52.5), Y(65)); g.stroke();
+  g.beginPath(); g.arc(X(52.5), Y(34), 9.15 * 10 * k, 0, 7); g.stroke();
+  g.strokeRect(X(3), Y(13.84), 16.5 * 10 * k, 40.32 * 10 * k); g.strokeRect(X(85.5), Y(13.84), 16.5 * 10 * k, 40.32 * 10 * k);
+  const snap = chaosSnap(), ball = chaosBall();
+  if (snap) {
+    const homeIdx = 0, carrierTeamIdx = snap.team === D.fixture.home ? 0 : 1;
+    let ci = 0, cd = 1e9; snap.positions.forEach((q, i) => { const d = Math.hypot(q[0] - snap.x, q[1] - snap.y); if (d < cd) { cd = d; ci = i; } });
+    snap.positions.forEach((q, i) => {
+      let face = 'beaming-face';
+      if (snap.goal) face = q[2] === carrierTeamIdx ? 'partying-face' : 'loudly-crying-face';
+      if (i === 0 || i === 11) face = snap.type === 'shot' ? 'face-screaming-in-fear' : face;
+      if (i === ci) face = snap.goal ? 'partying-face' : 'star-struck';
+      const px = X(q[0]), py = Y(q[1]), s = Math.max(13, 30 * k), img = CH[face];
+      if (i === ci) { g.beginPath(); g.arc(px, py, s * .72, 0, 7); g.strokeStyle = '#00ff87'; g.lineWidth = 2.5; g.stroke(); }
+      if (img && img.complete && img.naturalWidth) g.drawImage(img, px - s / 2, py - s / 2, s, s);
+      else { g.beginPath(); g.arc(px, py, s / 3, 0, 7); g.fillStyle = q[2] === 0 ? '#0F6CBD' : '#C50F1F'; g.fill(); }
+    });
+    const trail = D.events.filter(e => e.clock <= minute).slice(-8);
+    g.strokeStyle = 'rgba(0,255,135,.5)'; g.lineWidth = 2; g.beginPath(); trail.forEach((e, i) => { i ? g.lineTo(X(e.x), Y(e.y)) : g.moveTo(X(e.x), Y(e.y)); }); g.stroke();
+    let txt = null;
+    if (snap.goal) txt = 'WHAT A HIT SON!';
+    else if (snap.type === 'shot' && snap.shot_speed_kmh >= 110) txt = `SCREAMER! ${snap.shot_speed_kmh} KM/H`;
+    else if (snap.type === 'shot') txt = 'SO CLOSE!';
+    else if (snap.type === 'pass' && snap.distance_m >= 35) txt = 'HOLLYWOOD BALL!';
+    else if (snap.type === 'corner') txt = 'INCOMING!';
+    else if (snap.type === 'pressure') txt = 'CALMA CALMA';
+    if (txt && k >= 0.9) {
+      g.font = '700 13px "Segoe UI", system-ui'; const w = g.measureText(txt).width + 18, bx = Math.min(W - w - 6, Math.max(6, X(snap.x) - w / 2)), by = Math.max(6, Y(snap.y) - 58 * k);
+      rr(g, bx, by, w, 24, 8); g.fillStyle = '#d9e4ee'; g.fill(); g.fillStyle = '#0a151c'; g.fillText(txt, bx + 9, by + 16);
+      if (snap.goal) { const gk = snap.positions[carrierTeamIdx === 0 ? 11 : 0]; const gx = X(gk[0]), gy = Y(gk[1]); g.font = '700 12px "Segoe UI", system-ui'; const w2 = g.measureText('NO CHANCE!').width + 16; rr(g, Math.min(W - w2 - 6, Math.max(6, gx - w2 / 2)), Math.max(6, gy - 52 * k), w2, 22, 8); g.fillStyle = '#ffd4d6'; g.fill(); g.fillStyle = '#67001c'; g.fillText('NO CHANCE!', Math.min(W - w2 - 6, Math.max(6, gx - w2 / 2)) + 8, Math.max(6, gy - 52 * k) + 15); }
+    }
+  }
+  const bp = { x: X(ball.x), y: Y(ball.y) };
+  g.beginPath(); g.arc(bp.x, bp.y, Math.max(3, 6.5 * k), 0, 7); g.fillStyle = '#fff'; g.fill(); g.strokeStyle = '#0a151c'; g.lineWidth = 1.5; g.stroke();
+  if (performance.now() < auraUntil) { g.beginPath(); g.arc(bp.x, bp.y, 30 * k + 6, 0, 7); g.strokeStyle = 'rgba(255,217,102,.9)'; g.lineWidth = 3; g.stroke(); g.beginPath(); g.arc(bp.x, bp.y, 40 * k + 8, 0, 7); g.strokeStyle = 'rgba(255,217,102,.4)'; g.stroke(); }
+  const now = performance.now();
+  if (flam.on) { const p = (now - flam.t0) / 7000; if (p > 1) flam.on = false; else { const fx = -5 + p * 115, fy = 34 + Math.sin(p * 6.3) * 14, img = CH['flamingo'], s = Math.max(20, 46 * k); if (img && img.complete) g.drawImage(img, X(fx) - s / 2, Y(fy) - s / 2, s, s); g.font = '700 11px "Segoe UI", system-ui'; g.fillStyle = '#ffd4d6'; g.fillText('SIR FLAPPY · PITCH INVADER', Math.min(W - 170, X(fx) - 60), Y(fy) - s / 2 - 6); } }
+  if (piz.on) { const p = (now - piz.t0) / 1400; if (p > 1) piz.on = false; else { const px = -5 + p * 115, py = 6 + Math.sin(p * Math.PI) * -2 + p * 40, img = CH['pizza'], s = Math.max(16, 34 * k); g.save(); g.translate(X(px), Y(py)); g.rotate(p * 9); if (img && img.complete) g.drawImage(img, -s / 2, -s / 2, s, s); g.restore(); } }
+  return bp;
+}
+function drawChaos() {
+  const cv = $('chaosCanvas'); if (!cv || !D) return; const ctx = cv.getContext('2d'); const W = 1050, H = 680;
+  const ball = chaosBall(); let k = 1, ox = 0, oy = 0;
+  if (chaosCam === 'keeper' || chaosCam === 'rocket') { k = chaosCam === 'keeper' ? 2.1 : 2.7; const fx = ball.x, fy = ball.y; ox = Math.min(0, Math.max(W - 1050 * k, W / 2 - fx * 10 * k)); oy = Math.min(0, Math.max(H - 680 * k, H / 2 - fy * 10 * k)); }
+  chaosView = { k, ox, oy };
+  if (chaosCam === 'retro') { const oc = drawChaos._oc || (drawChaos._oc = document.createElement('canvas')); oc.width = 210; oc.height = 136; const og = oc.getContext('2d'); drawChaosScene(og, 0.2, 0, 0, 210, 136); ctx.imageSmoothingEnabled = false; ctx.clearRect(0, 0, W, H); ctx.drawImage(oc, 0, 0, W, H); ctx.imageSmoothingEnabled = true; }
+  else drawChaosScene(ctx, k, ox, oy, W, H);
+  for (let i = chaosParts.length - 1; i >= 0; i--) { const p = chaosParts[i]; p.x += p.vx; p.y += p.vy; p.vy += 0.12; p.rot += p.vr; p.life -= 0.008; if (p.life <= 0 || p.y > H + 10) { chaosParts.splice(i, 1); continue; } ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.rot); ctx.globalAlpha = Math.max(0, p.life); ctx.fillStyle = p.col; ctx.fillRect(-4, -2, 8, 4); ctx.restore(); }
+  ctx.globalAlpha = 1;
+  const gc = D.events.filter(e => e.goal && e.minute <= minute).length;
+  if (gc > chaosLastGoals) { chaosLastGoals = gc; const b = chaosBall(); spawnConfetti((b.x * 10 * k) + ox, (b.y * 10 * k) + oy, 130); popSound(); $('chaosFxLine').textContent = 'GOOOAL — the confetti cannons fired themselves. Scenes.'; }
+  if (gc < chaosLastGoals) chaosLastGoals = gc;
+}
+function standHTML(team, other) {
+  const upto = D.events.filter(e => (e.clock ?? e.minute) <= minute);
+  const gF = upto.filter(e => e.goal && e.team === team).length, gA = upto.filter(e => e.goal && e.team === other).length;
+  const wins = D.stats.momentum.slice(0, Math.floor(minute / 15)).filter(m => m.dominant === team).length, owins = D.stats.momentum.slice(0, Math.floor(minute / 15)).filter(m => m.dominant === other).length;
+  let eu = Math.max(4, Math.min(98, Math.round(50 + 24 * (gF - gA) + 9 * (wins - owins))));
+  const leading = gF > gA, trailing = gF < gA;
+  const faces = leading ? ['partying-face', 'beer-mug', 'fireworks', 'rocket', 'crown', 'fire'] : trailing ? ['loudly-crying-face', 'face-with-symbols-on-mouth', 'broken-heart', 'cloud-with-rain', 'banana', 'exploding-head'] : ['beaming-face', 'beer-mug', 'fire', 'rocket', 'sparkles', 'crown'];
+  const db = leading || (!trailing && eu >= 50) ? (86 + eu * 0.37).toFixed(1) + ' dB (jet engine neighbourhood)' : (24 + (100 - eu) * 0.14).toFixed(1) + ' dB (pin-drop adjacent)';
+  const chant = leading ? 'CHAMPIONES! OLÉ OLÉ OLÉ!' : trailing ? (() => { const lg = [...upto].reverse().find(e => e.goal); return lg ? `Not in the ${lg.minute}' again…` : 'Still believing. Mostly.'; })() : 'ALL TO PLAY FOR — nobody is crying (yet)';
+  return { eu, html: `<div class="stand-head"><span>${team} end</span><span>${leading ? 'EUPHORIA' : trailing ? 'DESPAIR' : 'HOPEFUL'} ${leading || !trailing ? eu : 100 - eu}%</span></div><div class="stand-bar"><div class="stand-fill" style="width:${eu}%;background:${trailing ? '#ff5d73' : '#00ff87'}"></div></div><div class="stand-emojis">${faces.map(f => `<img class="fe" src="assets/fluent-emoji/${f}.svg" alt="">`).join('')}</div><div class="stand-chant">"${chant}"</div><div class="small">Stadium decibel meter: ${db} — arcade math</div>` };
+}
+function updateChaosMeta(force) {
+  if (!D) return;
+  const sc = {}; D.events.forEach(e => { if (e.goal && e.minute <= minute) sc[e.team] = (sc[e.team] || 0) + 1; });
+  $('chaosScore').textContent = `${D.fixture.home} ${sc[D.fixture.home] || 0} – ${sc[D.fixture.away] || 0} ${D.fixture.away}`;
+  $('chaosClock').textContent = `${Math.floor(minute)}'`;
+  $('chaosRecClock').textContent = `T+${String(Math.floor(minute)).padStart(2, '0')}:${String(Math.floor((minute % 1) * 60)).padStart(2, '0')}`;
+  $('chaosPlay').textContent = playing ? '⏸' : '▶';
+  const snap = chaosSnap();
+  $('chaosLock').textContent = snap ? `TARGET LOCK: ${snap.player.toUpperCase()}` : '';
+  $('chaosSnapLine').textContent = snap ? `${snap.minute}' ${snap.type} — ${snap.player} (${snap.team}) · xT ${snap.xt}${snap.shot_speed_kmh ? ` · ${snap.shot_speed_kmh} km/h` : ''}` : 'Ball in play — the next key-moment snapshot is coming.';
+  const goals = D.events.filter(e => e.goal && e.minute <= minute);
+  $('chaosVar').textContent = goals.length ? (minute - goals[goals.length - 1].minute < 1 ? 'VAR: CHECKING…' : 'VAR: CONFIRMED GOLAZO') : '';
+  $('chaosHud').textContent = `TILT 0° · ROT 0° · FOV ${{ tactical: 68, retro: 54, keeper: 41, rocket: 33 }[chaosCam]}°`;
+  document.querySelectorAll('.chaos-key').forEach(b => b.classList.toggle('on', Math.abs(parseFloat(b.dataset.m) - minute) < 0.6));
+  const sh = standHTML(D.fixture.home, D.fixture.away), sa = standHTML(D.fixture.away, D.fixture.home);
+  $('standHome').innerHTML = sh.html; $('standAway').innerHTML = sa.html;
+  if (performance.now() < tifoUntil) { const lead = sh.eu >= sa.eu ? D.fixture.home : D.fixture.away; $('standHome').innerHTML = `<div class="stand-chant" style="font-size:16px;color:#00ff87">GIANT TIFO DROPPED: ${lead.toUpperCase()} — the whole end is one flag.</div>` + $('standHome').innerHTML; }
+  const upto = D.events.filter(e => (e.clock ?? e.minute) <= minute);
+  const goalsN = upto.filter(e => e.goal).length;
+  const trailTeam = (sc[D.fixture.home] || 0) < (sc[D.fixture.away] || 0) ? D.fixture.home : D.fixture.away;
+  const conceded = upto.filter(e => e.goal && e.team !== trailTeam).length, otConceded = upto.filter(e => e.type === 'shot' && e.on_target && e.team !== trailTeam).length;
+  $('teleTears').textContent = (conceded * 7.1 + otConceded * 0.35).toFixed(1) + ' Liters';
+  $('teleTearsCap').textContent = `of ${trailTeam} tears (est.) · arcade math: 7.1 L × ${conceded} goals conceded + 0.35 L × ${otConceded} on-target shots conceded`;
+  $('teleGiggles').textContent = (D.stats.chaos_index * 10 * (1 + 0.25 * goalsN)).toFixed(2) + ' xG';
+  $('teleGigglesCap').textContent = `expected giggles · chaos index ${D.stats.chaos_index} × 10, +25% per goal (${goalsN} so far)`;
+  $('teleFives').textContent = (upto.length * 13 + chaosFxCount * 25).toLocaleString('en-US');
+  $('teleFivesCap').textContent = `community high fives · 13 × ${upto.length} events so far + 25 × ${chaosFxCount} soundboard triggers`;
+  const maxW = Math.max(...D.stats.momentum.slice(0, Math.floor(minute / 15) + 1).map(m => m.events), 0);
+  $('teleDb').textContent = (84 + maxW * 1.35).toFixed(1) + ' dB';
+  $('teleDbCap').textContent = `acoustic peak · loudest 15' window so far: ${maxW} events × 1.35 + 84 base`;
+  $('chaosKeyName').textContent = snap ? `Active keyframe: ${snap.minute}' ${snap.type} — ${snap.player}` : '';
+}
+let AC = null;
+function tone(freq, dur, type, vol, when) { try { AC = AC || new (window.AudioContext || window.webkitAudioContext)(); const o = AC.createOscillator(), g = AC.createGain(); o.type = type; o.frequency.value = freq; g.gain.setValueAtTime(vol, AC.currentTime + (when || 0)); g.gain.exponentialRampToValueAtTime(0.001, AC.currentTime + (when || 0) + dur); o.connect(g); g.connect(AC.destination); o.start(AC.currentTime + (when || 0)); o.stop(AC.currentTime + (when || 0) + dur); } catch (e) {} }
+function hornSound() { tone(466, 0.8, 'sawtooth', 0.10, 0); tone(622, 0.8, 'sawtooth', 0.08, 0); tone(233, 0.8, 'square', 0.05, 0); }
+function popSound() { tone(880, 0.12, 'triangle', 0.12, 0); tone(1320, 0.1, 'triangle', 0.08, 0.05); }
+function whistleSound() { tone(2350, 0.5, 'square', 0.04, 0); tone(2350, 0.3, 'square', 0.04, 0.6); }
+document.querySelectorAll('.chaos-fx').forEach(b => b.addEventListener('click', () => {
+  chaosFxCount++; const fx = b.dataset.fx, line = $('chaosFxLine'), now = performance.now();
+  if (fx === 'airhorn') { hornSound(); line.textContent = 'AIRHORN BLAST — synthesized honk delivered. The neighbours have questions.'; }
+  if (fx === 'pizza') { piz = { on: true, t0: now }; line.textContent = 'Pizza slice airborne. Tunnel drama levels rising.'; }
+  if (fx === 'flamingo') { flam = { on: true, t0: now }; line.textContent = 'Sir Flappy has entered the pitch. Security is doing nothing.'; }
+  if (fx === 'confetti') { const bl = chaosBall(); spawnConfetti((bl.x * 10 * chaosView.k) + chaosView.ox, (bl.y * 10 * chaosView.k) + chaosView.oy, 150); popSound(); line.textContent = 'CONFETTI STORM — the tifo budget is gone and nobody regrets it.'; }
+  if (fx === 'aura') { auraUntil = now + 3500; tone(196, 0.5, 'sawtooth', 0.05, 0); tone(392, 0.5, 'sawtooth', 0.04, 0.1); line.textContent = 'SAIYAN GOAL AURA — power level comfortably above 9000 for 3.5 seconds.'; }
+  if (fx === 'tifo') { tifoUntil = now + 5000; whistleSound(); line.textContent = 'GIANT TIFO DROP — check the stands card. Choreography: elite.'; }
+  updateChaosMeta(true);
+}));
+document.querySelectorAll('.chaos-cam').forEach(b => b.addEventListener('click', () => { chaosCam = b.dataset.cam; document.querySelectorAll('.chaos-cam').forEach(x => x.classList.toggle('on', x === b)); updateChaosMeta(true); }));
+$('chaosClose').addEventListener('click', closeChaos);
+$('chaosPlay').addEventListener('click', () => $('playBtn').click());
+$('chaosBack').addEventListener('click', () => { minute = Math.max(0, minute - 10); render(); updateChaosMeta(true); });
+$('chaosFwd').addEventListener('click', () => { minute = Math.min(90, minute + 10); render(); updateChaosMeta(true); });
+$('chaosConfetti').addEventListener('click', () => { chaosFxCount++; const bl = chaosBall(); spawnConfetti((bl.x * 10 * chaosView.k) + chaosView.ox, (bl.y * 10 * chaosView.k) + chaosView.oy, 130); popSound(); updateChaosMeta(true); });
+const KONAMI = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+let konIdx = 0;
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && chaosOpen) { closeChaos(); return; }
+  const k = e.key.length === 1 ? e.key.toLowerCase() : e.key;
+  konIdx = (k === KONAMI[konIdx]) ? konIdx + 1 : (k === KONAMI[0] ? 1 : 0);
+  if (konIdx === KONAMI.length) { konIdx = 0; openChaos(); }
+});
+let logoTaps = [];
+const lb = $('logoBall'); if (lb) lb.addEventListener('click', () => { const now = Date.now(); logoTaps = logoTaps.filter(t => now - t < 3000); logoTaps.push(now); if (logoTaps.length >= 7) { logoTaps = []; openChaos(); } });

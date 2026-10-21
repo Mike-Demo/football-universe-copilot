@@ -433,7 +433,9 @@ function drawChaosScene(g, k, ox, oy, W, H) {
     }
   }
   const bp = { x: X(ball.x), y: Y(ball.y) };
-  g.beginPath(); g.arc(bp.x, bp.y, Math.max(3, 6.5 * k), 0, 7); g.fillStyle = '#fff'; g.fill(); g.strokeStyle = '#0a151c'; g.lineWidth = 1.5; g.stroke();
+  const bimg = CH['soccer-ball'], bs = Math.max(11, 17 * k);
+  if (bimg && bimg.complete && bimg.naturalWidth) { g.save(); g.translate(bp.x, bp.y); g.rotate(REDUCED ? 0 : (minute * 2.2) % 6.283); g.drawImage(bimg, -bs / 2, -bs / 2, bs, bs); g.restore(); }
+  else { g.beginPath(); g.arc(bp.x, bp.y, Math.max(3, 6.5 * k), 0, 7); g.fillStyle = '#fff'; g.fill(); g.strokeStyle = '#0a151c'; g.lineWidth = 1.5; g.stroke(); }
   if (performance.now() < auraUntil) { g.beginPath(); g.arc(bp.x, bp.y, 30 * k + 6, 0, 7); g.strokeStyle = 'rgba(255,217,102,.9)'; g.lineWidth = 3; g.stroke(); g.beginPath(); g.arc(bp.x, bp.y, 40 * k + 8, 0, 7); g.strokeStyle = 'rgba(255,217,102,.4)'; g.stroke(); }
   const now = performance.now();
   if (flam.on) { const p = (now - flam.t0) / 7000; if (p > 1) flam.on = false; else { const fx = -5 + p * 115, fy = 34 + Math.sin(p * 6.3) * 14, img = CH['flamingo'], s = Math.max(20, 46 * k); if (img && img.complete) g.drawImage(img, X(fx) - s / 2, Y(fy) - s / 2, s, s); g.font = '700 11px "Segoe UI", system-ui'; g.fillStyle = '#ffd4d6'; g.fillText('SIR FLAPPY · PITCH INVADER', Math.min(W - 170, X(fx) - 60), Y(fy) - s / 2 - 6); } }

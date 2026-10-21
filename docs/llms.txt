@@ -1,0 +1,30 @@
+# Football Universe Copilot
+
+> An open-source (MIT) hackathon project for Microsoft's Inside the Game / Premier League Studio challenge: a four-agent pipeline (Interpreter, GraphContext, Narrator, Personalizer) turns a synthetic live match event stream into explainable intelligence - a timed broadcast overlay and five personalized narratives - grounded in a "football universe" knowledge graph (players, clubs, managers; shortest paths and Kevin Bacon Scores). All match data is synthetic and labelled as such; no real fixtures, results or feeds are used.
+
+## Live demo
+
+- [Live demo (GitHub Pages)](https://mike-demo.github.io/football-universe-copilot/): replay any of 512 synthetic fixtures (380 Premier League + 132 Women's Super League), force-directed universe graph, Tactical Lab (pitch snapshots, Voronoi zones, expected-threat model, Poisson what-if), pick-your-own Player Focus / My Club personas, and an "Ask Azure" button that calls the live Azure API for Phi-4-mini narration.
+- [Open Source & Tech Stack](https://mike-demo.github.io/football-universe-copilot/tech.html): architecture, models with formulas, costs, component licenses and credits, carbon disclosure.
+- [API docs](https://mike-demo.github.io/football-universe-copilot/api.html): the live Azure Functions API - endpoints, parameters, response shapes, and the static data files.
+
+## Live API (Azure)
+
+Base URL: https://fuc-api-pv4pnqx2o2t4y.azurewebsites.net/api - anonymous, no key, synthetic data only.
+
+- `GET /health` - liveness + synthetic-only flag.
+- `GET /match/intelligence?focus_player=Erling%20Haaland` - full pipeline output for the featured synthetic match: stats, graph_context, narrative (labelled with its narration_source; Microsoft Phi-4-mini-instruct on Foundry when it answers, deterministic template otherwise), personalized (five personas), overlay (timed feed, schema football-universe-overlay/v1). Serverless cold start can take ~60-90s.
+- `GET /graph/path?a=Nicolas%20Anelka&b=Erling%20Haaland` - verified shortest path (2 degrees via Manchester City) with degrees and edges.
+- `GET /graph/leaderboard` - top-20 Kevin Bacon Scores (Brandes betweenness over the seed graph).
+- `GET /season?league=premier_league` (or `wsl`) - simulated season standings + narratives.
+
+## Static data files (same pipeline output, no server needed)
+
+- [data.json](https://mike-demo.github.io/football-universe-copilot/data.json): the featured match - events (with pitch coordinates), stats, graph, graph context, narrative, personas, overlay.
+- [season.json](https://mike-demo.github.io/football-universe-copilot/season.json): both simulated seasons - fixtures with model xG, standings, form, points progressions, narratives.
+- FIFA Connect Data (FCD v3.3) alignment exports, validated against the standard's XSDs: [featured match](https://mike-demo.github.io/football-universe-copilot/fds/featured-match.xml), [Premier League season](https://mike-demo.github.io/football-universe-copilot/fds/premier-league-season.xml), [WSL season](https://mike-demo.github.io/football-universe-copilot/fds/wsl-season.xml). Alignment to the published model, not a certified integration; synthetic SYN-prefixed IDs.
+
+## Source
+
+- [GitHub repository](https://github.com/Mike-Demo/football-universe-copilot): MIT, (c) 2026 Mike Demopoulos. Zero-dependency Python core; the same agent classes run locally (src/api/app.py, FastAPI) and in Azure (azure/function_app.py).
+- [carbon.txt](https://mike-demo.github.io/football-universe-copilot/carbon.txt): hosting disclosure (no green claim); the footer of the demo shows a per-visit CO2.js estimate computed locally from transferred bytes.

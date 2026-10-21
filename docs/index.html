@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="style.css"></head>
 <body>
 <div class="cmdbar">
-  <span class="logo"><img class="fe fe-logo" src="assets/fluent-emoji/soccer-ball.svg" alt="" aria-hidden="true"></span><strong>Football Universe</strong><span class="pill-copilot"><img class="fe" src="assets/fluent-emoji/sparkles.svg" alt="" aria-hidden="true"><span class="pill-text">COPILOT</span></span>
+  <span class="logo" id="logoBall" title="Football Universe"><img class="fe fe-logo" src="assets/fluent-emoji/soccer-ball.svg" alt="" aria-hidden="true"></span><strong>Football Universe</strong><span class="pill-copilot"><img class="fe" src="assets/fluent-emoji/sparkles.svg" alt="" aria-hidden="true"><span class="pill-text">COPILOT</span></span>
   <nav><a href="#studio">Live Match Studio</a><a href="#graphCard">Graph Explorer</a><a href="#seasonCard">Season Hub</a><a href="tech.html">Tech Stack</a></nav>
   <span class="spacer"></span>
   <button id="tourBtn" class="btn">Tour &amp; Guide</button>
@@ -157,7 +157,64 @@
 <footer class="sitefoot">
   <p class="small">Football Universe Copilot — all data synthetic · MIT · <a href="https://github.com/Mike-Demo/football-universe-copilot">GitHub</a> · <a href="tech.html">Tech stack</a> · <a href="api.html">API docs</a> · <a href="llms.txt">llms.txt</a> · <a href="carbon.txt">carbon.txt</a></p>
   <p class="small" data-co2-estimate></p>
+  <p class="small" style="opacity:.65">Psst — a hidden Chaos Arcade mode exists: Konami code (↑↑↓↓←→←→ B A) or tap the ball up top 7 times.</p>
 </footer>
+
+<div id="chaos" hidden role="dialog" aria-modal="true" aria-label="Chaos Arcade hidden replay mode">
+  <div class="chaos-top">
+    <span class="chaos-egg"><img class="fe" src="assets/fluent-emoji/star-struck.svg" alt=""></span>
+    <div class="chaos-title"><strong>SECRET EASTER EGG UNLOCKED: CHAOS REPLAY MODE</strong><span class="small">A joke skin over the same verified synthetic match — every number below is arcade math on real events, formulas included.</span></div>
+    <span class="chaos-fx-on">CHAOS FX: ON</span>
+    <button id="chaosClose" class="chaos-btn">✕ Exit chaos</button>
+  </div>
+  <div class="chaos-grid">
+    <section class="chaos-card chaos-scrubcard">
+      <div class="chaos-matchline"><strong id="chaosScore">—</strong><span id="chaosClock" class="chaos-clock"></span><span id="chaosVar" class="chaos-var"></span></div>
+      <div id="chaosKeys" class="chaos-keys" role="group" aria-label="Match keyframes"></div>
+      <div class="chaos-transport">
+        <button id="chaosPlay" class="chaos-btn chaos-play" aria-label="Play or pause">⏸</button>
+        <button id="chaosBack" class="chaos-btn" aria-label="Back ten minutes">−10'</button>
+        <button id="chaosFwd" class="chaos-btn" aria-label="Forward ten minutes">+10'</button>
+        <span id="chaosKeyName" class="small"></span>
+      </div>
+      <div class="chaos-cams"><span class="small">ARCADE CAMERA DIRECTOR</span>
+        <button class="chaos-cam on" data-cam="tactical">Tactical High</button>
+        <button class="chaos-cam" data-cam="retro">Retro 16-Bit</button>
+        <button class="chaos-cam" data-cam="keeper">Keeper POV</button>
+        <button class="chaos-cam" data-cam="rocket">Rocket Ball Cam</button>
+        <span id="chaosHud" class="small"></span>
+      </div>
+    </section>
+    <section class="chaos-card chaos-stage">
+      <div class="chaos-rec"><span class="chaos-dot"></span> REC [EASTER EGG CAM] <span id="chaosRecClock"></span><span id="chaosLock" class="chaos-lock"></span></div>
+      <canvas id="chaosCanvas" width="1050" height="680" aria-label="Chaos arcade pitch"></canvas>
+      <div class="chaos-stagebar"><span id="chaosSnapLine" class="small"></span><button id="chaosConfetti" class="chaos-btn chaos-confetti">Trigger Goal Confetti</button></div>
+    </section>
+    <section class="chaos-card chaos-stands">
+      <div id="standHome" class="stand"></div>
+      <div id="standAway" class="stand"></div>
+      <p class="small chaos-fine">Stand sentiment is arcade math on the live score + momentum windows — not biometrics, obviously.</p>
+    </section>
+    <section class="chaos-card chaos-sound">
+      <h3>CHAOS SOUNDBOARD &amp; MODIFIERS</h3>
+      <div class="chaos-soundgrid">
+        <button class="chaos-fx" data-fx="airhorn" aria-label="Trigger airhorn blast"><img class="fe" src="assets/fluent-emoji/loudspeaker.svg" alt=""> Airhorn Blast<span>Synth honk, Web Audio</span></button>
+        <button class="chaos-fx" data-fx="pizza" aria-label="Throw a pizza slice"><img class="fe" src="assets/fluent-emoji/pizza.svg" alt=""> Throw Pizza Slice<span>Tunnel drama, airborne</span></button>
+        <button class="chaos-fx" data-fx="flamingo" aria-label="Summon the flamingo pitch invader"><img class="fe" src="assets/fluent-emoji/flamingo.svg" alt=""> Summon Flamingo<span>Sir Flappy, pitch invader</span></button>
+        <button class="chaos-fx" data-fx="confetti" aria-label="Trigger a confetti storm"><img class="fe" src="assets/fluent-emoji/party-popper.svg" alt=""> Confetti Storm<span>Full-pitch tifo blast</span></button>
+        <button class="chaos-fx" data-fx="aura" aria-label="Give the ball carrier a Saiyan goal aura"><img class="fe" src="assets/fluent-emoji/high-voltage.svg" alt=""> Saiyan Goal Aura<span>Neon glow 9000</span></button>
+        <button class="chaos-fx" data-fx="tifo" aria-label="Drop the giant tifo"><img class="fe" src="assets/fluent-emoji/fireworks.svg" alt=""> Giant Tifo Drop<span>Whole-stand cover</span></button>
+      </div>
+      <p id="chaosFxLine" class="small">Ready. Tap a modifier — the pitch obeys.</p>
+    </section>
+    <section class="chaos-card chaos-tele">
+      <div class="chaos-tile"><span class="small">SALTY TELEMETRY</span><strong id="teleTears">—</strong><span class="small" id="teleTearsCap"></span></div>
+      <div class="chaos-tile"><span class="small">EXPECTED GIGGLES (xG)</span><strong id="teleGiggles">—</strong><span class="small" id="teleGigglesCap"></span></div>
+      <div class="chaos-tile"><span class="small">COMMUNITY HIGH FIVES</span><strong id="teleFives">—</strong><span class="small" id="teleFivesCap"></span></div>
+      <div class="chaos-tile"><span class="small">ACOUSTIC PEAK</span><strong id="teleDb">—</strong><span class="small" id="teleDbCap"></span></div>
+    </section>
+  </div>
+</div>
 <div id="dock" hidden role="complementary" aria-label="Copilot live commentary">
   <img class="fe" src="assets/fluent-emoji/sparkles.svg" alt="" aria-hidden="true">
   <div class="dock-main"><strong id="dockTitle">Copilot live</strong><p id="dockBody">Press Play — the commentary anchors here while the match runs, wherever you scroll.</p></div>

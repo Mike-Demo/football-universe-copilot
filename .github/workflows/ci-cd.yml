@@ -1,0 +1,41 @@
+name: CI + Deploy Azure Functions
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'azure/**'
+      - 'src/**'
+      - 'data/**'
+      - '.github/workflows/ci-cd.yml'
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m unittest discover -s tests -v
+      - run: python -m src.pipeline > /tmp/out.json && echo "pipeline OK"
+
+  deploy:
+    needs: test
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Stage the function package (pipeline code beside function_app.py)
+        run: cp -r src data azure/
+      - name: Deploy to Azure Functions
+        uses: Azure/functions-action@v1
+        with:
+          app-name: fuc-api-pv4pnqx2o2t4y
+          package: azure
+          publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}

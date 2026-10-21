@@ -192,6 +192,29 @@ function genMatchData(m, lg) {
   for (let i = 0; i < passes; i++) { const team = rng() > (1 - m.home_possession / 100) ? m.home : m.away; events.push({ minute: goalMin(), type: 'pass', team, player: ROLES[Math.floor(rng() * ROLES.length)], distance_m: Math.round(4 + rng() * 38), difficulty: +(0.1 + rng() * 0.85).toFixed(2) }); }
   for (let i = 0; i < 12; i++) { const team = rng() > 0.5 ? m.home : m.away; events.push({ minute: goalMin(), type: 'pressure', team, player: ROLES[Math.floor(rng() * ROLES.length)], pressure_intensity: +(0.3 + rng() * 0.7).toFixed(2) }); }
   events.sort((a, b) => a.minute - b.minute);
+  // Featured-schema parity (Copilot review PR #4): generated events get the same
+  // clock, coordinates, xT/xG and key-moment snapshots as data.json, from a separate
+  // coordinate RNG stream (seed+777, like the Python generator) so the event stream
+  // itself is unchanged. Without these, the pitch/ball/Voronoi and the arcade modes
+  // have nothing to draw for picked fixtures.
+  const crng = mulberry32(hashSeed(m.home + '|' + m.away + '|' + m.matchweek) + 777);
+  const FORM = [[4.5, 34], [16, 10], [15, 26], [15, 42], [16, 58], [30, 8], [31, 24], [31, 44], [30, 60], [46, 22], [46, 46]];
+  const snapFor = (e) => {
+    const hi = e.team === m.home ? 0 : 1, pts = [];
+    for (let t = 0; t < 2; t++) { const att = t === hi; for (let i = 0; i < 11; i++) { let bx = FORM[i][0]; if (!att) bx = 105 - bx; pts.push([+Math.min(103, Math.max(2, bx + (crng() - 0.5) * 7 + (e.x - 52.5) * 0.12)).toFixed(1), +Math.min(66, Math.max(2, FORM[i][1] + (crng() - 0.5) * 7)).toFixed(1), t]); } }
+    return pts;
+  };
+  let pcm = -1, ck = 0;
+  events.forEach(e => {
+    if (e.minute !== pcm) { pcm = e.minute; ck = 0; }
+    e.clock = +(e.minute + (ck++) * 0.02).toFixed(3);
+    if (e.type === 'shot') { const right = e.team === m.home; e.x = +(right ? 78 + crng() * 20 : 7 + crng() * 20).toFixed(1); e.y = +(22 + crng() * 24).toFixed(1); }
+    else if (e.type === 'pass') { e.x = +(12 + crng() * 81).toFixed(1); e.y = +(4 + crng() * 60).toFixed(1); }
+    else { e.x = +(28 + crng() * 49).toFixed(1); e.y = +(6 + crng() * 56).toFixed(1); }
+    e.xt = xtModel(e.x, e.y);
+    if (e.type === 'shot') e.xg = Math.min(0.95, Math.round(2.2 * e.xt * 100) / 100);
+    if (e.type === 'shot' || (e.type === 'pass' && e.distance_m >= 35)) { e.positions = snapFor(e); if (e.type === 'pass') { const ang = crng() * Math.PI * 2; e.dx = +((e.distance_m || 30) * Math.cos(ang)).toFixed(1); e.dy = +((e.distance_m || 30) * Math.sin(ang)).toFixed(1); } }
+  });
   const alerts = [];
   for (const e of events) { const a = []; if (e.type === 'shot' && e.shot_speed_kmh >= 110) a.push('SPEED_ALERT'); if (e.type === 'pass' && e.distance_m >= 35) a.push('LONG_RANGE_ALERT'); if (a.length) { e.threshold_alerts = a; alerts.push({ minute: e.minute, player: e.player + ' (' + e.team + ')', alerts: a }); } }
   const momentum = [];
@@ -354,7 +377,10 @@ const vt = $('vorToggle'); if (vt) vt.addEventListener('change', () => drawPitch
       const d = await r.json(); const secs = ((performance.now() - t0) / 1000).toFixed(1);
       const src = (d.narrative && d.narrative.narration_source) || 'unknown';
       const isPhi = src.includes('Phi') || src.includes('phi');
-      out.innerHTML = '<div class="agent ai" style="margin-top:8px"><strong>Live from Azure in ' + secs + 's</strong> · narration_source: <code>' + src + '</code>' + (isPhi ? '' : '<p class="small">Phi did not respond within its window on this call, so Azure served the labelled deterministic template instead — the source string above always tells you which one you got.</p>') + '<p style="margin-top:6px">' + ((d.narrative && d.narrative.recap) || '') + '</p></div>';
+      out.innerHTML = '<div class="agent ai" style="margin-top:8px"><strong>Live from Azure in ' + secs + 's</strong> · narration_source: <code id="azureSrc"></code>' + (isPhi ? '' : '<p class="small">Phi did not respond within its window on this call, so Azure served the labelled deterministic template instead — the source string above always tells you which one you got.</p>') + '<p id="azureRecap" style="margin-top:6px"></p></div>';
+      // Model/provider text is data, not markup (Copilot review PR #4): assign as text.
+      $('azureSrc').textContent = src;
+      $('azureRecap').textContent = (d.narrative && d.narrative.recap) || '';
       st.textContent = '';
     } catch (e) {
       st.textContent = 'The live Azure call did not complete (' + (e.name === 'AbortError' ? 'timed out after 170s — the serverless endpoint is very cold' : e.message) + '). The static recap above is the same pipeline running locally; you can retry the Azure call.';

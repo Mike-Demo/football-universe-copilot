@@ -10,6 +10,6 @@ Design rule: every service is pay-per-use with a $0 floor. Nothing provisioned, 
 | Storage account (Functions plumbing) | Standard LRS, pennies at this size | — | < $0.10 |
 | Application Insights | First 5 GB/month free on the workspace model | Tiny logs | $0 |
 | Microsoft Foundry project itself | No separate platform fee in this design — you pay for the model + services above | — | $0 |
-**Realistic total Oct 20 → Nov 10: $0–2. Hard worst case (GPT-4o + heavy judge traffic): ~$10.**
-Guardrails in deploy.sh: $10 budget with a 90% alert. Teardown after judging: `az group delete -n football-universe-rg` returns you to $0 — everything lives in one resource group.
+**Realistic total Oct 20 → Nov 10: $0–2. Even a heavy-traffic scenario on the deployed Phi model stays in low single digits; the ~$10 figure sometimes quoted assumed a GPT-4o switch that is not deployed.**
+Guardrails: a $10 budget with a 90% alert (an alert notifies — it does **not** cap or stop spend), plus the API's own bounds: /match/intelligence responses are cached per focus player for 10 minutes and throttled to 20 requests/minute per client IP. Teardown after judging: `az group delete -n football-universe-rg` returns you to $0 — everything lives in one resource group.
 Not included / not assumed: an Azure subscription itself. A pay-as-you-go subscription needs your sign-in + payment method; a new Azure free account ($200/30 days + 12-month free services) would cover this entirely if you qualify and haven't used one.

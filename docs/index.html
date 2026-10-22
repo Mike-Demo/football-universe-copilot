@@ -8,8 +8,7 @@
   <nav><a href="#studio">Live Match Studio</a><a href="#graphCard">Graph Explorer</a><a href="#seasonCard">Season Hub</a><a href="tech.html">Tech Stack</a></nav>
   <span class="spacer"></span>
   <button id="prideBtn" class="btn pridebtn" aria-label="Open Pride Matchday mode"><img class="fe" src="assets/fluent-emoji/rainbow-flag.svg" alt=""><span class="ptext"> Pride</span></button>
-  <button id="tourBtn" class="btn">Tour &amp; Guide</button>
-  <button id="friendlyBtn" class="btn friendlybtn" aria-haspopup="dialog"><img class="fe" src="assets/fluent-emoji/beaming-face.svg" alt="" aria-hidden="true"><span class="ftext"> The friendly version</span></button>
+  <button id="startHereBtn" class="btn startbtn" aria-haspopup="dialog"><img class="fe" src="assets/fluent-emoji/beaming-face.svg" alt="" aria-hidden="true"><span class="ftext"> Start here — the friendly tour</span></button>
   <a class="btn ghbtn" style="text-decoration:none;display:inline-flex;align-items:center" href="https://github.com/Mike-Demo/football-universe-copilot">GitHub</a>
 </div>
 <div class="shell">
@@ -28,18 +27,11 @@
     </div>
   </aside>
   <main id="studio">
-    <div class="banner" id="tourBanner">
+    <div class="banner" id="welcomeBanner">
       <div><strong>Welcome to Football Universe Copilot</strong><br>
-      <span class="small" style="color:var(--text-2)">A 4-agent pipeline turns synthetic match events into explainable intelligence. Everything here is simulated and labelled — take the ~1 minute tour to see how it flows.</span></div>
-      <button id="startTourBtn" class="primary">Start tour</button>
-      <button id="dismissBannerBtn" class="x" aria-label="Dismiss">✕</button>
-    </div>
-    <div class="tour" id="tourCard" hidden>
-      <strong id="tourTitle"></strong>
-      <p id="tourBody" style="margin:6px 0"></p>
-      <button id="tourNextBtn" class="primary">Next</button>
-      <button id="tourEndBtn">End tour</button>
-      <span class="small" id="tourStep"></span>
+      <span class="small" style="color:var(--text-2)">New here? Start here: a 2-minute friendly video in plain English, the story behind the page, and a guided look at the real buttons — all in one place. Everything on this page is simulated and labelled.</span></div>
+      <button id="bannerStartBtn" class="primary">Start the friendly tour</button>
+      <button id="bannerDismissBtn" class="x" aria-label="Dismiss">✕</button>
     </div>
 
     <section class="card">
@@ -275,31 +267,60 @@
     </section>
   </div>
 </div>
-<div id="friendly" hidden>
-  <div class="friendly-box" role="dialog" aria-modal="true" aria-labelledby="friendlyTitle">
-    <div class="friendly-head">
-      <h2 id="friendlyTitle"><img class="fe" src="assets/fluent-emoji/beaming-face.svg" alt="" aria-hidden="true"> Football Universe Copilot, in plain English</h2>
-      <button id="friendlyClose" class="friendly-x" aria-label="Close the friendly version">✕</button>
+<div id="startHere" hidden>
+  <div class="start-box" role="dialog" aria-modal="true" aria-labelledby="startTitle">
+    <div class="start-head">
+      <h2 id="startTitle"><img class="fe" src="assets/fluent-emoji/beaming-face.svg" alt="" aria-hidden="true"> Start here — the friendly tour</h2>
+      <button id="startClose" class="start-x" aria-label="Close the friendly tour">✕</button>
     </div>
-    <div class="friendly-body">
-      <p>New here? Welcome in. This page is a football companion. It watches a match with you and explains what is happening, and why it matters, in words anyone can follow. No football brain required. No computer brain required either.</p>
-      <h3><img class="fe" src="assets/fluent-emoji/globe-with-meridians.svg" alt="" aria-hidden="true"> The two-steps-apart story</h3>
-      <p>You might think Nicolas Anelka and Erling Haaland have nothing to do with each other. They played in different times and never shared a pitch. But this page keeps a big map of who played where, and on that map the two of them are only two steps apart: Anelka played for Manchester City, and so did Haaland. It works like friends of friends. You may never have met someone, yet you share a friend. Football is full of hidden links like that, and finding them is half the fun here.</p>
-      <h3><img class="fe" src="assets/fluent-emoji/sparkles.svg" alt="" aria-hidden="true"> Meet the four helpers</h3>
-      <p>Four helpers share the work, like a little team behind the curtain:</p>
-      <ul>
-        <li><strong>The reader</strong> watches the match closely and writes down everything that happens: every pass, shot, and goal.</li>
-        <li><strong>The memory</strong> remembers how all the players and clubs connect to each other, going back years.</li>
-        <li><strong>The storyteller</strong> turns those notes into the story of the match, as it unfolds.</li>
-        <li><strong>The shaper</strong> adjusts the story to fit you. Want it short and simple? Following one favourite player? Cheering for one club? The same match, retold your way.</li>
-      </ul>
-      <h3><img class="fe" src="assets/fluent-emoji/television.svg" alt="" aria-hidden="true"> A recap written on the spot</h3>
-      <p>In the match area there is a button marked Ask Azure. Tap it, and a real AI writes a fresh recap of the match for you, right there and then. Nothing is copied from a script. And this page always tells you where the words came from, so you can see whether a recap was written fresh for you or filled in with a ready-made summary. No pretending, ever.</p>
-      <h3><img class="fe" src="assets/fluent-emoji/party-popper.svg" alt="" aria-hidden="true"> Two fun extras</h3>
-      <p><strong>Chaos Arcade</strong> turns the same match into a silly arcade game, with confetti, sound effects, and daft camera angles. <strong>Pride Matchday</strong> dresses the same match in rainbows, because football is for everyone. Same match underneath, just dressed up for fun.</p>
-      <h3><img class="fe" src="assets/fluent-emoji/pushpin.svg" alt="" aria-hidden="true"> One honest note</h3>
-      <p>The matches on this page are made up. A computer invented them for practice, so no real results are on the line. The players and clubs are real, and so are the links between them. The games themselves never actually happened.</p>
-      <p class="friendly-cta"><button id="friendlyTry" class="primary">Pick a match and press play</button></p>
+    <div class="start-body">
+      <section class="start-step" data-step="0">
+        <h3><img class="fe" src="assets/fluent-emoji/television.svg" alt="" aria-hidden="true"> Watch: the whole idea in two minutes</h3>
+        <p>New here? Welcome in. This page is a football companion. It watches a match with you and explains what is happening, and why it matters, in words anyone can follow. No football brain required. No computer brain required either. This short video tells the whole story — or step through it below, at your own pace.</p>
+        <video id="startVideo" class="start-video" controls preload="metadata" playsinline poster="assets/friendly-poster.jpg">
+          <source src="https://fucstpv4pnqx2o2t4y.blob.core.windows.net/media/football-universe-friendly-1080p.mp4" type="video/mp4">
+        </video>
+        <p class="small start-videolinks">Video hosted on Azure Blob Storage · <a href="https://fucstpv4pnqx2o2t4y.blob.core.windows.net/media/football-universe-friendly-4k.mp4">Full-quality 4K version</a> · <a href="https://www.youtube.com/watch?v=RPxx-0EvKbw" target="_blank" rel="noopener">Watch on YouTube</a></p>
+      </section>
+      <section class="start-step" data-step="1" hidden>
+        <h3><img class="fe" src="assets/fluent-emoji/globe-with-meridians.svg" alt="" aria-hidden="true"> The two-steps-apart story</h3>
+        <p>You might think Nicolas Anelka and Erling Haaland have nothing to do with each other. They played in different times and never shared a pitch. But this page keeps a big map of who played where, and on that map the two of them are only two steps apart: Anelka played for Manchester City, and so did Haaland. It works like friends of friends. You may never have met someone, yet you share a friend. Football is full of hidden links like that, and finding them is half the fun here.</p>
+        <p><button class="start-live" data-goto="#graphCard" data-click="#pathBtn">▶ See it live — animate the Anelka → Haaland path</button></p>
+      </section>
+      <section class="start-step" data-step="2" hidden>
+        <h3><img class="fe" src="assets/fluent-emoji/sparkles.svg" alt="" aria-hidden="true"> Meet the four helpers</h3>
+        <p>Four helpers share the work, like a little team behind the curtain:</p>
+        <ul>
+          <li><strong>The reader</strong> watches the match closely and writes down everything that happens: every pass, shot, and goal.</li>
+          <li><strong>The memory</strong> remembers how all the players and clubs connect to each other, going back years.</li>
+          <li><strong>The storyteller</strong> turns those notes into the story of the match, as it unfolds.</li>
+          <li><strong>The shaper</strong> adjusts the story to fit you. Want it short and simple? Following one favourite player? Cheering for one club? The same match, retold your way.</li>
+        </ul>
+        <p><button class="start-live" data-goto="#agentsCard">▶ Meet them live — the four helpers at work</button></p>
+      </section>
+      <section class="start-step" data-step="3" hidden>
+        <h3><img class="fe" src="assets/fluent-emoji/television.svg" alt="" aria-hidden="true"> A recap written on the spot</h3>
+        <p>In the match area there is a button marked Ask Azure. Tap it, and a real AI writes a fresh recap of the match for you, right there and then. Nothing is copied from a script. And this page always tells you where the words came from, so you can see whether a recap was written fresh for you or filled in with a ready-made summary. No pretending, ever.</p>
+        <p><button class="start-live" data-goto="#azureBtn">▶ Find it live — the Ask Azure button</button></p>
+      </section>
+      <section class="start-step" data-step="4" hidden>
+        <h3><img class="fe" src="assets/fluent-emoji/party-popper.svg" alt="" aria-hidden="true"> Two fun extras</h3>
+        <p><strong>Chaos Arcade</strong> turns the same match into a silly arcade game, with confetti, sound effects, and daft camera angles. <strong>Pride Matchday</strong> dresses the same match in rainbows, because football is for everyone. Same match underneath, just dressed up for fun.</p>
+        <p><button class="start-live" data-open="pride">▶ Try one live — open Pride Matchday</button></p>
+        <p class="small">Chaos Arcade is a hidden extra: tap the ball at the top of the page 7 times (or use the Konami code) once you are back on the page.</p>
+      </section>
+      <section class="start-step" data-step="5" hidden>
+        <h3><img class="fe" src="assets/fluent-emoji/pushpin.svg" alt="" aria-hidden="true"> One honest note</h3>
+        <p>The matches on this page are made up. A computer invented them for practice, so no real results are on the line. The players and clubs are real, and so are the links between them. The games themselves never actually happened.</p>
+        <p>That is the whole tour. Use “Pick your match” to choose your team and any fixture from the full 512-match calendar — the featured Arsenal v Man City match runs the deepest pipeline — then press Play and watch the helpers work.</p>
+        <p class="start-cta"><button id="startTry" class="primary">Pick a match and press play</button></p>
+      </section>
+    </div>
+    <div class="start-nav">
+      <button id="startBack">← Back</button>
+      <span class="start-dots" id="startDots" aria-hidden="true"></span>
+      <span class="small" id="startStepLabel"></span>
+      <button id="startNext" class="primary">Next →</button>
     </div>
   </div>
 </div>
@@ -343,20 +364,5 @@ function clubDetail(name){
 }
 fetch('season.json').then(r=>r.json()).then(s=>{SEASON=s;renderSeason()}).catch(()=>{document.getElementById('seasonStories').textContent='Season data failed to load.'});
 document.querySelectorAll('[data-league]').forEach(b=>b.onclick=()=>{LEAGUE=b.dataset.league;renderSeason()});
-/* Onboarding tour (Fluent 2 pattern: Notify banner -> Orient popovers) */
-const TOUR=[
- ['1 · Pick any match','Use “Pick your match” to choose your team and any fixture from the full 512-match synthetic calendar — Premier League or the Women’s Super League. The featured Arsenal v Man City match runs the deepest pipeline.'],
- ['2 · Watch the agents work','Press Play. The Interpreter reads the events, GraphContext grounds the moments in the football universe graph, the Narrator explains why they matter, and the Personalizer retells the same match for five audiences — switch personas any time.'],
- ['3 · Explore the connections','Scroll to the graph: tap any node (or use the phone-friendly picker) to see its connections, and animate the verified Anelka → Haaland path — 2 degrees through Manchester City.']];
-let tourI=-1;
-const tc=document.getElementById('tourCard');
-function tourShow(i){tourI=i; if(i<0||i>=TOUR.length){tc.hidden=true;return;} tc.hidden=false;
- document.getElementById('tourTitle').textContent=TOUR[i][0]; document.getElementById('tourBody').textContent=TOUR[i][1];
- document.getElementById('tourStep').textContent='Step '+(i+1)+' of '+TOUR.length+' · ~1 minute total'; tc.scrollIntoView({behavior:'smooth',block:'center'});}
-document.getElementById('startTourBtn').onclick=()=>tourShow(0);
-document.getElementById('tourBtn').onclick=()=>tourShow(0);
-document.getElementById('tourNextBtn').onclick=()=>tourShow(tourI+1);
-document.getElementById('tourEndBtn').onclick=()=>tourShow(-1);
-document.getElementById('dismissBannerBtn').onclick=()=>{document.getElementById('tourBanner').hidden=true;};
 </script>
 </body></html>

@@ -685,30 +685,60 @@ $('prideFwd').addEventListener('click', () => { minute = Math.min(90, minute + 1
 $('prideConfetti').addEventListener('click', () => { prideFxCount++; const bl = chaosBall(); spawnPrideConfetti((bl.x * 10 * prideView.k) + prideView.ox, (bl.y * 10 * prideView.k) + prideView.oy, 150); popSound(); updatePrideMeta(); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape' && prideOpen) closePride(); });
 
-/* ================= FRIENDLY VERSION — plain-English explainer modal ================= */
-let friendlyOpen = false, friendlyReturn = null;
-function openFriendly() {
-  friendlyOpen = true; friendlyReturn = document.activeElement;
-  $('friendly').hidden = false; document.body.style.overflow = 'hidden';
-  $('friendlyClose').focus();
+/* ================= START HERE — the friendly tour (video + plain-English story + guided highlights, one flow) ================= */
+const START_STEPS = [...document.querySelectorAll('#startHere .start-step')];
+let startOpen = false, startReturn = null, startStep = 0;
+function startShowStep(i) {
+  startStep = Math.max(0, Math.min(START_STEPS.length - 1, i));
+  START_STEPS.forEach((s, j) => { s.hidden = j !== startStep; });
+  const v = $('startVideo'); if (v && startStep !== 0 && !v.paused) v.pause();
+  $('startBack').disabled = startStep === 0;
+  $('startNext').style.visibility = startStep === START_STEPS.length - 1 ? 'hidden' : 'visible';
+  $('startStepLabel').textContent = 'Step ' + (startStep + 1) + ' of ' + START_STEPS.length;
+  $('startDots').innerHTML = START_STEPS.map((_, j) => '<i class="' + (j === startStep ? 'on' : '') + '"></i>').join('');
+  const body = document.querySelector('#startHere .start-body'); if (body) body.scrollTop = 0;
 }
-function closeFriendly() {
-  friendlyOpen = false; $('friendly').hidden = true; document.body.style.overflow = '';
-  if (friendlyReturn && friendlyReturn.focus) friendlyReturn.focus();
+function openStart() {
+  startOpen = true; startReturn = document.activeElement;
+  $('startHere').hidden = false; document.body.style.overflow = 'hidden';
+  startShowStep(0);
+  $('startClose').focus();
 }
-$('friendlyBtn').addEventListener('click', openFriendly);
-$('friendlyClose').addEventListener('click', closeFriendly);
-$('friendly').addEventListener('click', e => { if (e.target === $('friendly')) closeFriendly(); });
-$('friendlyTry').addEventListener('click', () => {
-  closeFriendly();
+function closeStart() {
+  startOpen = false; $('startHere').hidden = true; document.body.style.overflow = '';
+  const v = $('startVideo'); if (v && !v.paused) v.pause();
+  if (startReturn && startReturn.focus) startReturn.focus();
+}
+function startSpot(el) {
+  if (!el) return;
+  el.scrollIntoView({ behavior: REDUCED ? 'auto' : 'smooth', block: 'center' });
+  el.classList.add('tour-spot');
+  setTimeout(() => el.classList.remove('tour-spot'), REDUCED ? 1200 : 2800);
+}
+$('startHereBtn').addEventListener('click', openStart);
+$('bannerStartBtn').addEventListener('click', openStart);
+$('bannerDismissBtn').addEventListener('click', () => { $('welcomeBanner').hidden = true; });
+$('startClose').addEventListener('click', closeStart);
+$('startHere').addEventListener('click', e => { if (e.target === $('startHere')) closeStart(); });
+$('startNext').addEventListener('click', () => startShowStep(startStep + 1));
+$('startBack').addEventListener('click', () => startShowStep(startStep - 1));
+document.querySelectorAll('#startHere .start-live').forEach(b => b.addEventListener('click', () => {
+  const gotoSel = b.dataset.goto, clickSel = b.dataset.click, open = b.dataset.open;
+  closeStart();
+  if (open === 'pride') { setTimeout(() => $('prideBtn').click(), 60); return; }
+  const target = gotoSel ? document.querySelector(gotoSel) : null;
+  setTimeout(() => { startSpot(target); if (clickSel) { const c = document.querySelector(clickSel); if (c) setTimeout(() => c.click(), REDUCED ? 60 : 700); } }, 60);
+}));
+$('startTry').addEventListener('click', () => {
+  closeStart();
   const p = $('pickLeague');
-  if (p) { p.scrollIntoView({ behavior: REDUCED ? 'auto' : 'smooth', block: 'center' }); p.focus({ preventScroll: true }); }
+  if (p) { const card = p.closest('section'); startSpot(card || p); p.focus({ preventScroll: true }); }
 });
 document.addEventListener('keydown', e => {
-  if (!friendlyOpen) return;
-  if (e.key === 'Escape') { closeFriendly(); return; }
+  if (!startOpen) return;
+  if (e.key === 'Escape') { closeStart(); return; }
   if (e.key === 'Tab') {
-    const f = [...$('friendly').querySelectorAll('button, a[href], select, input, [tabindex]:not([tabindex="-1"])')].filter(el => !el.disabled && el.offsetParent !== null);
+    const f = [...$('startHere').querySelectorAll('button, a[href], select, input, video, [tabindex]:not([tabindex="-1"])')].filter(el => !el.disabled && el.offsetParent !== null);
     if (!f.length) return;
     const first = f[0], last = f[f.length - 1];
     if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }

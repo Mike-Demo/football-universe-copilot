@@ -6,6 +6,7 @@
 
 **Live demo: https://mike-demo.github.io/football-universe-copilot/
 Live Azure API (Functions + Foundry Phi-4-mini + Cosmos Gremlin, westus2, own billing profile): https://fuc-api-pv4pnqx2o2t4y.azurewebsites.net/api/health** — play the synthetic match replay, animate the graph path, switch personalization modes.
+**Demo video (under 2 min): https://www.youtube.com/watch?v=RPxx-0EvKbw** — the main hackathon video, produced from real product captures.
 
 ## The problem
 Match data tells fans *what* happened. It rarely explains *why it matters*, and the same feed serves an analyst and a first-time fan identically.
@@ -15,9 +16,18 @@ Match data tells fans *what* happened. It rarely explains *why it matters*, and 
 2. **Interpret** — the **Interpreter agent** aggregates momentum by 15-min windows, control-vs-chaos index, pass difficulty and pressure.
 3. **Explain** — the **GraphContext agent** grounds each key moment in the Football Universe graph (players / clubs / managers, PLAYED_FOR + COACHED_BY + RIVAL_OF): shortest paths, degree, and the **Kevin Bacon Score** (Brandes betweenness, computed — not invented). The **Narrator agent** only narrates verified events and graph paths; it never invents a connection.
 4. **Render** — a timed, machine-readable overlay feed (`football-universe-overlay/v1`, `src/overlay/`) plus a broadcast-style web UI (`frontend/`).
-5. **Personalize** — the **Personalizer agent** delivers the same intelligence as Analyst, Casual Fan, Player-Focus (Haaland), and Spanish modes, plus an auto-generated full-time recap.
+5. **Personalize** — the **Personalizer agent** delivers the same intelligence five ways: Analyst, Casual Fan, Player-Focus, Club-Focus ("My Club"), and Spanish modes, plus an auto-generated full-time recap.
 
 Verified demo fact: the true shortest path is **Nicolas Anelka → Manchester City → Erling Haaland (2 degrees)** — Anelka played for City (2002–2005). Earlier draft material claimed a 3-degree path via Wenger; the graph corrects it.
+
+## New here? Start here — the friendly tour
+The demo's **Start here** button opens one merged experience (the friendly explainer and the guided tour are a single flow now): a plain-English companion video, then the two-steps-apart story, the four helpers, the live **Ask Azure** recap, and the Chaos Arcade / Pride Matchday extras as steps with "see it live" jumps to the real controls — ending on **"Pick a match and press play."**
+
+The companion video is styled in Microsoft Fluent design and deliberately jargon-free. It's too heavy for the Pages repo, so it streams from **Azure Blob Storage** — the public `media` container on the project's own storage account (`fucstpv4pnqx2o2t4y`, the same account the Function App uses; declared in `infra/main.bicep`, upload steps in `infra/MEDIA-HANDOFF.md`):
+- Streaming (1080p): https://fucstpv4pnqx2o2t4y.blob.core.windows.net/media/football-universe-friendly-1080p.mp4
+- Full quality (4K): https://fucstpv4pnqx2o2t4y.blob.core.windows.net/media/football-universe-friendly-4k.mp4
+
+It is a separate video from the main demo video on YouTube linked at the top.
 
 ## Run it (zero dependencies)
 ```bash
@@ -28,10 +38,10 @@ python3 -m http.server 8000                # then open /frontend/ (reads outputs
 Optional API: `pip install fastapi uvicorn` then `uvicorn src.api.app:app` — `/health`, `/match/intelligence`, `/graph/path?a=Nicolas Anelka&b=Erling Haaland`, `/graph/leaderboard`.
 
 ## Microsoft stack
-Microsoft Foundry with Microsoft's own **Phi-4-mini-instruct** as the primary narration model (deterministic template as fallback — every output labels its `narration_source`) · Microsoft Agent Framework orchestration pattern (4 agents, shared state, explicit handoffs, failure fallback) · Azure Cosmos DB Gremlin API (production graph target, schema in `graph/schema/`; local in-memory graph with identical schema for judge-friendly runs) · Microsoft Fabric (roadmap ingestion) · Azure Functions / Static Web Apps (hosting path, `infra/`).
+Microsoft Foundry with Microsoft's own **Phi-4-mini-instruct** as the primary narration model (deterministic template as fallback — every output labels its `narration_source`) · Microsoft Agent Framework orchestration pattern (4 agents, shared state, explicit handoffs, failure fallback) · Azure Cosmos DB Gremlin API (production graph target, schema in `graph/schema/`; local in-memory graph with identical schema for judge-friendly runs) · Microsoft Fabric (roadmap ingestion) · Azure Functions (live API) and Azure Blob Storage (public `media` container streaming the embedded friendly-tour video), both declared in `infra/` · GitHub Pages hosts the demo site from `docs/`.
 
 ## Repo map
-`src/synthetic` event engine · `src/graph` universe + centrality · `src/agents` 4 agents · `src/overlay` timed overlay · `src/pipeline.py` orchestrator · `data/seed` 20 players / 20 clubs / 10 managers (from the master build plan §7.3) · `outputs/` a real generated run + recap · `docs/` architecture + 2-minute demo script · `SUBMISSION.md` checklist
+`src/synthetic` event engine · `src/graph` universe + centrality · `src/agents` 4 agents · `src/overlay` timed overlay · `src/pipeline.py` orchestrator · `data/seed` 20 players / 20 clubs / 10 managers (from the master build plan §7.3) · `outputs/` a real generated run + recap · `docs/` the live demo site (GitHub Pages) — replay, graph, Tactical Lab, full-season hub, the Start here friendly tour, and the open-source / tech / license page (`tech.html`); `docs/demo-script-2min.md` is the demo script · `SUBMISSION.md` checklist
 
 ## Honest limits
 Seed graph is 20 players, so Kevin Bacon Scores are computed on that graph (top: Anelka 1.55/10, Milner 1.53/10 (standard normalised undirected Brandes)) — not the inflated predictions in early draft material. Live LLM narration is a real Azure path (Phi-4-mini-instruct on Microsoft Foundry, labelled per response). Cosmos DB Gremlin is provisioned with the graph schema and seed definition, but the API serves the graph in-process from `data/seed/` — Cosmos is not the runtime query path, and there is no Fabric ingestion. See `infra/README.md`.

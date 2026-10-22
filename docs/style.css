@@ -76,7 +76,6 @@ pre.payload{background:#292929;color:#F3F0EF;border-radius:var(--r-ctl);padding:
 @keyframes shim{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
 .morse{display:inline-flex;gap:3px}.morse i{width:6px;height:6px;border-radius:50%;background:var(--brand);animation:mo 1s infinite}.morse i:nth-child(2){animation-delay:.15s}.morse i:nth-child(3){animation-delay:.3s}
 @keyframes mo{0%,100%{opacity:.25}50%{opacity:1}}
-.tour{background:#fff;border:1px solid var(--line);border-radius:var(--r-card);box-shadow:var(--shadow2);padding:14px 16px;margin-bottom:14px;border-left:3px solid var(--brand)}
 .ev{padding:6px 0;border-bottom:1px solid var(--divider)}
 
 .sub{color:var(--muted)}
@@ -299,21 +298,32 @@ body.dock-on{padding-bottom:96px}
 #prideCanvas{width:100%;height:auto;border-radius:10px;background:#0b2417;display:block}
 .pride-cannon{background:linear-gradient(90deg,#E40303,#FF8A00,#FFED00,#008026,#244EE0,#732982);color:#fff;font-weight:800;border:none;text-shadow:0 1px 3px rgba(0,0,0,.45)}
 
-/* ---------- FRIENDLY VERSION modal (plain-English explainer) ---------- */
-.friendlybtn .fe{width:18px;height:18px}
-@media (max-width:640px){ .friendlybtn .ftext{display:none} }
-#friendly{position:fixed;inset:0;z-index:70;background:rgba(0,0,0,.45);display:flex;padding:24px 14px 40px;overflow-y:auto}
-#friendly[hidden]{display:none}
-.friendly-box{background:var(--card);color:var(--text);border-radius:var(--r-card);box-shadow:var(--shadow2);max-width:620px;width:100%;margin:auto;padding:20px 22px;animation:friendlyIn var(--durNormal) var(--curveDecelerateMax) both}
-@keyframes friendlyIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-@media (prefers-reduced-motion: reduce){ .friendly-box{animation:none} }
-.friendly-head{display:flex;align-items:flex-start;gap:10px;margin-bottom:6px}
-.friendly-head h2{font-size:18px;line-height:24px;margin:0}
-.friendly-head h2 .fe{width:22px;height:22px}
-.friendly-x{flex:0 0 auto;margin-left:auto}
-.friendly-body p{margin:8px 0;font-size:14px;line-height:21px}
-.friendly-body h3{font-size:14px;line-height:20px;margin:18px 0 2px}
-.friendly-body h3 .fe{width:17px;height:17px}
-.friendly-body ul{margin:6px 0;padding-left:20px}
-.friendly-body li{margin:5px 0;line-height:20px}
-.friendly-cta{margin-top:18px}
+/* ---------- START HERE — the friendly tour (video + plain-English steps + guided highlights) ---------- */
+.startbtn .fe{width:18px;height:18px}
+@media (max-width:640px){ .startbtn .ftext{display:none} }
+#startHere{position:fixed;inset:0;z-index:70;background:rgba(0,0,0,.45);display:flex;padding:24px 14px 40px;overflow-y:auto}
+#startHere[hidden]{display:none}
+.start-box{background:var(--card);color:var(--text);border-radius:var(--r-card);box-shadow:var(--shadow2);max-width:680px;width:100%;margin:auto;padding:20px 22px;animation:startIn var(--durNormal) var(--curveDecelerateMax) both}
+@keyframes startIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion: reduce){ .start-box{animation:none} }
+.start-head{display:flex;align-items:flex-start;gap:10px;margin-bottom:6px}
+.start-head h2{font-size:18px;line-height:24px;margin:0}
+.start-head h2 .fe{width:22px;height:22px}
+.start-x{flex:0 0 auto;margin-left:auto}
+.start-body p{margin:8px 0;font-size:14px;line-height:21px}
+.start-body h3{font-size:14px;line-height:20px;margin:18px 0 2px}
+.start-body h3 .fe{width:17px;height:17px}
+.start-body ul{margin:6px 0;padding-left:20px}
+.start-body li{margin:5px 0;line-height:20px}
+.start-video{display:block;width:100%;aspect-ratio:16/9;background:#000;border-radius:8px;margin:10px 0 4px}
+.start-videolinks{margin:2px 0 4px}
+.start-cta{margin-top:18px}
+.start-nav{display:flex;align-items:center;gap:12px;border-top:1px solid var(--divider);margin-top:16px;padding-top:14px}
+.start-nav #startBack{margin-right:auto}
+.start-nav #startNext{margin-left:auto}
+.start-dots{display:inline-flex;gap:6px}
+.start-dots i{width:8px;height:8px;border-radius:50%;background:var(--divider)}
+.start-dots i.on{background:var(--brand)}
+.tour-spot{outline:3px solid var(--brand);outline-offset:3px;border-radius:var(--r-card);animation:spotPulse 1.4s ease-in-out 2}
+@keyframes spotPulse{0%,100%{outline-color:var(--brand)}50%{outline-color:transparent}}
+@media (prefers-reduced-motion: reduce){ .tour-spot{animation:none} }

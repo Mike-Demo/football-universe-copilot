@@ -12,7 +12,7 @@ container named `media`. The site already points at these URLs:
 **One step remains, and it needs your Azure sign-in** (the agent VM has no Azure
 CLI and no Azure credentials, by design). Run this in **Azure Cloud Shell**
 (portal.azure.com → Cloud Shell icon → Bash), signed in as the subscription owner.
-Takes ~5 minutes. Cost: the two files total ~91 MB; storage + judging-scale
+Takes ~5 minutes. Cost: the two files total ~77 MB; storage + judging-scale
 egress is well under $1, inside the existing $10 budget.
 
 ## 1. Turn on public blob access + create the container
@@ -28,7 +28,7 @@ az storage container create --account-name fucstpv4pnqx2o2t4y -n media --public-
 
 The files live on the agent VM at:
 
-- `~/workspace/pexo-fuc-video/recut/web/football-universe-friendly-1080p.mp4` (22 MB, web derivative)
+- `~/workspace/pexo-fuc-video/recut/web/football-universe-friendly-1080p.mp4` (7.9 MB, web derivative)
 - `~/workspace/pexo-fuc-video/recut/Football_Universe_Copilot_Friendly_4K_v2.mp4` (69 MB, 4K master)
 
 Easiest: in Cloud Shell use **Manage files → Upload** and upload both, renaming the

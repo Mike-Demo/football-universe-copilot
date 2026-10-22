@@ -13,6 +13,27 @@ resource storage 'Microsoft.Storage/storageAccounts@2023-05-01' = {
     name: 'Standard_LRS'
   }
   kind: 'StorageV2'
+  properties: {
+    // The 'media' container below is intentionally public-read so the demo site can
+    // stream the friendly-tour video. Everything else on this account stays private:
+    // public access is granted per-container, and only 'media' opts in.
+    allowBlobPublicAccess: true
+  }
+}
+
+resource blobService 'Microsoft.Storage/storageAccounts/blobServices@2023-05-01' = {
+  parent: storage
+  name: 'default'
+}
+
+// Public-read container for site media (the friendly-tour video, 1080p + 4K).
+// Blobs are uploaded out of band — see infra/MEDIA-HANDOFF.md.
+resource mediaContainer 'Microsoft.Storage/storageAccounts/blobServices/containers@2023-05-01' = {
+  parent: blobService
+  name: 'media'
+  properties: {
+    publicAccess: 'Blob'
+  }
 }
 
 resource insights 'Microsoft.Insights/components@2020-02-02' = {
@@ -162,5 +183,6 @@ resource funcApp 'Microsoft.Web/sites@2023-12-01' = {
 }
 
 output functionAppName string = funcApp.name
+output mediaBaseUrl string = 'https://${storage.name}.blob.core.windows.net/media'
 output openaiEndpoint string = foundry.properties.endpoint
 output cosmosEndpoint string = cosmos.properties.documentEndpoint
